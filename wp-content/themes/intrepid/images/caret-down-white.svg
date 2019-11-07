@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="6px" viewBox="0 0 11 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>ICONS/TriangleDown</title>
+    <desc>Created with Sketch.</desc>
+    <g id="_MOBILE" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="MOBILE-Models-Main-FILTERACTIVATED" transform="translate(-239.000000, -257.000000)" fill="#FFFFFF">
+            <g id="ICONS/TriangleDown" transform="translate(239.000000, 257.000000)">
+                <polygon id="Triangle" transform="translate(5.500000, 3.000000) rotate(180.000000) translate(-5.500000, -3.000000) " points="5.5 0 11 6 0 6"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

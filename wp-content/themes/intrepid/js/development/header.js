@@ -1,6 +1,6 @@
 $(function () {
 
-    $('.js-header').e11_MobileNav();
+    $('.header').e11_MobileNav();
 
 });
 
@@ -22,13 +22,15 @@ $(function () {
 
             var self = this;
 
-            this.$toggle = this.$el.find('.js-nav-toggle');
+            this.$toggle = this.$el.find('[data-class="nav__toggle"]');
+
             this.activeClass = 'nav__visible';
 
             this.$toggle.on('click', function (e) {
                 e.preventDefault();
 
-                self.$el.toggleClass(self.activeClass);
+                $('body').toggleClass(self.activeClass);
+                $(this).children('.mobile-nav__header').text($(this).children('.mobile-nav__header').text() == 'close' ? 'menu' : 'close');
             });
         }
     };
