@@ -16,7 +16,7 @@ the_post();
     <section class="intro-block">
         <div class="container">
             <h2 class="intro-block__title">Custom craftsmanship and design that follow an uncompromising set of specifications. <strong>Yours.</strong></h2>
-            <a class="icon-link" href="model.html">
+            <a class="icon-link" href="<?php echo site_url('boats'); ?>">
                 View all models
             </a>
         </div>

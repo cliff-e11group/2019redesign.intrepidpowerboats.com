@@ -29,9 +29,9 @@ the_post();
                             <option value=".55">55+</option>
                         </select>
                     </li>
-                    <li><a href="#">CENTER CONSOLE</a></li>
+                    <li><a href="<?php echo site_url('boat-category/center-console'); ?>">CENTER CONSOLE</a></li>
                     <li><a href="#">CUDDY/WALKAROUND</a></li>
-                    <li><a href="#">SPORT YACHT</a></li>
+                    <li><a href="<?php echo site_url('boat-category/sport-yacht'); ?>">SPORT YACHT</a></li>
                 </ul>
             </div>
         </div>
@@ -71,8 +71,8 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -190,7 +190,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -230,7 +230,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -270,7 +270,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -310,7 +310,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -350,7 +350,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -390,7 +390,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -430,7 +430,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -470,7 +470,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -510,7 +510,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -550,7 +550,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -590,7 +590,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -630,7 +630,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -670,7 +670,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -710,7 +710,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
@@ -750,7 +750,7 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
                             <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>

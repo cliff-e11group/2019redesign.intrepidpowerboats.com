@@ -175,7 +175,7 @@
             margin: 0 auto 30px;
         }
     }
-    
+
 }
 .overview-nav{
     display:flex;
@@ -372,7 +372,7 @@
     padding:52px 0 22px;
     @media #{$phone} {
         padding: 30px 0 22px;
-    }  
+    }
     .motor-block__title{
         font-weight: 400;
         @include fsz(26px);
@@ -381,7 +381,7 @@
         strong{
             @media #{$phone} {
                 display: block;
-            }  
+            }
         }
         @media #{$phone} {
             @include fsz(20px);
@@ -399,14 +399,18 @@
         justify-content: space-between;
         margin-bottom: 15px;
         margin-left: 190px;
+        transition: .2s ease;
+
         @media #{$header} {
             margin-left: 50px;
         }
         @media #{$phone} {
+            display: block;
             margin-bottom: 30px;
             margin-left: 0;
         }
-        &:nth-child(3n+1) {
+
+        &.active {
             margin-left: 0;
         }
     }
@@ -433,12 +437,13 @@
             width: 282px;
         }
         @media #{$phone} {
-            width: 230px;
+            width: 100%;
+            max-width: 230px;
             margin: 0 auto;
         }
     }
     .motor-list__content{
-        width: calc(100% - 496px);
+        flex: 1;
         position: relative;
         padding-top: 65px;
         @media #{$header} {
@@ -459,12 +464,13 @@
     }
     .motor-list__title{
         position: relative;
-        left: -161px;
+        left: -44px;
         text-transform: uppercase;
         @include fsz(45px);
         margin-bottom: 13px;
         display: inline-block;
         padding-right: 50px;
+
         @media #{$header} {
             left: -71px;
             @include fsz(40px);
@@ -477,6 +483,9 @@
     }
     .motor-list__description{
         display: none;
+        max-width: 680px;
+        margin-left: auto;
+        padding-left: 20px;
     }
 
 }
@@ -577,7 +586,7 @@
         strong{
             @media #{$phone} {
                 display: block;
-            }  
+            }
         }
         @media #{$phone} {
             @include fsz(20px);
@@ -728,13 +737,13 @@
           transform: translate(-50%, -50%) rotate(0deg) scale(1);
           z-index: 1;
         }
-    
+
         &:before {
             background: url("images/loding-spiral.png") no-repeat center;
             background-size: cover;
             transition: 0.25s;
         }
-    
+
         &:after {
           transform: translate(-50%, -50%) rotate(0deg) scale(0);
           transition: 0.25s;
@@ -745,7 +754,7 @@
           background-color: #687683;
           border-radius: 50%;
         }
-    
+
         &:hover {
           &:before {
             transform: translate(-50%, -50%) rotate(360deg) scale(1);
@@ -760,7 +769,7 @@
                 transition: 0.25s;
                 border: 1px solid #aacbce;
               }
-              
+
           }
     }
     .option-list__thumbnail{
