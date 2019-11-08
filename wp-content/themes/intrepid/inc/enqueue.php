@@ -7,7 +7,7 @@ function e11_scripts(){
         wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1', false);
         wp_enqueue_style('font-awesome-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.8', array(), '2.1.0', false);
 
-        wp_enqueue_style('fancybox-css', STYLEDIR.'/css/libs/fancybox/fancybox.css', false, '1.0');
+        wp_enqueue_style('fancybox-css', STYLEDIR.'/css/libs/fancybox.css', false, '1.0');
 
 		// Main Stylsheet
 		wp_enqueue_style('css', STYLEDIR.'/style.css', false, time());

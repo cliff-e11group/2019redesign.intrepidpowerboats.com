@@ -3,17 +3,26 @@
 function e11_register_post_types() {
 
     $e11_magic_post_type_maker_array = array(
-        /*
+
         array(
-            'cpt_single' => 'Ad',
-            'cpt_plural' => 'Ads',
-            'slug' => 'ads',
-            'cpt_icon' => 'dashicons-megaphone',
-            'exclude_from_search' => true,
-            'hierarchical' => false,
+            'cpt_single' => 'Boat',
+            'cpt_plural' => 'Boats',
+            'slug' => 'boats',
+            'cpt_icon' => 'dashicons-admin-post',
+            'exclude_from_search' => false,
+            'hierarchical' => true,
             'supports' => array('title', 'revisions', 'page-attributes'),
         ),
-        */
+        array(
+            'cpt_single' => 'Event',
+            'cpt_plural' => 'Events',
+            'slug' => 'events',
+            'cpt_icon' => 'dashicons-admin-post',
+            'exclude_from_search' => false,
+            'hierarchical' => true,
+            'supports' => array('title', 'revisions', 'page-attributes'),
+        ),
+
     );
 
     foreach( $e11_magic_post_type_maker_array as $post_type ){
