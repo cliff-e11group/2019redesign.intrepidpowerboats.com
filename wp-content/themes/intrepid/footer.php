@@ -3,7 +3,7 @@
         <div class="footer-links">
             <h4 class="block-title">Main Menu</h4>
             <ul class="footer-links__list">
-                <li class="footer-links__item"><a href="#">All Models</a></li>
+                <li class="footer-links__item"><a href="<?php echo site_url('boats'); ?>">All Models</a></li>
                 <li class="footer-links__item"><a href="#">Latest News</a></li>
                 <li class="footer-links__item"><a href="#">Our Events</a></li>
                 <li class="footer-links__item"><a href="#">About Us</a></li>

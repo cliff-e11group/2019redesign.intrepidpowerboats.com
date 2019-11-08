@@ -4,7 +4,7 @@ the_post();
 ?>
 
 <main class="main">
-    <section class="hero hero--inner" style="background-image:url(uploads/our-models-bg-image.jpg);">
+    <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title">OUR MODELS</h1>
@@ -40,7 +40,7 @@ the_post();
             <div class="gutter-sizer"></div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/200-Flats.jpg" alt="Model 200 Flats">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/200-Flats.jpg" alt="Model 200 Flats">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -79,7 +79,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/245-center-console.jpg" alt="Model 245 Center Console">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/245-center-console.jpg" alt="Model 245 Center Console">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -118,7 +118,7 @@ the_post();
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="uploads/300-center-console.jpg" alt="Model 300 Center Console">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/300-center-console.jpg" alt="Model 300 Center Console">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -158,7 +158,7 @@ the_post();
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="uploads/327-i-tourney-edition.jpg" alt="Model 327-i Tourney Edition">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/327-i-tourney-edition.jpg" alt="Model 327-i Tourney Edition">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -198,7 +198,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/327-cuddy.jpg" alt="Model 327 Cuddy">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/327-cuddy.jpg" alt="Model 327 Cuddy">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -238,7 +238,7 @@ the_post();
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="uploads/345-nomad-fe.jpg" alt="345 Nomad FE">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-fe.jpg" alt="345 Nomad FE">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -278,7 +278,7 @@ the_post();
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="uploads/345-nomad-se.jpg" alt="Model 345 Nomad SE">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-se.jpg" alt="Model 345 Nomad SE">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -318,7 +318,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/345-walkaround.jpg" alt="Model 345 WALKAROUND">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/345-walkaround.jpg" alt="Model 345 WALKAROUND">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -358,7 +358,7 @@ the_post();
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="uploads/375-center-console.jpg" alt="Model 375 CENTER CONSOLE">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/375-center-console.jpg" alt="Model 375 CENTER CONSOLE">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -398,7 +398,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/375-nomad.jpg" alt="Model 375 NOMAD">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/375-nomad.jpg" alt="Model 375 NOMAD">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -438,7 +438,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/375-walkaround.jpg" alt="Model 375 WALKAROUND">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/375-walkaround.jpg" alt="Model 375 WALKAROUND">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -478,7 +478,7 @@ the_post();
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="uploads/400-center-console.jpg" alt="Model 400 CENTER CONSOLE">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/400-center-console.jpg" alt="Model 400 CENTER CONSOLE">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -518,7 +518,7 @@ the_post();
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="uploads/407-cuddy.jpg" alt="Model 407 CUDDY">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/407-cuddy.jpg" alt="Model 407 CUDDY">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -558,7 +558,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/407-panacea.jpg" alt="Model 407 PANACEA">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/407-panacea.jpg" alt="Model 407 PANACEA">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -598,7 +598,7 @@ the_post();
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="uploads/410-evolution.jpg" alt="Model 410 EVOLUTION">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/410-evolution.jpg" alt="Model 410 EVOLUTION">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -638,7 +638,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/430-sport-yacht.jpg" alt="Model 430 SPORT YACHT">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/430-sport-yacht.jpg" alt="Model 430 SPORT YACHT">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -678,7 +678,7 @@ the_post();
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="uploads/475-panacea.jpg" alt="Model 475 PANACEA">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/475-panacea.jpg" alt="Model 475 PANACEA">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
@@ -718,7 +718,7 @@ the_post();
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="uploads/475-sport-yacht.jpg" alt="Model 475 SPORT YACHT">
+                    <img src="<?php echo STYLEDIR; ?>/uploads/475-sport-yacht.jpg" alt="Model 475 SPORT YACHT">
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">

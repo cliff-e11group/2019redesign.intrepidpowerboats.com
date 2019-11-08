@@ -4,17 +4,16 @@
 function e11_registers_taxonomies() {
 
     $e11_magic_taxonomy_maker_array = array(
-		/*
-        // Issues go for pretty much every post type
+
         array(
-            'tax_singular' => 'Issue',
-            'tax_plural'   => 'Issues',
-            'tax_slug'     => 'issue', // lowercase letters and dashes only
+            'tax_singular' => 'Boat Category',
+            'tax_plural'   => 'Boat Categories',
+            'tax_slug'     => 'boat-category', // lowercase letters and dashes only
             'applicable_post_types' => array(
-                'resource',
+                'boats',
             )
         ),
-		*/
+
     );
 
     foreach( $e11_magic_taxonomy_maker_array as $taxonomy ){

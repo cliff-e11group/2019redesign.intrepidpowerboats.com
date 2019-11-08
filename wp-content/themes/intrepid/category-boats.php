@@ -4,7 +4,7 @@ the_post();
 ?>
 
 <main class="main">
-    <section class="hero hero--inner" style="background-image:url(uploads/our-models-bg-image.jpg);">
+    <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title">Sport Yachts</h1>
@@ -15,7 +15,7 @@ the_post();
         </div>
     </section>
     <div class="model-intro">
-        <div class="model-intro__thumbnail" style="background-image:url(uploads/center-console-boats.jpg);"></div>
+        <div class="model-intro__thumbnail" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/center-console-boats.jpg);"></div>
         <div class="container">
             <div class="model-intro__content">
                 <p>Combining superior performance, strength and safety with the exceptional comfort and style of a yacht, sport yachts are ideal for relaxing, racing and recreation.</p>
@@ -67,7 +67,7 @@ the_post();
                 <div class="column-model">
                     <div class="column-model__item">
                         <figure class="column-model__thumbnail">
-                            <img src="uploads/410-evolution-large.jpg" alt="410-evolution" />
+                            <img src="<?php echo STYLEDIR; ?>/uploads/410-evolution-large.jpg" alt="410-evolution" />
                         </figure>
                         <div class="column-model__title-wrap">
                             <h2 class="column-model__title">410 Evolution</h2>
@@ -82,7 +82,7 @@ the_post();
                     </div>
                     <div class="column-model__item">
                         <figure class="column-model__thumbnail">
-                            <img src="uploads/430-sport-yacht-large.jpg" alt="430-sport-yacht" />
+                            <img src="<?php echo STYLEDIR; ?>/uploads/430-sport-yacht-large.jpg" alt="430-sport-yacht" />
                         </figure>
                         <div class="column-model__title-wrap">
                             <h2 class="column-model__title">430 Sport Yacht</h2>
@@ -97,7 +97,7 @@ the_post();
                     </div>
                     <div class="column-model__item">
                         <figure class="column-model__thumbnail">
-                            <img src="uploads/475-sport-yacht-large.jpg" alt="475-sport-yacht" />
+                            <img src="<?php echo STYLEDIR; ?>/uploads/475-sport-yacht-large.jpg" alt="475-sport-yacht" />
                         </figure>
                         <div class="column-model__title-wrap">
                             <h2 class="column-model__title">475 sport yacht</h2>

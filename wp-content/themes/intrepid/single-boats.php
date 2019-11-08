@@ -4,7 +4,7 @@ the_post();
 ?>
 <main class="page__single">
     <main class="main">
-        <section class="hero hero--model" style="background-image:url(uploads/410-evolution-hero.jpg);">
+        <section class="hero hero--model" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/410-evolution-hero.jpg);">
             <div class="container">
                 <div class="model__title-box">
                     <h1 class="model__title"><strong>410</strong> Evolution</h1>
@@ -91,44 +91,44 @@ the_post();
                                 <div class="gallery-grid">
                                     <div class="container">
                                         <div class="gallery-grid__item gallery-grid__item--half">
-                                            <img src="uploads/gallery-image1.jpg" alt="gallery-image1" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--half">
-                                            <img src="uploads/gallery-image2.jpg" alt="gallery-image2" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--full gallery-grid__item--video">
-                                            <img src="uploads/gallery-image3.jpg" alt="gallery-image3" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image3.jpg" alt="gallery-image3" />
                                             <a data-fancybox href="https://vimeo.com/160120764" class="play-btn">Play Video</a>
                                             <div class="overlay-content">
                                                 <img src="images/amazing-with-text.png" alt="Proof that amazing takes time">
                                             </div>
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--one-third">
-                                            <img src="uploads/gallery-image4.jpg" alt="gallery-image4" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image4.jpg" alt="gallery-image4" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--one-third">
-                                            <img src="uploads/gallery-image5.jpg" alt="gallery-image5" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image5.jpg" alt="gallery-image5" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--one-third">
-                                            <img src="uploads/gallery-image6.jpg" alt="gallery-image6" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image6.jpg" alt="gallery-image6" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--one-third">
-                                            <img src="uploads/gallery-image7.jpg" alt="gallery-image7" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image7.jpg" alt="gallery-image7" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--two-third">
-                                            <img src="uploads/gallery-image8.jpg" alt="gallery-image8" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image8.jpg" alt="gallery-image8" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--half">
-                                            <img src="uploads/gallery-image1.jpg" alt="gallery-image1" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--half">
-                                            <img src="uploads/gallery-image2.jpg" alt="gallery-image2" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--two-third">
-                                            <img src="uploads/gallery-image9.jpg" alt="gallery-image9" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image9.jpg" alt="gallery-image9" />
                                         </div>
                                         <div class="gallery-grid__item gallery-grid__item--one-third">
-                                            <img src="uploads/gallery-image10.jpg" alt="gallery-image10" />
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image10.jpg" alt="gallery-image10" />
                                         </div>
                                     </div>
                                     <div class="btn-wrap">
@@ -339,8 +339,8 @@ the_post();
                     <!-- deck plan start -->
                     <div class="deck-block">
                         <div class="container">
-                            <img class="deck-desktop" src="uploads/DeckPlanPic.jpg" alt="Boat Deck Plan">
-                            <img class="deck-mobile" src="uploads/DeckPlanPic-mobile.jpg" alt="Boat Deck Plan">
+                            <img class="deck-desktop" src="<?php echo STYLEDIR; ?>/uploads/DeckPlanPic.jpg" alt="Boat Deck Plan">
+                            <img class="deck-mobile" src="<?php echo STYLEDIR; ?>/uploads/DeckPlanPic-mobile.jpg" alt="Boat Deck Plan">
                             <span class="deck-block__short-note">Select to see features</span>
                         </div>
                         <div class="deck-block__info">
@@ -348,7 +348,7 @@ the_post();
                                 <div class="deck-info">
                                     <span class="deck-info__number">19</span>
                                     <figure class="deck-info__thumbnail">
-                                        <img src="uploads/premium-upholstery-package.jpg" alt="premium-upholstery-package" />
+                                        <img src="<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg" alt="premium-upholstery-package" />
                                     </figure>
                                     <div class="deck-info__content">
                                         <h2 class="deck-info__title">Captain's Chair</h2>
@@ -376,7 +376,7 @@ the_post();
                             <ul class="motor-list">
                                 <li class="motor-list__item">
                                     <figure class="motor-list__thumbnail">
-                                        <img src="uploads/seven-marine-motor.jpg" alt="seven-marine-motor" />
+                                        <img src="<?php echo STYLEDIR; ?>/uploads/seven-marine-motor.jpg" alt="seven-marine-motor" />
                                     </figure>
                                     <div class="motor-list__content">
                                         <h2 class="motor-list__title">Seven Marine<span class="motor-list__trigger"></span></h2>
@@ -387,7 +387,7 @@ the_post();
                                 </li>
                                 <li class="motor-list__item">
                                     <figure class="motor-list__thumbnail">
-                                        <img src="uploads/yamaha-motor.jpg" alt="yamaha-motor" />
+                                        <img src="<?php echo STYLEDIR; ?>/uploads/yamaha-motor.jpg" alt="yamaha-motor" />
                                     </figure>
                                     <div class="motor-list__content">
                                         <h2 class="motor-list__title">Yamaha<span class="motor-list__trigger"></span></h2>
@@ -398,7 +398,7 @@ the_post();
                                 </li>
                                 <li class="motor-list__item">
                                     <figure class="motor-list__thumbnail">
-                                        <img src="uploads/mercury-motor.jpg" alt="mercury-motor" />
+                                        <img src="<?php echo STYLEDIR; ?>/uploads/mercury-motor.jpg" alt="mercury-motor" />
                                     </figure>
                                     <div class="motor-list__content">
                                         <h2 class="motor-list__title">Mercury<span class="motor-list__trigger"></span></h2>
@@ -409,7 +409,7 @@ the_post();
                                 </li>
                                 <li class="motor-list__item">
                                     <figure class="motor-list__thumbnail">
-                                        <img src="uploads/evinrude-motor.jpg" alt="evinrude-motor" />
+                                        <img src="<?php echo STYLEDIR; ?>/uploads/evinrude-motor.jpg" alt="evinrude-motor" />
                                     </figure>
                                     <div class="motor-list__content">
                                         <h2 class="motor-list__title">Evinrude<span class="motor-list__trigger"></span></h2>
@@ -453,7 +453,7 @@ the_post();
                                     <ul class="option-list">
                                         <li class="option-list__item">Transom D-Rings</li>
                                         <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                        <li class="option-list__item selected"><span class="option-list__thumbnail" style="background-image: url('uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
+                                        <li class="option-list__item selected"><span class="option-list__thumbnail" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
                                         <li class="option-list__item">Underwater Hull Lighting</li>
                                         <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
                                         <li class="option-list__item">SS Polished Anchor</li>

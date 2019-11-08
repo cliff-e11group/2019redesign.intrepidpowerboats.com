@@ -11,7 +11,7 @@ function e11_register_post_types() {
             'cpt_icon' => 'dashicons-admin-post',
             'exclude_from_search' => false,
             'hierarchical' => true,
-            'supports' => array('title', 'revisions', 'page-attributes'),
+            'supports' => array('title', 'revisions', 'page-attributes', 'thumbnail'),
         ),
         array(
             'cpt_single' => 'Event',
@@ -20,7 +20,7 @@ function e11_register_post_types() {
             'cpt_icon' => 'dashicons-admin-post',
             'exclude_from_search' => false,
             'hierarchical' => true,
-            'supports' => array('title', 'revisions', 'page-attributes'),
+            'supports' => array('title', 'revisions', 'page-attributes', 'thumbnail'),
         ),
 
     );
