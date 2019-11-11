@@ -8,7 +8,10 @@ the_post();
             <div class="model__title-box">
                 <h1 class="model__title"><strong>410</strong> Evolution</h1>
             </div>
-            <a class="model__360-view" href="#">360 view</a>
+            <a class="model__360-view" data-src="#spinner-container" href="#">360 view</a>
+            <div id="spinner-container">
+                <div id="spinner-view"></div>
+            </div>
         </div>
     </section>
     <div id="parentTab">
@@ -90,44 +93,66 @@ the_post();
                             <div class="gallery-grid">
                                 <div class="container">
                                     <div class="gallery-grid__item gallery-grid__item--half">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--half">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--full gallery-grid__item--video">
                                         <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image3.jpg" alt="gallery-image3" />
-                                        <a data-fancybox href="https://vimeo.com/160120764" class="play-btn">Play Video</a>
+                                        <a data-fancybox="gallery" href="https://vimeo.com/160120764" class="play-btn">Play Video</a>
                                         <div class="overlay-content">
                                             <img src="<?php echo IMAGES; ?>/amazing-with-text.png" alt="Proof that amazing takes time">
                                         </div>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image4.jpg" alt="gallery-image4" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image4.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image4.jpg" alt="gallery-image4" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image5.jpg" alt="gallery-image5" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image5.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image5.jpg" alt="gallery-image5" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image6.jpg" alt="gallery-image6" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image6.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image6.jpg" alt="gallery-image6" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image7.jpg" alt="gallery-image7" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image7.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image7.jpg" alt="gallery-image7" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--two-third">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image8.jpg" alt="gallery-image8" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image8.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image8.jpg" alt="gallery-image8" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--half">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--half">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--two-third">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image9.jpg" alt="gallery-image9" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image9.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image9.jpg" alt="gallery-image9" />
+                                        </a>
                                     </div>
                                     <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image10.jpg" alt="gallery-image10" />
+                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image10.jpg" data-fancybox="gallery">
+                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image10.jpg" alt="gallery-image10" />
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="btn-wrap">
@@ -141,9 +166,9 @@ the_post();
                         </div>
                         <div>
                             <!-- virtual tour start -->
-                            <div class="virtula-tour">
+                            <div class="virtual-tour">
                                 <div class="container">
-                                    iframe goes here
+                                    <iframe src="https://vrcloud.com/?pv=1544284614" class="virtual-tour__iframe" frameborder="0"></iframe>
                                 </div>
                             </div>
                             <!-- virtual tour end -->
@@ -452,7 +477,7 @@ the_post();
                                 <ul class="option-list">
                                     <li class="option-list__item">Transom D-Rings</li>
                                     <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                    <li class="option-list__item selected"><span class="option-list__thumbnail" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
+                                    <li class="option-list__item"><span class="option-list__thumbnail" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
                                     <li class="option-list__item">Underwater Hull Lighting</li>
                                     <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
                                     <li class="option-list__item">SS Polished Anchor</li>
@@ -495,16 +520,20 @@ the_post();
                                 <h3 class="form__title">Your information</h3>
                                 <ul class="form-fields">
                                     <li class="form__field">
-                                        <input type="text" name="txt_name" value="William Rossiter">
+                                        <label for="name" class="accessible-text"></label>
+                                        <input type="text" id="name" name="txt_name" placeholder="Name">
                                     </li>
                                     <li class="form__field">
-                                        <input type="email" name="email_add" value="William Rossiter">
+                                        <label for="email-address" class="accessible-text"></label>
+                                        <input type="email" id="email-address" name="email_add" placeholder="Email Address">
                                     </li>
                                     <li class="form__field">
-                                        <input type="text" name="phone_no" value="555-555-5555">
+                                        <label for="phone-number" class="accessible-text"></label>
+                                        <input type="text" id="phone-number" name="phone_no" placeholder="Phone Number">
                                     </li>
                                     <li class="form__field">
-                                        <textarea placeholder="Questions or Comments?"></textarea>
+                                        <label for="questions-comments" class="accessible-text"></label>
+                                        <textarea id="questions-comments" placeholder="Questions or Comments?"></textarea>
                                     </li>
                                     <li class="form__field">
                                         <input class="button" type="submit" value="Submit">
@@ -546,7 +575,7 @@ the_post();
         </div>
         <div class="step-nagivation step-nagivation--alt build-a-boat--start">
             <a href="#" class="step-prev" data-class="prev">&lt; Back to <span></span></a>
-            <a href="#" class="btn btn--dark btn--large-desktop">Finish</a>
+            <a href="#" class="btn btn--dark btn--large-desktop" data-class="next">Finish</a>
             <a href="#" class="step-next" data-class="next">Skip this step &gt;</a>
         </div>
         <div class="build-a-boat__steps">
@@ -665,8 +694,8 @@ the_post();
                         <div>
                             <h3 class="option-title option-title--featured">Featured Options</h3>
                             <ul class="option-list">
-                                <li class="option-list__item">Half-Tower Top</li>
-                                <li class="option-list__item">Arch Top</li>
+                                <li class="option-list__item" data-boat-layer="top-half-tower">Half-Tower Top</li>
+                                <li class="option-list__item" data-boat-layer="top-arch">Arch Top</li>
                             </ul>
                         </div>
                         <div>
@@ -687,7 +716,7 @@ the_post();
                             <ul class="option-list">
                                 <li class="option-list__item">Transom D-Rings</li>
                                 <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                <li class="option-list__item selected"><span class="option-list__thumbnail" style="background-image: url('uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
+                                <li class="option-list__item"><span class="option-list__thumbnail" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
                                 <li class="option-list__item">Underwater Hull Lighting</li>
                                 <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
                                 <li class="option-list__item">SS Polished Anchor</li>
@@ -728,20 +757,24 @@ the_post();
                             </ul>
                         </div>
                         <div class="form-holder">
-                            <form class="form" action="#" method="post">
+                            <form class="form build-a-boat__form" action="#" method="post">
                                 <h3 class="form__title">Your information</h3>
                                 <ul class="form-fields">
                                     <li class="form__field">
-                                        <input type="text" name="txt_name" placeholder="Name *">
+                                        <label for="build-a-boat-name" class="accessible-text">Name</label>
+                                        <input type="text" name="build-a-boat-name" id="build-a-boat-name" placeholder="Name *">
                                     </li>
                                     <li class="form__field">
-                                        <input type="email" name="email_add" placeholder="Email *">
+                                        <label for="build-a-boat-email" class="accessible-text">Name</label>
+                                        <input type="email" name="build-a-boat-email" id="build-a-boat-email" placeholder="Email *">
                                     </li>
                                     <li class="form__field">
-                                        <input type="text" name="phone_no" placeholder="Phone (XXX-XXX-XXXX)">
+                                        <label for="build-a-boat-phone" class="accessible-text">Name</label>
+                                        <input type="text" name="build-a-boat-phone" id="build-a-boat-phone" placeholder="Phone (XXX-XXX-XXXX)">
                                     </li>
                                     <li class="form__field">
-                                        <textarea placeholder="Want something even more custom? Let us know here."></textarea>
+                                        <label for="build-a-boat-message" class="accessible-text">Name</label>
+                                        <textarea id="build-a-boat-message" name="build-a-boat-message" placeholder="Want something even more custom? Let us know here."></textarea>
                                     </li>
                                     <li class="form__field">
                                         <input class="button" type="submit" value="Submit">

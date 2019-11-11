@@ -14,7 +14,7 @@ function e11_scripts(){
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
 		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery'), time(), true);
-        wp_localize_script('scripts', 'localized', array('ajaxurl' => admin_url('admin-ajax.php'), 'siteurl' => site_url()));
+        wp_localize_script('scripts', 'localized', array('ajaxurl' => admin_url('admin-ajax.php'), 'siteurl' => site_url(), 'stylesheeturl' => get_bloginfo('stylesheet_directory')));
 	}
     wp_dequeue_style( 'wp-block-library' );
 }

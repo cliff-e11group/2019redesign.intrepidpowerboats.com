@@ -13,10 +13,10 @@ button[type="submit"] {
 .btn,
 input[type="submit"],
 button[type="submit"] {
-  border:none;
   box-shadow: none;
   background-color: $white;
   color:$dark-gray;
+    border: 1px solid $white;
   display: inline-block;
   text-align: center;
   transition: .3s ease all;
@@ -29,7 +29,7 @@ button[type="submit"] {
   &:hover,
   &:active,
   &:focus {
-    background-color: $primary-color;
+    background-color: $dark-gray;
     color:$white;
   }
 }
@@ -42,6 +42,7 @@ button[type="submit"] {
     font-size: 13px;
     color:$white;
     background:url(images/button-bg.png) no-repeat 0 0 #6d0707;
+      border: none;
     transition: $transition;
     &:hover,
     &:active,
@@ -53,18 +54,46 @@ button[type="submit"] {
   &--outline{
     background-color: transparent;
     border: 1px solid;
+
+      &:hover,
+      &:active,
+      &:focus {
+          background-color: $dark-gray;
+          color:$white;
+      }
   }
   &--inverse{
     color: #FFFFFF;
     background-color: $dark-gray;
+
+      &:hover,
+      &:active,
+      &:focus {
+          background-color: $white;
+          color:$dark-gray;
+      }
   }
   &--dark{
     background-color: $dark-gray;
     color: #FFFFFF;
+
+      &:hover,
+      &:active,
+      &:focus {
+          background-color: $white;
+          color:$dark-gray;
+      }
   }
   &--dark-alt{
     background-color: #3A4249;
     color: #FFFFFF;
+
+      &:hover,
+      &:active,
+      &:focus {
+          background-color: $white;
+          color:#3A4249;
+      }
   }
   &--large{
     padding: 15px 50px;

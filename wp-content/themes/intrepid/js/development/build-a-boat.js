@@ -2,6 +2,23 @@ $(function () {
 
     $('.page__single--boat').e11_BuildABoat();
 
+    $(".model__360-view").fancybox({
+        touch: false
+    });
+
+    var $spriteSpin = $("#spinner-view");
+    if ($spriteSpin.length > 0) {
+        $spriteSpin.spritespin({
+            source: [
+                localized.stylesheeturl + "/uploads/200-Flats-large.jpg",
+                localized.stylesheeturl + "/uploads/245-center-console-large.jpg",
+                localized.stylesheeturl + "/uploads/300-center-console-large.jpg"
+            ],
+            animate: false,
+            responsive: true
+        });
+    }
+
 });
 
 (function ($, window, document, undefined) {
@@ -211,11 +228,61 @@ $(function () {
                 self.updateBoatLayerMotor(self.$boatMotorLayer, '1');
             });
 
+
+            //
+            // Options
+            //
+            this.$optionItems = self.$el.find('.model-option .option-list__item');
+
+            // Hide all options on load
+            this.$optionItems.each(function () {
+                var $optionLayer = $(this).attr('data-boat-layer');
+
+                if ($optionLayer !== 'undefined' || $optionLayer !== '') {
+                    var $boatOptionLayer = self.$el.find("#" + $optionLayer);
+                    self.updateBoatLayerOption($boatOptionLayer, '0');
+                }
+            });
+
+            this.$optionItems.on('click', function () {
+                var $this = $(this),
+                    $optionLayer = $this.attr('data-boat-layer');
+
+                $this.toggleClass('selected');
+
+                if ($optionLayer !== 'undefined' || $optionLayer !== '') {
+                    var $boatOptionLayer = self.$el.find("#" + $optionLayer);
+                    if ($boatOptionLayer !== 'undefined') {
+                        self.updateBoatLayerOption($boatOptionLayer, $this.hasClass('selected') ? '1' : '0');
+                    }
+                }
+            });
+
+            //
+            // Make It Yours
+            //
+            this.$contactItems = self.$el.find('.contact-block .option-list__item');
+            this.$contactForm = self.$el.find('.build-a-boat__form');
+
+            this.$contactItems.on('click', function () {
+                var $this = $(this);
+
+                $this.toggleClass('selected');
+                $this.siblings().removeClass('selected');
+            });
+
+            this.$contactForm.on('submit', function () {
+                $('body').removeClass(self.activeBABClass);
+            });
+
         },
         updateBoatLayerColor: function (layer, color) {
             layer.css('fill', color);
         },
         updateBoatLayerMotor: function (layer, opacity) {
+            layer.css('opacity', opacity);
+        },
+        updateBoatLayerOption: function (layer, opacity) {
             layer.css('opacity', opacity);
         },
         updateNav: function () {
@@ -242,9 +309,9 @@ $(function () {
             }
         },
         activateItem: function (i) {
-            $('.option-slider')[1].slick.refresh();
             this.$items.eq(i).addClass(this.activeClass);
             this.$steps.eq(i).addClass(this.activeClass);
+            $('.option-slider')[1].slick.refresh();
         },
         deactivateItem: function (i) {
             this.$items.eq(i).removeClass(this.activeClass);

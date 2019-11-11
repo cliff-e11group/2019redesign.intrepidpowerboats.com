@@ -808,6 +808,13 @@
     background-color: transparent;
     color:$dark-gray;
     border: 1px solid $dark-gray;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $dark-gray;
+        color:$white;
+    }
 }
 
 .form__field{
@@ -816,10 +823,18 @@
     position: relative;
     .button{
         background-color: $dark-gray;
+        border: 1px solid $dark-gray;
         color:$white;
         padding:12px 45px;
         @media #{$phone} {
             padding:17px 45px;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $white;
+            color:$dark-gray;
         }
     }
 }
