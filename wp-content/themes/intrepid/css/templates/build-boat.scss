@@ -137,6 +137,19 @@
             text-align: center;
         }
     }
+
+    .btn {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.build-a-boat--finish {
+
+        .btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
 }
 
 .step-next,
@@ -155,7 +168,8 @@
     margin-left:30px;
 
     .build-a-boat--start & {
-        display: none;
+        opacity: 0;
+        pointer-events: none;
     }
 }
 .step-next{
@@ -163,7 +177,8 @@
     margin-right:30px;
 
     .build-a-boat--end & {
-        display: none;
+        opacity: 0;
+        pointer-events: none;
     }
 }
 
@@ -255,10 +270,13 @@
         letter-spacing: 3.4px;
         @include fsz(13px);
         text-transform: uppercase;
-        width: 48%;
+        width: 50%;
         position: relative;
         padding-left: 23px;
         padding-right: 15px;
+        box-sizing: border-box;
+        cursor: pointer;
+
         @media #{$phone} {
             padding: 4px 0 4px 43px;
             margin-bottom: 15px;
@@ -324,9 +342,19 @@
 .color-palette{
     background-color:#f4f4f4;
     padding:12px 22px 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+
     @media #{$phone} {
         display: none;
     }
+
+    &.has-recent-colors {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
     .color-palette__title{
         letter-spacing: 2.1px;
         @include fsz(9px);
@@ -346,6 +374,7 @@
         height: 25px;
         margin-right: 10px;
         margin-bottom: 10px;
+        cursor: pointer;
     }
 }
 

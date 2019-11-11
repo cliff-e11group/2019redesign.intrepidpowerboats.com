@@ -534,7 +534,7 @@ the_post();
                 <li class="step__item" data-label-back="Motors" data-label-next="Finish">
                     Options
                 </li>
-                <li class="step__item" data-label-back=Options" data-label-next="">
+                <li class="step__item" data-label-back="Options" data-label-next="">
                     Make it yours
                 </li>
             </ul>
@@ -554,33 +554,34 @@ the_post();
                 <div class="container">
                     <div class="color-block__inner">
                         <div class="color-block__picker">
-                            <img src="<?php echo IMAGES; ?>/color-picker.png" alt="color picker" />
+                            <label for="color-picker" class="accessible-text">Choose a color</label>
+                            <input id="color-picker" type="text" value="#ff8800">
                         </div>
                         <div class="color-block__option">
                             <span class="color-block__title">Select an area to color</span>
                             <ul class="area-list">
-                                <li class="area-list__item">
-                                    <span class="area-list__color-box" style="background: #1b1c21;"></span>
+                                <li class="area-list__item active" data-boat-layer="hull-color">
+                                    <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Hull Color</span>
                                 </li>
-                                <li class="area-list__item">
+                                <li class="area-list__item" data-boat-layer="sheer-stripe">
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Sheer Stripe</span>
                                 </li>
-                                <li class="area-list__item">
-                                    <span class="area-list__color-box" style="background: #d80b02;"></span>
+                                <li class="area-list__item" data-boat-layer="boot-stripe">
+                                    <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Stripe</span>
                                 </li>
-                                <li class="area-list__item">
+                                <li class="area-list__item" data-boat-layer="sheer-stripe-accent">
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Sheer Accent</span>
                                 </li>
-                                <li class="area-list__item active">
-                                    <span class="area-list__color-box" style="background: #d80b02;"></span>
+                                <li class="area-list__item" data-boat-layer="boot-stripe-accent">
+                                    <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Accent</span>
                                 </li>
-                                <li class="area-list__item">
-                                    <span class="area-list__color-box" style="background: #d80b02;"></span>
+                                <li class="area-list__item" data-boat-layer="logo-color">
+                                    <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Logo</span>
                                 </li>
                             </ul>
@@ -591,9 +592,8 @@ the_post();
                                 <span class="color-palette__title">
                                     Recently used colors
                                 </span>
-                                <ul class="color-list">
-                                    <li class="color-list__item" style="background-color: #d80b02;"></li>
-                                    <li class="color-list__item" style="background-color: #1b1c21;"></li>
+                                <ul class="color-list" id="recent-colors">
+
                                 </ul>
                             </div>
                         </div>
