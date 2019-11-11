@@ -608,11 +608,11 @@ the_post();
                     <div class="motor-option__inner">
                         <div class="motor-option__details">
                             <ul class="motor-color">
-                                <li class="motor-color__item motor-color__item--white active">
+                                <li class="motor-color__item motor-color__item--white active" data-boat-layer="white">
                                     <span class="motor-color__title">White</span>
                                     <span class="motor-color__box"></span>
                                 </li>
-                                <li class="motor-color__item motor-color__item--black">
+                                <li class="motor-color__item motor-color__item--black" data-boat-layer="black">
                                     <span class="motor-color__title">Black</span>
                                     <span class="motor-color__box"></span>
                                 </li>
@@ -625,19 +625,19 @@ the_post();
                         <div class="motor-option__wrap">
                             <span class="motor-option__title">Select a Motor</span>
                             <ul class="motor-option__list">
-                                <li class="motor-option__list-item active">
+                                <li class="motor-option__list-item active" data-boat-layer="sevenmarine">
                                     <span class="motor-option__list-title">Seven Marine</span>
                                 </li>
-                                <li class="motor-option__list-item">
+                                <li class="motor-option__list-item" data-boat-layer="evinrude">
                                     <span class="motor-option__list-title">Evinrude</span>
                                 </li>
-                                <li class="motor-option__list-item">
+                                <li class="motor-option__list-item" data-boat-layer="yamaha">
                                     <span class="motor-option__list-title">Yamaha</span>
                                 </li>
-                                <li class="motor-option__list-item">
+                                <li class="motor-option__list-item" data-boat-layer="suzuki">
                                     <span class="motor-option__list-title">Suzuki</span>
                                 </li>
-                                <li class="motor-option__list-item">
+                                <li class="motor-option__list-item" data-boat-layer="mercury">
                                     <span class="motor-option__list-title">Mercury</span>
                                 </li>
                             </ul>

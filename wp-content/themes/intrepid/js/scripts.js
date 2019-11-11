@@ -4477,7 +4477,9 @@ $(function () {
                 self.updateNav();
             });
 
-            //Exterior - Color Picker
+            //
+            //EXTERIOR - Color Picker
+            //
             this.$colorPicker = this.$el.find('#color-picker');
             this.$colorItems = this.$el.find('.area-list__item');
             this.$colorPalette = this.$el.find('.color-palette');
@@ -4554,9 +4556,84 @@ $(function () {
                 self.updateBoatLayerColor(self.$boatLayer, recentlyUsedColor);
             });
 
+            //
+            // MOTORS
+            //
+            this.$motorItems = this.$el.find('.motor-option__list-item');
+            this.motorItemActiveClass = 'active';
+            this.$activeMotorItem = this.$motorItems.eq(0);
+
+            this.$motorColors = this.$el.find('.motor-color__item');
+            this.motorColorActiveClass = 'active';
+            this.$activeMotorColor = this.$motorColors.eq(0);
+
+            this.boatMotorLayer = this.$activeMotorItem.attr('data-boat-layer');
+            this.boatMotorColorLayer = this.$activeMotorColor.attr('data-boat-layer');
+
+            // Hide all boats except active boat motor
+            this.$motorItems.each(function () {
+                var $this = $(this),
+                    motor = $this.attr('data-boat-layer');
+
+                self.$motorColors.each(function () {
+                    var color = $(this).attr('data-boat-layer');
+                    // Hide motor
+                    self.updateBoatLayerMotor(self.$el.find("#" + motor + "-" + color), '0');
+                });
+            });
+
+            // Activate first motor
+            this.$boatMotorLayer = this.$el.find("#" + self.boatMotorLayer + "-" + self.boatMotorColorLayer);
+            self.updateBoatLayerMotor(this.$boatMotorLayer, '1');
+
+            // Toggle between active motor item
+            this.$motorItems.on('click', function () {
+                var $this = $(this);
+
+                // Activate the clicked motor item
+                $this
+                    .addClass(self.motorItemActiveClass)
+                    .siblings().removeClass(self.motorItemActiveClass);
+
+                // Hide old motor
+                self.updateBoatLayerMotor(self.$boatMotorLayer, '0');
+
+                // Update active layer
+                self.$activeMotorItem = $this;
+                self.boatMotorLayer = self.$activeMotorItem.attr('data-boat-layer');
+                self.$boatMotorLayer = self.$el.find("#" + self.boatMotorLayer + "-" + self.boatMotorColorLayer);
+
+                // Show new motor
+                self.updateBoatLayerMotor(self.$boatMotorLayer, '1');
+            });
+
+            // Toggle between active motor item
+            this.$motorColors.on('click', function () {
+                var $this = $(this);
+
+                // Activate the clicked motor item
+                $this
+                    .addClass(self.motorColorActiveClass)
+                    .siblings().removeClass(self.motorColorActiveClass);
+
+                // Hide old motor
+                self.updateBoatLayerMotor(self.$boatMotorLayer, '0');
+
+                // Update active layer
+                self.$activeMotorColor = $this;
+                self.boatMotorColorLayer = self.$activeMotorColor.attr('data-boat-layer');
+                self.$boatMotorLayer = self.$el.find("#" + self.boatMotorLayer + "-" + self.boatMotorColorLayer);
+
+                // Show new motor
+                self.updateBoatLayerMotor(self.$boatMotorLayer, '1');
+            });
+
         },
         updateBoatLayerColor: function (layer, color) {
             layer.css('fill', color);
+        },
+        updateBoatLayerMotor: function (layer, opacity) {
+            layer.css('opacity', opacity);
         },
         updateNav: function () {
             // Add class if at first step
