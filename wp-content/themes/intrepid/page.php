@@ -9,18 +9,18 @@ if ($post->post_parent > 0) {
     $parent = $post->post_parent;
 }
 ?>
-<main class="page__default">
-    <?php if (post_password_required(get_the_ID()) || post_password_required($parent)) { ?>
-    <section>
-        <div class="container">
-    <?php } ?>
-            <?php the_content(); ?>
-        <?php if (post_password_required(get_the_ID()) || post_password_required($parent)) { ?>
-        </div>
-    </section>
-    <?php } ?>
-    <?php if (!post_password_required(get_the_ID()) && !post_password_required($parent)) { ?>
+<main class="main page-default">
+    <?php if(is_bbpress()) : ?>
+    <div class="container">
+        <div class=""><?php the_content(); ?></div>
+    </div>
+    <?php else : ?>
+    <div class="container">
+        <div class="entry-content"><?php the_content(); ?></div>
+    </div>
+    <?php endif; ?>
+    <?php if (!post_password_required(get_the_ID()) && !post_password_required($parent)) : ?>
     <?php include('modules/flex-content/flex-content.php') ?>
-    <?php } ?>
+    <?php endif; ?>
 </main>
 <?php get_footer(); ?>

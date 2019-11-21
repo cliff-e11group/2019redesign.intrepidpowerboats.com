@@ -50,7 +50,7 @@
                             </ul>
                         </li>
                         <li class="menu__item">
-                            <a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">News</a>
+                            <a href="<?php echo site_url('news'); ?>">News</a>
                         </li>
                         <li class="menu__item">
                             <a href="<?php echo site_url('events'); ?>">Events</a>
@@ -103,7 +103,7 @@
                     <a class="btn btn--primary" href="#">Contact</a>
                 </li>
                 <li class="quick-links__item">
-                    <a class="link" href="#">Owners Portal</a>
+                    <a class="link" href="<?php echo site_url('forum'); ?>">Owners Portal</a>
                 </li>
             </ul>
         </div>

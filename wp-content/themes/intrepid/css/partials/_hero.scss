@@ -270,6 +270,10 @@
        @include fsz(22px);
        margin-bottom: 3px;
      }
+
+       a {
+           color: #fff;
+       }
    }
    .hero-post__meta{
      display: block;

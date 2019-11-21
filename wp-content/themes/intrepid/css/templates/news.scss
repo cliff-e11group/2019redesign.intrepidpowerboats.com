@@ -118,6 +118,10 @@
       @include fsz(20px);
       margin-bottom: 5px;
     }
+
+      a {
+          color: $bright-gray;
+      }
   }
   .post__meta{
     display: block;

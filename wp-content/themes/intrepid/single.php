@@ -2,10 +2,10 @@
 get_header();
 the_post();
 ?>
-<main class="main">
+<main class="main page-news-single">
     <section class="hero hero--inner hero--news-single" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/news_hero.jpg);">
         <img class="hero__mobile-image" src="<?php echo STYLEDIR; ?>/uploads/news_hero_mobile.jpg" alt="news_hero" />
-        <a href="#" class="arrow-link"><svg class="icon icon-arrow-up" aria-hidden="true" role="img"><use xlink:href="#icon-arrow-up" x="0" y="0"></use></svg>Back to main page</a>
+        <a href="<?php echo site_url('news'); ?>" class="arrow-link"><svg class="icon icon-arrow-up" aria-hidden="true" role="img"><use xlink:href="#icon-arrow-up" x="0" y="0"></use></svg>Back to main page</a>
     </section>
     <section class="layout layout--reverse">
         <div class="container">

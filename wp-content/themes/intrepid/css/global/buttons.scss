@@ -32,6 +32,10 @@ button[type="submit"] {
     background-color: $dark-gray;
     color:$white;
   }
+
+    .bbpress-wrapper & {
+        border-color: $dark-gray;
+    }
 }
 
 .btn {
@@ -76,6 +80,7 @@ button[type="submit"] {
   &--dark{
     background-color: $dark-gray;
     color: #FFFFFF;
+      border-color: $dark-gray;
 
       &:hover,
       &:active,

@@ -1,0 +1,21 @@
+.page-default {
+
+    .bbpress-wrapper {
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        .btn,
+        button[type=submit],
+        input[type=submit] {
+
+        }
+    }
+
+    #bbpress-forums ul.bbp-forums {
+        margin-top: 10px;
+    }
+
+    #bbpress-forums div.bbp-search-form {
+        margin-bottom: 16px;
+    }
+}
