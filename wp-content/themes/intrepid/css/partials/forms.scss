@@ -57,22 +57,27 @@ textarea{
   appearance: none;
 }
 
-.ginput_container_select {
+.ginput_container_select,
+.form__field-select,
+.form__field-upload{
   position: relative;
-  background: #F8F8F8;
+  background: #DBDBDB;
   &:after {
       content: "";
       display: block;
-      width: 10px;
+      width: 8px;
       height: 10px;
-      background: url(images/dropdown-arrow.svg) no-repeat 0 0;
+      background: url(images/caret-left.svg) no-repeat 0 0;
       position: absolute;
-      top: 29px;
-      right: 30px;
+      top: 14px;
+      right: 16px;
+      background-size: contain;
+      transform: rotate(-90deg);
   }
 }
-.gfield_select {
-  border: 1px solid $white;
+.gfield_select,
+.custom-select{
+  border:1px solid $dusty-gray;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -80,7 +85,9 @@ textarea{
   height: 39px;
   padding: 11px 44px 11px 13px;
   border-radius: 0;
-  @include fsz(11px);
+  @include fsz(12px);
+  font-weight: 600;
+  text-transform: uppercase;
   position: relative;
   z-index: 2;
   background: transparent;
@@ -88,6 +95,23 @@ textarea{
   &::-ms-expand {
       display: none;
   }
+}
+.custom-upload{
+  border:1px solid $dusty-gray;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 39px;
+  padding: 11px 44px 11px 13px;
+  border-radius: 0;
+  @include fsz(12px);
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  font-family: $primary-family;
 }
 textarea {
   width: 100%;
@@ -134,7 +158,7 @@ textarea {
 }
 .validation_message {
   color: #ff2d2d;
-  @include fsz(14px);
+  @include fsz(11px);
   padding: 3px 0;
   font-weight: 400;
 }
@@ -169,4 +193,18 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
   left: -9000px;
 }
 
+.required-symbol{
+  position: absolute;
+  top:0;
+  right: 0;
+  @include fsz(9px);
+  letter-spacing: 2.1px;
+  text-transform: uppercase;
+  @media #{$phone} {
+    position: static;
+    margin-bottom: 15px;
+    display: block;
+    text-align: left;
+  }
+}
 

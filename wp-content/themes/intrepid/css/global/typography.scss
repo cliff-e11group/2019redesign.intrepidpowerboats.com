@@ -7,10 +7,12 @@ strong {
 }
 
 .entry-content {
-  @include fsz(16px);
-  line-height: 1.5;
+  @include fsz(13px);
+  line-height: 1.8;
   font-family: $primary-family;
-
+  @media #{$phone} {
+    @include fsz(14px);
+  }
   * {
     &:first-child {
       margin-top: 0;
@@ -23,7 +25,8 @@ strong {
 
   a {
     text-decoration: none;
-
+    font-weight: 700;
+    color:$dark-gray;
     &:hover {
       text-decoration: underline;
     }
@@ -77,15 +80,15 @@ strong {
   }
 
   p {
-    margin-bottom: 22px;
+    margin-bottom: 25px;
   }
 
   ol, ul {
     margin-bottom: 25px;
-    padding-left: 120px;
+    padding-left: 50px;
 
     li {
-      margin-bottom: 20px;
+      margin-bottom: 5px;
 
       &:last-child {
         margin-bottom: 0;

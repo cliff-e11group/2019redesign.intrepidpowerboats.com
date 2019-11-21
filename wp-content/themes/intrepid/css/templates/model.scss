@@ -41,7 +41,7 @@
   }
 
   a {
-    color: #3a4249;
+    color: $bright-gray;
     letter-spacing: 0.74px;
     @media #{$phone} {
       color: $white;
@@ -293,7 +293,7 @@
     padding-bottom: 4px;
     font-size: 11px;
     letter-spacing: 2.66px;
-    color: #b0b0b0;
+    color: $silver;
     border-bottom: 1px solid rgba(151, 151, 151, 0.3);
   }
 
@@ -398,7 +398,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid $dusty-gray;
     @media #{$phone} {
       flex-wrap: wrap;
       padding-top: 0;
@@ -471,7 +471,7 @@
       border-bottom: none;
   }
   .container {
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid $dusty-gray;
     padding: 35px 0 45px;
     @media #{$desktop} {
       margin:0 20px;
@@ -485,6 +485,10 @@
   .sub-container {
     padding-left: 300px;
     padding-right: 100px;
+    @media #{$header} {
+      padding-left: 150px;
+      padding-right: 50px;
+    }
     .btn--dark{
       @media #{$phone} {
         padding: 22px 25px;
@@ -497,6 +501,7 @@
     }
     @media #{$phone-small} {
       text-align: center;
+      font-size: 14px;
     }
   }
 
@@ -605,7 +610,7 @@
 .module-comparision__block {
   margin-top: 45px;
   padding: 45px 0;
-  background-color: #3a4249;
+  background-color: $bright-gray;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -685,7 +690,7 @@
 
   .slick-next {
     right: -50px;
-
+    background:none;
     &:before {
       float: right;
       transform: rotate(180deg);
@@ -694,6 +699,7 @@
 
   .slick-prev {
     left: -50px;
+    background:none;
   }
 }
 

@@ -62,7 +62,7 @@
         margin-right: 34px;
         position: relative;
         padding-bottom: 5px;
-        color:#b0b0b0;
+        color:$silver;
         @media #{$phone} {
             @include fsz(9px);
         }
@@ -232,7 +232,7 @@
          }
     }
     .color-block__title{
-        color:#b0b0b0;
+        color:$silver;
         text-transform: uppercase;
         letter-spacing: 2.6px;
         @include fsz(11px);
@@ -245,7 +245,7 @@
         @media #{$phone} {
             padding:21px 0;
             background-color: #f4f4f4;
-            color:#3a4249;
+            color:$bright-gray;
             @include fsz(10px);
             text-align: center;
             letter-spacing: 2.9px;
@@ -362,7 +362,7 @@
         text-transform: uppercase;
         margin-bottom: 13px;
         display: block;
-        color:#3a4249;
+        color:$bright-gray;
     }
 }
 
@@ -428,7 +428,7 @@
         margin-bottom: 15px;
         &--white{
             .motor-color__box{
-                border: 1px solid #979797;
+                border: 1px solid $dusty-gray;
                 background-color: $white;
             }
         }
@@ -457,7 +457,7 @@
         @include fsz(11px);
         display: block;
         text-transform: uppercase;
-        color:#3A4249;
+        color:$bright-gray;
         margin-bottom: 2px;
         text-align: center;
     }
@@ -542,7 +542,7 @@
         }
     }
     .motor-option__title{
-        color:#b0b0b0;
+        color:$silver;
         text-transform: uppercase;
         letter-spacing: 2.6px;
         @include fsz(11px);
@@ -555,7 +555,7 @@
         @media #{$phone} {
             padding:21px 0;
             background-color: #f4f4f4;
-            color:#3a4249;
+            color:$bright-gray;
             @include fsz(10px);
             text-align: center;
             letter-spacing: 2.9px;
@@ -654,7 +654,7 @@
       display: block;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: #3A4249;
+      -webkit-text-stroke-color: $bright-gray;
       @include fsz(34px);
       line-height: 30px;
       padding-left: 7px;
@@ -700,7 +700,7 @@
         text-transform: uppercase;
         letter-spacing: 2.1px;
         @include fsz(9px);
-        color:#b0b0b0;
+        color:$silver;
         display: block;
         margin-bottom: 13px;
         @media #{$phone-small} {
@@ -715,7 +715,7 @@
         -webkit-appearance: none;
         appearance: none;
         border: none;
-        border-bottom: 1px solid #b0b0b0;
+        border-bottom: 1px solid $silver;
         @include fsz(21px);
         font-weight: 700;
         color:#1f2225;
@@ -739,7 +739,7 @@
         padding:0;
         background:transparent;
         @include fsz(11px);
-        color:#3a4249;
+        color:$bright-gray;
         letter-spacing: 2.6px;
         &:hover,
         &:focus{
@@ -804,7 +804,7 @@
 .form__note{
     @include fsz(9px);
     text-transform: uppercase;
-    color: #3a4249;
+    color: $bright-gray;
     font-weight: 600;
     letter-spacing: 2.1px;
     position: absolute;

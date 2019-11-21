@@ -1,0 +1,222 @@
+/* News Single */
+.newsletter-article__item{
+  border-bottom:1px solid rgba($dusty-gray, 0.3);
+  padding-bottom: 35px;
+  margin-bottom: 27px;
+  &:last-child{
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  @media #{$phone} {
+    text-align: center;
+  }
+}
+.page-title{
+  text-transform: uppercase;
+  @include fsz(35px);
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba($dark-gray, 0.5);
+  @media #{$header} {
+    @include fsz(25px);
+  }
+  @media #{$phone} {
+    @include fsz(22px);
+    text-align: center;
+  }
+}
+.post-author{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 25px;
+  @media #{$phone} {
+    justify-content: center;
+    max-width: 280px;
+    margin: 0 auto 25px;
+  }
+}
+.post-author__name{
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  font-weight: 700;
+  @include fsz(10px);
+  @media #{$phone} {
+    width: calc(100% - 75px);
+    text-align: left;
+  }
+}
+.post-author__photo{
+  width: 62px;
+  height: 62px;
+  margin-right: 10px;
+}
+.post-date{
+  font-weight: 700;
+  @include fsz(13px);
+  text-transform: uppercase;
+}
+
+.slider-wrap{
+  padding: 35px 28px;
+  @media #{$phone} {
+    padding:35px 0;
+  }
+}
+
+.image-slider{
+  margin-bottom: 20px;
+  @media #{$phone} {
+    margin-bottom: 25px;
+  }
+  .slick-slide{
+    img{
+      width: 100%;
+    }
+  }
+  .slick-prev{
+    left: -28px;
+    @media #{$phone} {
+      left:-10px
+     }
+  }
+  .slick-next{
+    right: -28px;
+    @media #{$phone} {
+      right:-10px
+     }
+    &:before{
+      content:"More";
+      display: block;
+      @include fsz(11px);
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color:$white;
+      font-weight: 700;
+      height: 100%;
+      position: absolute;
+      left: -49px;
+      top: 0;
+      padding: 13px 5px 13px 13px;
+      background-color: $bright-gray;
+      @media #{$phone} {
+       display: none;
+      }
+    }
+  }
+}
+
+.slider-caption{
+  letter-spacing: 2.6px;
+  text-transform: uppercase;
+  font-weight: 700;
+  @include fsz(11px);
+  text-align: center;
+  display: block;
+  border-bottom: 1px solid $dusty-gray;
+  padding-bottom: 16px;
+  @media #{$phone} {
+    padding-bottom: 20px;
+  }
+}
+
+.signature-block{
+  margin-top: 30px;
+  text-align: right;
+  img{
+    display: inline-block;
+  }
+}
+
+.scroll-top{
+  text-align: center;
+  @media #{$phone} {
+    display: none;
+  }
+  .scroll-to-top{
+    @include fsz(11px);
+    letter-spacing: 2.6px;
+  }
+}
+
+.instagram-feed__title{
+  color:$silver;
+  text-transform: uppercase;
+  letter-spacing: 3.6px;
+  @include fsz(15px);
+  text-align: center;
+  margin-bottom: 0;
+  padding: 31px 10px 27px;
+  background-color: $bright-gray;
+  @media #{$phone} {
+    padding: 18px 0 22px;
+  }
+  span{
+    @media #{$phone} {
+      display: block;
+    }
+  }
+  a{
+    color: $white;
+  }
+}
+
+.column-content{
+  padding: 80px 0 55px;
+  @media #{$header} {
+    display: none;
+  }
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .category-block{
+    width: 24%;
+  }
+  .subscribe-block{
+    width: 57.7%;
+  }
+}
+
+.subscribe-block{
+  .subscribe-block__title{
+    @include fsz(15px);
+    letter-spacing: 3.6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(31,34,37,.5);
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    color: $silver;
+  }
+  .subscribe-block__description{
+    display: block;
+    margin-bottom: 15px;
+  }
+  .gfield{
+    margin-bottom: 10px;
+  }
+  .ginput_container input.medium{
+    background-color: transparent;
+  }
+  .form-note{
+    @include fsz(11px);
+    width: calc(100% - 150px);
+    text-align: center;
+    color:#8D8D8D;
+    display: block;
+    padding:10px;
+  }
+  .gform_footer{
+    float: right;
+    margin-top: -48px;
+  }
+}
+
+.content-block.entry-content{
+  ul{
+    @media #{$phone} {
+      list-style: none;
+      padding-left:0;
+     }
+  }
+}

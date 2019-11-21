@@ -7303,6 +7303,10 @@ jQuery(document).ready(function ($) {
         $(this).closest(".column-model__item").children(".column-model__content").slideToggle();
     });
 
+    $('.option-list__item').on('click', function () {
+        $(this).toggleClass('selected');
+    });
+
     $('.compare-mode--active .model-list__image').on('click', function () {
         $(this).parent().toggleClass('selected');
     });
@@ -7312,24 +7316,25 @@ jQuery(document).ready(function ($) {
         $(this).parent().toggleClass('active');
     });
 
-    $(".mega-menu li:not(:last) a").on({
-        "mouseover": function () {
-            image_url = $(this).data('src');
-            $(".menu-content").addClass('active');
-            $(".menu-content").children().hide();
-            $(".menu-content").css({'background': 'url(' + image_url + ') no-repeat center center / cover'});
-        },
-        "mouseout": function () {
-            $(".menu-content").children().show();
-            $(".menu-content").css({'background': 'none'});
-            $(".menu-content").removeClass('active');
-        }
-    });
+    if ($(window).width() > 1100) {
+        $(".mega-menu li:not(:last) a").on({
+            "mouseover": function () {
+                image_url = $(this).data('src');
+                $(".menu-content").addClass('active');
+                $(".menu-content").children().hide();
+                $(".menu-content").css({'background': 'url(' + image_url + ') no-repeat center center / cover'});
+            },
+            "mouseout": function () {
+                $(".menu-content").children().show();
+                $(".menu-content").css({'background': 'none'});
+                $(".menu-content").removeClass('active');
+            }
+        });
+    }
 
-    $('.filter-list__toggle').on('click', function (e) {
-        e.preventDefault();
-        $(this).toggleClass('active');
-        $(this).next().toggleClass('active')
+    $('.filter-list__toggle, .category-block .widget-title').on('click', function () {
+       $(this).toggleClass('active');
+       $(this).next().toggleClass('active')
     });
 
 
@@ -7337,50 +7342,49 @@ jQuery(document).ready(function ($) {
         $('.model-list__block').on('click', function () {
             var selected = $('body').find('.selected');
             var data = selected.find('img').data();
-            //console.log(data);
-            var newHtml = '<div class="module-comparision__item"> ' +
-                '<div class="model-list__image"> ' +
-                '<img src="' + data['imgSrc'] + '" alt="' + data['alt'] + '"> ' +
-                '</div> ' +
-                '<div class="model-list__detail"> ' +
-                '<div class="model-list__title-wrap"> ' +
-                '<h3 class="model-list__title">' + data['title'] + '</h3> ' +
-                '<span class="model-list__trigger"> ' +
-                '</span> ' +
-                '</div> ' +
-                '<div class="model-list-hidden__content"> ' +
-                '<div class="model-list-stat__container"> ' +
-                '<h4>' + data['secondaryTitle'] + '</h4> ' +
-                '<ul> ' +
-                '<li> ' +
-                '<div class="title">' + data['liTitle_1'] + '</div> ' +
-                '<div class="detail">' + data['liDesc_1'] + '</div> ' +
-                '</li> ' +
-                '<li> ' +
-                '<div class="title">' + data['liTitle_2'] + '</div> ' +
-                '<div class="detail">' + data['liDesc_1'] + '</div> ' +
-                '</li> ' +
-                '<li> ' +
-                '<div class="title">' + data['liTitle_3'] + '</div> ' +
-                '<div class="detail">' + data['liDesc_1'] + '</div> ' +
-                '</li> ' +
-                '<li> ' +
-                '<div class="title">' + data['liTitle_4'] + '</div> ' +
-                '<div class="detail">' + data['liDesc_1'] + '</div> ' +
-                '</li> ' +
-                '</ul> ' +
-                '</div> ' +
-                '<div class="model-list-cta__container"> ' +
-                '<a href="#" class="btn btn--outline">' + data['btn_txt'] + '</a> ' +
-                '</div> ' +
-                '</div> ' +
-                '</div> ' +
-                '</div>';
+            var newHtml = "<div class=\"module-comparision__item\">" +
+            "<div class=\"model-list__image\">" +
+            "    <img src=\"" + data['imgSrc'] + "\" alt=\"" + data['alt'] + "\">" +
+            "</div>" +
+            "<div class=\"model-list__detail\">" +
+            "    <div class=\"model-list__title\">" +
+            "        <h3>" + data['title'] + "</h3>" +
+            "        <span class=\"model-list__trigger\">" +
+            "        </span>" +
+            "    </div>" +
+            "    <div class=\"model-list-hidden__content\">" +
+            "        <div class=\"model-list-stat__container\">" +
+            "            <h4>" + data['secondaryTitle'] + "</h4>" +
+            "            <ul>" +
+            "                <li>" +
+            "                    <div class=\"title\">" + data['liTitle_1'] + "</div>" +
+            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+            "                </li>" +
+            "                <li>" +
+            "                    <div class=\"title\">" + data['liTitle_2'] + "</div>" +
+            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+            "                </li>" +
+            "                <li>" +
+            "                    <div class=\"title\">" + data['liTitle_3'] + "</div>" +
+            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+            "                </li>" +
+            "                <li>" +
+            "                    <div class=\"title\">" + data['liTitle_4'] + "</div>" +
+            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+            "                </li>" +
+            "            </ul>" +
+            "        </div>" +
+            "        <div class=\"model-list-cta__container\">" +
+            "            <a href=\"#\" class=\"btn btn--outline\">" + data['btn_txt'] + "</a>" +
+            "        </div>" +
+            "    </div>" +
+            "</div>" +
+            "</div>";
             var select_length = selected.length;
             $(".module-comparision__list").append(newHtml);
             if (select_length > 1) {
                 $('.module-btn-box').fadeIn("slow");
-                $('.module-selection-count a').text('COMPARE THESE ' + select_length + ' MODELS');
+                $('.module-selection-count a').text("COMPARE THESE " + select_length + ' MODELS');
             } else {
                 $('.module-btn-box').fadeOut("slow");
             }
@@ -7396,7 +7400,7 @@ jQuery(document).ready(function ($) {
             $('.module-item-box').hide(function () {
                 modalContainer.css('opacity', 1);
                 $('.module-item-box').slideDown("slow");
-            })
+            });
         });
         $('.module-item-box').slideDown("slow", function () {
             $('.module-comparision__list').slick({
@@ -7417,6 +7421,13 @@ jQuery(document).ready(function ($) {
                             slidesToShow: 1,
                             slidesToScroll: 1
                         }
+                    },
+                    {
+                        breakpoint: 400,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
                 ]
             });
@@ -7432,31 +7443,37 @@ jQuery(document).ready(function ($) {
         $('.module-comparision__list').slick('destroy');
     });
 
+    $(".mobile-nav__toggle").click(function(e) {
+
+        $('.menu-item-has-children').each(function (index, value) {
+            if ( $(this).children('a').hasClass( "menu-open" ) ) {
+                $(this).children('.sub-menu').css({height:'auto'});
+            }else{
+                $(this).children('.sub-menu').css({"height": "0"});
+            }
+        });
+
+    });
+
     if ($(".menu-item-has-children ").length > 0) {
         $('.primary-nav li.menu-item-has-children > a').append('<button class="nav__parent-arrow--mobile" data-class="mobile-nav-dropdown-toggle"><svg class="icon icon-arrow-up" aria-hidden="true" role="img"><use xlink:href="#icon-arrow-up" x="0" y="0"></use></svg></button>');
-        $(".nav__parent-arrow--mobile").click(function (e) {
+        $(".nav__parent-arrow--mobile").click(function(e) {
             e.preventDefault();
-            $("li.menu-item-has-children .sub-menu")
-                .not(this)
-                .slideUp();
-            $("li.menu-item-has-children .nav__parent-arrow--mobile").removeClass(
-                "menu-open"
-            );
-            if (
-                $(this).parent()
-                    .siblings(".sub-menu")
-                    .is(":visible")
-            ) {
-                $(this).parent()
-                    .siblings(".sub-menu")
-                    .slideUp();
-                $(this).parent().removeClass("menu-open");
-            } else {
-                $(this).parent()
-                    .siblings(".sub-menu")
-                    .slideDown();
-                $(this).parent().addClass("menu-open");
+            if ( $(this).parent().hasClass( "menu-open" ) ) {
+                $(this).parent().siblings(".sub-menu").animate({"left": "100vw", "height": "0"},350);
+                $(this).parent().removeClass('menu-open');
+                $(this).closest('.menu-item-has-children').removeClass('menu-open-parent');
+                $(this).closest('.menu-item-has-children').siblings().show();
+                $('.secondary-nav, .social-block').show();
+            }else{
+                $(this).parent().addClass('menu-open');
+                $(this).closest('.menu-item-has-children').addClass('menu-open-parent');
+                var heightfull=$(this).parent().siblings(".sub-menu").css({height:'auto'}).height();
+                $(this).parent().siblings(".sub-menu").animate({"left": "0", "height": heightfull },350);
+                $(this).closest('.menu-item-has-children').siblings().hide();
+                $('.secondary-nav, .social-block').hide();
             }
+
         });
     }
 
@@ -7470,12 +7487,12 @@ jQuery(document).ready(function ($) {
         width: 'auto', //auto or any width like 600px
         fit: true, // 100% fit in a container
         tabidentify: 'hor_1', // The tab groups identifier
-        activate: function (event) { // Callback function if tab is switched
+        activate: function(event) { // Callback function if tab is switched
             $('.option-slider')[0].slick.refresh();
             var $tab = $(this);
             $active_tab_text = $tab.text();
             //console.log($active_tab_text);
-            if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
+            if($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery '){
                 $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
                 $(".nav-block__active-tab").text($active_tab_text);
             }
@@ -7506,13 +7523,13 @@ jQuery(document).ready(function ($) {
         pauseOnHover: true,
         pauseOnArrowsHover: true,
         slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToScroll:1,
         responsive: [
             {
                 breakpoint: 1100,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1,
+                    slidesToScroll:1,
                 },
 
             },
@@ -7529,6 +7546,7 @@ jQuery(document).ready(function ($) {
             $('.option-slider').slick(settings);
         }
     });
+
 
 
     $('.motor-thumbnail .icon-close').on('click', function () {
@@ -7548,6 +7566,87 @@ jQuery(document).ready(function ($) {
             left: 0,
             behavior: 'smooth'
         });
+    });
+
+    $('.image-slider').slick({
+        autoplay: false,
+        autoplaySpeed: 1000,
+        dots: false,
+        arrows: true,
+        draggable: false,
+        fade: false,
+        speed: 500,
+    });
+
+    $('.feed-carousel').slick({
+        autoplay: false,
+        autoplaySpeed: 3000,
+        dots: false,
+        arrows: true,
+        draggable: false,
+        speed: 1000,
+        pauseOnFocus: false,
+        pauseOnHover: true,
+        pauseOnArrowsHover: true,
+        slidesToShow: 5,
+        slidesToScroll:1,
+        responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll:1,
+                }
+
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll:1,
+                }
+
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll:1,
+                }
+
+            },
+            {
+                breakpoint: 400,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll:1,
+                }
+
+            }
+        ]
+    });
+
+    $('.toggle-list__item').on('click', function () {
+        $(".toggle-nav__title").hide();
+        $(".contact-form__title").removeClass('contact-form__title--hide');
+        $(".contact-form__title:first-child").addClass('contact-form__title--hide');
+        $(".toggle-list__item, .toggle-content__item").siblings().removeClass('active');
+        var index = $( ".toggle-list__item" ).index( this );
+        $(this).addClass('active');
+        $(".toggle-content__item").eq( index ).addClass('active');
+        $active_text = $(this).text();
+        $('.fake-select').text($active_text);
+        $(this).parent().removeClass('active');
+        $(this).parent().prev().addClass('active');
+    });
+
+    $('.fake-select').on('click', function () {
+        $(this).next().toggleClass('active');
+    });
+
+    $('.service-form__trigger').on('click', function () {
+        $(this).toggleClass('active');
+        $(this).closest(".service-form").children(".service-form__content").slideToggle();
     });
 
 });

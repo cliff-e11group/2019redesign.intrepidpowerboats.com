@@ -1,7 +1,7 @@
 .model-intro{
   .container{
     @media #{$phone} {
-      background-color:#3a4249;
+      background-color:$bright-gray;
     }
   }
   .model-intro__thumbnail{
@@ -16,7 +16,7 @@
   .model-intro__content{
     position: absolute;
     bottom: 40px;
-    right:0;
+    right: 130px;
     max-width: 580px;
     color:$white;
     min-height: 65px;
