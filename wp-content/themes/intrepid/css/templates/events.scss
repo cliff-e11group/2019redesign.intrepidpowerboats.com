@@ -25,7 +25,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    
+
     .column-block__item{
         width:calc(50% - 10px);
         margin-bottom: 60px;
@@ -33,14 +33,14 @@
             width:100%;
          }
     }
-    
+
     .column-block__thumbnail{
         margin-bottom: 27px;
         @media #{$phone} {
             margin-bottom: 14px;
          }
     }
-    
+
     .column-block__title{
         text-transform: uppercase;
         @include fsz(26px);
@@ -49,8 +49,12 @@
             @include fsz(20px);
             text-align: center;
          }
+
+        a {
+            color: $bright-gray;
+        }
     }
-    
+
     .column-block__date{
         color:$bright-gray;
         text-transform: uppercase;
@@ -72,7 +76,15 @@
         @media #{$phone} {
             @include fsz(14px);
             line-height: 1.8;
+            font-weight: 300;
          }
+
+        .page-events-archive & {
+
+            @media #{$phone} {
+                text-align: center;
+            }
+        }
     }
 }
 
@@ -92,7 +104,7 @@
                 background-color: #6d0707;
              }
         }
-        
+
     }
     @media #{$phone} {
         text-align: center;
