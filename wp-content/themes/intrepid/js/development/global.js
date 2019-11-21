@@ -70,17 +70,15 @@ jQuery(document).ready(function ($) {
     });
 
     $('.motor-list__trigger').on('click', function () {
-        $(this).closest(".motor-list__content").toggleClass('active');
-        $(this).closest(".motor-list__content").children(".motor-list__description").slideToggle();
+        $(this)
+            .closest(".motor-list__content").toggleClass('active')
+            .closest(".motor-list__item").toggleClass('active');
+        $(this).closest(".motor-list__content").children(".motor-list__description").slideToggle(200);
     });
 
     $('.column-model__trigger').on('click', function () {
         $(this).closest(".column-model__item").toggleClass('active');
         $(this).closest(".column-model__item").children(".column-model__content").slideToggle();
-    });
-
-    $('.option-list__item').on('click', function () {
-        $(this).toggleClass('selected');
     });
 
     $('.compare-mode--active .model-list__image').on('click', function () {
@@ -106,7 +104,8 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('.filter-list__toggle').on('click', function () {
+    $('.filter-list__toggle').on('click', function (e) {
+        e.preventDefault();
         $(this).toggleClass('active');
         $(this).next().toggleClass('active')
     });
@@ -279,6 +278,7 @@ jQuery(document).ready(function ($) {
         dots: true,
         arrows: true,
         draggable: false,
+        infinite: false,
         speed: 1000,
         pauseOnFocus: false,
         pauseOnHover: true,

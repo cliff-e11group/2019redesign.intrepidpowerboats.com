@@ -29,9 +29,9 @@ the_post();
                             <option value=".55">55+</option>
                         </select>
                     </li>
-                    <li><a href="#">CENTER CONSOLE</a></li>
+                    <li><a href="<?php echo site_url('boat-category/center-console'); ?>">CENTER CONSOLE</a></li>
                     <li><a href="#">CUDDY/WALKAROUND</a></li>
-                    <li><a href="#">SPORT YACHT</a></li>
+                    <li><a href="<?php echo site_url('boat-category/sport-yacht'); ?>">SPORT YACHT</a></li>
                 </ul>
             </div>
         </div>
@@ -40,11 +40,13 @@ the_post();
             <div class="gutter-sizer"></div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/200-Flats.jpg" alt="Model 200 Flats">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/200-Flats.jpg" alt="Model 200 Flats">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">200 Flats</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">200 Flats</a></h3>
                         <span class="model-list__trigger">
                             </span>
                     </div>
@@ -71,19 +73,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/245-center-console.jpg" alt="Model 245 Center Console">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/245-center-console.jpg" alt="Model 245 Center Console">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">245 CENTER CONSOLE</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">245 CENTER CONSOLE</a></h3>
                         <span class="model-list__trigger">
                             </span>
                     </div>
@@ -110,19 +114,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/300-center-console.jpg" alt="Model 300 Center Console">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/300-center-console.jpg" alt="Model 300 Center Console">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">300 CENTER CONSOLE</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">300 CENTER CONSOLE</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -150,19 +156,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/327-i-tourney-edition.jpg" alt="Model 327-i Tourney Edition">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/327-i-tourney-edition.jpg" alt="Model 327-i Tourney Edition">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">200 Flats</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">200 Flats</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -190,19 +198,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/327-cuddy.jpg" alt="Model 327 Cuddy">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/327-cuddy.jpg" alt="Model 327 Cuddy">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">327-I Tourney Edition</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">327-I Tourney Edition</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -230,19 +240,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-fe.jpg" alt="345 Nomad FE">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-fe.jpg" alt="345 Nomad FE">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">345 Nomad FE</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">345 Nomad FE</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -270,19 +282,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-se.jpg" alt="Model 345 Nomad SE">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-se.jpg" alt="Model 345 Nomad SE">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">345 Nomad SE</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">345 Nomad SE</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -310,19 +324,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/345-walkaround.jpg" alt="Model 345 WALKAROUND">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/345-walkaround.jpg" alt="Model 345 WALKAROUND">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">345 WALKAROUND</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">345 WALKAROUND</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -350,19 +366,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/375-center-console.jpg" alt="Model 375 CENTER CONSOLE">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/375-center-console.jpg" alt="Model 375 CENTER CONSOLE">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">375 CENTER CONSOLE</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">375 CENTER CONSOLE</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -390,19 +408,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/375-nomad.jpg" alt="Model 375 NOMAD">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/375-nomad.jpg" alt="Model 375 NOMAD">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">375 NOMAD</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">375 NOMAD</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -430,19 +450,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/375-walkaround.jpg" alt="Model 375 WALKAROUND">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/375-walkaround.jpg" alt="Model 375 WALKAROUND">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">375 WALKAROUND</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">375 WALKAROUND</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -470,19 +492,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 50">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/400-center-console.jpg" alt="Model 400 CENTER CONSOLE">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/400-center-console.jpg" alt="Model 400 CENTER CONSOLE">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">400 CENTER CONSOLE</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">400 CENTER CONSOLE</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -510,19 +534,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/407-cuddy.jpg" alt="Model 407 CUDDY">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/407-cuddy.jpg" alt="Model 407 CUDDY">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">407 CUDDY</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">407 CUDDY</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -550,19 +576,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/407-panacea.jpg" alt="Model 407 PANACEA">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/407-panacea.jpg" alt="Model 407 PANACEA">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">407 PANACEA</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">407 PANACEA</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -590,19 +618,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/410-evolution.jpg" alt="Model 410 EVOLUTION">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/410-evolution.jpg" alt="Model 410 EVOLUTION">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">410 EVOLUTION</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">410 EVOLUTION</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -630,19 +660,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/430-sport-yacht.jpg" alt="Model 430 SPORT YACHT">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/430-sport-yacht.jpg" alt="Model 430 SPORT YACHT">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">430 SPORT YACHT</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">430 SPORT YACHT</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -670,19 +702,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 55">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/475-panacea.jpg" alt="Model 475 PANACEA">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/475-panacea.jpg" alt="Model 475 PANACEA">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">475 PANACEA</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">475 PANACEA</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -710,19 +744,21 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="model-list__block 40">
                 <div class="model-list__image">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/475-sport-yacht.jpg" alt="Model 475 SPORT YACHT">
+                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
+                        <img src="<?php echo STYLEDIR; ?>/uploads/475-sport-yacht.jpg" alt="Model 475 SPORT YACHT">
+                    </a>
                 </div>
                 <div class="model-list__detail">
                     <div class="model-list__title-wrap">
-                        <h3 class="model-list__title">475 SPORT YACHT</h3>
+                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">475 SPORT YACHT</a></h3>
                         <span class="model-list__trigger">
 
                             </span>
@@ -750,8 +786,8 @@ the_post();
                             </ul>
                         </div>
                         <div class="model-list-cta__container">
-                            <a href="#" class="btn btn--outline">visit model page</a>
-                            <a href="#" class="btn btn--dark">DOWNLOAD BROCHURE</a>
+                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
+                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
                         </div>
                     </div>
                 </div>

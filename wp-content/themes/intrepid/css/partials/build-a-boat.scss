@@ -1,0 +1,116 @@
+.build-a-boat {
+    position: fixed;
+    top: 84px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    overflow: auto;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #fff;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+
+    @media #{$header} {
+        top: 71px;
+    }
+
+    .build-a-boat--active & {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 300ms;
+    }
+}
+
+[data-class="step"] {
+    display: none;
+
+    &.step__item--active {
+        display: block;
+    }
+}
+
+.jQWCP-wWidget {
+
+    &.jQWCP-block {
+        display: block;
+        width: auto;
+        height: auto;
+        border-radius: 0;
+        padding: 0;
+        border: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    .jQWCP-wWheel {
+        width: 180px !important;
+        height: 180px !important;
+        margin: 20px 0;
+        float: none;
+
+        &:before {
+            content: 'Color Selection';
+            display: block;
+            text-align: center;
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            text-transform: uppercase;
+            @include fsz(9px);
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: $dark-gray;
+            pointer-events: none;
+        }
+    }
+}
+
+#spinner-container {
+    display: none;
+
+    @media #{$phone} {
+        padding: 30px;
+    }
+}
+
+#spinner-view {
+    max-width: 1400px;
+    width: calc(100vw - 120px);
+
+    @media #{$phone} {
+        width: calc(100vw - 80px);
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 75px;
+        height: 72px;
+        background: url(images/360-icon.svg) no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        z-index: 2;
+        pointer-events: none;
+
+        @media #{$phone} {
+            width: 35px;
+            height: 35px;
+            right: 10px;
+            bottom: 10px;
+        }
+    }
+}
+
+.virtual-tour__iframe {
+    width: 100%;
+    height: calc(1180px * .5625);
+    margin: 30px 0 74px;
+
+    @media #{$desktop} {
+        height: calc(100vw * .5625 - 40px);
+    }
+}

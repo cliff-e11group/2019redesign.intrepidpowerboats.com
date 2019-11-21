@@ -66,22 +66,24 @@
         @media #{$phone} {
             @include fsz(9px);
         }
-        &.active{
+        &.step__item--active{
             color: $dark-gray;
-        }
-        &.active:before{
-            content: "";
-            display: block;
-            width: 100%;
-            height: 2px;
-            background-color: $dark-gray;
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            @media #{$phone} {
-                bottom: -1px;
+
+            &:before{
+                content: "";
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: $dark-gray;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                @media #{$phone} {
+                    bottom: -1px;
+                }
             }
         }
+
         &:last-child{
             margin-right: 0;
         }
@@ -98,25 +100,7 @@
         display: table;
         clear: both;
     }
-    .step-next,
-    .step-prev{
-        letter-spacing: 2.6px;
-        @include fsz(11px);
-        font-weight: 800;
-        text-transform: uppercase;
-        color:#3a4249;
-        &:hover{
-            color:$primary-color;
-        }
-    }
-    .step-prev{
-        float: left;
-        margin-left:30px;
-    }
-    .step-next{
-        float: right;
-        margin-right:30px;
-    }
+
     &.step-nagivation--alt{
       padding: 9px 0 10px;
       display: flex;
@@ -152,6 +136,49 @@
         @media #{$phone} {
             text-align: center;
         }
+    }
+
+    .btn {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &.build-a-boat--finish {
+
+        .btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+.step-next,
+.step-prev{
+    letter-spacing: 2.6px;
+    @include fsz(11px);
+    font-weight: 800;
+    text-transform: uppercase;
+    color:#3a4249;
+    &:hover{
+        color:$primary-color;
+    }
+}
+.step-prev{
+    float: left;
+    margin-left:30px;
+
+    .build-a-boat--start & {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+.step-next{
+    float: right;
+    margin-right:30px;
+
+    .build-a-boat--end & {
+        opacity: 0;
+        pointer-events: none;
     }
 }
 
@@ -243,10 +270,13 @@
         letter-spacing: 3.4px;
         @include fsz(13px);
         text-transform: uppercase;
-        width: 48%;
+        width: 50%;
         position: relative;
         padding-left: 23px;
         padding-right: 15px;
+        box-sizing: border-box;
+        cursor: pointer;
+
         @media #{$phone} {
             padding: 4px 0 4px 43px;
             margin-bottom: 15px;
@@ -312,9 +342,19 @@
 .color-palette{
     background-color:#f4f4f4;
     padding:12px 22px 6px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+
     @media #{$phone} {
         display: none;
     }
+
+    &.has-recent-colors {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
     .color-palette__title{
         letter-spacing: 2.1px;
         @include fsz(9px);
@@ -334,6 +374,7 @@
         height: 25px;
         margin-right: 10px;
         margin-bottom: 10px;
+        cursor: pointer;
     }
 }
 
@@ -383,6 +424,7 @@
 .motor-color{
     padding-top: 25px;
     .motor-color__item{
+        cursor: pointer;
         margin-bottom: 15px;
         &--white{
             .motor-color__box{
@@ -539,6 +581,7 @@
         width: 48%;
         position: relative;
         padding-right: 15px;
+        cursor: pointer;
         @media #{$phone} {
             text-align: center;
             margin-bottom: 11px;

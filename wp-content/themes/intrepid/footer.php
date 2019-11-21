@@ -56,7 +56,9 @@
             </div>
         </div>
         <div class="footer-logo">
-            <img src="<?php echo IMAGES; ?>/logo.svg" alt="Intrepid Powerboats" />
+            <a href="<?php echo site_url(); ?>">
+                <img src="<?php echo IMAGES; ?>/logo.svg" alt="Intrepid Powerboats" />
+            </a>
             <span class="copyright-text">Copyright 2019</span>
         </div>
     </div>
