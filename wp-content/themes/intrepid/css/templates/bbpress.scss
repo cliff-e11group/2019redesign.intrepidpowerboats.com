@@ -18,4 +18,13 @@
     #bbpress-forums div.bbp-search-form {
         margin-bottom: 16px;
     }
+
+    #bbpress-forums #bbp-search-form #bbp_search {
+        min-height: 42px;
+        vertical-align: top;
+    }
+
+    .bbp-forum-info {
+        font-size: 14px;
+    }
 }

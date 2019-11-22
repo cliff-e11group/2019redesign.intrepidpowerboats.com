@@ -9,6 +9,15 @@
   background: -webkit-linear-gradient(top, #262a2e 0%,$bright-gray 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #262a2e 0%,$bright-gray 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#262a2e', endColorstr='$bright-gray',GradientType=0 ); /* IE6-9 */
+
+    .logged-in & {
+        top: 32px;
+
+        @media screen and (max-width: 782px) {
+            top: 46px;
+        }
+    }
+
   .header__wrap{
     display: flex;
     flex-wrap: wrap;

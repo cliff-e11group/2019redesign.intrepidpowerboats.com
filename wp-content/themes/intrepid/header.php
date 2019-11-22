@@ -103,7 +103,7 @@
                     <a class="btn btn--primary" href="#">Contact</a>
                 </li>
                 <li class="quick-links__item">
-                    <a class="link" href="<?php echo site_url('forum'); ?>">Owners Portal</a>
+                    <a class="link" href="<?php echo site_url('forums'); ?>">Owners Portal</a>
                 </li>
             </ul>
         </div>

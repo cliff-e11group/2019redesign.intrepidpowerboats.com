@@ -22,6 +22,15 @@ function e11_register_post_types() {
             'hierarchical' => true,
             'supports' => array('title', 'revisions', 'page-attributes', 'thumbnail'),
         ),
+        array(
+            'cpt_single' => 'Gallery',
+            'cpt_plural' => 'Galleries',
+            'slug' => 'gallery',
+            'cpt_icon' => 'dashicons-format-gallery',
+            'exclude_from_search' => true,
+            'hierarchical' => true,
+            'supports' => array('title', 'revisions', 'page-attributes', 'thumbnail'),
+        ),
 
     );
 
