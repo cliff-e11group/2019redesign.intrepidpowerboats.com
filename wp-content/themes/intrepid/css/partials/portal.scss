@@ -4,6 +4,10 @@
     @media #{$phone} {
         min-height: 0;
     }
+
+    .nav-block {
+        margin-bottom: 40px;
+    }
 }
 
 .portal-login {

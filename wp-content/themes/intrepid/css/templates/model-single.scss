@@ -127,8 +127,15 @@
         &:hover{
             background-color: $white !important;
             color: $dark-gray;
+
+            a {
+                color: $dark-gray;
+            }
         }
 
+        a {
+            color:$white;
+        }
     }
 }
 

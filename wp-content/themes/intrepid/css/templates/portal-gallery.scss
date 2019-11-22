@@ -1,0 +1,44 @@
+.portal-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.portal-gallery__item {
+    display: block;
+    width: calc(25% - 20px);
+    padding-bottom: calc(320/560 * 25%);
+    margin: 0 10px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portal-gallery__nav {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.portal-gallery__nav-link {
+    display: inline-block;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4.8px;
+    padding: 17px 35px;
+    font-weight: 300;
+    color: $bright-gray;
+    border-right: 1px solid #979797;
+
+    @media #{$phone} {
+        letter-spacing: 1px;
+        padding: 12px;
+    }
+
+    &:last-child {
+        border-right: 0;
+    }
+
+    &.portal-gallery__nav-link--active {
+        font-weight: 700;
+    }
+}

@@ -11,15 +11,38 @@ if ($post->post_parent > 0) {
 ?>
 <main class="main page-default">
     <?php if(is_bbpress()) : ?>
-    <div class="owners-portal">
-        <?php if(is_user_logged_in()) : ?>
-            <div class="container">
-                <nav class="portal-nav">
-                    <a href="<?php echo site_url('forums'); ?>" class="portal-nav__link portal-nav__link--active"><span><?php echo file_get_contents(IMAGES . '/caret-right.svg'); ?></span>Forum</a>
-                    <a href="<?php echo site_url('forums'); ?>" class="portal-nav__link"><span><?php echo file_get_contents(IMAGES . '/caret-right.svg'); ?></span>Gallery</a>
-                </nav>
-                <div class=""><?php the_content(); ?></div>
+    <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">Owner's Portal</h1>
+                <?php if(is_user_logged_in()) : ?>
+                <div class="hero__description">
+                    <p>Forum</p>
+                </div>
+                <?php endif; ?>
             </div>
+        </div>
+    </section>
+    <section class="owners-portal">
+        <?php if(is_user_logged_in()) : ?>
+        <nav class="nav-block">
+            <div class="nav-block__toggle active"><span class="nav-block__active-tab">Forum</span><span class="icon-close icon-close--white"></span></div>
+            <div class="nav-block__inner">
+                <div class="container">
+                    <ul class="model-nav resp-tabs-list hor_1 resp-tab-active">
+                        <li class="model-nav__item">
+                            <a href="<?php echo site_url('forums'); ?>">Forum</a>
+                        </li>
+                        <li class="model-nav__item">
+                            <a href="<?php echo site_url('gallery'); ?>">Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class=""><?php the_content(); ?></div>
+        </div>
         <?php else : ?>
         <section class="portal-login">
             <div class="container">
@@ -50,7 +73,7 @@ if ($post->post_parent > 0) {
             </div>
         </section>
         <?php endif; ?>
-    </div>
+    </section>
     <?php else : ?>
     <div class="container">
         <div class="entry-content"><?php the_content(); ?></div>
