@@ -465,6 +465,22 @@
   }
 }
 
+.hero--overlay{
+  &:before{
+    content:"";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color:rgba(31, 34, 37, 0.5);
+    @media #{$phone} {
+      display: none;
+    }
+  }
+}
+
 .custom-hero{
   .container{
     max-width: 1200px;

@@ -427,6 +427,45 @@ jQuery(document).ready(function ($) {
         $(this).closest(".service-form").children(".service-form__content").slideToggle();
     });
 
+    $('.custom-tab__nav-item:first-child a').addClass('active');
+    $('.custom-tab__content-item:first-child').addClass('active');
+    $('.custom-tab__nav-item a').click(function(e){
+        e.preventDefault();
+        $('.custom-tab__nav-item a').removeClass('active');
+        $(this).addClass('active');
+        var tagid = $(this).attr('href');
+        $('.custom-tab__content-item').removeClass('active').addClass('hide');
+        $(tagid).addClass('active').removeClass('hide');
+    });
+
+    $('.custom-tab-slider').slick({
+        dots: false,
+        arrows: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 5,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 600,
+                settings: {
+                    centerMode: true,
+                    slidesToShow: 3,
+                    slidesToScroll:1,
+                }
+
+            }
+        ]
+    });
+
+    $('.custom-tab-slider').on('click', '.slick-slide', function (e) {
+        e.stopPropagation();
+        var index = $(this).data("slick-index");
+        if ($('.custom-tab-slider').slick('slickCurrentSlide') !== index) {
+            $('.custom-tab-slider').slick('slickGoTo', index);
+        }
+    });
+
 });
 
 

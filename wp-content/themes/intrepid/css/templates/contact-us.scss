@@ -257,6 +257,11 @@
   &--fullwidth{
     width: 100%;
   }
+  &:last-child{
+    @media #{$phone} {
+      margin-bottom: 0;
+    }
+  }
   @media #{$phone} {
     width: 100%;
     margin-bottom: 70px;
@@ -354,7 +359,8 @@
     border-bottom: 1px solid rgba($dark-gray, 0.5);
     padding-bottom: 8px;
     margin-bottom: 23px;
-    @media #{$phone-small} {
+    @media #{$phone} {
+      text-align: center;
       @include fsz(14px);
       letter-spacing: 4.1px;
     }
