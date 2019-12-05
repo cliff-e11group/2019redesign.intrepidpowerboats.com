@@ -133,8 +133,21 @@
             }
         }
 
+        .owners-portal & {
+            padding: 0;
+        }
+
         a {
             color:$white;
+
+            .owners-portal & {
+                display: block;
+                padding: 23px 16px;
+
+                @media #{$header} {
+                    padding: 15px 16px;
+                }
+            }
         }
     }
 }

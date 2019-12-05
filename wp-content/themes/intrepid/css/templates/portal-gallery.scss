@@ -12,6 +12,17 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @media (max-width: 1024px) {
+        padding-bottom: calc(320/560 * 33.33%);
+        width: calc(33.33% - 20px);
+    }
+
+    @media #{$phone} {
+        width: 100%;
+        margin: 0 0 15px;
+        padding-bottom: calc(360/560 * 100%);
+    }
 }
 
 .portal-gallery__nav {
@@ -30,8 +41,9 @@
     border-right: 1px solid #979797;
 
     @media #{$phone} {
-        letter-spacing: 1px;
-        padding: 12px;
+        letter-spacing: 0;
+        padding: 8px;
+        font-size: 14px;
     }
 
     &:last-child {

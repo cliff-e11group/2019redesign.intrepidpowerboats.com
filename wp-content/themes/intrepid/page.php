@@ -29,8 +29,8 @@ if ($post->post_parent > 0) {
             <div class="nav-block__toggle active"><span class="nav-block__active-tab">Forum</span><span class="icon-close icon-close--white"></span></div>
             <div class="nav-block__inner">
                 <div class="container">
-                    <ul class="model-nav resp-tabs-list hor_1 resp-tab-active">
-                        <li class="model-nav__item">
+                    <ul class="model-nav resp-tabs-list hor_1">
+                        <li class="model-nav__item resp-tab-active">
                             <a href="<?php echo site_url('forums'); ?>">Forum</a>
                         </li>
                         <li class="model-nav__item">
@@ -75,9 +75,18 @@ if ($post->post_parent > 0) {
         <?php endif; ?>
     </section>
     <?php else : ?>
-    <div class="container">
-        <div class="entry-content"><?php the_content(); ?></div>
-    </div>
+    <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title"><?php the_title(); ?></h1>
+            </div>
+        </div>
+    </section>
+    <section class="page-default__container">
+        <div class="container">
+            <div class="entry-content"><?php the_content(); ?></div>
+        </div>
+    </section>
     <?php endif; ?>
     <?php if (!post_password_required(get_the_ID()) && !post_password_required($parent)) : ?>
     <?php include('modules/flex-content/flex-content.php') ?>

@@ -1,0 +1,86 @@
+.service-form{
+  max-width: 880px;
+  margin-top: 10px;
+  padding-left: 300px;
+  @media #{$header} {
+    padding-left: 150px;
+  }
+  @media #{$phone}{
+    padding-left: 0;
+  }
+  .service-form__trigger{
+    width: 53px;
+    height: 53px;
+    display: block;
+    margin-left: 5px;
+    transform: rotate(0);
+    &.active{
+      transform: rotate(45deg);
+    }
+    @media #{$header} {
+      width: 33px;
+      height: 33px;
+    }
+  }
+
+  .service-form__title-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @media #{$phone}{
+      margin-top: 18px;
+      justify-content: center;
+    }
+  }
+  .service-form__title{
+    @include fsz(26px);
+    margin-bottom: 0;
+    text-transform: uppercase;
+    @media #{$header} {
+      @include fsz(20px);
+    }
+  }
+  .service-form__content{
+    padding-top: 28px;
+    display: none;
+    .form__title{
+      border:none;
+    }
+  }
+}
+
+.customer-support{
+  padding: 84px 0;
+  background-color: #F4F4F4;
+  @media #{$phone} {
+    padding: 45px 0;
+  }
+  .container{
+    max-width: 820px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__title{
+    @include fsz(11px);
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+    color: $silver;
+    border-bottom: 1px solid rgba($dark-gray, 0.5);
+    padding-bottom: 8px;
+    margin-bottom: 23px;
+    @media #{$phone} {
+      @include fsz(14px);
+      letter-spacing: 4.1px;
+      text-align: center;
+    }
+  }
+}
+
+.customer-support__location,
+.customer-support__team{
+  width: calc(50% - 10px);
+  @media #{$phone} {
+    width: 100%;
+  }
+}

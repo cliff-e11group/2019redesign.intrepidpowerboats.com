@@ -62,7 +62,7 @@
                             <a href="#">Service</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#">Pre-Owned</a>
+                            <a href="http://www.yachtworld.com/core/listing/cache/pl_search_results.jsp?ywo=intrepidse&ps=50&type=&new=&luom=126&hosturl=intrepidse&page=broker&slim=broker&lineonly" target="_blank">Pre-Owned</a>
                         </li>
                     </ul>
                     <ul class="secondary-nav">

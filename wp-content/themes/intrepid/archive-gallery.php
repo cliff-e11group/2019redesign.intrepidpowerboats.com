@@ -28,6 +28,9 @@ the_post();
                         </li>
                     </ul>
                 </div>
+                <a href="#" class="sticky-btn">Upload Photo/Video<svg class="icon icon-arrow-up" aria-hidden="true" role="img">
+                    <use xlink:href="#icon-arrow-up" x="0" y="0"></use>
+                </svg></a>
             </div>
         </nav>
         <div class="container">
@@ -36,6 +39,14 @@ the_post();
                 <a href="/" class="portal-gallery__nav-link">Community Gallery</a>
             </div>
             <section class="portal-gallery">
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image1.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image1.jpg);" class="portal-gallery__item"></a>
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image2.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image2.jpg);" class="portal-gallery__item"></a>
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image3.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image3.jpg);" class="portal-gallery__item"></a>
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image4.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image4.jpg);" class="portal-gallery__item"></a>
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image4.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image4.jpg);" class="portal-gallery__item"></a>
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image3.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image3.jpg);" class="portal-gallery__item"></a>
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image2.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image2.jpg);" class="portal-gallery__item"></a>
+                <a href="<?php echo STYLEDIR; ?>/uploads/article-image1.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image1.jpg);" class="portal-gallery__item"></a>
                 <a href="<?php echo STYLEDIR; ?>/uploads/article-image1.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image1.jpg);" class="portal-gallery__item"></a>
                 <a href="<?php echo STYLEDIR; ?>/uploads/article-image2.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image2.jpg);" class="portal-gallery__item"></a>
                 <a href="<?php echo STYLEDIR; ?>/uploads/article-image3.jpg" data-fancybox="gallery" style="background-image: url(<?php echo STYLEDIR; ?>/uploads/article-image3.jpg);" class="portal-gallery__item"></a>

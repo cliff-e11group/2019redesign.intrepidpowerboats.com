@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="10px" viewBox="0 0 16 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Sub-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="mobile-menu" transform="translate(-254.000000, -175.000000)">
+            <g id="icon_arrow" transform="translate(254.000000, 172.000000)">
+                <rect id="frame" fill-rule="nonzero" x="0" y="0" width="16" height="16"></rect>
+                <polygon id="keyboard-right-arrow-button" fill="#000000" transform="translate(8.000000, 8.000000) rotate(90.000000) translate(-8.000000, -8.000000) " points="4.89294157 0 3 1.86794418 9.21411685 8 3 14.1303895 4.89294157 16 13 8"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
