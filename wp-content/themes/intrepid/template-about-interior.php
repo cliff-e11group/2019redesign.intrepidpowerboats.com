@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: About
+* Template Name: About Interior
 */
 get_header();
 the_post();
@@ -10,7 +10,7 @@ the_post();
     <section class="primary-block primary-block--dark">
         <div class="container">
             <figure class="primary-block__image">
-                <img src="uploads/employee.jpg" alt="employee" />
+                <img src="<?php echo STYLEDIR; ?>/uploads/employee.jpg" alt="employee" />
             </figure>
             <div class="primary-block__content">
                 <h2 class="primary-block__title">One of a kind. <strong>One at a time.</strong></h2>
@@ -24,7 +24,7 @@ the_post();
             </div>
         </div>
     </section>
-    <section class="custom-tab custom-tab--alignright" style="background-image:url(uploads/engineer.jpg);">
+    <section class="custom-tab custom-tab--alignright" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/engineer.jpg);">
         <div class="container">
             <div class="custom-tab__wrap">
                 <h2 class="custom-tab__title">Craftmanship</h2>
@@ -59,7 +59,7 @@ the_post();
         <div class="container">
             <div class="media-content__item media-content__item--sticky-image">
                 <figure class="media-content__thumbnail">
-                    <img src="uploads/glad-customer.jpg" alt="glad-customer" />
+                    <img src="<?php echo STYLEDIR; ?>/uploads/glad-customer.jpg" alt="glad-customer" />
                     <div class="thumbnail-sticky thumbnail-sticky--bottom-right" style="background-image:url('uploads/engineer-thumb.jpg');">
                     </div>
                 </figure>
@@ -72,7 +72,7 @@ the_post();
             </div>
             <div class="media-content__item media-content__item--sticky-image">
                 <figure class="media-content__thumbnail">
-                    <img src="uploads/customizable-technology.jpg" alt="customizable-technology" />
+                    <img src="<?php echo STYLEDIR; ?>/uploads/customizable-technology.jpg" alt="customizable-technology" />
                     <div class="thumbnail-sticky thumbnail-sticky--top-right" style="background-image:url('uploads/boat-engine-light.jpg');">
                     </div>
                 </figure>
@@ -83,7 +83,7 @@ the_post();
             </div>
             <div class="media-content__item">
                 <figure class="media-content__thumbnail">
-                    <img src="uploads/engines-galore.jpg" alt="engines-galore" />
+                    <img src="<?php echo STYLEDIR; ?>/uploads/engines-galore.jpg" alt="engines-galore" />
                 </figure>
                 <div class="media-content__details">
                     <h2 class="media-content__title">Engines Galore.</h2>
@@ -92,7 +92,7 @@ the_post();
             </div>
             <div class="media-content__item">
                 <figure class="media-content__thumbnail">
-                    <img src="uploads/smiling-girls.jpg" alt="smiling-girls" />
+                    <img src="<?php echo STYLEDIR; ?>/uploads/smiling-girls.jpg" alt="smiling-girls" />
                 </figure>
                 <div class="media-content__details">
                     <h2 class="media-content__title">World Class Service.</h2>

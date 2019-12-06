@@ -7,9 +7,9 @@ the_post();
 ?>
 <?php get_header(); ?>
 <main class="main">
-    <section class="landing-hero landing-hero--alt" style="background-image:url(uploads/fishing.jpg)">
+    <section class="landing-hero landing-hero--alt" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg)">
         <div class="container">
-            <div class="landing-hero__item" style="background-image:url(uploads/fishing.jpg)">
+            <div class="landing-hero__item" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg)">
                 <div class="landing-hero__content landing-hero__content--fade">
                     <h2 class="landing-hero__title">One of a kind</h2>
                     <div class="landing-hero__description">
@@ -18,7 +18,7 @@ the_post();
                     <a class="btn btn--outline btn--outline-mobile" href="#">Custom Made</a>
                 </div>
             </div>
-            <div class="landing-hero__item" style="background-image:url(uploads/gallery-image3.jpg)">
+            <div class="landing-hero__item" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/gallery-image3.jpg)">
                 <div class="landing-hero__content">
                     <h2 class="landing-hero__title">One at a time</h2>
                     <div class="landing-hero__description">

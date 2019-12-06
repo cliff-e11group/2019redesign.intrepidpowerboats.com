@@ -56,10 +56,10 @@
                             <a href="<?php echo site_url('events'); ?>">Events</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#">About</a>
+                            <a href="<?php echo site_url('about'); ?>">About</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#">Service</a>
+                            <a href="<?php echo site_url('service'); ?>">Service</a>
                         </li>
                         <li class="menu__item">
                             <a href="http://www.yachtworld.com/core/listing/cache/pl_search_results.jsp?ywo=intrepidse&ps=50&type=&new=&luom=126&hosturl=intrepidse&page=broker&slim=broker&lineonly" target="_blank">Pre-Owned</a>
@@ -100,7 +100,7 @@
             </nav>
             <ul class="quick-links">
                 <li class="quick-links__item">
-                    <a class="btn btn--primary" href="#">Contact</a>
+                    <a class="btn btn--primary" href="<?php echo site_url('contact'); ?>">Contact</a>
                 </li>
                 <li class="quick-links__item">
                     <a class="link" href="<?php echo site_url('forums'); ?>">Owners Portal</a>

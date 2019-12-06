@@ -7,7 +7,7 @@ the_post();
 ?>
 <?php get_header(); ?>
 <main class="main">
-    <section class="hero hero--inner" style="background-image:url(uploads/our-models-bg-image.jpg);">
+    <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title">Contact Us</h1>
@@ -84,7 +84,7 @@ the_post();
                                 </li>
                                 <li class="form__field form__field--captcha">
                                     <span class="required-symbol">* Required Fields</span>
-                                    <img src="uploads/newCaptcha.png" alt="captcha" />
+                                    <img src="<?php echo STYLEDIR; ?>/uploads/newCaptcha.png" alt="captcha" />
                                 </li>
                                 <li class="form__field form__field--submit">
                                     <input class="button button--small" type="submit" value="Send Message">
@@ -114,7 +114,7 @@ the_post();
                                 </li>
                                 <li class="form__field form__field--captcha">
                                     <span class="required-symbol">* Required Fields</span>
-                                    <img src="uploads/newCaptcha.png" alt="captcha" />
+                                    <img src="<?php echo STYLEDIR; ?>/uploads/newCaptcha.png" alt="captcha" />
                                 </li>
                                 <li class="form__field form__field--submit">
                                     <input class="button button--small" type="submit" value="Send Message">
@@ -141,7 +141,7 @@ the_post();
                                 </li>
                                 <li class="form__field form__field--captcha">
                                     <span class="required-symbol">* Required Fields</span>
-                                    <img src="uploads/newCaptcha.png" alt="captcha" />
+                                    <img src="<?php echo STYLEDIR; ?>/uploads/newCaptcha.png" alt="captcha" />
                                 </li>
                                 <li class="form__field form__field--submit">
                                     <input class="button button--small" type="submit" value="Send Message">
@@ -177,7 +177,7 @@ the_post();
                                 </li>
                                 <li class="form__field form__field--captcha">
                                     <span class="required-symbol">* Required Fields</span>
-                                    <img src="uploads/newCaptcha.png" alt="captcha" />
+                                    <img src="<?php echo STYLEDIR; ?>/uploads/newCaptcha.png" alt="captcha" />
                                 </li>
                                 <li class="form__field form__field--submit">
                                     <input class="button button--small" type="submit" value="Send Message">
@@ -198,7 +198,7 @@ the_post();
                 <div class="company-info__item">
                     <figure class="company-info__map">
                         <a href="#" target="_blank">
-                            <img src="uploads/google-map.jpg" alt="map"/>
+                            <img src="<?php echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
                         </a>
                     </figure>
                     <h3 class="company-info__title">Sales Headquarters</h3>
@@ -219,7 +219,7 @@ the_post();
                 <div class="company-info__item">
                     <figure class="company-info__map">
                         <a href="#" target="_blank">
-                            <img src="uploads/google-map.jpg" alt="map"/>
+                            <img src="<?php echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
                         </a>
                     </figure>
                     <h3 class="company-info__title">Service Location</h3>
@@ -237,7 +237,7 @@ the_post();
                 <div class="company-info__item">
                     <figure class="company-info__map">
                         <a href="#" target="_blank">
-                            <img src="uploads/google-map.jpg" alt="map"/>
+                            <img src="<?php echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
                         </a>
                     </figure>
                     <h3 class="company-info__title">Manufacturing Facility</h3>
@@ -257,7 +257,7 @@ the_post();
                     <ul class="member-list member-list--two-col">
                         <li class="member member-list__item">
                             <figure class="member__image">
-                                <img src="uploads/mike.jpg" alt="mike" />
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                             </figure>
                             <div class="member__details">
                                 <h3 class="member__name">Mike Obolsky</h3>
@@ -268,7 +268,62 @@ the_post();
                         </li>
                         <li class="member member-list__item">
                             <figure class="member__image">
-                                <img src="uploads/mike.jpg" alt="mike" />
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                            </figure>
+                            <div class="member__details">
+                                <h3 class="member__name">Mike Obolsky</h3>
+                                <span class="member__designation">Senior VP</span>
+                                <a class="member__phone" href="tel:9543244196">954.324.4196</a>
+                                <span class="member__email"><a href="">mike@intrepidpowerboats.com</a></span>
+                            </div>
+                        </li>
+                        <li class="member member-list__item">
+                            <figure class="member__image">
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                            </figure>
+                            <div class="member__details">
+                                <h3 class="member__name">Mike Obolsky</h3>
+                                <span class="member__designation">Senior VP</span>
+                                <a class="member__phone" href="tel:9543244196">954.324.4196</a>
+                                <span class="member__email"><a href="">mike@intrepidpowerboats.com</a></span>
+                            </div>
+                        </li>
+                        <li class="member member-list__item">
+                            <figure class="member__image">
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                            </figure>
+                            <div class="member__details">
+                                <h3 class="member__name">Mike Obolsky</h3>
+                                <span class="member__designation">Senior VP</span>
+                                <a class="member__phone" href="tel:9543244196">954.324.4196</a>
+                                <span class="member__email"><a href="">mike@intrepidpowerboats.com</a></span>
+                            </div>
+                        </li>
+                        <li class="member member-list__item">
+                            <figure class="member__image">
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                            </figure>
+                            <div class="member__details">
+                                <h3 class="member__name">Mike Obolsky</h3>
+                                <span class="member__designation">Senior VP</span>
+                                <a class="member__phone" href="tel:9543244196">954.324.4196</a>
+                                <span class="member__email"><a href="">mike@intrepidpowerboats.com</a></span>
+                            </div>
+                        </li>
+                        <li class="member member-list__item">
+                            <figure class="member__image">
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                            </figure>
+                            <div class="member__details">
+                                <h3 class="member__name">Mike Obolsky</h3>
+                                <span class="member__designation">Senior VP</span>
+                                <a class="member__phone" href="tel:9543244196">954.324.4196</a>
+                                <span class="member__email"><a href="">mike@intrepidpowerboats.com</a></span>
+                            </div>
+                        </li>
+                        <li class="member member-list__item">
+                            <figure class="member__image">
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                             </figure>
                             <div class="member__details">
                                 <h3 class="member__name">Mike Obolsky</h3>
@@ -286,7 +341,7 @@ the_post();
                     <ul class="member-list">
                         <li class="member member-list__item">
                             <figure class="member__image">
-                                <img src="uploads/mike.jpg" alt="mike" />
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                             </figure>
                             <div class="member__details">
                                 <h3 class="member__name">Mike Obolsky</h3>
@@ -297,7 +352,7 @@ the_post();
                         </li>
                         <li class="member member-list__item">
                             <figure class="member__image">
-                                <img src="uploads/mike.jpg" alt="mike" />
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                             </figure>
                             <div class="member__details">
                                 <h3 class="member__name">Mike Obolsky</h3>
@@ -313,7 +368,7 @@ the_post();
                     <ul class="member-list">
                         <li class="member member-list__item">
                             <figure class="member__image">
-                                <img src="uploads/mike.jpg" alt="mike" />
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                             </figure>
                             <div class="member__details">
                                 <h3 class="member__name">Mike Obolsky</h3>
@@ -324,7 +379,7 @@ the_post();
                         </li>
                         <li class="member member-list__item">
                             <figure class="member__image">
-                                <img src="uploads/mike.jpg" alt="mike" />
+                                <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                             </figure>
                             <div class="member__details">
                                 <h3 class="member__name">Mike Obolsky</h3>

@@ -92,3 +92,10 @@
         width: 100%;
     }
 }
+
+.customer-support__location {
+
+    @media #{$phone} {
+        margin-bottom: 76px;
+    }
+}
