@@ -1,37 +1,39 @@
 button,
 input[type="submit"],
 button[type="submit"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 0;
-  background: none;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    background: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
+
 .btn,
 input[type="submit"],
 button[type="submit"] {
-  box-shadow: none;
-  background-color: $white;
-  color:$dark-gray;
+    box-shadow: none;
+    background-color: $white;
+    color: $dark-gray;
     border: 1px solid $white;
-  display: inline-block;
-  text-align: center;
-  transition: .3s ease all;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 12px 25px;
-  line-height: 1.2;
-  border-radius: 0;
-  text-transform: uppercase;
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: $dark-gray;
-    color:$white;
-  }
+    display: inline-block;
+    text-align: center;
+    transition: .3s ease all;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 25px;
+    line-height: 1.2;
+    border-radius: 0;
+    text-transform: uppercase;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $dark-gray;
+        color: $white;
+    }
 
     .portal-login &,
     .bbpress-wrapper & {
@@ -40,132 +42,153 @@ button[type="submit"] {
 }
 
 .btn {
-  &--fullwidth {
-    width: 100%;
-  }
-  &--primary{
-    font-size: 13px;
-    color:$white;
-    background:url(images/button-bg.png) no-repeat 0 0 #6d0707;
-      border: none;
-    transition: $transition;
-    &:hover,
-    &:active,
-    &:focus {
-      background-position: -170px;
-      background-color: #6d0707;
+    &--fullwidth {
+        width: 100%;
     }
-  }
-  &--outline{
-    background-color: transparent;
-    border: 1px solid;
 
-      &:hover,
-      &:active,
-      &:focus {
-          background-color: $dark-gray;
-          color:$white;
-      }
-  }
-  &--inverse{
-    color: #FFFFFF;
-    background-color: $dark-gray;
+    &--primary {
+        font-size: 13px;
+        color: $white;
+        background: url(images/button-bg.png) no-repeat 0 0 #6d0707;
+        border: none;
+        transition: $transition;
 
-      &:hover,
-      &:active,
-      &:focus {
-          background-color: $white;
-          color:$dark-gray;
-      }
-  }
-  &--dark{
-    background-color: $dark-gray;
-    color: #FFFFFF;
-      border-color: $dark-gray;
-
-      &:hover,
-      &:active,
-      &:focus {
-          background-color: $white;
-          color:$dark-gray;
-      }
-  }
-  &--dark-alt{
-    background-color: #3A4249;
-    color: #FFFFFF;
-
-      &:hover,
-      &:active,
-      &:focus {
-          background-color: $white;
-          color:#3A4249;
-      }
-  }
-  &--large{
-    padding: 15px 50px;
-  }
-  &--large-mobile{
-    min-width: 165px;
-    @media #{$phone} {
-       padding:22px 25px;
-       min-width: 194px;
+        &:hover,
+        &:active,
+        &:focus {
+            background-position: -170px;
+            background-color: #6d0707;
+        }
     }
-  }
-  &--large-desktop{
-    min-width: 165px;
-    @media #{$phone} {
-      display: none;
+
+    &--outline {
+        background-color: transparent;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $dark-gray;
+            color: $white;
+        }
     }
-  }
+
+    &--light {
+        color: $white;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $white;
+            color: $dark-gray;
+        }
+    }
+
+    &--inverse {
+        color: #FFFFFF;
+        background-color: $dark-gray;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $white;
+            color: $dark-gray;
+        }
+    }
+
+    &--dark {
+        background-color: $dark-gray;
+        color: #FFFFFF;
+        border-color: $dark-gray;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $white;
+            color: $dark-gray;
+        }
+    }
+
+    &--dark-alt {
+        background-color: #3A4249;
+        color: #FFFFFF;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $white;
+            color: #3A4249;
+        }
+    }
+
+    &--large {
+        padding: 15px 50px;
+    }
+
+    &--large-mobile {
+        min-width: 165px;
+        @media #{$phone} {
+            padding: 22px 25px;
+            min-width: 194px;
+        }
+    }
+
+    &--large-desktop {
+        min-width: 165px;
+        @media #{$phone} {
+            display: none;
+        }
+    }
 }
 
 .icon-close,
-.icon-plus{
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  z-index: 1;
-  transition: 0.25s;
-  transform: rotate(45deg);
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+.icon-plus {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1;
     transition: 0.25s;
-    z-index: -1;
-  }
+    transform: rotate(45deg);
 
-  &:before {
-    background: url("images/loding-spiral-sm.png") no-repeat center;
-    background-size: cover;
-  }
-
-  &:after {
-    background-image: url("images/add.svg");
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-  }
-  &--white{
+    &:before,
     &:after {
-      background-image: url(images/add-white.svg);
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.25s;
+        z-index: -1;
     }
-  }
-  &:hover,
-  a:hover &{
+
     &:before {
-      transform: rotate(360deg);
-      transition: 0.25s;
+        background: url("images/loding-spiral-sm.png") no-repeat center;
+        background-size: cover;
     }
-  }
+
+    &:after {
+        background-image: url("images/add.svg");
+        background-size: 60%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+    }
+
+    &--white {
+        &:after {
+            background-image: url(images/add-white.svg);
+        }
+    }
+
+    &:hover,
+    a:hover & {
+        &:before {
+            transform: rotate(360deg);
+            transition: 0.25s;
+        }
+    }
 }
 

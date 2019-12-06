@@ -7,24 +7,30 @@ the_post();
 ?>
 <?php get_header(); ?>
 <main class="main">
-    <section class="landing-hero landing-hero--alt" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg)">
+    <section class="landing-hero landing-hero--alt">
         <div class="container">
-            <div class="landing-hero__item" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg)">
+            <div class="landing-hero__item landing-hero__item--active">
+                <div class="landing-hero__item-bg" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg)"></div>
                 <div class="landing-hero__content landing-hero__content--fade">
                     <h2 class="landing-hero__title">One of a kind</h2>
                     <div class="landing-hero__description">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed post.</p>
                     </div>
-                    <a class="btn btn--outline btn--outline-mobile" href="#">Custom Made</a>
+                    <a class="landing-hero__link" href="<?php echo site_url('about/one-of-a-kind'); ?>">
+                        <span class="btn btn--outline btn--light">Custom Made</span>
+                    </a>
                 </div>
             </div>
-            <div class="landing-hero__item" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/gallery-image3.jpg)">
+            <div class="landing-hero__item">
+                <div class="landing-hero__item-bg" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/craftsmanship.jpg)"></div>
                 <div class="landing-hero__content">
                     <h2 class="landing-hero__title">One at a time</h2>
                     <div class="landing-hero__description">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed post.</p>
                     </div>
-                    <a class="btn btn--outline-mobile" href="#">Expert Craftmanship</a>
+                    <a class="landing-hero__link" href="<?php echo site_url('about/one-at-a-time'); ?>">
+                        <span class="btn btn--outline btn--light">Expert Craftmanship</span>
+                    </a>
                 </div>
             </div>
             <div class="landing-hero__intro">
