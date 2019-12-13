@@ -11,45 +11,9 @@ $page = get_the_ID();
 
     <?php e11_intro_block(array(), true, 'get_field', $page, ''); ?>
 
-    <section class="grid-block">
-        <div class="container">
-            <div class="grid-block__item grid-block__item--1" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg');">
-                <div class="grid-block__content">
-                    <h2 class="grid-block__title">One of a kind</h2>
-                    <p>We don’t make boats the way they could be made, we make them the way they should be made.</p>
-                    <a class="btn" href="">Custom made</a>
-                </div>
-            </div>
-            <div class="grid-block__item grid-block__item--2" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/grid-image2.jpg');">
-                <div class="grid-block__content">
-                    <h2 class="grid-block__title">One of a kind</h2>
-                    <p>No two Intrepids are alike. We constantly chase innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style.</p>
-                    <a class="btn" href="">Our craftmanship</a>
-                </div>
-            </div>
-            <div class="grid-block__item grid-block__item--3" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/grid-image3.jpg');">
-                <div class="grid-block__content">
-                    <h2 class="grid-block__title">World class service</h2>
-                    <p>Description of the service department here.</p>
-                    <a class="btn" href="">Our service</a>
-                </div>
-            </div>
-            <div class="grid-block__item grid-block__item--4" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/grid-image4.jpg');">
-                <div class="grid-block__content">
-                    <h2 class="grid-block__title">Full line brochure</h2>
-                    <p>A full PDF view of our entire custom made fleet.</p>
-                    <a class="btn" href="">Download PDF</a>
-                </div>
-            </div>
-            <div class="grid-block__item grid-block__item--5" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/grid-image5.jpg');">
-                <div class="grid-block__content">
-                    <h2 class="grid-block__title">Intrepid gear</h2>
-                    <p>Get the latest gear and accessories from Intrepid.</p>
-                    <a class="btn" href="">See the gear</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php e11_grid_block(array(), true, 'get_field', $page, ''); ?>
+
+
     <div class="newsletter-block">
         <h3 class="newsletter-block__title">
             Newsletter Signup <svg class="icon icon-arrow-up" aria-hidden="true" role="img">
