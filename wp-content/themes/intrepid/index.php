@@ -122,6 +122,7 @@
                 'posts_per_page' => 4,
                 'post_type' => 'post',
                 'order'=>'DESC',
+                'offset' => 1
 
                 );
 

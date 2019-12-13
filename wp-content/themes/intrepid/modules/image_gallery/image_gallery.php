@@ -8,7 +8,7 @@
  * @return bool
  * Usage on page template / $page_id = get_the_ID(); / e11_module_name(array(), true, 'get_field', $page_id);
  */
-function e11_general_content($args = array(), $use_page_content = false, $get_field_type = 'get_field', $field_location = '', $prefix = false)
+function e11_image_gallery($args = array(), $use_page_content = false, $get_field_type = 'get_field', $field_location = '', $prefix = false)
 {
 
     if (empty($args) && !$use_page_content):
@@ -17,19 +17,21 @@ function e11_general_content($args = array(), $use_page_content = false, $get_fi
 
     if ($use_page_content):
         $defaults = array(
-            'content' => $get_field_type($prefix . 'general_content_content', $field_location),
+            'gallery' => $get_field_type($prefix . 'image_gallery', $field_location),
+            'caption' => $get_field_type($prefix . 'image_gallery_caption', $field_location),
 
         );
     else:
         $defaults = array(
-            'content' => '',
+            'gallery' => array(),
+            'caption' => false,
         );
     endif;
 
     $data = array_merge($defaults, $args);
 
-    if (!empty($data['content'])):
-        include 'tpl/general_content.tpl.php';
+    if (!empty($data['gallery'])):
+        include 'tpl/image_gallery.tpl.php';
     endif;
 
     return true;

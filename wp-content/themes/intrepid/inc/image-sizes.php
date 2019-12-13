@@ -5,6 +5,7 @@ function e11_image_size_setup(){
 	// Add custom image sizes.
 	add_image_size('hero', 1440, 9999, false);
 	add_image_size('featured-thumb', 280, 180, true);
+	add_image_size('image-gallery', 715, 730, true);
 
 }
 add_action( 'after_setup_theme', 'e11_image_size_setup' );
