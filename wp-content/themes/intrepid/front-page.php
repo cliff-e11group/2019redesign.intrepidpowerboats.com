@@ -8,14 +8,7 @@ the_post();
     <?php
     $home_hero_img = get_field('home_hero_img');
     ?>
-    <section class="hero" style="background-image:url(<?php echo $home_hero_img['sizes']['hero']; ?>/uploads/Intrepid_Boat.jpg);">
-        <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__title"><strong>The Intrepid</strong> Difference</h1>
-                <a data-fancybox href="https://vimeo.com/160120764" class="play-btn">Play Video</a>
-            </div>
-        </div>
-    </section>
+
     <section class="intro-block">
         <div class="container">
             <h2 class="intro-block__title">Custom craftsmanship and design that follow an uncompromising set of specifications. <strong>Yours.</strong></h2>
