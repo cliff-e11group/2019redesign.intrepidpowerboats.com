@@ -213,9 +213,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "post_status",
                 "operator": "==",
-                "value": "post"
+                "value": "inherit"
             }
         ]
     ],
@@ -227,5 +227,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576256449
+    "modified": 1576260081
 }
