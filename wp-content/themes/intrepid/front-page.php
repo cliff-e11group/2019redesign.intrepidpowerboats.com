@@ -9,14 +9,8 @@ $page = get_the_ID();
 
     <?php e11_hero_video(array(), true, 'get_field', $page, ''); ?>
 
-    <section class="intro-block">
-        <div class="container">
-            <h2 class="intro-block__title">Custom craftsmanship and design that follow an uncompromising set of specifications. <strong>Yours.</strong></h2>
-            <a class="icon-link" href="<?php echo site_url('boats'); ?>">
-                View all models
-            </a>
-        </div>
-    </section>
+    <?php e11_intro_block(array(), true, 'get_field', $page, ''); ?>
+
     <section class="grid-block">
         <div class="container">
             <div class="grid-block__item grid-block__item--1" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg');">
