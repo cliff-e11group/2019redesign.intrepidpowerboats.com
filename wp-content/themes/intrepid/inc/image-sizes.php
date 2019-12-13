@@ -3,7 +3,7 @@
 function e11_image_size_setup(){
 
 	// Add custom image sizes.
-	add_image_size('hero', 1680, 9999, false);
+	add_image_size('hero', 1440, 9999, false);
 
 }
 add_action( 'after_setup_theme', 'e11_image_size_setup' );

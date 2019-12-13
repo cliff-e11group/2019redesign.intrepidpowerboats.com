@@ -5,7 +5,10 @@ the_post();
 <?php get_header(); ?>
 
 <main class="main">
-    <section class="hero" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg);">
+    <?php
+    $home_hero_img = get_field('home_hero_img');
+    ?>
+    <section class="hero" style="background-image:url(<?php echo $home_hero_img['sizes']['hero']; ?>/uploads/Intrepid_Boat.jpg);">
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title"><strong>The Intrepid</strong> Difference</h1>
