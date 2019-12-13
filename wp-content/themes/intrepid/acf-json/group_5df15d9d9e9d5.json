@@ -1,0 +1,30 @@
+{
+    "key": "group_5df15d9d9e9d5",
+    "title": "Page Builder",
+    "fields": [],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ],
+        [
+            {
+                "param": "post_status",
+                "operator": "==",
+                "value": "inherit"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1576099547
+}
