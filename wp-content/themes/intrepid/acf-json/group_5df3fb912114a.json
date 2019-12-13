@@ -1,11 +1,11 @@
 {
-    "key": "group_5df3d2147b2e6",
-    "title": "Module - News Subtitle",
+    "key": "group_5df3fb912114a",
+    "title": "Module - Author",
     "fields": [
         {
-            "key": "field_5df3d234edff9",
-            "label": "Subtitle",
-            "name": "news_subtitle",
+            "key": "field_5df3fb9741dd0",
+            "label": "Name",
+            "name": "author_name",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -22,9 +22,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_5df3fef3c1959",
+            "key": "field_5df3fc0f41dd1",
             "label": "Image",
-            "name": "news_subtitle_image",
+            "name": "author_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -37,21 +37,21 @@
             "return_format": "array",
             "preview_size": "medium",
             "library": "all",
-            "min_width": 0,
-            "min_height": 0,
-            "min_size": 0,
-            "max_width": 0,
-            "max_height": 0,
-            "max_size": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
             "mime_types": ""
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "post_status",
                 "operator": "==",
-                "value": "post"
+                "value": "inherit"
             }
         ]
     ],
@@ -63,5 +63,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576271620
+    "modified": 1576270899
 }

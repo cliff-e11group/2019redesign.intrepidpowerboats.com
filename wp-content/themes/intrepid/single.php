@@ -59,8 +59,9 @@ $page_title = get_the_title();
                 <div class="newsletter-article">
                     <article class="newsletter-article__item entry-content">
                         <div class="post-author">
+                            <?php $subtitle_image = get_field('news_subtitle_image'); ?>
                             <figure class="post-author__photo">
-                                <img src="<?php echo STYLEDIR; ?>/uploads/author.jpg" alt="author" />
+                                <img src="<?php echo $subtitle_image['url']; ?>" alt="<?php echo $subtitle_image['alt']; ?>" />
                             </figure>
                             <span class="post-author__name">
                                 <?php echo get_field('news_subtitle'); ?>
@@ -74,36 +75,8 @@ $page_title = get_the_title();
 
                         <?php include('modules/flex-content/flex-content.php') ?>
 
-                        <div class="signature-block">
-                            <img src="<?php echo STYLEDIR; ?>/uploads/signature.png" alt="signature" />
-                        </div>
                     </article>
-                    <article class="newsletter-article__item entry-content">
-                        <div class="post-author">
-                            <figure class="post-author__photo">
-                                <img src="<?php echo STYLEDIR; ?>/uploads/author1.jpg" alt="author1" />
-                            </figure>
-                            <span class="post-author__name">
-                                Alex Rizo, Vice President of Sales
-                            </span>
-                        </div>
-                        <div class="content-block entry-content">
-                            <p>Very happy to report that the Palm Beach Boat Show was a huge success and I would like to personally thank everyone that came by to see us. Besides having the time to visit with our existing customers, we also made many new friends with a great number of new boat orders. We’re already looking forward to being there again next year.</p>
-                            <p>This was the first showing of the new 375 Nomad. It received amazing reviews from both our customers and the media that came to interview us and write several upcoming articles.</p>
-                            <p>This month we're headed to the Suncoast Boat Show in Sarasota, Florida, April 26, 27, & 28 where we will have the 375 Nomad, 327I Center Console and our 200 Flats Boat on display. Mark Beaver, Barrett Grene and I will all be attending. We are very excited to be going to a West Coast of Florida boat show and seeing many of our friends and customers in this small venue setting which gives us even more time to spend together. With summer around the corner and the boat show season coming to an end please make your plans to visit with us.</p>
-                            <span>Suncoat Boat show line up:</span><br>
-                            <ul>
-                                <li><a href="#">375 Nomad</a></li>
-                                <li><a href="#">327I Center Console</a></li>
-                                <li><a href="#">200 Flats Boat</a></li>
-                            </ul>
-                            <p>Below is a link for more information on the Suncoast Boat Show: <br>https://www.suncoastboatshow.com/en/home.html</p>
-                            <p>We all look forward to seeing you there. </p>
-                        </div>
-                        <div class="signature-block">
-                            <img src="<?php echo STYLEDIR; ?>/uploads/signature.png" alt="signature" />
-                        </div>
-                    </article>
+
                 </div>
                 <div class="scroll-top">
                     <a href="#" class="scroll-to-top scroll-to-top--small"><svg class="icon icon-arrow-up" aria-hidden="true" role="img">
