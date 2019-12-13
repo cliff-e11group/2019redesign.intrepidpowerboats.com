@@ -1,13 +1,13 @@
 <?php
 get_header();
 the_post();
+$page = get_the_ID();
 ?>
 <?php get_header(); ?>
 
 <main class="main">
-    <?php
-    $home_hero_img = get_field('home_hero_img');
-    ?>
+
+    <?php e11_hero_video(array(), true, 'get_field', $page, ''); ?>
 
     <section class="intro-block">
         <div class="container">
