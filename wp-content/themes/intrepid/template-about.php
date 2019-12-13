@@ -4,6 +4,7 @@
 */
 get_header();
 the_post();
+$page = get_the_id();
 ?>
 <?php get_header(); ?>
 <main class="main">
