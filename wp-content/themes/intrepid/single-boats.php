@@ -2,6 +2,7 @@
 get_header();
 the_post();
 $page = get_the_ID();
+$title = get_the_title();
 ?>
 <main class="page__single page__single--boat main">
     <section class="hero hero--model" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/410-evolution-hero.jpg);">
@@ -180,52 +181,25 @@ $page = get_the_ID();
                 <!-- motor start -->
                 <section class="motor-block">
                     <div class="container">
-                        <h2 class="motor-block__title">Motor selections for <strong>410 evolution</strong></h2>
+                        <h2 class="motor-block__title">Motor selections for <strong><?php echo $title; ?></strong></h2>
                         <ul class="motor-list">
+                        <?php
+                        $motor_blocks = get_field('motor_blocks');
+                        ?>
+                        <?php foreach($motor_blocks  as $motor_block) : ?>
                             <li class="motor-list__item">
                                 <figure class="motor-list__thumbnail">
-                                    <img src="<?php echo STYLEDIR; ?>/uploads/seven-marine-motor.jpg" alt="seven-marine-motor" />
+                                    <img src="<?php echo $motor_block['image']['url']; ?>" alt="<?php echo $motor_block['image']['alt']; ?>" />
                                 </figure>
                                 <div class="motor-list__content">
-                                    <h2 class="motor-list__title">Seven Marine<span class="motor-list__trigger"></span></h2>
+                                    <h2 class="motor-list__title"><?php echo $motor_block['title']; ?><span class="motor-list__trigger"></span></h2>
                                     <div class="motor-list__description">
-                                        <p>Seven is an evolution in outboard engineering and customer service. At the heart of a Seven, Luxury Performance. A supercharged 6.2L V8, powerful acceleration, and more technology than ever before under a cowl, supported with concierge service. Intrepid Powerboats from the 375 to the 475 offer the opportunity to go farther and faster with twin, triple or quad 627hp and 557hp Seven’s. Personalize your power and match it to the boat with SpectraBlade LED illumination, infinite color choices and carbon accents.</p>
+                                        <?php echo $motor_block['description']; ?>
                                     </div>
                                 </div>
                             </li>
-                            <li class="motor-list__item">
-                                <figure class="motor-list__thumbnail">
-                                    <img src="<?php echo STYLEDIR; ?>/uploads/yamaha-motor.jpg" alt="yamaha-motor" />
-                                </figure>
-                                <div class="motor-list__content">
-                                    <h2 class="motor-list__title">Yamaha<span class="motor-list__trigger"></span></h2>
-                                    <div class="motor-list__description">
-                                        <p>Seven is an evolution in outboard engineering and customer service. At the heart of a Seven, Luxury Performance. A supercharged 6.2L V8, powerful acceleration, and more technology than ever before under a cowl, supported with concierge service. Intrepid Powerboats from the 375 to the 475 offer the opportunity to go farther and faster with twin, triple or quad 627hp and 557hp Seven’s. Personalize your power and match it to the boat with SpectraBlade LED illumination, infinite color choices and carbon accents.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="motor-list__item">
-                                <figure class="motor-list__thumbnail">
-                                    <img src="<?php echo STYLEDIR; ?>/uploads/mercury-motor.jpg" alt="mercury-motor" />
-                                </figure>
-                                <div class="motor-list__content">
-                                    <h2 class="motor-list__title">Mercury<span class="motor-list__trigger"></span></h2>
-                                    <div class="motor-list__description">
-                                        <p>Seven is an evolution in outboard engineering and customer service. At the heart of a Seven, Luxury Performance. A supercharged 6.2L V8, powerful acceleration, and more technology than ever before under a cowl, supported with concierge service. Intrepid Powerboats from the 375 to the 475 offer the opportunity to go farther and faster with twin, triple or quad 627hp and 557hp Seven’s. Personalize your power and match it to the boat with SpectraBlade LED illumination, infinite color choices and carbon accents.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="motor-list__item">
-                                <figure class="motor-list__thumbnail">
-                                    <img src="<?php echo STYLEDIR; ?>/uploads/evinrude-motor.jpg" alt="evinrude-motor" />
-                                </figure>
-                                <div class="motor-list__content">
-                                    <h2 class="motor-list__title">Evinrude<span class="motor-list__trigger"></span></h2>
-                                    <div class="motor-list__description">
-                                        <p>When you’re heading out deep, Evinrude E-TEC engines will get you there first, and save you money in the process. Evinrude E-TEC engines provide the torque you need to beat any competitor out of the hole and burn less fuel so you can go further and stay out longer. In fact, Evinrude E-TEC G2 engines produce up to 30% more torque and burn up to 15% less fuel than leading four-strokes. And, with a 5 year corrosion warranty, you won't have to worry about getting back either.</p>
-                                    </div>
-                                </div>
-                            </li>
+                        <?php endforeach; ?>
+
                         </ul>
                     </div>
                     <div class="btn-wrap">
@@ -239,62 +213,25 @@ $page = get_the_ID();
                 <section class="model-option">
                     <div class="container">
                         <div class="model-option__header">
-                            <h2 class="model-option__title">The many options for the <strong>410 evolution</strong></h2>
+                            <h2 class="model-option__title">The many options for the <strong>4<?php echo $title; ?></strong></h2>
                             <span>Create a checklist for the optional equipment you’re interested in.</span>
                         </div>
+                        <?php
+                        $boat_options = get_field('boat_options');
+                        ?>
                         <div class="option-slider">
-                            <div>
-                                <h3 class="option-title">Mechanical</h3>
-                                <ul class="option-list">
-                                    <li class="option-list__item">Transom D-Rings</li>
-                                    <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                    <li class="option-list__item">Bow Thruster</li>
-                                    <li class="option-list__item">Underwater Hull Lighting</li>
-                                    <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
-                                    <li class="option-list__item">SS Polished Anchor</li>
-                                    <li class="option-list__item">Fresh Water Washdown for Windlass</li>
-                                    <li class="option-list__item">Generator (Diesel) with Sound Shield</li>
-                                </ul>
+                            <?php foreach ($boat_options as $boat_option) : ?>
+                                <div>
+                                    <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
+                                    <ul class="option-list">
+                                        <?php foreach($boat_option['options'] as $option) : ?>
+                                            <li class="option-list__item"><?php echo $option['option']; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
                             </div>
-                            <div>
-                                <h3 class="option-title">Comfort</h3>
-                                <ul class="option-list">
-                                    <li class="option-list__item">Transom D-Rings</li>
-                                    <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                    <li class="option-list__item"><span class="option-list__thumbnail" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
-                                    <li class="option-list__item">Underwater Hull Lighting</li>
-                                    <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
-                                    <li class="option-list__item">SS Polished Anchor</li>
-                                    <li class="option-list__item">Fresh Water Washdown for Windlass</li>
-                                    <li class="option-list__item">Generator (Diesel) with Sound Shield</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="option-title">Fishing</h3>
-                                <ul class="option-list">
-                                    <li class="option-list__item">Transom D-Rings</li>
-                                    <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                    <li class="option-list__item">Bow Thruster</li>
-                                    <li class="option-list__item">Underwater Hull Lighting</li>
-                                    <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
-                                    <li class="option-list__item">SS Polished Anchor</li>
-                                    <li class="option-list__item">Fresh Water Washdown for Windlass</li>
-                                    <li class="option-list__item">Generator (Diesel) with Sound Shield</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="option-title">Comfort</h3>
-                                <ul class="option-list">
-                                    <li class="option-list__item">Transom D-Rings</li>
-                                    <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                    <li class="option-list__item">Bow Thruster</li>
-                                    <li class="option-list__item">Underwater Hull Lighting</li>
-                                    <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
-                                    <li class="option-list__item">SS Polished Anchor</li>
-                                    <li class="option-list__item">Fresh Water Washdown for Windlass</li>
-                                    <li class="option-list__item">Generator (Diesel) with Sound Shield</li>
-                                </ul>
-                            </div>
+                            <?php endforeach; ?>
+
+
                         </div>
                     </div>
                     <div class="btn-wrap">
