@@ -90,5 +90,5 @@
 
 
     <?php endforeach; ?>
-
+    </div>
 </div>

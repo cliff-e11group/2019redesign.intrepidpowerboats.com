@@ -94,7 +94,7 @@ $title = get_the_title();
                     <div class="resp-tabs-container hor_child_1">
                         <div>
                             <!-- gallery start -->
-                            <?php //e11_gallery_rows(array(), true, 'get_field', '', ''); ?>
+                            <?php e11_gallery_rows(array(), true, 'get_field', '', ''); ?>
 
                             <!-- gallery end -->
                         </div>
