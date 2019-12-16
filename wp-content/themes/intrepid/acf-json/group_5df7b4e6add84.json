@@ -37,7 +37,7 @@
             "display": "seamless",
             "layout": "block",
             "prefix_label": 0,
-            "prefix_name": 0
+            "prefix_name": 1
         }
     ],
     "location": [
@@ -57,5 +57,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576516814
+    "modified": 1576518381
 }
