@@ -20,18 +20,30 @@ the_post();
                 <a href="#" class="filter-list__toggle">
                     FILTERS <span class="icon-plus"></span>
                 </a>
+                <?php
+                $boat_lengths = get_terms('boat-length');
+                $boat_cats = get_terms('boat-category');
+                ?>
+
                 <ul class="model-list__filter-items">
-                    <li>LENGTH:
-                        <select class="filters-select">
-                            <option value="*">ALL</option>
-                            <option value=".40">40</option>
-                            <option value=".50">50</option>
-                            <option value=".55">55+</option>
-                        </select>
-                    </li>
-                    <li><a href="<?php echo site_url('boat-category/center-console'); ?>">CENTER CONSOLE</a></li>
-                    <li><a href="#">CUDDY/WALKAROUND</a></li>
-                    <li><a href="<?php echo site_url('boat-category/sport-yacht'); ?>">SPORT YACHT</a></li>
+                <!-- boat lengths  -->
+                    <?php if ($boat_lengths) : ?>
+                        <li>LENGTH:
+                            <select class="filters-select">
+                                <option value="*">ALL</option>
+                                <?php foreach($boat_lengths as $boat_length) : ?>
+                                    <option value=".<?php echo preg_replace("/[^0-9]/", "", $boat_length->name ); ?>"><?php echo $boat_length->name; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </li>
+                    <?php endif; ?>
+
+                    <!-- boat categories  -->
+                    <?php if ($boat_cats) : ?>
+                        <?php foreach($boat_cats as $boat_cat) : ?>
+                            <li><a href="<?php echo get_term_link($boat_cat->term_id); ?>"><?php echo $boat_cat->name; ?></a></li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -824,6 +836,9 @@ the_post();
             </div>
         </div>
     </div>
+
+    <?php e11_grid_block(array(), true, 'get_sub_field', 'options', ''); ?>
+
     <section class="content-block">
         <div class="container">
             <h2 class="content-block__title">POWER IN A CLASS OF ITS OWN. PROGRESS THAT NEVER STOPS.<br>

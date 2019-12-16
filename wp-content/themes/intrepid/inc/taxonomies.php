@@ -13,6 +13,14 @@ function e11_registers_taxonomies() {
                 'boats',
             )
         ),
+        array(
+            'tax_singular' => 'Boat Length',
+            'tax_plural'   => 'Boat Lengths',
+            'tax_slug'     => 'boat-length',
+            'applicable_post_types' => array(
+                'boats',
+            )
+        ),
 
     );
 
