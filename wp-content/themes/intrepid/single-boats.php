@@ -93,7 +93,7 @@ $page = get_the_ID();
                     <div class="resp-tabs-container hor_child_1">
                         <div>
                             <!-- gallery start -->
-                            <?php e11_gallery_rows(array(), true, 'get_field', '', ''); ?>
+                            <?php //e11_gallery_rows(array(), true, 'get_field', '', ''); ?>
 
                             <!-- gallery end -->
                         </div>
@@ -121,179 +121,21 @@ $page = get_the_ID();
             <div>
                 <!-- features start -->
                 <section class="features-block">
+                <?php $features = get_field('features_section'); ?>
                     <div class="container">
                         <div class="feature-list">
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Construction</h2>
-                                <ul class="list">
-                                    <li class="list__item">316 Stainless Fasteners Throughout</li>
-                                    <li class="list__item">Composite Fiberglass Stringer System</li>
-                                    <li class="list__item">Fully Integrated Hull/Motor Well Bracket</li>
-                                    <li class="list__item">Hand Laid Hull with Non-woven Multidirectional Reinforcements and Vacuum Bagged Coring</li>
-                                    <li class="list__item">Hi-Flex Gel-coat</li>
-                                    <li class="list__item">High Gloss White Urethane Painted Bilges</li>
-                                    <li class="list__item">Resin Infused Liner and Deck Modules</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Mechanical Equipment</h2>
-                                <ul class="list">
-                                    <li class="list__item">(8kw) Compact Diesel Generator</li>
-                                    <li class="list__item">Aluminum Fuel Tanks with Level Senders</li>
-                                    <li class="list__item">Bronze Thru-hulls with Seacocks Below Waterline</li>
-                                    <li class="list__item">Fire Suppression System in Mechanical Room with Automatic Generator Shut Down</li>
-                                    <li class="list__item">Gas/Water Separator on Generator Exhaust System</li>
-                                    <li class="list__item">Power Assisted Hydraulic Steering with Tilt Helm</li>
-                                    <li class="list__item">Waste/Holding Tank Odor Proof Polyethylene with Level Sender and Tornado Flush Fitting</li>
-                                    <li class="list__item">Water Tank Food Grade Polyethylene</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Head/Shower</h2>
-                                <ul class="list">
-                                    <li class="list__item">Blinds</li>
-                                    <li class="list__item">Electric Head with Freshwater Supply</li>
-                                    <li class="list__item">Exhaust Fan</li>
-                                    <li class="list__item">Faucet Single Lever</li>
-                                    <li class="list__item">Outlets, AC 1 Double Outlets ELCI Protected</li>
-                                    <li class="list__item">Shower Stall with Acrylic Door</li>
-                                    <li class="list__item">Skylights (1) Fixed</li>
-                                    <li class="list__item">Sole Tile and Fiberglass Finish</li>
-                                    <li class="list__item">Toilet Paper Holder Behind Locker Door</li>
-                                    <li class="list__item">Towel Bar</li>
-                                    <li class="list__item">Vanity Counter Solid Surface with Vessel Sink</li>
-                                    <li class="list__item">Vanity Mirror</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Cockpit/Aft Deck</h2>
-                                <ul class="list">
-                                    <li class="list__item">Cockpit Hatches Guttered, Gasket, “T” Handle Dogs and Stainless Steel Gas Springs</li>
-                                    <li class="list__item">Courtesy Lights, 12 Volt, LED Three Step Lights Two Under Gunnels</li>
-                                    <li class="list__item">Dockside Freshwater Inlet</li>
-                                    <li class="list__item">Freshwater Washdown Outlet</li>
-                                    <li class="list__item">Insulated Storage Box Aft</li>
-                                    <li class="list__item">Integrated Starboard Hullside Access Door with Fold Out Ladder System (Dive Door)</li>
-                                    <li class="list__item">Scuppers</li>
-                                    <li class="list__item">Sea Water Washdown Outlet</li>
-                                    <li class="list__item">Self Bailing Cockpit</li>
-                                    <li class="list__item">Shore Power Inlet (Stainless Steel)</li>
-                                    <li class="list__item">Transom Shower with Retractable Hose, Hot/Cold</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Galley</h2>
-                                <ul class="list">
-                                    <li class="list__item">Blinds</li>
-                                    <li class="list__item">Cabinet, Upper Galley</li>
-                                    <li class="list__item">Countertop, Solid Surface with Sink</li>
-                                    <li class="list__item">Drawers Stainless Steel Lined</li>
-                                    <li class="list__item">Electric Dual Cook Top</li>
-                                    <li class="list__item">Faucet Single Lever</li>
-                                    <li class="list__item">Forward Recessed Deck Skylight</li>
-                                    <li class="list__item">Microwave</li>
-                                    <li class="list__item">Outlets, AC 2 Double Outlets ELCI Protected</li>
-                                    <li class="list__item">Refrigerator/Freezer Stainless Steel</li>
-                                    <li class="list__item">Waste Basket</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Cabin Features</h2>
-                                <ul class="list">
-                                    <li class="list__item">Custom U-Shaped Settee</li>
-                                    <li class="list__item">Dinette Table Hi-Lo Electric, with Solid Wood Surface with Filler Cushion to Create Additional Berth</li>
-                                    <li class="list__item">Drawers, Wood Faced with Stainless Steel Drawer Slides</li>
-                                    <li class="list__item">Hanging Locker with Automatic Light 12 Volt LED</li>
-                                    <li class="list__item">Hardware, Stainless Steel and Chrome</li>
-                                    <li class="list__item">Headlining, Soft Panels</li>
-                                    <li class="list__item">Lighting, Accent, 12 Volt LED</li>
-                                    <li class="list__item">Lighting, Courtesy, 12 Volt LED</li>
-                                    <li class="list__item">Lighting, Overhead, 12 Volt, LED with Dimmers</li>
-                                    <li class="list__item">Lights, Reading at Berths, 12 Volt LED</li>
-                                    <li class="list__item">Outlets, AC 3 Double Outlets ELCI Protected</li>
-                                    <li class="list__item">Queen Berth Forward with Custom Deluxe Innerspring Mattress</li>
-                                    <li class="list__item">Skylight Hatches (2) Opening</li>
-                                    <li class="list__item">Skylights (2) Fixed</li>
-                                    <li class="list__item">Sole, Access Hatches</li>
-                                    <li class="list__item">Sole, Hardwood</li>
-                                    <li class="list__item">Steps with Hardwood Treads</li>
-                                    <li class="list__item">Window Shades, Cabin</li>
-                                    <li class="list__item">Wood Veneered Cabinetry</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Exterior Equipment</h2>
-                                <ul class="list">
-                                    <li class="list__item">Anchor Chain Locker, Self-draining/Hidden Cleat</li>
-                                    <li class="list__item">Anchor Chute with Stainless Steel Chafe Plates and Anchor Roller</li>
-                                    <li class="list__item">Anodized Aluminum Bow Rail</li>
-                                    <li class="list__item">Boarding Ladder on Swim Platform</li>
-                                    <li class="list__item">Bow Eye</li>
-                                    <li class="list__item">Cleats, Bow, Spring and Stern</li>
-                                    <li class="list__item">Deck Fills (Diesel, Gas, Water and Waste Pump Out)</li>
-                                    <li class="list__item">Heavy-Duty White Rub Rail</li>
-                                    <li class="list__item">Mast, Navigation Lights</li>
-                                    <li class="list__item">Non-Skid Deck and Gunwales</li>
-                                    <li class="list__item">Skylight Hatches in Cabin</li>
-                                    <li class="list__item">Sun Pad with Integrated Cup Holders</li>
-                                    <li class="list__item">Swim Platforms Port and Starboard</li>
-                                    <li class="list__item">Windlass 12 Volt, Vertical, Low Profile, Chain/Rode, with Handheld Remote</li>
-                                    <li class="list__item">Windshield (with Wiper System) for (3) Sided Enclosed Bridge Deck with Opening Side Windows</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Electrical Equipment</h2>
-                                <ul class="list">
-                                    <li class="list__item">AC/DC Distribution system, 12 Volt, 120 /240 Volt 60/50 Hz with Digital Meters</li>
-                                    <li class="list__item">Air-conditioning, Cabin, Reverse Cycle, with Digital Control</li>
-                                    <li class="list__item">Alarms, High Bilge Water</li>
-                                    <li class="list__item">Batteries, AGM Glass Mat, with Boxes, Lids and Straps, 3 x GP 31 for Engines, 1 x GP 31 for House</li>
-                                    <li class="list__item">Battery Charging System</li>
-                                    <li class="list__item">Battery Switches Emergency Paralleling</li>
-                                    <li class="list__item">Battery Switches Remote Operated</li>
-                                    <li class="list__item">Bilge Lights, Center Aft Compartment LED</li>
-                                    <li class="list__item">Bilge Pumps 4 x 12 Volt Automatic</li>
-                                    <li class="list__item">Bonding System</li>
-                                    <li class="list__item">Carbon Monoxide Detector</li>
-                                    <li class="list__item">Exhaust Fan, Generator Compartment 12 Volt</li>
-                                    <li class="list__item">Exhaust Fan, Shower Compartment 12 Volt</li>
-                                    <li class="list__item">Freshwater Pump 12 Volt Pump</li>
-                                    <li class="list__item">Galvanic Isolator</li>
-                                    <li class="list__item">Gray Water Pump 12 Volt</li>
-                                    <li class="list__item">Holding Tank, Direct Overboard Discharge for Toilet with Y Valve</li>
-                                    <li class="list__item">Indicator Light, Reverse Polarity</li>
-                                    <li class="list__item">Mechanical Room Lights 12 Volt four PC</li>
-                                    <li class="list__item">Navigation Lights, 12 Volt - LED</li>
-                                    <li class="list__item">Raw Water Washdown Pump, 12 Volts</li>
-                                    <li class="list__item">Shore Power Inlet, Aft, AC, 50 amp 120 / 240 Volt / 60 Hz</li>
-                                    <li class="list__item">Tank Gauges for Gasoline, Diesel, Water and Waste</li>
-                                    <li class="list__item">Trim Tabs 12 Volt dual pump BXT Series with Auto Retract</li>
-                                    <li class="list__item">Water Heater (11 Gallon), 240 Volt</li>
-                                    <li class="list__item">Windshield Wipers, 12 Volt with Speed Control Auto Park and Washer</li>
-                                    <li class="list__item">Wiring, Marine-grade Tin-plated Copper</li>
-                                </ul>
-                            </div>
-                            <div class="feature-list__item">
-                                <h2 class="feature-list__title">Bridgedeck</h2>
-                                <ul class="list">
-                                    <li class="list__item">Bridge Deck Infinity Flooring Woven Vinyl</li>
-                                    <li class="list__item">Compass</li>
-                                    <li class="list__item">Electronics Console, At Helm</li>
-                                    <li class="list__item">Electronics Console, Companion Port Side</li>
-                                    <li class="list__item">Helm Seat Double, Three Way Electronic Control and Adjustable Bolster and Reversible Backrest</li>
-                                    <li class="list__item">Light, Courtesy (2)</li>
-                                    <li class="list__item">Lighting, Hardtop, 12 Volt, LED</li>
-                                    <li class="list__item">Lighting, Red Overhead Night Lighting</li>
-                                    <li class="list__item">Outlets, 1 x 2 Gang GFCI</li>
-                                    <li class="list__item">Outlets, 2 x USB at Helm Console</li>
-                                    <li class="list__item">Settee L shaped (Port Side) with Custom Adjustable Co-pilot Seat Forward</li>
-                                    <li class="list__item">Settee, L shaped (Starboard)</li>
-                                    <li class="list__item">Steering Wheel, Stainless Steel</li>
-                                    <li class="list__item">Sunroof (Electric)</li>
-                                    <li class="list__item">Push Button LED Backlit Switches</li>
-                                </ul>
-                            </div>
+                            <?php foreach($features as $feature) : ?>
+                                <div class="feature-list__item">
+                                    <h2 class="feature-list__title"><?php echo$feature['title']; ?></h2>
+                                    <ul class="list">
+                                        <?php foreach ($feature['details'] as $detail) : ?>
+                                            <li class="list__item"><?php echo $detail['detail']; ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
+
                     </div>
                     <div class="btn-wrap">
                         <a href="#" class="btn btn--dark">Contact a sales representative</a>

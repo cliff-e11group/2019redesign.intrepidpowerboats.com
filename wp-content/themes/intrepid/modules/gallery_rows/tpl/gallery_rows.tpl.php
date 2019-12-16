@@ -19,7 +19,6 @@
         <?php if( $gallery_row['row_type'] ===  'video') :
             $video_link = $gallery_row['video']['video_link'];
             $placeholder = $gallery_row['video']['placeholder_image'];
-            echo $video_link;
         ?>
 
             <div class="gallery-grid__item gallery-grid__item--full gallery-grid__item--video">
