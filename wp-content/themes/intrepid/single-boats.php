@@ -1,6 +1,7 @@
 <?php
 get_header();
 the_post();
+$page = get_the_ID();
 ?>
 <main class="page__single page__single--boat main">
     <section class="hero hero--model" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/410-evolution-hero.jpg);">
@@ -36,13 +37,16 @@ the_post();
         <div class="resp-tabs-container hor_1">
             <div>
                 <!-- overview start -->
+                <?php
+                $overview = get_field('overview');
+                $overview_title = get_field('overview_title');
+                ?>
                 <section class="overview-block">
                     <div class="container">
                         <div class="overview-block__content">
-                            <h2 class="overview-block__title">Charles darwin wrote about evolution. <strong>we built it.</strong></h2>
+                            <h2 class="overview-block__title"><?php echo $overview_title; ?></h2>
                             <div class="overview-block__description">
-                                <p>An exquisitely crafted byproduct of 30 years of evolution and 2 years of design, the 410 Evolution has pushed the class of high-end yachts to a new unchartered plateau. This is a 41.19-foot display of power, stability and maneuverability with its revolutionary step hull design and triple outboard engines that don’t sacrifice an inch of cockpit space for performance. The cockpit itself features an electronic sunroof, and perfectly sculpted and innovatively designed helm seating that converts to create more open seating and conversational space.</p>
-                                <p>For diving and swimming, an integrated hullside dive door with a foldout ladder is located starboard. Relax in a cabin adorned with a queen berth mattress, custom u-shaped settee, a stainless steel refrigerator/freezer, electric cooktop and microwave with wood veneered cabinetry throughout. There is even an electronic dinette with wooden surface that lowers to create an additional berth. Yes, it was a long time in the making. But when you experience it, there will be no doubt in your mind it was well worth the wait.</p>
+                                <?php echo $overview; ?>
                             </div>
                             <ul class="overview-nav">
                                 <li class="overview-nav__item"><a href="#">See the Gallery</a></li>
@@ -51,27 +55,26 @@ the_post();
                                 <li class="overview-nav__item"><a href="#">Build Yours Own</a></li>
                             </ul>
                         </div>
+
+                        <?php
+                        $quick_stats = get_field('quick_statistics');
+                        $quick_stats_brochure = get_field('quick_statistics_brochure');
+                        ?>
                         <div class="stat-block">
                             <span class="stat-block__title">Quick Statistics</span>
                             <ul class="quick-stat">
+                            <?php foreach($quick_stats as $quick_stat) : ?>
                                 <li class="quick-stat__item">
-                                    <span class="quick-stat__title">Standard Fuel</span>
-                                    <span class="quick-stat__value">270 GALLONS</span>
+                                    <span class="quick-stat__title"><?php echo $quick_stat['label']; ?></span>
+                                    <span class="quick-stat__value"><?php echo $quick_stat['value']; ?></span>
                                 </li>
-                                <li class="quick-stat__item">
-                                    <span class="quick-stat__title">BEAM</span>
-                                    <span class="quick-stat__value">9'10"</span>
-                                </li>
-                                <li class="quick-stat__item">
-                                    <span class="quick-stat__title">LENGTH</span>
-                                    <span class="quick-stat__value">32'7"</span>
-                                </li>
-                                <li class="quick-stat__item">
-                                    <span class="quick-stat__title">WATER</span>
-                                    <span class="quick-stat__value">20 GALLONS</span>
-                                </li>
+                            <?php endforeach; ?>
+
                             </ul>
-                            <a href="#" class="btn btn--dark">Download Brochure</a>
+                            <?php if($quick_stats_brochure) : ?>
+                                <a href="<?php echo $quick_stats_brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
+                            <?php endif; ?>
+
                         </div>
                     </div>
                     <div class="btn-wrap">
@@ -90,80 +93,19 @@ the_post();
                     <div class="resp-tabs-container hor_child_1">
                         <div>
                             <!-- gallery start -->
-                            <div class="gallery-grid">
-                                <div class="container">
-                                    <div class="gallery-grid__item gallery-grid__item--half">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--half">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--full gallery-grid__item--video">
-                                        <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image3.jpg" alt="gallery-image3" />
-                                        <a data-fancybox="gallery" href="https://vimeo.com/160120764" class="play-btn">Play Video</a>
-                                        <div class="overlay-content">
-                                            <img src="<?php echo IMAGES; ?>/amazing-with-text.png" alt="Proof that amazing takes time">
-                                        </div>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image4.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image4.jpg" alt="gallery-image4" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image5.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image5.jpg" alt="gallery-image5" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image6.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image6.jpg" alt="gallery-image6" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image7.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image7.jpg" alt="gallery-image7" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--two-third">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image8.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image8.jpg" alt="gallery-image8" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--half">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image1.jpg" alt="gallery-image1" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--half">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image2.jpg" alt="gallery-image2" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--two-third">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image9.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image9.jpg" alt="gallery-image9" />
-                                        </a>
-                                    </div>
-                                    <div class="gallery-grid__item gallery-grid__item--one-third">
-                                        <a href="<?php echo STYLEDIR; ?>/uploads/gallery-image10.jpg" data-fancybox="gallery">
-                                            <img src="<?php echo STYLEDIR; ?>/uploads/gallery-image10.jpg" alt="gallery-image10" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="btn-wrap">
-                                    <a href="#" class="scroll-to-top"><svg class="icon icon-arrow-up" aria-hidden="true" role="img">
-                                        <use xlink:href="#icon-arrow-up" x="0" y="0"></use>
-                                    </svg>Back to Top</a>
-                                    <a href="#" class="btn btn--dark">Contact a sales representative</a>
-                                </div>
-                            </div>
+                            <?php e11_gallery_rows(array(), true, 'get_field', '', ''); ?>
+
                             <!-- gallery end -->
                         </div>
+
+                        <div class="btn-wrap">
+                            <a href="#" class="scroll-to-top"><svg class="icon icon-arrow-up" aria-hidden="true" role="img">
+                                <use xlink:href="#icon-arrow-up" x="0" y="0"></use>
+                            </svg>Back to Top</a>
+                            <a href="#" class="btn btn--dark">Contact a sales representative</a>
+                        </div>
+
+
                         <div>
                             <!-- virtual tour start -->
                             <div class="virtual-tour">
