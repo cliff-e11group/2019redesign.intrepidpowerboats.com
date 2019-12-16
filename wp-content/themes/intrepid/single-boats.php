@@ -3,7 +3,13 @@ get_header();
 the_post();
 $page = get_the_ID();
 $title = get_the_title();
+$overview = get_field('overview');
+$gallery_rows = get_field('gallery_rows');
+$features = get_field('features_section');
+$motor_blocks = get_field('motor_blocks');
+$boat_options = get_field('boat_options');
 ?>
+
 <main class="page__single page__single--boat main">
     <section class="hero hero--model" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/410-evolution-hero.jpg);">
         <div class="container">
@@ -22,12 +28,27 @@ $title = get_the_title();
             <div class="nav-block__inner">
                 <div class="container">
                     <ul class="model-nav resp-tabs-list hor_1">
-                        <li class="model-nav__item active">Overview</li>
-                        <li class="model-nav__item">Gallery</li>
-                        <li class="model-nav__item">Features</li>
+                        <?php if ( !empty($overview) ) : ?>
+                            <li class="model-nav__item active">Overview</li>
+                        <?php endif; ?>
+
+                        <?php if ( !empty($gallery_rows) ) : ?>
+                            <li class="model-nav__item">Gallery</li>
+                        <?php endif; ?>
+
+                        <?php if ( !empty($features) ) : ?>
+                            <li class="model-nav__item">Features</li>
+                        <?php endif; ?>
+
                         <li class="model-nav__item">Deck Plan</li>
-                        <li class="model-nav__item">Motors</li>
-                        <li class="model-nav__item">Options</li>
+
+                        <?php if (!empty($motor_blocks) ) : ?>
+                            <li class="model-nav__item">Motors</li>
+                        <?php endif; ?>
+
+                        <?php if ( !empty($motor_blocks) ) : ?>
+                            <li class="model-nav__item">Options</li>
+                        <?php endif; ?>
                     </ul>
                 </div>
                 <a href="#" class="sticky-btn" data-class="build-a-boat-toggle">Build Yours<svg class="icon icon-arrow-up" aria-hidden="true" role="img">
@@ -39,7 +60,6 @@ $title = get_the_title();
             <div>
                 <!-- overview start -->
                 <?php
-                $overview = get_field('overview');
                 $overview_title = get_field('overview_title');
                 ?>
                 <section class="overview-block">
@@ -122,7 +142,7 @@ $title = get_the_title();
             <div>
                 <!-- features start -->
                 <section class="features-block">
-                <?php $features = get_field('features_section'); ?>
+
                     <div class="container">
                         <div class="feature-list">
                             <?php foreach($features as $feature) : ?>
@@ -183,9 +203,7 @@ $title = get_the_title();
                     <div class="container">
                         <h2 class="motor-block__title">Motor selections for <strong><?php echo $title; ?></strong></h2>
                         <ul class="motor-list">
-                        <?php
-                        $motor_blocks = get_field('motor_blocks');
-                        ?>
+
                         <?php foreach($motor_blocks  as $motor_block) : ?>
                             <li class="motor-list__item">
                                 <figure class="motor-list__thumbnail">
@@ -216,9 +234,7 @@ $title = get_the_title();
                             <h2 class="model-option__title">The many options for the <strong>4<?php echo $title; ?></strong></h2>
                             <span>Create a checklist for the optional equipment you’re interested in.</span>
                         </div>
-                        <?php
-                        $boat_options = get_field('boat_options');
-                        ?>
+
                         <div class="option-slider">
                             <?php foreach ($boat_options as $boat_option) : ?>
                                 <div>
