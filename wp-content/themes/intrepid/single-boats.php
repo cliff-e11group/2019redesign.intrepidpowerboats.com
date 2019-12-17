@@ -126,21 +126,16 @@ $boat_options = get_field('boat_options');
                             <!-- gallery end -->
                         </div>
 
-                        <div class="btn-wrap">
-                            <a href="#" class="scroll-to-top"><svg class="icon icon-arrow-up" aria-hidden="true" role="img">
-                                <use xlink:href="#icon-arrow-up" x="0" y="0"></use>
-                            </svg>Back to Top</a>
-                            <a href="#" class="btn btn--dark">Contact a sales representative</a>
-                        </div>
-
-
                         <div>
+                            <?php $virtual_tour = get_field('virtual_tour'); ?>
                             <!-- virtual tour start -->
-                            <div class="virtual-tour">
-                                <div class="container">
-                                    <iframe src="https://vrcloud.com/?pv=1544284614" class="virtual-tour__iframe" frameborder="0"></iframe>
+                            <?php if($virtual_tour) : ?>
+                                <div class="virtual-tour">
+                                    <div class="container">
+                                        <?php echo $virtual_tour ; ?>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
                             <!-- virtual tour end -->
                         </div>
                     </div>

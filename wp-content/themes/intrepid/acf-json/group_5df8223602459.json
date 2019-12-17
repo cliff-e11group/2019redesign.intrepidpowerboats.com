@@ -3,6 +3,46 @@
     "title": "Taxonomy - Boat Category",
     "fields": [
         {
+            "key": "field_5df8e5a78f772",
+            "label": "Hero Image",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5df8238e8f771",
+            "label": "Hero Image Section",
+            "name": "boat_cat_hero_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_5df822550b183",
             "label": "Tagline",
             "name": "",
@@ -20,7 +60,7 @@
         },
         {
             "key": "field_5df822630b184",
-            "label": "Tagline",
+            "label": "Tagline Section",
             "name": "boat_cat_tagline",
             "type": "text",
             "instructions": "",
@@ -36,6 +76,43 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5df8f333fe0b4",
+            "label": "Other Content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5df8f343fe0b5",
+            "label": "Other Content Section",
+            "name": "other_content_section",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5df8f20f14ec3"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -55,5 +132,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576543006
+    "modified": 1576596715
 }

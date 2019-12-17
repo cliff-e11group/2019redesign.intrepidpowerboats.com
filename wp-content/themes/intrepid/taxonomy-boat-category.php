@@ -3,15 +3,16 @@ get_header();
 the_post();
 $cat_id = get_queried_object()->term_id;
 $cat = get_term_by('id', $cat_id, 'boat-category');
-$hero_image = get_field('boat_cat_tagline', $cat_id);
-$tagline = get_field( 'boat_cat_tagline', $cat_id);
+$full_id = $cat->taxonomy . '_' . $cat_id;
+$hero_image = get_field('boat_cat_hero_image', $full_id);
+$tagline = get_field( 'boat_cat_tagline',  $full_id);
+// echo '<pre>'; print_r($cat);
 
 ?>
 
 
 <main class="main">
     <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
-    <section class="hero hero--inner" style="background-image:url(<?php echo $hero_image['url']; ?>);">
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title"><?php echo single_term_title(); ?></h1>
@@ -29,6 +30,8 @@ $tagline = get_field( 'boat_cat_tagline', $cat_id);
             </div>
         </div>
     </div>
+
+
     <div class="content-wrap">
         <section class="content-block">
             <div class="container">

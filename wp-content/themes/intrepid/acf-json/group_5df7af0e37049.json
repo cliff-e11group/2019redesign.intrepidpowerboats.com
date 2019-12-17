@@ -1,6 +1,6 @@
 {
     "key": "group_5df7af0e37049",
-    "title": "Boat Features",
+    "title": "Single - Boats",
     "fields": [
         {
             "key": "field_5df7af2376319",
@@ -186,6 +186,25 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_5df91869d44a2",
+            "label": "Virtual Tour",
+            "name": "virtual_tour",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_5df7df5b5c9e5",
@@ -496,5 +515,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576528153
+    "modified": 1576606184
 }
