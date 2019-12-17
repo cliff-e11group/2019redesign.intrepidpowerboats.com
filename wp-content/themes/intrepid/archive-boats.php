@@ -41,7 +41,7 @@ the_post();
                     <!-- boat categories  -->
                     <?php if ($boat_cats) : ?>
                         <?php foreach($boat_cats as $boat_cat) : ?>
-                            <li><a href="#<?php echo $boat_cat->slug; ?>"><?php echo $boat_cat->name; ?></a></li>
+                            <li><a href="#" data-filter-category="<?php echo $boat_cat->slug; ?>"><?php echo $boat_cat->name; ?></a></li>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </ul>
@@ -70,15 +70,22 @@ the_post();
                 $link = get_the_permalink();
                 $title = get_the_title();
                 $thumb = get_the_post_thumbnail_url($post->ID,'boat-archive');
-                $terms = get_the_terms($post->ID, 'boat-length');
+                //boat length
+                $boat_length = get_the_terms($post->ID, 'boat-length');
                 $lengths = array();
+                foreach($boat_length as $term => $value) {
+                    array_push($lengths, $value->slug);
+                }
 
-                foreach($terms as $term => $value) {
-                    array_push($lengths, $value->name);
+                //boat category
+                $boat_category = get_the_terms($post->ID, 'boat-category');
+                $cats = array();
+                foreach($boat_category as $term => $value) {
+                    array_push($cats, $value->slug);
                 }
                 // echo '<pre>'; print_r($lengths);
                 ?>
-                <div class="model-list__block <?php echo implode(" ", $lengths); ?>">
+                <div class="model-list__block <?php echo implode(" ", $lengths); ?> <?php echo implode(" ", $cats); ?>">
                     <div class="model-list__image">
                         <a href="<?php echo $link; ?>">
                             <img src="<?php echo $thumb; ?>" alt="<?php echo $title; ?>">

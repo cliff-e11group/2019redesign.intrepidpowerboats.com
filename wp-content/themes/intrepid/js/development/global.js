@@ -62,6 +62,27 @@ jQuery(document).ready(function ($) {
         $grid.isotope('layout');
     });
 
+    var $cat_filters = $('[data-filter-category]');
+
+    if($cat_filters.length > 0){
+        $cat_filters.each(function(){
+            var $this = $(this);
+
+            $this.on('click', function(){
+                var filterValue = $this.data('filter-category');
+                filterValue = filterFns[filterValue] || filterValue;
+                // console.log(filterValue);
+                $grid.isotope({filter: filterValue});
+            });
+        });
+        $grid.imagesLoaded().progress(function () {
+            $grid.isotope('layout');
+        });
+    }
+
+
+
+
 
     $('.filters-select').select2();
 
