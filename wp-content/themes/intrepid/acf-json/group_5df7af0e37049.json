@@ -151,6 +151,21 @@
             "delay": 0
         },
         {
+            "key": "field_5df91f26741e3",
+            "label": "Overview Link",
+            "name": "overview_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_5df7cd2c0582f",
             "label": "Gallery",
             "name": "",
@@ -205,6 +220,21 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_5df91f3e741e4",
+            "label": "Gallery Link",
+            "name": "gallery_rows_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_5df7df5b5c9e5",
@@ -301,6 +331,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_5df91f53741e5",
+            "label": "Features Link",
+            "name": "features_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         },
         {
             "key": "field_5df7e50226760",
@@ -402,6 +447,21 @@
             ]
         },
         {
+            "key": "field_5df91f67741e6",
+            "label": "Motor Blocks Link",
+            "name": "motor_blocks_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_5df7e8764c259",
             "label": "Options",
             "name": "",
@@ -496,6 +556,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_5df91f72741e7",
+            "label": "Options Link",
+            "name": "options_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -515,5 +590,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576606184
+    "modified": 1576607639
 }

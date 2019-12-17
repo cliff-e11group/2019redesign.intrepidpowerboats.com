@@ -105,9 +105,12 @@ $boat_options = get_field('boat_options');
 
                         </div>
                     </div>
-                    <div class="btn-wrap">
-                        <a href="#" class="btn btn--dark">Contact a sales representative</a>
-                    </div>
+                    <?php $overview_link = get_field('overview_link'); ?>
+                    <?php if ($overview_link) : ?>
+                        <div class="btn-wrap">
+                            <a href="<?php echo $overview_link['url']; ?>" target="<?php echo $overview_link['target']; ?>" class="btn btn--dark"><?php echo $overview_link['title']; ?></a>
+                        </div>
+                    <?php endif; ?>
                 </section>
                 <!-- overview end -->
             </div>
@@ -126,12 +129,10 @@ $boat_options = get_field('boat_options');
                         <div>
                             <!-- gallery start -->
                             <?php e11_gallery_rows(array(), true, 'get_field', '', ''); ?>
-
                             <!-- gallery end -->
                         </div>
 
                         <div>
-
                             <!-- virtual tour start -->
                             <?php if($virtual_tour) : ?>
                                 <div class="virtual-tour">
@@ -164,9 +165,12 @@ $boat_options = get_field('boat_options');
                         </div>
 
                     </div>
-                    <div class="btn-wrap">
-                        <a href="#" class="btn btn--dark">Contact a sales representative</a>
-                    </div>
+                    <?php $features_link = get_field('features_link'); ?>
+                    <?php if ($features_link) : ?>
+                        <div class="btn-wrap">
+                            <a href="<?php echo $features_link['url']; ?>" target="<?php echo $features_link['target']; ?>" class="btn btn--dark"><?php echo $features_link['title']; ?></a>
+                        </div>
+                    <?php endif; ?>
                 </section>
                 <!-- features end -->
             </div>
@@ -226,9 +230,12 @@ $boat_options = get_field('boat_options');
 
                         </ul>
                     </div>
-                    <div class="btn-wrap">
-                        <a href="#" class="btn btn--dark">Contact a sales representative</a>
-                    </div>
+                    <?php $motor_link = get_field('motor_blocks_link'); ?>
+                    <?php if ($motor_link) : ?>
+                        <div class="btn-wrap">
+                            <a href="<?php echo $motor_link['url']; ?>" target="<?php echo $motor_link['target']; ?>" class="btn btn--dark"><?php echo $motor_link['title']; ?></a>
+                        </div>
+                    <?php endif; ?>
                 </section>
                 <!-- motor end -->
             </div>
@@ -284,7 +291,12 @@ $boat_options = get_field('boat_options');
                                 </ul>
                             </form>
                         </div>
-                        <a href="#" class="btn btn--dark">Contact a sales representative</a>
+                        <?php $options_link = get_field('options_link'); ?>
+                        <?php if ($options_link) : ?>
+                            <div class="btn-wrap">
+                                <a href="<?php echo $options_link['url']; ?>" target="<?php echo $options_link['target']; ?>" class="btn btn--dark"><?php echo $options_link['title']; ?></a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </section>
                 <!-- option end -->
