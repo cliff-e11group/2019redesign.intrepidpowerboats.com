@@ -1,24 +1,31 @@
 <?php
 get_header();
 the_post();
+$cat_id = get_queried_object()->term_id;
+$cat = get_term_by('id', $cat_id, 'boat-category');
+$hero_image = get_field('boat_cat_tagline', $cat_id);
+$tagline = get_field( 'boat_cat_tagline', $cat_id);
+
 ?>
+
 
 <main class="main">
     <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
+    <section class="hero hero--inner" style="background-image:url(<?php echo $hero_image['url']; ?>);">
         <div class="container">
             <div class="hero__content">
-                <h1 class="hero__title">Sport Yachts</h1>
+                <h1 class="hero__title"><?php echo single_term_title(); ?></h1>
                 <div class="hero__description">
-                    <p>Fit for explorers</p>
+                    <p><?php echo $tagline; ?></p>
                 </div>
             </div>
         </div>
     </section>
     <div class="model-intro">
-        <div class="model-intro__thumbnail" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/center-console-boats.jpg);"></div>
+        <div class="model-intro__thumbnail" style="background-image:url(<?php echo $hero_image['url']; ?>)"></div>
         <div class="container">
             <div class="model-intro__content">
-                <p>Combining superior performance, strength and safety with the exceptional comfort and style of a yacht, sport yachts are ideal for relaxing, racing and recreation.</p>
+                <p><?php echo $cat->description; ?></p>
             </div>
         </div>
     </div>
