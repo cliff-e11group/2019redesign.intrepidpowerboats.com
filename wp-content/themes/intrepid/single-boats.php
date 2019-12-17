@@ -3,6 +3,13 @@ get_header();
 the_post();
 $page = get_the_ID();
 $title = get_the_title();
+
+//format title
+$title_words = explode(' ', $title);
+$title_words[0] = '<strong>' . $title_words[0] . '</strong>';
+$formatted_title = implode(' ', $title_words);
+
+
 $overview = get_field('overview');
 $gallery_rows = get_field('gallery_rows');
 $features = get_field('features_section');
@@ -14,7 +21,7 @@ $boat_options = get_field('boat_options');
     <section class="hero hero--model" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/410-evolution-hero.jpg);">
         <div class="container">
             <div class="model__title-box">
-                <h1 class="model__title"><strong>410</strong> Evolution</h1>
+                <h1 class="model__title"><?php echo $formatted_title; ?></h1>
             </div>
             <a class="model__360-view" data-src="#spinner-container" href="#">360 view</a>
             <div id="spinner-container">
