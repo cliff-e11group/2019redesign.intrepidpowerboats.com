@@ -23,9 +23,9 @@ function e11_register_post_types() {
             'supports' => array('title', 'revisions', 'page-attributes', 'thumbnail'),
         ),
         array(
-            'cpt_single' => 'Gallery',
-            'cpt_plural' => 'Galleries',
-            'slug' => 'gallery',
+            'cpt_single' => 'Owner Gallery',
+            'cpt_plural' => 'Owner Galleries',
+            'slug' => 'owner-gallery',
             'cpt_icon' => 'dashicons-format-gallery',
             'exclude_from_search' => true,
             'hierarchical' => true,
