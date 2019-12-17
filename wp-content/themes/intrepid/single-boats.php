@@ -18,7 +18,7 @@ $boat_options = get_field('boat_options');
 ?>
 
 <main class="page__single page__single--boat main">
-    <section class="hero hero--model" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/410-evolution-hero.jpg);">
+    <section class="hero hero--model" style="background-image:url(<?php echo get_the_post_thumbnail_url( $page, 'hero' ); ?>);">
         <div class="container">
             <div class="model__title-box">
                 <h1 class="model__title"><?php echo $formatted_title; ?></h1>
