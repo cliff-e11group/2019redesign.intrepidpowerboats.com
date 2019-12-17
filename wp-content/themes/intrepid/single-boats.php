@@ -112,10 +112,14 @@ $boat_options = get_field('boat_options');
                 <!-- overview end -->
             </div>
             <div>
+
+                <?php $virtual_tour = get_field('virtual_tour'); ?>
                 <div id="childTab">
                     <ul class="resp-tabs-list hor_child_1">
                         <li> Gallery </li>
-                        <li> Virtual Tour </li>
+                        <?php if($virtual_tour) : ?>
+                            <li> Virtual Tour </li>
+                        <?php endif; ?>
                     </ul>
 
                     <div class="resp-tabs-container hor_child_1">
@@ -127,7 +131,7 @@ $boat_options = get_field('boat_options');
                         </div>
 
                         <div>
-                            <?php $virtual_tour = get_field('virtual_tour'); ?>
+
                             <!-- virtual tour start -->
                             <?php if($virtual_tour) : ?>
                                 <div class="virtual-tour">

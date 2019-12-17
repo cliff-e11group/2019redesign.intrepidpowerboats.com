@@ -17,7 +17,7 @@ function e11_hero_video($args = array(), $use_page_content = false, $get_field_t
 
     if ($use_page_content):
         $defaults = array(
-            'video' => $get_field_type($prefix . 'hero_video_embed', $field_location),
+            'video' => $get_field_type($prefix . 'hero_video_embed', $field_location, false),
             'placeholder' => $get_field_type($prefix . 'hero_video_placeholder_image', $field_location),
             'title' => $get_field_type($prefix . 'hero_video_title', $field_location),
         );
