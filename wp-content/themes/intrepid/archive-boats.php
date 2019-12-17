@@ -41,7 +41,7 @@ the_post();
                     <!-- boat categories  -->
                     <?php if ($boat_cats) : ?>
                         <?php foreach($boat_cats as $boat_cat) : ?>
-                            <li><a href="<?php echo get_term_link($boat_cat->term_id); ?>"><?php echo $boat_cat->name; ?></a></li>
+                            <li><a href="#<?php echo $boat_cat->slug; ?>"><?php echo $boat_cat->name; ?></a></li>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </ul>
@@ -90,31 +90,27 @@ the_post();
                             <span class="model-list__trigger">
                                 </span>
                         </div>
+                        <?php
+                        $stats = get_field('quick_statistics');
+                        $brochure = get_field('quick_statistics_brochure');
+                        ?>
                         <div class="model-list-hidden__content" style="display: none">
                             <div class="model-list-stat__container">
                                 <h4 class="data-title">STATISTICS</h4>
                                 <ul class="data-list">
-                                    <li class="data-list__item">
-                                        <span class="data-list__title">Standard Fuel</span>
-                                        <span class="data-list__value">420 GALLONS</span>
-                                    </li>
-                                    <li class="data-list__item">
-                                        <span class="data-list__title">BEAM</span>
-                                        <span class="data-list__value">9'10"</span>
-                                    </li>
-                                    <li class="data-list__item">
-                                        <span class="data-list__title">LENGTH</span>
-                                        <span class="data-list__value">41'7"</span>
-                                    </li>
-                                    <li class="data-list__item">
-                                        <span class="data-list__title">WATER</span>
-                                        <span class="data-list__value">40 GALLONS</span>
-                                    </li>
+                                    <?php foreach($stats as $stat) : ?>
+                                        <li class="data-list__item">
+                                            <span class="data-list__title"><?php echo $stat['label']; ?></span>
+                                            <span class="data-list__value"><?php echo $stat['value'];?></span>
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ul>
                             </div>
                             <div class="model-list-cta__container">
                                 <a href="<?php echo $link; ?>" class="btn btn--outline">Visit model page</a>
-                                <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
+                                <?php if($brochure) : ?>
+                                    <a href="<?php echo $brochure['url']; ?>" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
