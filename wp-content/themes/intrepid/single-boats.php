@@ -254,7 +254,12 @@ $boat_options = get_field('boat_options');
                                     <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
                                     <ul class="option-list">
                                         <?php foreach($boat_option['options'] as $option) : ?>
-                                            <li class="option-list__item"><?php echo $option['option']; ?></li>
+                                            <li class="option-list__item">
+                                            <?php if ($option['thumbnail']) : ?>
+                                                <span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span>
+                                            <?php endif; ?>
+
+                                            <?php echo $option['option']; ?></li>
                                         <?php endforeach; ?>
                                     </ul>
                             </div>
@@ -291,7 +296,7 @@ $boat_options = get_field('boat_options');
                                 </ul>
                             </form>
                         </div>
-                        <?php $options_link = get_field('options_link'); ?>
+                        <?php $options_link = get_field('boat_options_link'); ?>
                         <?php if ($options_link) : ?>
                             <div class="btn-wrap">
                                 <a href="<?php echo $options_link['url']; ?>" target="<?php echo $options_link['target']; ?>" class="btn btn--dark"><?php echo $options_link['title']; ?></a>

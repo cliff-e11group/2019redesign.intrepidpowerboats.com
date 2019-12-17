@@ -552,6 +552,30 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_5df922e4f8ee2",
+                            "label": "Thumbnail",
+                            "name": "thumbnail",
+                            "type": "image",
+                            "instructions": "Image should be 560px x 306px.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
                         }
                     ]
                 }
@@ -560,7 +584,7 @@
         {
             "key": "field_5df91f72741e7",
             "label": "Options Link",
-            "name": "options_link",
+            "name": "boat_options_link",
             "type": "link",
             "instructions": "",
             "required": 0,
@@ -590,5 +614,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576607639
+    "modified": 1576608552
 }
