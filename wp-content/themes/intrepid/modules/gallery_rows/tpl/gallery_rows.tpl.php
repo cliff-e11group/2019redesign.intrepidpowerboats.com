@@ -28,7 +28,7 @@
                     <a data-fancybox="gallery" href="<?php echo $video_link; ?>" class="play-btn">Play Video</a>
 
                     <div class="overlay-content">
-                        <img src="<?php echo $placeholder['url']; ?>" alt="<?php echo $placeholder['alt']; ?>">
+                        <img src="<?php echo IMAGES; ?>/amazing-with-text.png" alt="Proof that amazing takes time">
                     </div>
 
                 </div>

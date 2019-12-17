@@ -1,6 +1,6 @@
 {
     "key": "group_5df7cd4b37f5b",
-    "title": "Module - Gallery",
+    "title": "Module - Gallery Rows",
     "fields": [
         {
             "key": "field_5df7cd5696bfc",
@@ -148,7 +148,7 @@
                             "key": "field_5df7d26f867c9",
                             "label": "Video Link",
                             "name": "video_link",
-                            "type": "oembed",
+                            "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -157,8 +157,11 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "width": "",
-                            "height": ""
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_5df7d279867ca",
@@ -449,5 +452,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576522375
+    "modified": 1576606884
 }
