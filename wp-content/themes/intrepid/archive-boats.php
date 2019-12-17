@@ -47,764 +47,87 @@ the_post();
                 </ul>
             </div>
         </div>
-        <div class="container model-list__grid">
+
+        <!-- start boat models  -->
+
+
+        <?php
+        $model_args = array(
+            'post_type' => 'boats',
+            'post_status' => 'publish',
+            'posts_per_page' => -1
+        );
+        $model_query = new WP_Query($model_args);
+        ?>
+
+        <?php if ($model_query->have_posts()): ?>
+            <div class="container model-list__grid">
             <div class="grid-sizer"></div>
             <div class="gutter-sizer"></div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/200-Flats.jpg" alt="Model 200 Flats">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">200 Flats</a></h3>
-                        <span class="model-list__trigger">
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/245-center-console.jpg" alt="Model 245 Center Console">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">245 CENTER CONSOLE</a></h3>
-                        <span class="model-list__trigger">
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 50">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/300-center-console.jpg" alt="Model 300 Center Console">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">300 CENTER CONSOLE</a></h3>
-                        <span class="model-list__trigger">
 
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 55">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/327-i-tourney-edition.jpg" alt="Model 327-i Tourney Edition">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">200 Flats</a></h3>
-                        <span class="model-list__trigger">
+                <?php while ($model_query->have_posts()): $model_query->the_post(); ?>
+                <?php
+                $link = get_the_permalink();
+                $title = get_the_title();
+                $thumb = get_the_post_thumbnail_url($post->ID,'boat-archive');
+                $terms = get_the_terms($post->ID, 'boat-length');
+                $lengths = array();
 
-                            </span>
+                foreach($terms as $term => $value) {
+                    array_push($lengths, $value->name);
+                }
+                // echo '<pre>'; print_r($lengths);
+                ?>
+                <div class="model-list__block <?php echo implode(" ", $lengths); ?>">
+                    <div class="model-list__image">
+                        <a href="<?php echo $link; ?>">
+                            <img src="<?php echo $thumb; ?>" alt="<?php echo $title; ?>">
+                        </a>
                     </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
+                    <div class="model-list__detail">
+                        <div class="model-list__title-wrap">
+                            <h3 class="model-list__title"><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
+                            <span class="model-list__trigger">
+                                </span>
                         </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
+                        <div class="model-list-hidden__content" style="display: none">
+                            <div class="model-list-stat__container">
+                                <h4 class="data-title">STATISTICS</h4>
+                                <ul class="data-list">
+                                    <li class="data-list__item">
+                                        <span class="data-list__title">Standard Fuel</span>
+                                        <span class="data-list__value">420 GALLONS</span>
+                                    </li>
+                                    <li class="data-list__item">
+                                        <span class="data-list__title">BEAM</span>
+                                        <span class="data-list__value">9'10"</span>
+                                    </li>
+                                    <li class="data-list__item">
+                                        <span class="data-list__title">LENGTH</span>
+                                        <span class="data-list__value">41'7"</span>
+                                    </li>
+                                    <li class="data-list__item">
+                                        <span class="data-list__title">WATER</span>
+                                        <span class="data-list__value">40 GALLONS</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="model-list-cta__container">
+                                <a href="<?php echo $link; ?>" class="btn btn--outline">Visit model page</a>
+                                <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/327-cuddy.jpg" alt="Model 327 Cuddy">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">327-I Tourney Edition</a></h3>
-                        <span class="model-list__trigger">
 
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
+                <?php endwhile; ?>
             </div>
-            <div class="model-list__block 50">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-fe.jpg" alt="345 Nomad FE">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">345 Nomad FE</a></h3>
-                        <span class="model-list__trigger">
+            </div>
+        <?php endif; wp_reset_query()?>
 
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 55">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/345-nomad-se.jpg" alt="Model 345 Nomad SE">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">345 Nomad SE</a></h3>
-                        <span class="model-list__trigger">
 
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/345-walkaround.jpg" alt="Model 345 WALKAROUND">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">345 WALKAROUND</a></h3>
-                        <span class="model-list__trigger">
+        <!-- end boat models  -->
 
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 50">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/375-center-console.jpg" alt="Model 375 CENTER CONSOLE">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">375 CENTER CONSOLE</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/375-nomad.jpg" alt="Model 375 NOMAD">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">375 NOMAD</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/375-walkaround.jpg" alt="Model 375 WALKAROUND">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">375 WALKAROUND</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 50">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/400-center-console.jpg" alt="Model 400 CENTER CONSOLE">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">400 CENTER CONSOLE</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 55">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/407-cuddy.jpg" alt="Model 407 CUDDY">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">407 CUDDY</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/407-panacea.jpg" alt="Model 407 PANACEA">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">407 PANACEA</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 55">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/410-evolution.jpg" alt="Model 410 EVOLUTION">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">410 EVOLUTION</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/430-sport-yacht.jpg" alt="Model 430 SPORT YACHT">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">430 SPORT YACHT</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 55">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/475-panacea.jpg" alt="Model 475 PANACEA">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">475 PANACEA</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-list__block 40">
-                <div class="model-list__image">
-                    <a href="<?php echo site_url('boats/410-evolution'); ?>">
-                        <img src="<?php echo STYLEDIR; ?>/uploads/475-sport-yacht.jpg" alt="Model 475 SPORT YACHT">
-                    </a>
-                </div>
-                <div class="model-list__detail">
-                    <div class="model-list__title-wrap">
-                        <h3 class="model-list__title"><a href="<?php echo site_url('boats/410-evolution'); ?>">475 SPORT YACHT</a></h3>
-                        <span class="model-list__trigger">
-
-                            </span>
-                    </div>
-                    <div class="model-list-hidden__content" style="display: none">
-                        <div class="model-list-stat__container">
-                            <h4 class="data-title">STATISTICS</h4>
-                            <ul class="data-list">
-                                <li class="data-list__item">
-                                    <span class="data-list__title">Standard Fuel</span>
-                                    <span class="data-list__value">420 GALLONS</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">BEAM</span>
-                                    <span class="data-list__value">9'10"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">LENGTH</span>
-                                    <span class="data-list__value">41'7"</span>
-                                </li>
-                                <li class="data-list__item">
-                                    <span class="data-list__title">WATER</span>
-                                    <span class="data-list__value">40 GALLONS</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="model-list-cta__container">
-                            <a href="<?php echo site_url('boats/410-evolution'); ?>" class="btn btn--outline">Visit model page</a>
-                            <a href="#" target="_blank" class="model-list-cta__link">DOWNLOAD BROCHURE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
     <div class="icon-list">
         <div class="container">

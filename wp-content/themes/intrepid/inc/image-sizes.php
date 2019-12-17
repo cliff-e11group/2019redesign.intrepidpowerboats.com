@@ -8,6 +8,7 @@ function e11_image_size_setup(){
 	add_image_size('image-gallery', 715, 730, true);
 	add_image_size('boat-featured', 546, 228, true);
 	add_image_size('boat-options', 560, 306, true);
+	add_image_size('boat-archive', 275, 115, true);
 
 }
 add_action( 'after_setup_theme', 'e11_image_size_setup' );
