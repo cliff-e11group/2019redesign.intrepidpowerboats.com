@@ -595,6 +595,41 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_5dfa6c0774bce",
+            "label": "Category Details",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5dfa6c1374bcf",
+            "label": "Category Description",
+            "name": "boat_category_description",
+            "type": "wysiwyg",
+            "instructions": "This is the description that will appear on the category page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -614,5 +649,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576608552
+    "modified": 1576692819
 }

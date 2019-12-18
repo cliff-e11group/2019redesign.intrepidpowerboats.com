@@ -41,25 +41,6 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5df7b8feefd98",
-                    "label": "Subtitle",
-                    "name": "subtitle",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
                     "key": "field_5df7b90eefd99",
                     "label": "Inner Content",
                     "name": "inner_content",
@@ -175,5 +156,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576516757
+    "modified": 1576689527
 }

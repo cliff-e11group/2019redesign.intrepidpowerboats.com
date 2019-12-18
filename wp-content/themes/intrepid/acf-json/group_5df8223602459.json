@@ -97,7 +97,7 @@
             "key": "field_5df8f343fe0b5",
             "label": "Other Content Section",
             "name": "boat_other_content_section",
-            "type": "flexible_content",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -106,71 +106,70 @@
                 "class": "",
                 "id": ""
             },
-            "layouts": {
-                "layout_5dfa524f3c00f": {
-                    "key": "layout_5dfa524f3c00f",
-                    "name": "content_and_dropdowns",
-                    "label": "Content and Dropdowns",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5dfa553a6e4f8",
-                            "label": "Content and Dropdowns",
-                            "name": "boat_cats_cad",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5df7b8c026685"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 1
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5dfa63cee113f",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
-                "layout_5dfa558e6e4fa": {
-                    "key": "layout_5dfa558e6e4fa",
+                {
+                    "key": "field_5dfa684824d99",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
+                    "key": "field_5dfa684f24d9a",
+                    "label": "Include boats?",
                     "name": "include_boats",
-                    "label": "Include boats of this category?",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5dfa5c356e4fb",
-                            "label": "Include boats of this category?",
-                            "name": "include_boats",
-                            "type": "true_false",
-                            "instructions": "This field should only be included once and will pull in data from boats of this category.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
                 }
-            },
-            "button_label": "Add Module",
-            "min": "",
-            "max": ""
+            ]
         }
     ],
     "location": [
@@ -190,5 +189,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576688796
+    "modified": 1576691858
 }
