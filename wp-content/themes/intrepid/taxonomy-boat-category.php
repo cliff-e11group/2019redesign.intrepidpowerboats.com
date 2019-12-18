@@ -87,7 +87,7 @@ $tagline = get_field( 'boat_cat_tagline',  $full_id);
                             <div class="column-model">
                                 <div class="column-model__item">
                                     <figure class="column-model__thumbnail">
-                                        <?php echo get_the_post_thumbnail(); ?>
+                                        <?php echo get_the_post_thumbnail($post, 'boat-cat-pullin'); ?>
                                     </figure>
                                     <div class="column-model__title-wrap">
                                         <h2 class="column-model__title"><?php echo $title; ?></h2>
