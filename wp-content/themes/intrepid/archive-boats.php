@@ -9,7 +9,11 @@ the_post();
             <div class="hero__content">
                 <h1 class="hero__title">OUR MODELS</h1>
                 <div class="hero__description">
-                    <p>Custom craftsmanship and design that follow an uncompromising set of specifications.<strong>yours.</strong></p>
+                <!-- boat_archive_tagline -->
+                    <?php
+                    $tagline = get_field('boat_archive_tagline', 'option');
+                    ?>
+                    <p><?php echo $tagline; ?></p>
                 </div>
             </div>
         </div>
