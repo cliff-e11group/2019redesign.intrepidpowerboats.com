@@ -87,7 +87,6 @@ the_post();
                 foreach($boat_category as $term => $value) {
                     array_push($cats, $value->slug);
                 }
-                // echo '<pre>'; print_r($lengths);
                 ?>
                 <div class="model-list__block <?php echo implode(" ", $lengths); ?> <?php echo implode(" ", $cats); ?>">
                     <div class="model-list__image">

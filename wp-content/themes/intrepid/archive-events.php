@@ -53,14 +53,12 @@ the_post();
 
                         $start_date = get_field('event_start_date');
                         $end_date = get_field('event_end_date');
-
                         $same_date = true;
 
                         if ($start_date !== $end_date){
                             $same_date = false;
                             $start_date = explode( ' ', get_field('event_start_date') );
                             $end_date =  explode( ' ', get_field('event_end_date') );
-
 
                             if($start_date[0] === $end_date[0] && $start_date[2] === $end_date[2]){
                                 unset($start_date[2]);
@@ -73,7 +71,6 @@ the_post();
                                 $final_end_date = implode(' ', $end_date);
                             }
                         }
-
                         ?>
                         <?php if ($start_date || $final_start_date) : ?>
                             <span class="column-block__date"><?php echo $same_date ? $start_date : $final_start_date; ?>

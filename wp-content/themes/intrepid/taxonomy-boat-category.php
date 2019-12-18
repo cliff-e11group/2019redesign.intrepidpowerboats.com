@@ -6,7 +6,6 @@ $cat = get_term_by('id', $cat_id, 'boat-category');
 $full_id = $cat->taxonomy . '_' . $cat_id;
 $hero_image = get_field('boat_cat_hero_image', $full_id);
 $tagline = get_field( 'boat_cat_tagline',  $full_id);
-// echo '<pre>'; print_r($cat);
 
 ?>
 
@@ -43,8 +42,6 @@ $tagline = get_field( 'boat_cat_tagline',  $full_id);
             endif; ?>
 
 
-            <?php echo $count; ?>
-            <?php //echo '<pre>'; print_r($content); ?>
             <section class="content-block">
                 <div class="container">
                     <?php if ($content['title']) : ?>
@@ -107,7 +104,6 @@ $tagline = get_field( 'boat_cat_tagline',  $full_id);
                     <?php endif; ?>
                 </div>
             </section>
-            <?php// $count++; ?>
         <?php endforeach; ?>
 
     </div>
