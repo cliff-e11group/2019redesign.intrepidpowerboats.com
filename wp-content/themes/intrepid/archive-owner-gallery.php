@@ -53,8 +53,8 @@ if( !in_array( strtolower($user_type), $accepted_users) ){
         </nav>
         <div class="container">
             <div class="portal-gallery__nav">
-                <a href="/" class="portal-gallery__nav-link portal-gallery__nav-link--active">My Gallery</a>
-                <a href="/" class="portal-gallery__nav-link">Community Gallery</a>
+                <a href="#my-gallery" class="portal-gallery__nav-link portal-gallery__nav-link--active">My Gallery</a>
+                <a href="#community-gallery" class="portal-gallery__nav-link">Community Gallery</a>
             </div>
 
             <section class="portal-gallery">
@@ -76,7 +76,6 @@ if( !in_array( strtolower($user_type), $accepted_users) ){
             <?php if ($loop->have_posts()): ?>
                 <?php while ($loop->have_posts()): $loop->the_post(); ?>
                     <?php
-
                     $post_id = get_the_ID();
 
                     $image_id = get_post_meta($post_id, 'image_id', true);
@@ -84,7 +83,6 @@ if( !in_array( strtolower($user_type), $accepted_users) ){
 
                     $video_id = get_post_meta($post_id, 'video_id', true);
                     $video_url = wp_get_attachment_url($video_id);
-
                     ?>
 
                         <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : 'placeholder'; ?>);" class="portal-gallery__item"></a>
