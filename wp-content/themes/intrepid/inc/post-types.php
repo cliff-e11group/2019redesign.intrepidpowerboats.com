@@ -29,7 +29,7 @@ function e11_register_post_types() {
             'cpt_icon' => 'dashicons-format-gallery',
             'exclude_from_search' => true,
             'hierarchical' => true,
-            'supports' => array('title', 'revisions', 'page-attributes', 'thumbnail'),
+            'supports' => array('title', 'revisions', 'page-attributes', 'thumbnail', 'editor'),
         ),
 
     );

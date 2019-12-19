@@ -1,0 +1,50 @@
+.owners-portal__upload{
+    .container{
+        display: flex;
+    }
+}
+
+.owner-portal__form{
+    padding: 18px 23px 42px;
+}
+
+.owner-portal__form-wrap{
+    width: 50%;
+    border: 1px solid #979797;
+    background: #f8f8f8;
+    height: 100%;
+    border: none;
+    margin: 11px 13px;
+}
+
+.owners-portal__form-input{
+    border-radius: 0;
+    outline: 0;
+    width: 100%;
+    box-shadow: none;
+    color: #1f2225;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .6875rem;
+    margin-bottom: 10px;
+}
+
+.owners-portal__input-file{
+    justify-content: space-between;
+}
+
+.owners-portal__input-radio{
+    display: block;
+}
+
+
+#owner_gallery_upload_image_submit,
+#owner_gallery_upload_video_submit{
+    background-color: #1f2225;
+    color: #fff;
+    border-color: #1f2225;
+    &:hover, &:focus{
+        background-color: #fff;
+        color: #1f2225;
+    }
+}

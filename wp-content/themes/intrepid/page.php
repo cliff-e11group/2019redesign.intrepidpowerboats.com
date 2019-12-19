@@ -34,7 +34,7 @@ if ($post->post_parent > 0) {
                             <a href="<?php echo site_url('forums'); ?>">Forum</a>
                         </li>
                         <li class="model-nav__item">
-                            <a href="<?php echo site_url('gallery'); ?>">Gallery</a>
+                            <a href="<?php echo site_url('owner-gallery'); ?>">Gallery</a>
                         </li>
                     </ul>
                 </div>
