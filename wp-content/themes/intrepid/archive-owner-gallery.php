@@ -98,7 +98,10 @@ if( !in_array( strtolower($user_type), $accepted_users) ){
                                 $video_url = wp_get_attachment_url($video_id);
                                 ?>
 
-                                    <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : 'placeholder'; ?>);" class="portal-gallery__item"></a>
+                                    <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : 'placeholder'; ?>);" class="portal-gallery__item">
+                                    <?php if($video_url) : ?>
+                                        <span class="portal-gallery__play-btn"></span>
+                                    <?php endif; ?></a>
 
                             <?php endwhile; ?>
                         <?php endif; wp_reset_query()?>
