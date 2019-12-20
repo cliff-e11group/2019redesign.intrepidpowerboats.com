@@ -6,9 +6,7 @@
             'posts_per_page' => 1,
             'post_type' => 'post',
             'order'=>'DESC',
-
             );
-
         $featured_news_query = new WP_Query($featured_args);
         ?>
 

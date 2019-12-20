@@ -147,22 +147,43 @@ the_post();
                     <span class="icon-list__title">COMPARE MODELS</span>
                 </a>
             </div>
-            <div class="icon-list__item">
-                <div class="icon-container">
-                    <svg class="icon icon-brochure" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-brochure" x="0" y="0"></use>
-                    </svg>
+
+            <?php
+                $link_one = get_field('boat_archive_link_two', 'option');
+            ?>
+            <?php if ($link_one) : ?>
+                <div class="icon-list__item">
+                    <div class="icon-container">
+                        <svg class="icon icon-gear" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-gear" x="0" y="0"></use>
+                        </svg>
+                    </div>
+                    <a href="<?php echo $link_one['url']; ?>" target="<?php echo $link_one['target']; ?>">
+                        <span class="icon-list__title">
+                        <?php echo $link_one['title']; ?>
+                        </span>
+                    </a>
                 </div>
-                <span class="icon-list__title">FULL LINE BROCHURE</span>
-            </div>
-            <div class="icon-list__item">
-                <div class="icon-container">
-                    <svg class="icon icon-gear" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-gear" x="0" y="0"></use>
-                    </svg>
+            <?php endif; ?>
+
+            <?php
+                $link_two = get_field('boat_archive_link_two', 'option');
+            ?>
+            <?php if ($link_two) : ?>
+                <div class="icon-list__item">
+                    <div class="icon-container">
+                        <svg class="icon icon-gear" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-gear" x="0" y="0"></use>
+                        </svg>
+                    </div>
+                    <a href="<?php echo $link_two['url']; ?>" target="<?php echo $link_two['target']; ?>">
+                        <span class="icon-list__title">
+                        <?php echo $link_two['title']; ?>
+                        </span>
+                    </a>
                 </div>
-                <span class="icon-list__title">HOW THEY ARE MADE</span>
-            </div>
+            <?php endif; ?>
+
         </div>
     </div>
 
