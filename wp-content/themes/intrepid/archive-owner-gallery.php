@@ -51,46 +51,98 @@ if( !in_array( strtolower($user_type), $accepted_users) ){
                 </svg></a>
             </div>
         </nav>
-        <div class="container">
-            <div class="portal-gallery__nav">
+
+            <div id="childTab">
+            <!-- <div class="portal-gallery__nav">
                 <a href="#my-gallery" class="portal-gallery__nav-link portal-gallery__nav-link--active">My Gallery</a>
                 <a href="#community-gallery" class="portal-gallery__nav-link">Community Gallery</a>
+            </div> -->
+                <ul class="resp-tabs-list hor_child_1">
+                    <li> My Gallery </li>
+                    <li> Community Gallery </li>
+                </ul>
+
+                <div class="resp-tabs-container hor_child_1">
+                    <div class="container">
+
+                    <div class="portal-gallery">
+                        <?php
+                        $args = array(
+                            'post_type' => 'owner-gallery',
+                            'post_status' => 'publish',
+                            'posts_per_page' => -1,
+                            'meta_query'    => array(
+                                'relation' => 'AND',
+                                array(
+                                    'key' => 'owner',
+                                    'value' => $user_id,
+                                ),
+                                array(
+                                    'key' => 'visibility',
+                                    'value' => 'private',
+                                ),
+                            )
+                        );
+                        $loop = new WP_Query($args);
+                        ?>
+
+                        <?php if ($loop->have_posts()): ?>
+                            <?php while ($loop->have_posts()): $loop->the_post(); ?>
+                                <?php
+                                $post_id = get_the_ID();
+
+                                $image_id = get_post_meta($post_id, 'image_id', true);
+                                $image_url = wp_get_attachment_url($image_id);
+
+                                $video_id = get_post_meta($post_id, 'video_id', true);
+                                $video_url = wp_get_attachment_url($video_id);
+                                ?>
+
+                                    <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : 'placeholder'; ?>);" class="portal-gallery__item"></a>
+
+                            <?php endwhile; ?>
+                        <?php endif; wp_reset_query()?>
+                        </div>
+                    </div>
+
+
+                    <div class="container">
+                        <div class="portal-gallery community-gallery">
+                        <?php
+                        $comm_args = array(
+                            'post_type' => 'owner-gallery',
+                            'post_status' => 'publish',
+                            'posts_per_page' => -1,
+                            'meta_query'    => array(
+                                array(
+                                    'key' => 'visibility',
+                                    'value' => 'public',
+                                ),
+                            )
+                        );
+                        $comm_loop = new WP_Query($comm_args);
+                        ?>
+
+                        <?php if ($comm_loop->have_posts()): ?>
+                            <?php while ($comm_loop->have_posts()): $comm_loop->the_post(); ?>
+                                <?php
+                                $post_id = get_the_ID();
+
+                                $image_id = get_post_meta($post_id, 'image_id', true);
+                                $image_url = wp_get_attachment_url($image_id);
+
+                                $video_id = get_post_meta($post_id, 'video_id', true);
+                                $video_url = wp_get_attachment_url($video_id);
+                                ?>
+
+                                    <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : 'placeholder'; ?>);" class="portal-gallery__item"></a>
+
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <section class="portal-gallery">
-            <?php
-            $args = array(
-                'post_type' => 'owner-gallery',
-                'post_status' => 'publish',
-                'posts_per_page' => -1,
-                'meta_query'    => array(
-                    array(
-                        'owner' => $user_id,
-                        'visiblity' => 'public',
-                    )
-                )
-            );
-            $loop = new WP_Query($args);
-            ?>
-
-            <?php if ($loop->have_posts()): ?>
-                <?php while ($loop->have_posts()): $loop->the_post(); ?>
-                    <?php
-                    $post_id = get_the_ID();
-
-                    $image_id = get_post_meta($post_id, 'image_id', true);
-                    $image_url = wp_get_attachment_url($image_id);
-
-                    $video_id = get_post_meta($post_id, 'video_id', true);
-                    $video_url = wp_get_attachment_url($video_id);
-                    ?>
-
-                        <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : 'placeholder'; ?>);" class="portal-gallery__item"></a>
-
-                <?php endwhile; ?>
-            <?php endif; ?>
-
-            </section>
         </div>
 
         <div class="owners-portal__upload">
