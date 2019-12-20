@@ -15,7 +15,19 @@ $gallery_rows = get_field('gallery_rows');
 $features = get_field('features_section');
 $motor_blocks = get_field('motor_blocks');
 $boat_options = get_field('boat_options');
+
+$view_360_images = get_field('360_view_gallery');
+$view_360_urls = array();
+
+foreach($view_360_images as $image){
+    array_push($view_360_urls, $image['image']['sizes']['view-gallery']);
+}
+
+if (!empty($view_360_urls)) :
+    wp_localize_script('scripts', 'view_360_urls', $view_360_urls );
+endif;
 ?>
+
 
 <main class="page__single page__single--boat main">
     <section class="hero hero--model" style="background-image:url(<?php echo get_the_post_thumbnail_url( $page, 'hero' ); ?>);">

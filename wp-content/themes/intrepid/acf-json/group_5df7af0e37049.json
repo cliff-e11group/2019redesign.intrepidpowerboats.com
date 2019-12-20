@@ -652,7 +652,7 @@
             "label": "360 View Gallery",
             "name": "360_view_gallery",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Recommend image size: 1370x570",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -710,5 +710,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576695959
+    "modified": 1576863244
 }

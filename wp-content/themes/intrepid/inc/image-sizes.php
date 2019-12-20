@@ -11,6 +11,8 @@ function e11_image_size_setup(){
 	add_image_size('boat-archive', 275, 115, true);
 	add_image_size('boat-cat-pullin', 985, 415, true);
 	add_image_size('event-archive', 580, 410, true);
+	add_image_size('view-gallery', 1370, 770, true);
+
 
 
 }

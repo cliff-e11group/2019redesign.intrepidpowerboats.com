@@ -9,11 +9,7 @@ $(function () {
     var $spriteSpin = $("#spinner-view");
     if ($spriteSpin.length > 0) {
         $spriteSpin.spritespin({
-            source: [
-                localized.stylesheeturl + "/uploads/200-Flats-large.jpg",
-                localized.stylesheeturl + "/uploads/245-center-console-large.jpg",
-                localized.stylesheeturl + "/uploads/300-center-console-large.jpg"
-            ],
+            source: view_360_urls,
             animate: false,
             responsive: true
         });
