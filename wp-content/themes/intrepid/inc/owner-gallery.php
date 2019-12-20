@@ -52,17 +52,18 @@ function e11_parse_file_errors($file = '', $image_caption){
       return $result;
     }
     $image_caption = trim(preg_replace('/[^a-zA-Z0-9\s]+/', ' ', $image_caption));
-    if($image_caption == ''){
-      $result['error'] = "Your caption may only contain letters, numbers and spaces!";
-      return $result;
-    }
+    // if($image_caption == ''){
+    //   $result['error'] = "Your caption may only contain letters, numbers and spaces!";
+    //   return $result;
+    // }
     $result['caption'] = $image_caption;
-    $image_data = getimagesize($file['tmp_name']);
-    if(!in_array($image_data['mime'], unserialize(TYPE_WHITELIST_IMAGE))){
+    $image_data = $file['type'];
+    if(!in_array($image_data, unserialize(TYPE_WHITELIST_IMAGE))){
       $result['error'] = 'Your image must be a jpeg, png or gif!';
-    }elseif(($file['size'] > MAX_UPLOAD_SIZE)){
-      $result['error'] = 'Your image was ' . $file['size'] . ' bytes! It must not exceed ' . MAX_UPLOAD_SIZE . ' bytes.';
     }
+    // elseif(($file['size'] > MAX_UPLOAD_SIZE)){
+    //   $result['error'] = 'Your image was ' . $file['size'] . ' bytes! It must not exceed ' . MAX_UPLOAD_SIZE . ' bytes.';
+    // }
     return $result;
 }
 
@@ -73,7 +74,6 @@ function e11_process_upload($file, $post_id, $caption){
 
     $attachment_id = media_handle_upload($file, $post_id);
 
-    update_post_meta($post_id, '_thumbnail_id', $attachment_id);
     update_post_meta($post_id, 'image_id', $attachment_id);
 
     $attachment_data = array(

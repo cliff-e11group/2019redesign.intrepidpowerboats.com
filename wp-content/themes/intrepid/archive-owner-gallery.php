@@ -103,7 +103,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
 
                                 ?>
 
-                                    <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : $placeholder; ?>);" class="portal-gallery__item">
+                                    <a href="<?php echo $video_url ? $video_url : $image_url; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image_url ? $image_url : $placeholder['url']; ?>);" class="portal-gallery__item">
                                     <?php if($video_url) : ?>
                                         <span class="portal-gallery__play-btn"></span>
                                     <?php endif; ?></a>
@@ -175,14 +175,14 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         <!-- image file  -->
                         <div class="owners-portal__form-input owners-portal__input-file">
                             <label for="owner_gallery_upload_image">Upload a photo to your gallery</label>
-                            <input type="file" size="60" name="owner_gallery_upload_image" id="owner_gallery_upload_image">
+                            <input type="file" size="60" name="owner_gallery_upload_image" id="owner_gallery_upload_image" required>
                         </div>
 
                         <div class="owners-portal__form-input owners-portal__input-radio">
                             <!-- private or public  -->
                             <div class="owners-portal__radio">
                                 <label for="public">Share this photo with the community</label>
-                                <input type="radio" name="visibility_level" id="public" value="public">
+                                <input type="radio" name="visibility_level" id="public" value="public" required>
                             </div>
 
                             <div class="owners-portal__radio">
@@ -212,12 +212,13 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         <!-- nonce -->
                         <input type="hidden" name="owner_gallery_upload_video_nonce" value="<?php echo wp_create_nonce('owner-gallery-upload-video-nonce'); ?>"/>
 
-                        <!-- image file  -->
+                        <!-- video file  -->
                         <div class="owners-portal__form-input owners-portal__input-file">
                             <label for="owner_gallery_upload_video">Upload a video to your gallery</label>
-                            <input type="file" size="60" name="owner_gallery_upload_video" id="owner_gallery_upload_video">
+                            <input type="file" size="60" name="owner_gallery_upload_video" id="owner_gallery_upload_video" required>
                         </div>
 
+                        <!-- optional placeholder  -->
                         <div class="owners-portal__form-input owners-portal__input-file">
                             <label for="owner_gallery_upload_video_placeholder">Upload a placeholder image for your video</label>
                             <input type="file" size="60" name="owner_gallery_upload_video_placeholder" id="owner_gallery_upload_video_placeholder">
@@ -227,7 +228,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         <div class="owners-portal__form-input owners-portal__input-radio">
                             <div class="owners-portal__radio">
                                 <label for="video_visibility_level_public">Share this video with the community</label>
-                                <input type="radio" name="video_visibility_level" id="video_visibility_level_public" value="public">
+                                <input type="radio" name="video_visibility_level" id="video_visibility_level_public" value="public" required>
                             </div>
 
                             <div class="owners-portal__radio">
@@ -247,7 +248,6 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         <input type="submit" id="owner_gallery_upload_video_submit" name="owner_gallery_upload_video_submit" class="owners-portal__form-button" value="Upload Image">
                     </form>
                 </div>
-
 
             </div>
 
