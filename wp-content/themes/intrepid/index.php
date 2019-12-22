@@ -116,24 +116,26 @@
             </div>
 
         <?php
+            $posts_per_page = 4;
             $older_args = array(
-                'posts_per_page' => 4,
+                'posts_per_page' => $posts_per_page,
                 'post_type' => 'post',
                 'order'=>'DESC',
                 'offset' => 1
-
                 );
 
             $older_posts = new WP_Query($older_args);
             ?>
 
             <?php if ($older_posts->have_posts()): ?>
+            <?php $count = 0; ?>
                 <div class="post-list layout__two-third">
                     <h2 class="section-title section-title--gray">Latest News</h2>
                     <div class="post-list__wrap">
                     <?php while ($older_posts->have_posts()): $older_posts->the_post(); ?>
 
                     <?php
+                        $count++;
                         $link = get_the_permalink();
                         $subtitle = get_field('subtitle');
                     ?>
@@ -159,11 +161,14 @@
                         </div>
                     </article>
 
+                        <?php if ($count === $posts_per_page) : ?>
+                            <div class="load-more">
+                                <a href="#" class="btn btn--fullwidth btn--outline btn--large-mobile">Load More</a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     <?php endwhile; ?>
-                        <div class="load-more">
-                        <a href="#" class="btn btn--fullwidth btn--outline btn--large-mobile">Load More</a>
-                        </div>
-                    </div>
+
                 </div>
             <?php endif; wp_reset_query()?>
 
