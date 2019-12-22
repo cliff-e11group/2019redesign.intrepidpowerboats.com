@@ -45,7 +45,7 @@ the_post();
                     <!-- boat categories  -->
                     <?php if ($boat_cats) : ?>
                         <?php foreach($boat_cats as $boat_cat) : ?>
-                            <li><a href="#" data-filter-category="<?php echo $boat_cat->slug; ?>"><?php echo $boat_cat->name; ?></a></li>
+                            <li><a href="#" data-filter-category=".<?php echo $boat_cat->slug; ?>"><?php echo $boat_cat->name; ?></a></li>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </ul>

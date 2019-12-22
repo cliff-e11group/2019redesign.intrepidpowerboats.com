@@ -48,15 +48,36 @@ jQuery(document).ready(function ($) {
         ium: function () {
             var name = $(this).find('.length .detail').text();
             return name.match(/40$/);
+        },
+            // flatten object by concatting values
+            concatValues: function ( obj ) {
+            var value = '';
+            for ( var prop in obj ) {
+            value += obj[ prop ];
+            }
+            return value;
         }
     };
+
     // bind filter on select change
+    var selected_length_filter;
     $('.filters-select').on('change', function () {
         // get filter value from option value
         var filterValue = this.value;
+        selected_length_filter = filterValue;
+
         // use filterFn if matches value
         filterValue = filterFns[filterValue] || filterValue;
-        $grid.isotope({filter: filterValue});
+        var filters = [filterValue, selected_cat_filter];
+
+        if(selected_cat_filter){
+            var finalFilterValue = filterFns.concatValues( filters );
+        } else{
+            var finalFilterValue = filterValue;
+        }
+
+        $grid.isotope({filter: finalFilterValue});
+
     });
     $grid.imagesLoaded().progress(function () {
         $grid.isotope('layout');
@@ -64,12 +85,27 @@ jQuery(document).ready(function ($) {
 
     var $cat_filters = $('[data-filter-category]');
     if($cat_filters.length > 0){
+
+        var selected_cat_filter;
+
         $cat_filters.each(function(){
             var $this = $(this);
 
             $this.on('click', function(){
                 var filterValue = $this.data('filter-category');
-                $grid.isotope({filter: '.' + filterValue});
+                selected_cat_filter = filterValue;
+
+                var filters = [filterValue, selected_length_filter];
+
+                if(selected_length_filter){
+                    var finalFilterValue = filterFns.concatValues( filters );
+                } else{
+                    var finalFilterValue = filterValue;
+                }
+
+                $grid.isotope({filter: finalFilterValue });
+
+
             });
         });
         $grid.imagesLoaded().progress(function () {
