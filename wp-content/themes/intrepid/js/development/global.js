@@ -516,6 +516,39 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    var $deckPoint__container = $('.deck-point__container');
+
+    if($deckPoint__container.length > 0) {
+        $deckPoint__container.each(function (){
+            var $this = $(this),
+                $deckPointInfo = $this.find('.deck-block__info'),
+                $deckPointClose = $this.find('.close'),
+                $deckPoint = $this.find('.deck-point'),
+                $siblings = $this.siblings('.deck-point__container'),
+                activeClass = 'deck-point--active';
+
+            $deckPoint.on('click', function () {
+                if($this.hasClass(activeClass)) {
+                    $this.removeClass(activeClass);
+                    $deckPointInfo.removeClass(activeClass);
+                    $deckPointInfo.appendTo($this);
+
+                } else {
+                    $siblings.removeClass(activeClass);
+                    $this.addClass(activeClass);
+                    $deckPointInfo.appendTo('body');
+                    $deckPointInfo.addClass(activeClass);
+                }
+            });
+
+            $deckPointClose.on('click', function () {
+                $this.removeClass(activeClass);
+                $deckPointInfo.removeClass(activeClass);
+                $deckPointInfo.appendTo($this);
+            });
+        });
+    }
+
 });
 
 

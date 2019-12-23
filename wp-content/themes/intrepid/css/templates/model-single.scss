@@ -1028,17 +1028,97 @@
             margin: 0 auto;
         }
     }
+
+    .container {
+        text-align: center;
+    }
+}
+
+.deck-block__outer {
+
+    @media #{$phone} {
+        min-height: calc(100vw - 20px);
+    }
+}
+
+.deck-block__inner {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+
+    @media #{$phone} {
+        transform: rotate(-90deg) translate3d(-30%, 0, 0);
+    }
+}
+
+.deck-block__img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.deck-point {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    box-shadow: none;
+    font-size: 15px;
+    line-height: 27px;
+    font-family: $primary-family;
+    text-align: center;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #3A4249;
+    border: 1px solid #3A4249;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    @media #{$phone} {
+        transform: rotate(90deg);
+    }
+
+    .deck-point--active & {
+        background-color: #F4F4F4;
+        border-color: #B0B0B0;
+        color: #3A4249;
+        transform: scale(1.6);
+        transform-origin: center;
+
+        @media #{$phone} {
+            transform: scale(1.2) rotate(90deg);
+        }
+    }
 }
 
 .deck-block__info {
     padding: 25px 0 38px;
     background-color: $bright-gray;
     position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
     z-index: 88;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+
     @media #{$phone} {
         padding: 0 0 30px;
+    }
+
+    &.deck-point--active {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 300ms;
     }
 
     .container {
@@ -1056,7 +1136,7 @@
             right: 15px;
         }
 
-        a {
+        .close {
             color: #FFFFFF;
             @include fsz(15px);
             font-weight: 700;
@@ -1085,8 +1165,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    max-width: 780px;
+    margin: 0 auto;
     color: $white;
+
     @media #{$phone} {
         flex-direction: column;
     }
@@ -1102,6 +1184,8 @@
         text-align: center;
         border-radius: 50%;
         padding: 2px 0;
+        margin-right: 25px;
+
         @media #{$phone} {
             width: 42px;
             height: 42px;
@@ -1112,15 +1196,20 @@
     }
 
     .deck-info__thumbnail {
-        width: 35.8%;
+        max-width: 280px;
+        margin-right: 20px;
+
         @media #{$phone} {
-            width: 183px;
+            max-width: 183px;
             margin-bottom: 20px;
+            margin-right: 9;
         }
     }
 
     .deck-info__content {
-        width: 48.6%;
+        flex: 1;
+        text-align: left;
+
         @media #{$phone} {
             text-align: center;
             @include fsz(14px);

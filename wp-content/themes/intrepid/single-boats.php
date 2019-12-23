@@ -18,6 +18,8 @@ $overview = get_field('overview');
 $boat_footer_link = get_field('boat_footer_link');
 $gallery_rows = get_field('gallery_rows');
 $features = get_field('features_section');
+$deck_plan_image = get_field('deck_plan_image');
+$deck_points = get_field('deck_points');
 $motor_blocks = get_field('motor_blocks');
 $boat_options = get_field('boat_options');
 
@@ -59,24 +61,19 @@ endif;
             <div class="nav-block__inner">
                 <div class="container">
                     <ul class="model-nav resp-tabs-list hor_1">
-                        <?php if ( !empty($overview) ) : ?>
                             <li class="model-nav__item active">Overview</li>
-                        <?php endif; ?>
-
                         <?php if ( !empty($gallery_rows) ) : ?>
                             <li class="model-nav__item">Gallery</li>
                         <?php endif; ?>
-
                         <?php if ( !empty($features) ) : ?>
                             <li class="model-nav__item">Features</li>
                         <?php endif; ?>
-
+                        <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>
                         <li class="model-nav__item">Deck Plan</li>
-
+                        <?php endif; ?>
                         <?php if (!empty($motor_blocks) ) : ?>
                             <li class="model-nav__item">Motors</li>
                         <?php endif; ?>
-
                         <?php if ( !empty($motor_blocks) ) : ?>
                             <li class="model-nav__item">Options</li>
                         <?php endif; ?>
@@ -137,17 +134,16 @@ endif;
                 </section>
                 <!-- overview end -->
             </div>
+            <?php if ( !empty($gallery_rows) ) : ?>
             <div>
-
                 <?php $virtual_tour = get_field('virtual_tour'); ?>
                 <div id="childTab">
                     <ul class="resp-tabs-list hor_child_1">
                         <li> Gallery </li>
                         <?php if($virtual_tour) : ?>
-                            <li> Virtual Tour </li>
+                        <li> Virtual Tour </li>
                         <?php endif; ?>
                     </ul>
-
                     <div class="resp-tabs-container hor_child_1">
                         <div>
                             <!-- gallery start -->
@@ -169,6 +165,8 @@ endif;
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
+            <?php if ( !empty($features) ) : ?>
             <div>
                 <!-- features start -->
                 <section class="features-block">
@@ -196,32 +194,49 @@ endif;
                 </section>
                 <!-- features end -->
             </div>
+            <?php endif; ?>
+            <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>
             <div>
                 <!-- deck plan start -->
                 <div class="deck-block">
                     <div class="container">
-                        <img class="deck-desktop" src="<?php echo STYLEDIR; ?>/uploads/DeckPlanPic.jpg" alt="Boat Deck Plan">
-                        <img class="deck-mobile" src="<?php echo STYLEDIR; ?>/uploads/DeckPlanPic-mobile.jpg" alt="Boat Deck Plan">
-                        <span class="deck-block__short-note">Select to see features</span>
-                    </div>
-                    <div class="deck-block__info">
-                        <div class="container">
-                            <div class="deck-info">
-                                <span class="deck-info__number">19</span>
-                                <figure class="deck-info__thumbnail">
-                                    <img src="<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg" alt="premium-upholstery-package" />
-                                </figure>
-                                <div class="deck-info__content">
-                                    <h2 class="deck-info__title">Captain's Chair</h2>
-                                    <div class="deck-info__description">
-                                        <p>This is the description of the item that is selected. May be one or two sentences but nothing too crazy.</p>
+                        <div class="deck-block__outer">
+                            <div class="deck-block__inner">
+                                <img class="deck-block__img" src="<?php echo $deck_plan_image['url']; ?>" alt="<?php echo $deck_plan_image['alt']; ?>">
+        <!--                        <img class="deck-mobile" src="<?php echo STYLEDIR; ?>/uploads/DeckPlanPic-mobile.jpg" alt="Boat Deck Plan">-->
+                                <?php foreach($deck_points as $deck_point) : ?>
+                                <div class="deck-point__container">
+                                    <button class="deck-point" style="top: <?php echo $deck_point['distance_from_top_border']; ?>%; left: <?php echo $deck_point['distance_from_left_border']; ?>%;"><?php echo $deck_point['number_on_hotspot']; ?></button>
+                                    <div class="deck-block__info">
+                                        <div class="container">
+                                            <div class="deck-info">
+                                                <span class="deck-info__number"><?php echo $deck_point['number_on_hotspot']; ?></span>
+                                                <?php if($deck_point['image']) : ?>
+                                                <figure class="deck-info__thumbnail">
+                                                    <img src="<?php echo $deck_point['image']['url']; ?>" alt="<?php echo $deck_point['image']['alt']; ?>">
+                                                </figure>
+                                                <?php endif; ?>
+                                                <div class="deck-info__content">
+                                                    <?php if($deck_point['title']) : ?>
+                                                    <h2 class="deck-info__title"><?php echo $deck_point['title']; ?></h2>
+                                                    <?php endif; ?>
+                                                    <?php if($deck_point['description']) : ?>
+                                                    <div class="deck-info__description">
+                                                        <?php echo $deck_point['description']; ?>
+                                                    </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-close text--right">
+                                            <a href="javascript:void(0);" class="close">CLOSE <span class="icon-close"></span></a>
+                                        </div>
                                     </div>
                                 </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                        <div class="panel-close text--right">
-                            <a href="javascript:void(0);" class="close">CLOSE <span class="icon-close"></span></a>
-                        </div>
+                        <span class="deck-block__short-note">Select to see features</span>
                     </div>
                     <?php if ($boat_footer_link) : ?>
                     <div class="btn-wrap">
@@ -231,6 +246,8 @@ endif;
                 </div>
                 <!-- deck plan start -->
             </div>
+            <?php endif; ?>
+            <?php if ( !empty($motor_blocks) ) : ?>
             <div>
                 <!-- motor start -->
                 <section class="motor-block">
@@ -262,6 +279,8 @@ endif;
                 </section>
                 <!-- motor end -->
             </div>
+            <?php endif; ?>
+            <?php if ( !empty($boat_options) ) : ?>
             <div>
                 <!-- option start -->
                 <section class="model-option">
@@ -326,6 +345,7 @@ endif;
                 </section>
                 <!-- option end -->
             </div>
+            <?php endif; ?>
         </div>
     </div>
     <section class="build-a-boat">
