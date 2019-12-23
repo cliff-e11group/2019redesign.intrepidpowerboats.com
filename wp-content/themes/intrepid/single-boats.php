@@ -11,6 +11,7 @@ $formatted_title = implode(' ', $title_words);
 
 
 $overview = get_field('overview');
+$boat_footer_link = get_field('boat_footer_link');
 $gallery_rows = get_field('gallery_rows');
 $features = get_field('features_section');
 $motor_blocks = get_field('motor_blocks');
@@ -117,10 +118,9 @@ endif;
 
                         </div>
                     </div>
-                    <?php $overview_link = get_field('overview_link'); ?>
-                    <?php if ($overview_link) : ?>
+                    <?php if ($boat_footer_link) : ?>
                         <div class="btn-wrap">
-                            <a href="<?php echo $overview_link['url']; ?>" target="<?php echo $overview_link['target']; ?>" class="btn btn--dark"><?php echo $overview_link['title']; ?></a>
+                            <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
                         </div>
                     <?php endif; ?>
                 </section>
@@ -177,11 +177,10 @@ endif;
                         </div>
 
                     </div>
-                    <?php $features_link = get_field('features_link'); ?>
-                    <?php if ($features_link) : ?>
-                        <div class="btn-wrap">
-                            <a href="<?php echo $features_link['url']; ?>" target="<?php echo $features_link['target']; ?>" class="btn btn--dark"><?php echo $features_link['title']; ?></a>
-                        </div>
+                    <?php if ($boat_footer_link) : ?>
+                    <div class="btn-wrap">
+                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
+                    </div>
                     <?php endif; ?>
                 </section>
                 <!-- features end -->
@@ -213,9 +212,11 @@ endif;
                             <a href="javascript:void(0);" class="close">CLOSE <span class="icon-close"></span></a>
                         </div>
                     </div>
+                    <?php if ($boat_footer_link) : ?>
                     <div class="btn-wrap">
-                        <a href="#" class="btn btn--dark">Contact a sales representative</a>
+                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
                     </div>
+                    <?php endif; ?>
                 </div>
                 <!-- deck plan start -->
             </div>
@@ -242,11 +243,10 @@ endif;
 
                         </ul>
                     </div>
-                    <?php $motor_link = get_field('motor_blocks_link'); ?>
-                    <?php if ($motor_link) : ?>
-                        <div class="btn-wrap">
-                            <a href="<?php echo $motor_link['url']; ?>" target="<?php echo $motor_link['target']; ?>" class="btn btn--dark"><?php echo $motor_link['title']; ?></a>
-                        </div>
+                    <?php if ($boat_footer_link) : ?>
+                    <div class="btn-wrap">
+                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
+                    </div>
                     <?php endif; ?>
                 </section>
                 <!-- motor end -->
@@ -308,11 +308,10 @@ endif;
                                 </ul>
                             </form>
                         </div>
-                        <?php $options_link = get_field('boat_options_link'); ?>
-                        <?php if ($options_link) : ?>
-                            <div class="btn-wrap">
-                                <a href="<?php echo $options_link['url']; ?>" target="<?php echo $options_link['target']; ?>" class="btn btn--dark"><?php echo $options_link['title']; ?></a>
-                            </div>
+                        <?php if ($boat_footer_link) : ?>
+                        <div class="btn-wrap">
+                            <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
+                        </div>
                         <?php endif; ?>
                     </div>
                 </section>
