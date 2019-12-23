@@ -97,6 +97,21 @@
             "mime_types": ""
         },
         {
+            "key": "field_5df91f26741e3",
+            "label": "Footer Link",
+            "name": "boat_footer_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_5df7ccf90582d",
             "label": "Overview",
             "name": "",
@@ -149,21 +164,6 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
-        },
-        {
-            "key": "field_5df91f26741e3",
-            "label": "Overview Link",
-            "name": "overview_link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
         },
         {
             "key": "field_5df7cd2c0582f",
@@ -220,21 +220,6 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_5df91f3e741e4",
-            "label": "Gallery Link",
-            "name": "gallery_rows_link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
         },
         {
             "key": "field_5df7df5b5c9e5",
@@ -331,21 +316,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "key": "field_5df91f53741e5",
-            "label": "Features Link",
-            "name": "features_link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
         },
         {
             "key": "field_5df7e50226760",
@@ -445,21 +415,6 @@
                     "delay": 0
                 }
             ]
-        },
-        {
-            "key": "field_5df91f67741e6",
-            "label": "Motor Blocks Link",
-            "name": "motor_blocks_link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
         },
         {
             "key": "field_5df7e8764c259",
@@ -582,21 +537,6 @@
             ]
         },
         {
-            "key": "field_5df91f72741e7",
-            "label": "Options Link",
-            "name": "boat_options_link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
             "key": "field_5dfa6c0774bce",
             "label": "Category Details",
             "name": "",
@@ -710,5 +650,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576863244
+    "modified": 1577111188
 }
