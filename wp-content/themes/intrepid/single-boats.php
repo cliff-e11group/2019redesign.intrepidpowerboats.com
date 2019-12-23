@@ -166,13 +166,12 @@ endif;
                         <div class="feature-list">
                             <?php foreach($features as $feature) : ?>
                                 <div class="feature-list__item">
+                                    <?php if($feature['title']) : ?>
                                     <h2 class="feature-list__title"><?php echo $feature['title']; ?></h2>
+                                    <?php endif; ?>
+                                    <?php if($feature['content']) : ?>
                                     <div class="entry-content"><?php echo $feature['content']; ?></div>
-                                    <ul class="list">
-                                        <?php foreach ( as $detail) : ?>
-                                            <li class="list__item"><?php echo $detail['detail']; ?></li>
-                                        <?php endforeach; ?>
-                                    </ul>
+                                    <?php endif; ?>
                                 </div>
                             <?php endforeach; ?>
                         </div>
