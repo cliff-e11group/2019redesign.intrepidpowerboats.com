@@ -338,12 +338,6 @@
         }
     }
 
-    &.active {
-        .btn--dark {
-            display: none;
-        }
-    }
-
     .btn--dark-alt {
         margin-right: 23px;
         @media #{$phone} {
@@ -915,8 +909,22 @@
     }
 }
 
+.btn-wrap {
+    .form-toggle {
+        min-width: 0;
+    }
+
+    .btn {
+        margin-right: 25px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
 .form-wrap {
-    width: 380px;
+    width: 100%;
     display: none;
     @media #{$phone} {
         width: 100%;
@@ -924,6 +932,11 @@
 
     .active & {
         display: block;
+    }
+
+    .form {
+        max-width: 380px;
+        margin: 38px auto 0;
     }
 }
 
