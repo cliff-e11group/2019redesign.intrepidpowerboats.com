@@ -7374,10 +7374,6 @@ jQuery(document).ready(function ($) {
         $(this).closest(".column-model__item").children(".column-model__content").slideToggle();
     });
 
-    $('.option-list__item').on('click', function () {
-        $(this).toggleClass('selected');
-    });
-
     $('.compare-mode--active .model-list__image').on('click', function () {
         $(this).parent().toggleClass('selected');
     });

@@ -10,6 +10,10 @@ $title_words[0] = '<strong>' . $title_words[0] . '</strong>';
 $formatted_title = implode(' ', $title_words);
 
 
+$boat_hero_image = get_field('boat_hero_image');
+$boat_hero_img = $boat_hero_image ? $boat_hero_image['sizes']['hero'] : get_the_post_thumbnail_url( $page, 'hero' );
+$boat_hero_title_bg_img = get_field('boat_hero_title_bg_img');
+$boat_hero_title_class = $boat_hero_title_bg_img ? 'model__title-box--imgTitle' : '';
 $overview = get_field('overview');
 $boat_footer_link = get_field('boat_footer_link');
 $gallery_rows = get_field('gallery_rows');
@@ -20,8 +24,10 @@ $boat_options = get_field('boat_options');
 $view_360_images = get_field('360_view_gallery');
 $view_360_urls = array();
 
-foreach($view_360_images as $image){
-    array_push($view_360_urls, $image['image']['sizes']['view-gallery']);
+if(!empty($view_360_images)) {
+    foreach($view_360_images as $image){
+        array_push($view_360_urls, $image['image']['sizes']['view-gallery']);
+    }
 }
 
 if (!empty($view_360_urls)) :
@@ -31,15 +37,20 @@ endif;
 
 
 <main class="page__single page__single--boat main">
-    <section class="hero hero--model" style="background-image:url(<?php echo get_the_post_thumbnail_url( $page, 'hero' ); ?>);">
+    <section class="hero hero--model" style="background-image:url(<?php echo $boat_hero_img; ?>);">
         <div class="container">
-            <div class="model__title-box">
+            <div class="model__title-box <?php echo $boat_hero_title_class; ?>">
                 <h1 class="model__title"><?php echo $formatted_title; ?></h1>
+                <?php if($boat_hero_title_bg_img) : ?>
+                <img src="<?php echo $boat_hero_title_bg_img['url']; ?>" alt="<?php echo $boat_hero_title_bg_img['alt']; ?>" class="model__title--img">
+                <?php endif; ?>
             </div>
+            <?php if (!empty($view_360_urls)) : ?>
             <a class="model__360-view" data-src="#spinner-container" href="#">360 view</a>
             <div id="spinner-container">
                 <div id="spinner-view"></div>
             </div>
+            <?php endif; ?>
         </div>
     </section>
     <div id="parentTab">
@@ -256,7 +267,7 @@ endif;
                 <section class="model-option">
                     <div class="container">
                         <div class="model-option__header">
-                            <h2 class="model-option__title">The many options for the <strong>4<?php echo $title; ?></strong></h2>
+                            <h2 class="model-option__title">The many options for the <strong><?php echo $title; ?></strong></h2>
                             <span>Create a checklist for the optional equipment you’re interested in.</span>
                         </div>
 
@@ -280,8 +291,11 @@ endif;
 
                         </div>
                     </div>
-                    <div class="btn-wrap">
-                        <a class="form-toggle btn btn--dark-alt" href="#">Email This List</a>
+                    <div class="btn-wrap ">
+                        <a class="form-toggle btn btn--dark" href="#">Email This List</a>
+                        <?php if ($boat_footer_link) : ?>
+                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
+                        <?php endif; ?>
                         <div class="form-wrap">
                             <form class="form" action="#" method="post">
                                 <h3 class="form__title">Your information</h3>
@@ -308,11 +322,6 @@ endif;
                                 </ul>
                             </form>
                         </div>
-                        <?php if ($boat_footer_link) : ?>
-                        <div class="btn-wrap">
-                            <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                        </div>
-                        <?php endif; ?>
                     </div>
                 </section>
                 <!-- option end -->
