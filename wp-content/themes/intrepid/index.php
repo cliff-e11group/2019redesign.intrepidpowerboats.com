@@ -1,7 +1,12 @@
-<?php get_header(); ?>
+<?php
+    get_header();
+    global $paged;
+?>
 <main class="main page-news-archive">
 
     <?php
+        $heroPostID = array();
+
         $featured_args = array(
             'posts_per_page' => 1,
             'post_type' => 'post',
@@ -11,7 +16,8 @@
         ?>
 
         <?php if ($featured_news_query->have_posts()): ?>
-            <?php while ($featured_news_query->have_posts()): $featured_news_query->the_post(); ?>
+            <?php while ($featured_news_query->have_posts()): $featured_news_query->the_post();
+            $heroPostID[] = $post->ID; ?>
                 <section class="hero hero--inner hero--inner-large" style="background-image:url(<?php echo get_the_post_thumbnail_url(); ?>);">
                     <div class="container">
                         <img class="hero__mobile-image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="news_hero" />
@@ -116,26 +122,23 @@
             </div>
 
         <?php
-            $posts_per_page = 4;
             $older_args = array(
-                'posts_per_page' => $posts_per_page,
-                'post_type' => 'post',
-                'order'=>'DESC',
-                'offset' => 1
-                );
+                'posts_per_page'	=> 4,
+                'post_type'		=> 'post',
+                'post_status'	=> 'publish',
+                'post__not_in' 	=> $heroPostID,
+            );
 
             $older_posts = new WP_Query($older_args);
             ?>
 
             <?php if ($older_posts->have_posts()): ?>
-            <?php $count = 0; ?>
                 <div class="post-list layout__two-third">
                     <h2 class="section-title section-title--gray">Latest News</h2>
                     <div class="post-list__wrap">
                     <?php while ($older_posts->have_posts()): $older_posts->the_post(); ?>
 
                     <?php
-                        $count++;
                         $link = get_the_permalink();
                         $subtitle = get_field('subtitle');
                     ?>
@@ -143,7 +146,6 @@
                     <article class="post">
                         <figure class="post__image">
                             <a href="<?php echo $link; ?>">
-                                <!-- <img src="<?php //echo get_the_post_thumbnail_url(); ?>" alt="article-image1" /> -->
                                 <?php echo get_the_post_thumbnail('', 'featured-thumb'); ?>
                             </a>
                         </figure>
@@ -161,20 +163,21 @@
                         </div>
                     </article>
 
-                        <?php if ($count === $posts_per_page) : ?>
-                            <div class="load-more">
-                                <a href="#" class="btn btn--fullwidth btn--outline btn--large-mobile">Load More</a>
-                                </div>
-                            </div>
-                        <?php endif; ?>
                     <?php endwhile; ?>
 
                 </div>
-            <?php endif; wp_reset_query()?>
-
-
-
+                <?php endif; ?>
+            <?php wp_reset_query(); ?>
+            <?php
+            // global $wp_query;
+            if (  $older_posts->max_num_pages > 1 ) : ?>
+                <div class="load-more" >
+                    <button  class="btn btn--fullwidth btn--outline btn--large-mobile" data-class="load-more">Load More</button>
+                    </div>
                 </div>
+            <?php endif; ?>
+
+            </div>
 
         </div>
     </section>
