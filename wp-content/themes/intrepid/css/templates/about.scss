@@ -40,7 +40,7 @@
     @media #{$phone}{
         padding: 50px 0 0;
     }
-    @media #{$phone-small}{
+    @media #{$phone}{
         padding: 0;
     }
 
@@ -50,7 +50,7 @@
         justify-content: space-between;
         align-items: flex-end;
         flex-direction: row-reverse;
-        @media #{$phone-small}{
+        @media #{$phone}{
             padding: 0;
         }
     }
@@ -86,7 +86,7 @@
         text-align: center;
         padding-bottom: 0;
     }
-    @media #{$phone-small}{
+    @media #{$phone}{
         padding: 0 10px;
     }
 }
@@ -151,7 +151,7 @@
         padding: 43px 30px;
         background-color: #DBDBDB;
     }
-    @media #{$phone-small}{
+    @media #{$phone}{
         margin: -20px 10px;
     }
 

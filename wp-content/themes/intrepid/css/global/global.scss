@@ -146,7 +146,7 @@ p{
   padding-right: 20px;
   margin: 0 auto;
   position: relative;
-  @media #{$phone-small} {
+  @media #{$phone} {
     padding-left: 10px;
     padding-right: 10px;
   }

@@ -103,7 +103,7 @@
   @media #{$header} {
     padding:40px 0 20px;
   }
-  @media #{$phone-small} {
+  @media #{$phone} {
     padding:10px 0 7px;
   }
   .container{
@@ -120,7 +120,7 @@
     height: 407px;
     margin-bottom: 22px;
     color:$white;
-    @media #{$phone-small} {
+    @media #{$phone} {
       margin-bottom: 10px;
     }
     &:before{

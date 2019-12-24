@@ -7288,11 +7288,11 @@ jQuery(document).ready(function ($) {
             var name = $(this).find('.length .detail').text();
             return name.match(/40$/);
         },
-            // flatten object by concatting values
-            concatValues: function ( obj ) {
+        // flatten object by concatting values
+        concatValues: function (obj) {
             var value = '';
-            for ( var prop in obj ) {
-            value += obj[ prop ];
+            for (var prop in obj) {
+                value += obj[prop];
             }
             return value;
         }
@@ -7309,9 +7309,9 @@ jQuery(document).ready(function ($) {
         filterValue = filterFns[filterValue] || filterValue;
         var filters = [filterValue, selected_cat_filter];
 
-        if(selected_cat_filter){
-            var finalFilterValue = filterFns.concatValues( filters );
-        } else{
+        if (selected_cat_filter) {
+            var finalFilterValue = filterFns.concatValues(filters);
+        } else {
             var finalFilterValue = filterValue;
         }
 
@@ -7323,26 +7323,26 @@ jQuery(document).ready(function ($) {
     });
 
     var $cat_filters = $('[data-filter-category]');
-    if($cat_filters.length > 0){
+    if ($cat_filters.length > 0) {
 
         var selected_cat_filter;
 
-        $cat_filters.each(function(){
+        $cat_filters.each(function () {
             var $this = $(this);
 
-            $this.on('click', function(){
+            $this.on('click', function () {
                 var filterValue = $this.data('filter-category');
                 selected_cat_filter = filterValue;
 
                 var filters = [filterValue, selected_length_filter];
 
-                if(selected_length_filter){
-                    var finalFilterValue = filterFns.concatValues( filters );
-                } else{
+                if (selected_length_filter) {
+                    var finalFilterValue = filterFns.concatValues(filters);
+                } else {
                     var finalFilterValue = filterValue;
                 }
-
-                $grid.isotope({filter: finalFilterValue });
+                console.log(finalFilterValue);
+                $grid.isotope({filter: finalFilterValue});
 
 
             });
@@ -7353,14 +7353,22 @@ jQuery(document).ready(function ($) {
     }
 
 
-
-
-
     $('.filters-select').select2();
 
-    $('.model-list__trigger').on('click', function () {
-        $(this).closest(".model-list__block").toggleClass('active');
-    });
+    var $modelList__block = $('.model-list__block');
+
+    if ($modelList__block.length > 0) {
+        $modelList__block.each(function () {
+            var $this = $(this),
+                $modelList__trigger = $this.find('.model-list__trigger'),
+                $sliblings = $this.siblings('.model-list__block');
+
+            $modelList__trigger.on('click', function () {
+                $sliblings.removeClass('active');
+                $this.toggleClass('active');
+            });
+        });
+    }
 
     $('.motor-list__trigger').on('click', function () {
         $(this)
@@ -7400,8 +7408,8 @@ jQuery(document).ready(function ($) {
     }
 
     $('.filter-list__toggle, .category-block .widget-title').on('click', function () {
-       $(this).toggleClass('active');
-       $(this).next().toggleClass('active')
+        $(this).toggleClass('active');
+        $(this).next().toggleClass('active')
     });
 
 
@@ -7410,43 +7418,43 @@ jQuery(document).ready(function ($) {
             var selected = $('body').find('.selected');
             var data = selected.find('img').data();
             var newHtml = "<div class=\"module-comparision__item\">" +
-            "<div class=\"model-list__image\">" +
-            "    <img src=\"" + data['imgSrc'] + "\" alt=\"" + data['alt'] + "\">" +
-            "</div>" +
-            "<div class=\"model-list__detail\">" +
-            "    <div class=\"model-list__title\">" +
-            "        <h3>" + data['title'] + "</h3>" +
-            "        <span class=\"model-list__trigger\">" +
-            "        </span>" +
-            "    </div>" +
-            "    <div class=\"model-list-hidden__content\">" +
-            "        <div class=\"model-list-stat__container\">" +
-            "            <h4>" + data['secondaryTitle'] + "</h4>" +
-            "            <ul>" +
-            "                <li>" +
-            "                    <div class=\"title\">" + data['liTitle_1'] + "</div>" +
-            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-            "                </li>" +
-            "                <li>" +
-            "                    <div class=\"title\">" + data['liTitle_2'] + "</div>" +
-            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-            "                </li>" +
-            "                <li>" +
-            "                    <div class=\"title\">" + data['liTitle_3'] + "</div>" +
-            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-            "                </li>" +
-            "                <li>" +
-            "                    <div class=\"title\">" + data['liTitle_4'] + "</div>" +
-            "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-            "                </li>" +
-            "            </ul>" +
-            "        </div>" +
-            "        <div class=\"model-list-cta__container\">" +
-            "            <a href=\"#\" class=\"btn btn--outline\">" + data['btn_txt'] + "</a>" +
-            "        </div>" +
-            "    </div>" +
-            "</div>" +
-            "</div>";
+                "<div class=\"model-list__image\">" +
+                "    <img src=\"" + data['imgSrc'] + "\" alt=\"" + data['alt'] + "\">" +
+                "</div>" +
+                "<div class=\"model-list__detail\">" +
+                "    <div class=\"model-list__title\">" +
+                "        <h3>" + data['title'] + "</h3>" +
+                "        <span class=\"model-list__trigger\">" +
+                "        </span>" +
+                "    </div>" +
+                "    <div class=\"model-list-hidden__content\">" +
+                "        <div class=\"model-list-stat__container\">" +
+                "            <h4>" + data['secondaryTitle'] + "</h4>" +
+                "            <ul>" +
+                "                <li>" +
+                "                    <div class=\"title\">" + data['liTitle_1'] + "</div>" +
+                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+                "                </li>" +
+                "                <li>" +
+                "                    <div class=\"title\">" + data['liTitle_2'] + "</div>" +
+                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+                "                </li>" +
+                "                <li>" +
+                "                    <div class=\"title\">" + data['liTitle_3'] + "</div>" +
+                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+                "                </li>" +
+                "                <li>" +
+                "                    <div class=\"title\">" + data['liTitle_4'] + "</div>" +
+                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
+                "                </li>" +
+                "            </ul>" +
+                "        </div>" +
+                "        <div class=\"model-list-cta__container\">" +
+                "            <a href=\"#\" class=\"btn btn--outline\">" + data['btn_txt'] + "</a>" +
+                "        </div>" +
+                "    </div>" +
+                "</div>" +
+                "</div>";
             var select_length = selected.length;
             $(".module-comparision__list").append(newHtml);
             if (select_length > 1) {
@@ -7510,12 +7518,12 @@ jQuery(document).ready(function ($) {
         $('.module-comparision__list').slick('destroy');
     });
 
-    $(".mobile-nav__toggle").click(function(e) {
+    $(".mobile-nav__toggle").click(function (e) {
 
         $('.menu-item-has-children').each(function (index, value) {
-            if ( $(this).children('a').hasClass( "menu-open" ) ) {
-                $(this).children('.sub-menu').css({height:'auto'});
-            }else{
+            if ($(this).children('a').hasClass("menu-open")) {
+                $(this).children('.sub-menu').css({height: 'auto'});
+            } else {
                 $(this).children('.sub-menu').css({"height": "0"});
             }
         });
@@ -7524,19 +7532,19 @@ jQuery(document).ready(function ($) {
 
     if ($(".menu-item-has-children ").length > 0) {
         $('.primary-nav li.menu-item-has-children > a').append('<button class="nav__parent-arrow--mobile" data-class="mobile-nav-dropdown-toggle"><svg class="icon icon-arrow-up" aria-hidden="true" role="img"><use xlink:href="#icon-arrow-up" x="0" y="0"></use></svg></button>');
-        $(".nav__parent-arrow--mobile").click(function(e) {
+        $(".nav__parent-arrow--mobile").click(function (e) {
             e.preventDefault();
-            if ( $(this).parent().hasClass( "menu-open" ) ) {
-                $(this).parent().siblings(".sub-menu").animate({"left": "100vw", "height": "0"},350);
+            if ($(this).parent().hasClass("menu-open")) {
+                $(this).parent().siblings(".sub-menu").animate({"left": "100vw", "height": "0"}, 350);
                 $(this).parent().removeClass('menu-open');
                 $(this).closest('.menu-item-has-children').removeClass('menu-open-parent');
                 $(this).closest('.menu-item-has-children').siblings().show();
                 $('.secondary-nav, .social-block').show();
-            }else{
+            } else {
                 $(this).parent().addClass('menu-open');
                 $(this).closest('.menu-item-has-children').addClass('menu-open-parent');
-                var heightfull=$(this).parent().siblings(".sub-menu").css({height:'auto'}).height();
-                $(this).parent().siblings(".sub-menu").animate({"left": "0", "height": heightfull },350);
+                var heightfull = $(this).parent().siblings(".sub-menu").css({height: 'auto'}).height();
+                $(this).parent().siblings(".sub-menu").animate({"left": "0", "height": heightfull}, 350);
                 $(this).closest('.menu-item-has-children').siblings().hide();
                 $('.secondary-nav, .social-block').hide();
             }
@@ -7554,12 +7562,12 @@ jQuery(document).ready(function ($) {
         width: 'auto', //auto or any width like 600px
         fit: true, // 100% fit in a container
         tabidentify: 'hor_1', // The tab groups identifier
-        activate: function(event) { // Callback function if tab is switched
+        activate: function (event) { // Callback function if tab is switched
             $('.option-slider')[0].slick.refresh();
             var $tab = $(this);
             $active_tab_text = $tab.text();
             //console.log($active_tab_text);
-            if($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery '){
+            if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
                 $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
                 $(".nav-block__active-tab").text($active_tab_text);
             }
@@ -7590,13 +7598,13 @@ jQuery(document).ready(function ($) {
         pauseOnHover: true,
         pauseOnArrowsHover: true,
         slidesToShow: 3,
-        slidesToScroll:1,
+        slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1100,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll:1,
+                    slidesToScroll: 1,
                 },
 
             },
@@ -7613,7 +7621,6 @@ jQuery(document).ready(function ($) {
             $('.option-slider').slick(settings);
         }
     });
-
 
 
     $('.motor-thumbnail .icon-close').on('click', function () {
@@ -7656,13 +7663,13 @@ jQuery(document).ready(function ($) {
         pauseOnHover: true,
         pauseOnArrowsHover: true,
         slidesToShow: 5,
-        slidesToScroll:1,
+        slidesToScroll: 1,
         responsive: [
             {
                 breakpoint: 1000,
                 settings: {
                     slidesToShow: 4,
-                    slidesToScroll:1,
+                    slidesToScroll: 1,
                 }
 
             },
@@ -7670,7 +7677,7 @@ jQuery(document).ready(function ($) {
                 breakpoint: 800,
                 settings: {
                     slidesToShow: 3,
-                    slidesToScroll:1,
+                    slidesToScroll: 1,
                 }
 
             },
@@ -7678,7 +7685,7 @@ jQuery(document).ready(function ($) {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll:1,
+                    slidesToScroll: 1,
                 }
 
             },
@@ -7686,7 +7693,7 @@ jQuery(document).ready(function ($) {
                 breakpoint: 400,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll:1,
+                    slidesToScroll: 1,
                 }
 
             }
@@ -7698,9 +7705,9 @@ jQuery(document).ready(function ($) {
         $(".contact-form__title").removeClass('contact-form__title--hide');
         $(".contact-form__title:first-child").addClass('contact-form__title--hide');
         $(".toggle-list__item, .toggle-content__item").siblings().removeClass('active');
-        var index = $( ".toggle-list__item" ).index( this );
+        var index = $(".toggle-list__item").index(this);
         $(this).addClass('active');
-        $(".toggle-content__item").eq( index ).addClass('active');
+        $(".toggle-content__item").eq(index).addClass('active');
         $active_text = $(this).text();
         $('.fake-select').text($active_text);
         $(this).parent().removeClass('active');
@@ -7718,7 +7725,7 @@ jQuery(document).ready(function ($) {
 
     $('.custom-tab__nav-item:first-child a').addClass('active');
     $('.custom-tab__content-item:first-child').addClass('active');
-    $('.custom-tab__nav-item a').click(function(e){
+    $('.custom-tab__nav-item a').click(function (e) {
         e.preventDefault();
         $('.custom-tab__nav-item a').removeClass('active');
         $(this).addClass('active');
@@ -7740,7 +7747,7 @@ jQuery(document).ready(function ($) {
                 settings: {
                     centerMode: true,
                     slidesToShow: 3,
-                    slidesToScroll:1,
+                    slidesToScroll: 1,
                 }
 
             }
@@ -7757,8 +7764,8 @@ jQuery(document).ready(function ($) {
 
     var $deckPoint__container = $('.deck-point__container');
 
-    if($deckPoint__container.length > 0) {
-        $deckPoint__container.each(function (){
+    if ($deckPoint__container.length > 0) {
+        $deckPoint__container.each(function () {
             var $this = $(this),
                 $deckPointInfo = $this.find('.deck-block__info'),
                 $deckPointClose = $this.find('.close'),
@@ -7767,7 +7774,7 @@ jQuery(document).ready(function ($) {
                 activeClass = 'deck-point--active';
 
             $deckPoint.on('click', function () {
-                if($this.hasClass(activeClass)) {
+                if ($this.hasClass(activeClass)) {
                     $this.removeClass(activeClass);
                     $deckPointInfo.removeClass(activeClass);
                     $deckPointInfo.appendTo($this);

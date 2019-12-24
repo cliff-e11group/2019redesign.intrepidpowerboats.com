@@ -8,13 +8,13 @@ the_post();
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title">OUR MODELS</h1>
+                <?php $tagline = get_field('boat_archive_tagline', 'option');
+                if($tagline) : ?>
                 <div class="hero__description">
                 <!-- boat_archive_tagline -->
-                    <?php
-                    $tagline = get_field('boat_archive_tagline', 'option');
-                    ?>
                     <p><?php echo $tagline; ?></p>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -97,8 +97,7 @@ the_post();
                     <div class="model-list__detail">
                         <div class="model-list__title-wrap">
                             <h3 class="model-list__title"><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
-                            <span class="model-list__trigger">
-                                </span>
+                            <span class="model-list__trigger"></span>
                         </div>
                         <?php
                         $stats = get_field('quick_statistics');
@@ -147,22 +146,21 @@ the_post();
                     <span class="icon-list__title">COMPARE MODELS</span>
                 </a>
             </div>
-
             <?php
-                $link_one = get_field('boat_archive_link_two', 'option');
+                $link_one = get_field('boat_archive_link_one', 'option');
             ?>
             <?php if ($link_one) : ?>
                 <div class="icon-list__item">
                     <div class="icon-container">
-                        <svg class="icon icon-gear" aria-hidden="true" role="img">
-                            <use xlink:href="#icon-gear" x="0" y="0"></use>
-                        </svg>
+                        <a href="<?php echo $link_one['url']; ?>" target="<?php echo $link_one['target']; ?>">
+                            <div class="icon-container">
+                                <svg class="icon icon-brochure" aria-hidden="true" role="img">
+                                    <use xlink:href="#icon-brochure" x="0" y="0"></use>
+                                </svg>
+                            </div>
+                            <span class="icon-list__title"><?php echo $link_one['title']; ?></span>
+                        </a>
                     </div>
-                    <a href="<?php echo $link_one['url']; ?>" target="<?php echo $link_one['target']; ?>">
-                        <span class="icon-list__title">
-                        <?php echo $link_one['title']; ?>
-                        </span>
-                    </a>
                 </div>
             <?php endif; ?>
 
@@ -171,15 +169,13 @@ the_post();
             ?>
             <?php if ($link_two) : ?>
                 <div class="icon-list__item">
-                    <div class="icon-container">
-                        <svg class="icon icon-gear" aria-hidden="true" role="img">
-                            <use xlink:href="#icon-gear" x="0" y="0"></use>
-                        </svg>
-                    </div>
                     <a href="<?php echo $link_two['url']; ?>" target="<?php echo $link_two['target']; ?>">
-                        <span class="icon-list__title">
-                        <?php echo $link_two['title']; ?>
-                        </span>
+                        <div class="icon-container">
+                            <svg class="icon icon-gear" aria-hidden="true" role="img">
+                                <use xlink:href="#icon-gear" x="0" y="0"></use>
+                            </svg>
+                        </div>
+                        <span class="icon-list__title"><?php echo $link_two['title']; ?></span>
                     </a>
                 </div>
             <?php endif; ?>

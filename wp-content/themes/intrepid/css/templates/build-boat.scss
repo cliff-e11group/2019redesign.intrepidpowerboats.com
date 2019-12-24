@@ -688,7 +688,7 @@
     right: 45px;
     top: 0;
     z-index: 1;
-    @media #{$phone-small} {
+    @media #{$phone} {
         width: 253px;
         padding: 10px 15px 3px;
     }
@@ -703,7 +703,7 @@
         color:$silver;
         display: block;
         margin-bottom: 13px;
-        @media #{$phone-small} {
+        @media #{$phone} {
             margin-bottom: 0;
         }
     }
@@ -721,7 +721,7 @@
         color:#1f2225;
         text-align: center;
         text-transform: uppercase;
-        @media #{$phone-small} {
+        @media #{$phone} {
             @include fsz(14px);
             padding: 7px 10px;
         }

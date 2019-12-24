@@ -347,7 +347,7 @@
   }
   .team-block__category{
     margin-bottom: 25px;
-    @media #{$phone-small} {
+    @media #{$phone} {
       text-align: center;
     }
   }

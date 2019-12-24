@@ -1,14 +1,14 @@
 .footer{
   background-color: $dark-gray;
   padding:48px 0;
-  @media #{$phone-small} {
+  @media #{$phone} {
     padding:40px 0;
   }
   .container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    @media #{$phone-small} {
+    @media #{$phone} {
       flex-direction: column;
     }
   }
@@ -34,7 +34,7 @@
     width: 45%;
     margin-bottom: 30px;
   }
-  @media #{$phone-small} {
+  @media #{$phone} {
     width: 100%;
     text-align: center;
     max-width: 270px;
@@ -42,7 +42,7 @@
   }
   .footer-links__item{
     margin-bottom: 5px;
-    @media #{$phone-small} {
+    @media #{$phone} {
       margin-bottom: 18px;
     }
     a{
@@ -50,7 +50,7 @@
       color: $white;
       text-transform: uppercase;
       font-weight: 700;
-      @media #{$phone-small} {
+      @media #{$phone} {
         letter-spacing: 3.5px;
         @include fsz(14px);
       }
@@ -70,13 +70,13 @@
     width: 45%;
     margin-bottom: 30px;
   }
-  @media #{$phone-small} {
+  @media #{$phone} {
     width: 100%;
     order: -2;
     text-align: center;
   }
   .contact-list__wrap{
-    @media #{$phone-small} {
+    @media #{$phone} {
       position: relative;
       padding-bottom: 55px;
     }
@@ -84,7 +84,7 @@
   .contact-list__item{
     margin-bottom: 5px;
     &:first-child{
-      @media #{$phone-small} {
+      @media #{$phone} {
         position: absolute;
         bottom: -10px;
         left: 0;
@@ -96,7 +96,7 @@
         letter-spacing: 3.5px;
       }
     }
-    @media #{$phone-small} {
+    @media #{$phone} {
       padding: 18px 50px;
       background-color: $bright-gray;
       margin-bottom: 10px;
@@ -109,13 +109,13 @@
       font-weight: 400;
       letter-spacing: 2px;
       &:after{
-        @media #{$phone-small} {
+        @media #{$phone} {
           content: "-";
           display: inline-block;
           padding-left: 5px;
         }
       }
-      @media #{$phone-small} {
+      @media #{$phone} {
         display: inline-block;
         font-weight: 700;
         @include fsz(14px);
@@ -127,7 +127,7 @@
       color: $white;
       text-transform: uppercase;
       font-weight: 700;
-      @media #{$phone-small} {
+      @media #{$phone} {
         @include fsz(14px);
         letter-spacing: 0;
       }
@@ -135,7 +135,7 @@
         color:rgba($white, 0.5);
       }
       &:before{
-        @media #{$phone-small} {
+        @media #{$phone} {
           position: absolute;
           top: 0;
           left: 0;
@@ -148,7 +148,7 @@
     }
   }
   .block-title{
-    @media #{$phone-small} {
+    @media #{$phone} {
       max-width: 178px;
       margin: 0 auto 16px;
     }
@@ -164,7 +164,7 @@
     margin-bottom: 30px;
     text-align: center;
   }
-  @media #{$phone-small} {
+  @media #{$phone} {
     width: 100%;
     order: -2;
     max-width: 270px;
@@ -174,7 +174,7 @@
     @media #{$phone} {
       display: inline-block;
     }
-    @media #{$phone-small} {
+    @media #{$phone} {
       display: block;
     }
   }
@@ -228,7 +228,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @media #{$phone-small} {
+    @media #{$phone} {
       width: 59px;
       height: 59px;
     }
@@ -244,7 +244,7 @@
     width: 18px;
     top: auto;
     fill: currentColor;
-    @media #{$phone-small} {
+    @media #{$phone} {
       height: 32px;
       width: 32px;
     }
@@ -252,7 +252,7 @@
   .icon-youtube{
     height: 16px;
     width: 16px;
-    @media #{$phone-small} {
+    @media #{$phone} {
       height: 28px;
       width: 28px;
     }
@@ -260,7 +260,7 @@
   .icon-twitter{
     height: 16px;
     width: 16px;
-    @media #{$phone-small} {
+    @media #{$phone} {
       height: 32px;
       width: 32px;
     }
@@ -277,7 +277,7 @@
     max-width: 180px;
     margin: 0 auto;
   }
-  @media #{$phone-small} {
+  @media #{$phone} {
     width: 100%;
     margin-top:84px;
   }

@@ -203,7 +203,6 @@ endif;
                         <div class="deck-block__outer">
                             <div class="deck-block__inner">
                                 <img class="deck-block__img" src="<?php echo $deck_plan_image['url']; ?>" alt="<?php echo $deck_plan_image['alt']; ?>">
-        <!--                        <img class="deck-mobile" src="<?php echo STYLEDIR; ?>/uploads/DeckPlanPic-mobile.jpg" alt="Boat Deck Plan">-->
                                 <?php foreach($deck_points as $deck_point) : ?>
                                 <div class="deck-point__container">
                                     <button class="deck-point" style="top: <?php echo $deck_point['distance_from_top_border']; ?>%; left: <?php echo $deck_point['distance_from_left_border']; ?>%;"><?php echo $deck_point['number_on_hotspot']; ?></button>

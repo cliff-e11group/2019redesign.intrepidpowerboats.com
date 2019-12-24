@@ -6,7 +6,6 @@ $cat = get_term_by('id', $cat_id, 'boat-category');
 $full_id = $cat->taxonomy . '_' . $cat_id;
 $hero_image = get_field('boat_cat_hero_image', $full_id);
 $tagline = get_field( 'boat_cat_tagline',  $full_id);
-
 ?>
 
 
@@ -15,9 +14,11 @@ $tagline = get_field( 'boat_cat_tagline',  $full_id);
         <div class="container">
             <div class="hero__content">
                 <h1 class="hero__title"><?php echo single_term_title(); ?></h1>
+                <?php if($tagline) : ?>
                 <div class="hero__description">
                     <p><?php echo $tagline; ?></p>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>

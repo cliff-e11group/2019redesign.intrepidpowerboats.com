@@ -24,7 +24,7 @@
   font-size: 26px;
   font-weight: 700;
   color: $dark-gray;
-  @media #{$phone-small} {
+  @media #{$phone} {
     font-size: 20px;
   }
 }
@@ -52,7 +52,7 @@
     width: 53px;
     height: 53px;
     transition: 0.25s;
-    @media #{$phone-small} {
+    @media #{$phone} {
       width: 35px;
       height: 35px;
       margin: -7px -34px 0 0;
@@ -68,7 +68,7 @@
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center;
-    @media #{$phone-small} {
+    @media #{$phone} {
       background-size: 50%;
     }
   }
