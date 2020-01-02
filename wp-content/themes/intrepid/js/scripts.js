@@ -7731,7 +7731,9 @@ jQuery(document).ready(function ($) {
         $(this).addClass('active');
         var tagid = $(this).attr('href');
         $('.custom-tab__content-item').removeClass('active').addClass('hide');
-        $(tagid).addClass('active').removeClass('hide');
+        $('.custom-tab__bg').removeClass('active').addClass('hide');
+        $('.' + tagid).addClass('active').removeClass('hide');
+
     });
 
     $('.custom-tab-slider').slick({

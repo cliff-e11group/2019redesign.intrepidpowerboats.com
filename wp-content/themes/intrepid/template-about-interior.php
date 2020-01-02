@@ -7,6 +7,13 @@ the_post();
 ?>
 <?php get_header(); ?>
 <main class="main">
+    <?php
+    $about_interior_hero_title = get_field('about_interior_hero_title');
+    $about_interior_hero_description = get_field('about_interior_hero_description');
+    $about_interior_hero_link = get_field('about_interior_hero_link');
+    $about_interior_hero_image = get_field('about_interior_hero_image');
+    $about_interior_hero_leadoff = get_field('about_interior_hero_leadoff');
+    ?>
     <section class="primary-block">
         <div class="container">
             <figure class="primary-block__image">
@@ -25,37 +32,52 @@ the_post();
             </div>
         </div>
     </section>
+    <?php
+    $about_interior_slider = get_field('about_interior_slider');
+    if( !empty($about_interior_slider) ) :
+    ?>
     <section class="custom-tab" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg);">
+        <?php $about_interior_slider_count = 0; foreach($about_interior_slider as $about_interior_slide) :
+        $about_interior_slide_background_image = $about_interior_slide['background_image'];
+        $about_interior_slide_background_video = $about_interior_slide['background_video'];
+        ?>
+        <?php if($about_interior_slide_background_image) : ?>
+        <div class="custom-tab__bg tab-<?php echo $about_interior_slider_count; ?>" style="background-image: url(<?php echo $about_interior_slide_background_image['sizes']['hero']; ?>);">
+            <?php if($about_interior_slide_background_video) : ?>
+            <video class="custom-tab__bg-video" autoplay muted loop>
+                <source src="<?php echo $about_interior_slide_background_video['url']; ?>" type="video/mp4">
+            </video>
+            <?php endif; ?>
+        </div>
+        <?php endif; ?>
+        <?php $about_interior_slider_count++; endforeach; ?>
         <div class="container">
             <div class="custom-tab__wrap">
                 <h2 class="custom-tab__title">Versatility</h2>
                 <div class="custom-tab__nav custom-tab-slider">
-                    <div class="custom-tab__nav-item"><a href="#diving">Diving</a></div>
-                    <div class="custom-tab__nav-item"><a href="#sport-fishing">Sport Fishing</a></div>
-                    <div class="custom-tab__nav-item"><a href="#law-enforcement">Law Enforcement</a></div>
-                    <div class="custom-tab__nav-item"><a href="#yacht-tender">Yacht Tender</a></div>
+                    <?php $about_interior_slider_count = 0; foreach($about_interior_slider as $about_interior_slide) : ?>
+                    <div class="custom-tab__nav-item"><a href="tab-<?php echo $about_interior_slider_count; ?>"><?php echo $about_interior_slide['nav_label']; ?></a></div>
+                    <?php $about_interior_slider_count++; endforeach; ?>
                 </div>
                 <div class="custom-tab__content">
-                    <div id="diving" class="custom-tab__content-item">
-                        <p>With Intrepid’s incomparable fishboat heritage, no fish is safe. Our sports fishing yachts are equipped with plenty of innovation and technology. Like a unique hull design for a smooth ride and extraordinary stability to propel you to the fish fast and comfortably. An endless array of thoughtful and customizable fishboat features include extra large rod holders, macerated fishboxes and pressurized baitwells, optional stand-up heads with showers, wrap-around forward seating with electric back rests and an amazing self-bailing cockpit drainage system. The outboard engines deliver better range for longer offshore fishing trips, with less noise, fumes and vibrations, especially while trolling.</p>
+                    <?php $about_interior_slider_count = 0; foreach($about_interior_slider as $about_interior_slide) :
+                    $about_interior_slide_content = $about_interior_slide['content'];
+                    $about_interior_slide_background_link = $about_interior_slide['link'];
+                    ?>
+                    <div id="tab-<?php echo $about_interior_slider_count; ?>" class="tab-<?php echo $about_interior_slider_count; ?> custom-tab__content-item">
+                        <div class="custom-tab__content-item--inner">
+                            <?php if($about_interior_slide_content) : echo $about_interior_slide_content; endif; ?>
+                            <?php if($about_interior_slide_background_link) : ?>
+                            <a href="<?php echo $about_interior_slide_background_link['url']; ?>" class="btn btn--outline btn--light btn--large-mobile" target="<?php echo $about_interior_slide_background_link['target']; ?>"><?php echo $about_interior_slide_background_link['title']; ?></a>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <div id="sport-fishing" class="custom-tab__content-item">
-                        <p>We constantly chase innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style. Fully-infused resin hulls. Actuating helm seats. Fold-in dive doors that take up no cockpit space equipped with flip out ladders. Or introducing quad-outboard controls before the outboard manufacturers did. The list goes on and will continue to do so because we are never satisfied and know there is always a better way. We are highly collaborative with our customers and some of our most prideful achievements are ones we created from sketched “dream” ideas on cocktail napkins they had. Sure, everything we do is highly innovative and precise but we do it for one very simple reason. So our customers are happy and satisfied knowing they own the finest,
-                            custom-crafted boat on the water.</p>
-                        <a href="#" class="btn btn--outline btn--light btn--large-mobile">Discover our fishing models</a>
-                    </div>
-                    <div id="law-enforcement" class="custom-tab__content-item">
-                        <p>Constantly chase innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style. Fully-infused resin hulls. Actuating helm seats. Fold-in dive doors that take up no cockpit space equipped with flip out ladders. Or introducing quad-outboard controls before the outboard manufacturers did. The list goes on and will continue to do so because we are never satisfied and know there is always a better way. We are highly collaborative with our customers and some of our most prideful achievements are ones we created from sketched “dream” ideas on cocktail napkins they had. Sure, everything we do is highly innovative and precise but we do it for one very simple reason. So our customers are happy and satisfied knowing they own the finest,
-                            custom-crafted boat on the water.</p>
-                    </div>
-                    <div id="yacht-tender" class="custom-tab__content-item">
-                        <p>No two Intrepids are alike. We constantly chase innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style. Fully-infused resin hulls. Actuating helm seats. Fold-in dive doors that take up no cockpit space equipped with flip out ladders. Or introducing quad-outboard controls before the outboard manufacturers did. The list goes on and will continue to do so because we are never satisfied and know there is always a better way. We are highly collaborative with our customers and some of our most prideful achievements are ones we created from sketched “dream” ideas on cocktail napkins they had. Sure, everything we do is highly innovative and precise but we do it for one very simple reason. So our customers are happy and satisfied knowing they own the finest,
-                            custom-crafted boat on the water.</p>
-                    </div>
+                    <?php $about_interior_slider_count++; endforeach; ?>
                 </div>
             </div>
         </div>
     </section>
+    <?php endif; ?>
     <section class="media-content">
         <div class="container">
             <div class="media-content__item media-content__item--sticky-image">

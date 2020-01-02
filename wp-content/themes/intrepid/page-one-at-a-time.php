@@ -14,7 +14,7 @@ the_post();
                 <div class="primary-block__description">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at odio id ipsum volutpat dapibus sagittis et urna. Vestibulum nec volutpat risus. Cras nec eros turpis. Aenean at egestas erat, ut dictum ante. Mauris nisl mi, suscipit sed libero eu, tincidunt sagittis dui. Sed at blandit eros, eget malesuada dui.</p>
                 </div>
-                <a href="#" class="btn btn--outline btn--dark btn--outline-mobile">Watch our brand video</a>
+                <a href="#" class="btn btn--light btn--outline">Watch our brand video</a>
             </div>
             <div class="primary-block__sticky-box">
                 <p>You can’t wait for innovation, <strong>you have to go after it.</strong></p>
@@ -94,7 +94,7 @@ the_post();
                 <div class="media-content__details">
                     <h2 class="media-content__title">World Class Service.</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et rutrum arcu. Donec faucibus molestie nisl, elementum facilisis diam finibus in. Aliquam a scelerisque eros.</p>
-                    <a href="#" class="btn btn--outline btn--dark btn--outline-mobile">Learn more about our service department</a>
+                    <a href="#" class="btn btn--light btn--outline">Learn more about our service department</a>
                 </div>
             </div>
         </div>
