@@ -500,17 +500,15 @@ jQuery(document).ready(function ($) {
         arrows: false,
         infinite: false,
         speed: 300,
-        slidesToShow: 5,
+        centerMode: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
         variableWidth: true,
+        mobileFirst: true,
         responsive: [
             {
-                breakpoint: 600,
-                settings: {
-                    centerMode: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                }
-
+                breakpoint: 768,
+                settings: 'unslick'
             }
         ]
     });
