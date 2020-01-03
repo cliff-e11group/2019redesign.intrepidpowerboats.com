@@ -14,10 +14,10 @@
                                 <?php endif; ?>
 
                                 <?php if($block['link']) : ?>
-                                    <a class="btn"
+                                    <a class="btn--cover"
                                     href="<?php echo $block['link']['url']; ?>"
                                     target="<?php echo $block['link']['target']; ?>" >
-                                        <?php echo $block['link']['title']; ?>
+                                        <span class="btn"><?php echo $block['link']['title']; ?></span>
                                     </a>
                                 <?php endif; ?>
 
@@ -39,10 +39,10 @@
                         <?php endif; ?>
 
                         <?php if($data['bottom_block_1']['link']) : ?>
-                            <a class="btn"
+                            <a class="btn--cover"
                             href="<?php echo $data['bottom_block_1']['link']['url']; ?>"
                             target="<?php echo $data['bottom_block_1']['link']['target']; ?>" >
-                                <?php echo $data['bottom_block_1']['link']['title']; ?>
+                                <span class="btn"><?php echo $data['bottom_block_1']['link']['title']; ?></span>
                             </a>
                         <?php endif; ?>
                     </div>
@@ -61,10 +61,10 @@
                         <?php endif; ?>
 
                         <?php if($data['bottom_block_2']['link']) : ?>
-                            <a class="btn"
+                            <a class="btn--cover"
                             href="<?php echo $data['bottom_block_2']['link']['url']; ?>"
                             target="<?php echo $data['bottom_block_2']['link']['target']; ?>" >
-                                <?php echo $data['bottom_block_2']['link']['title']; ?>
+                                <span class="btn"><?php echo $data['bottom_block_2']['link']['title']; ?></span>
                             </a>
                         <?php endif; ?>
                     </div>
@@ -83,10 +83,10 @@
                         <?php endif; ?>
 
                         <?php if($data['bottom_block_3']['link']) : ?>
-                            <a class="btn"
+                            <a class="btn--cover"
                             href="<?php echo $data['bottom_block_3']['link']['url']; ?>"
                             target="<?php echo $data['bottom_block_3']['link']['target']; ?>" >
-                                <?php echo $data['bottom_block_3']['link']['title']; ?>
+                                <span class="btn"><?php echo $data['bottom_block_3']['link']['title']; ?></span>
                             </a>
                         <?php endif; ?>
                     </div>

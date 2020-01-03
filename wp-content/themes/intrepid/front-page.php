@@ -31,9 +31,7 @@ $page = get_the_ID();
 
                 <span class="newsletter-block__info">Enter Information Below:</span>
             </div>
-
             <?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
-
         </div>
     </div>
     <div class="language-switcher">

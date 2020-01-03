@@ -17,6 +17,7 @@ $boat_hero_title_class = $boat_hero_title_bg_img ? 'model__title-box--imgTitle' 
 $overview = get_field('overview');
 $boat_footer_link = get_field('boat_footer_link');
 $gallery_rows = get_field('gallery_rows');
+$virtual_tour = get_field('virtual_tour');
 $features = get_field('features_section');
 $deck_plan_image = get_field('deck_plan_image');
 $deck_points = get_field('deck_points');
@@ -37,7 +38,6 @@ if (!empty($view_360_urls)) :
 endif;
 ?>
 
-
 <main class="page__single page__single--boat main">
     <section class="hero hero--model" style="background-image:url(<?php echo $boat_hero_img; ?>);">
         <div class="container">
@@ -48,7 +48,6 @@ endif;
                 <?php endif; ?>
             </div>
             <?php if (!empty($view_360_urls)) : ?>
-            <a class="model__360-view" data-src="#spinner-container" href="#">360 view</a>
             <div id="spinner-container">
                 <div id="spinner-view"></div>
             </div>
@@ -61,15 +60,15 @@ endif;
             <div class="nav-block__inner">
                 <div class="container">
                     <ul class="model-nav resp-tabs-list hor_1">
-                            <li class="model-nav__item active">Overview</li>
+                        <li class="model-nav__item active">Overview</li>
                         <?php if ( !empty($gallery_rows) ) : ?>
-                            <li class="model-nav__item">Gallery</li>
+                            <li class="model-nav__item" data-class="nav-item-gallery">Gallery</li>
                         <?php endif; ?>
                         <?php if ( !empty($features) ) : ?>
                             <li class="model-nav__item">Features</li>
                         <?php endif; ?>
                         <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>
-                        <li class="model-nav__item">Deck Plan</li>
+                        <li class="model-nav__item" data-class="nav-item-deck-plan">Deck Plan</li>
                         <?php endif; ?>
                         <?php if (!empty($motor_blocks) ) : ?>
                             <li class="model-nav__item">Motors</li>
@@ -98,10 +97,16 @@ endif;
                                 <?php echo $overview; ?>
                             </div>
                             <ul class="overview-nav">
-                                <li class="overview-nav__item"><a href="#">See the Gallery</a></li>
-                                <li class="overview-nav__item"><a href="#">Deck Plan</a></li>
-                                <li class="overview-nav__item"><a href="#">Virtual Tour</a></li>
-                                <li class="overview-nav__item"><a href="#">Build Yours Own</a></li>
+                                <?php if ( !empty($gallery_rows) ) : ?>
+                                <li class="overview-nav__item"><a href="#" data-target="nav-item-gallery" data-subtarget="subnav-item-gallery">See the Gallery</a></li>
+                                <?php endif; ?>
+                                <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>
+                                <li class="overview-nav__item"><a href="#" data-target="nav-item-deck-plan">Deck Plan</a></li>
+                                <?php endif; ?>
+                                <?php if($virtual_tour) : ?>
+                                <li class="overview-nav__item"><a href="#" data-target="nav-item-gallery" data-subtarget="subnav-item-virtual-gallery">Virtual Tour</a></li>
+                                <?php endif; ?>
+                                <li class="overview-nav__item"><a href="#" data-class="build-a-boat-toggle">Build Your Own</a></li>
                             </ul>
                         </div>
 
@@ -134,14 +139,14 @@ endif;
                 </section>
                 <!-- overview end -->
             </div>
-            <?php if ( !empty($gallery_rows) ) : ?>
+            <?php if ( $virtual_tour || !empty($gallery_rows) ) : ?>
             <div>
-                <?php $virtual_tour = get_field('virtual_tour'); ?>
+
                 <div id="childTab">
                     <ul class="resp-tabs-list hor_child_1">
-                        <li> Gallery </li>
+                        <li data-class="subnav-item-gallery"> Gallery </li>
                         <?php if($virtual_tour) : ?>
-                        <li> Virtual Tour </li>
+                        <li data-class="subnav-item-virtual-gallery"> Virtual Tour </li>
                         <?php endif; ?>
                     </ul>
                     <div class="resp-tabs-container hor_child_1">
@@ -260,7 +265,7 @@ endif;
                                     <img src="<?php echo $motor_block['image']['url']; ?>" alt="<?php echo $motor_block['image']['alt']; ?>" />
                                 </figure>
                                 <div class="motor-list__content">
-                                    <h2 class="motor-list__title"><?php echo $motor_block['title']; ?><span class="motor-list__trigger"></span></h2>
+                                    <h2 class="motor-list__title"><span class="motor-list__text"><?php echo $motor_block['title']; ?></span><span class="motor-list__trigger"></span></h2>
                                     <div class="motor-list__description">
                                         <?php echo $motor_block['description']; ?>
                                     </div>

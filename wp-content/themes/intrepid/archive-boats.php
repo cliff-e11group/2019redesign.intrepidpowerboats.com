@@ -88,11 +88,19 @@ the_post();
                     array_push($cats, $value->slug);
                 }
                 ?>
-                <div class="model-list__block <?php echo implode(" ", $lengths); ?> <?php echo implode(" ", $cats); ?>">
+                <div class="model-list__block <?php echo implode(' ', $lengths); ?> <?php echo implode(' ', $cats); ?>">
                     <div class="model-list__image">
                         <a href="<?php echo $link; ?>">
-                            <img src="<?php echo $thumb; ?>" alt="<?php echo $title; ?>">
+                            <img src="<?php echo $thumb; ?>" alt="<?php echo $title; ?>"
+                                 data-img-src="uploads/Intrepid_Boat_Model.jpg" data-alt ="Model 200 Flats" data-title="200 Flats"
+                                 data-secondary-title="STATISTICS" data-li-title_1='Standard Fuel'
+                                 data-li-desc_1='420 GALLONS' data-li-title_2='BEAM' data-li-desc_2=`9'10"`
+                                 data-li-title_3='LENGTH' data-li-desc_3=`41'7"` data-li-title_4='WATER'
+                                 data-li-desc_4="40 GALLONS" data-btn_txt = 'visit model page'>
                         </a>
+                        <button class="model-list__compare">
+                            <span class="accessible-text">Compare boat</span>
+                        </button>
                     </div>
                     <div class="model-list__detail">
                         <div class="model-list__title-wrap">
@@ -137,7 +145,7 @@ the_post();
     <div class="icon-list">
         <div class="container">
             <div class="icon-list__item">
-                <a href="model-compare-mode.html">
+                <a href="#" data-class="compare-mode">
                     <div class="icon-container">
                         <svg class="icon icon-compare" aria-hidden="true" role="img">
                             <use xlink:href="#icon-compare" x="0" y="0"></use>
@@ -183,7 +191,7 @@ the_post();
         </div>
     </div>
 
-    <?php e11_content_and_dropdowns(array(), true, 'get_field', 'options', ''); ?>
+    <?php e11_content_and_dropdowns(array(), true, 'get_field', 'options', 'content_and_dropdowns_section_'); ?>
 
 
 </main>

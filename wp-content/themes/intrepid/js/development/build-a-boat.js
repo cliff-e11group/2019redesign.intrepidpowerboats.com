@@ -2,12 +2,12 @@ $(function () {
 
     $('.page__single--boat').e11_BuildABoat();
 
-    $(".model__360-view").fancybox({
-        touch: false
-    });
+    var $spinnerContainer = $('#spinner-container');
 
-    var $spriteSpin = $("#spinner-view");
-    if ($spriteSpin.length > 0) {
+    if ($spinnerContainer.length > 0) {
+
+        var $spriteSpin = $("#spinner-view");
+
         $spriteSpin.spritespin({
             source: view_360_urls,
             animate: false,

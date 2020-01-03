@@ -401,8 +401,11 @@
 }
 
 .hero--model {
+    position: relative;
     min-height: 580px;
     padding: 0;
+    overflow: hidden;
+
     @media #{$phone} {
         min-height: 315px;
     }
@@ -440,6 +443,7 @@
         justify-content: center;
         align-items: flex-end;
         padding: 25px 15px;
+        z-index: 2;
 
         @media #{$phone} {
             min-height: 0;
@@ -547,6 +551,49 @@
             background-size: contain;
             right: 25px;
             bottom: 25px;
+        }
+    }
+}
+
+#spinner-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    //visibility: hidden;
+    //opacity: 0;
+    //transition: visibility 0s linear 300ms, opacity 300ms;
+    z-index: 1;
+
+    @media #{$phone} {
+        padding: 30px;
+    }
+
+    &.spinner--active {
+        //visibility: visible;
+        //opacity: 1;
+        //transition: visibility 0s linear 0s, opacity 300ms;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        width: 75px;
+        height: 72px;
+        background: url(images/360-icon.svg) no-repeat center center;
+        background-size: contain;
+        position: absolute;
+        right: 180px;
+        bottom: 98px;
+        z-index: 2;
+        pointer-events: none;
+
+        @media #{$phone} {
+            width: 35px;
+            height: 35px;
+            right: 10px;
+            bottom: 10px;
         }
     }
 }

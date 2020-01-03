@@ -80,10 +80,24 @@ the_post();
                         <?php echo get_field('event_description'); ?>
                     </div>
                     <div class="btn-group">
-                        <a href="<?php echo $link; ?>" class="btn btn--outline">More Info</a>
+                        <?php
+                        $event_external_link = get_field('event_external_link');
+                        if($event_external_link) :
+                        ?>
+                        <a href="<?php echo $event_external_link['url']; ?>" target="_blank" class="btn btn--outline-dark btn--outline"><?php echo $event_external_link['title']; ?></a>
+                        <?php endif; ?>
+                        <a href="<?php echo $link; ?>" class="btn btn--outline-dark btn--outline">More Info</a>
                     </div>
                 </div>
                 <?php endwhile; ?>
+            </div>
+        <?php else : ?>
+            <div class="no-events">
+                <p>Sorry, there are currently no upcoming events.</p>
+                <div class="no-events__newsletter">
+                    <p>Please sign up for our Newsletter to learn about future events!</p>
+                    <?php echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]'); ?>
+                </div>
             </div>
         <?php endif; ?>
 

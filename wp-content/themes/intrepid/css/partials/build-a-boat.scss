@@ -67,44 +67,6 @@
     }
 }
 
-#spinner-container {
-    display: none;
-
-    @media #{$phone} {
-        padding: 30px;
-    }
-}
-
-#spinner-view {
-    max-width: 1400px;
-    width: calc(100vw - 120px);
-
-    @media #{$phone} {
-        width: calc(100vw - 80px);
-    }
-
-    &:after {
-        content: '';
-        display: block;
-        width: 75px;
-        height: 72px;
-        background: url(images/360-icon.svg) no-repeat center center;
-        background-size: contain;
-        position: absolute;
-        right: 20px;
-        bottom: 20px;
-        z-index: 2;
-        pointer-events: none;
-
-        @media #{$phone} {
-            width: 35px;
-            height: 35px;
-            right: 10px;
-            bottom: 10px;
-        }
-    }
-}
-
 .virtual-tour__iframe {
     width: 100%;
     height: calc(1180px * .5625);

@@ -479,9 +479,12 @@
         margin-left: -13px;
         vertical-align: middle;
         position: absolute;
+        z-index: 1;
+
         @media #{$header} {
             top: -3px;
         }
+
         @media #{$phone} {
             width: 31px;
             height: 31px;
@@ -542,6 +545,12 @@
             @include fsz(20px);
             padding-right: 37px;
         }
+    }
+
+    .motor-list__text {
+        position: relative;
+        pointer-events: none;
+        z-index: 2;
     }
 
     .motor-list__description {

@@ -2,8 +2,7 @@
     <section class="content-block">
         <div class="container">
             <?php if ($content['title']) : ?>
-                <h2 class="content-block__title"><?php echo $content['title']; ?><br>
-                </h2>
+                <h2 class="content-block__title"><?php echo $content['title']; ?></h2>
             <?php endif; ?>
 
             <?php if ($content['inner_content']) : ?>

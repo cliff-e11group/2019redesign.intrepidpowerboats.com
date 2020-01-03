@@ -55,7 +55,10 @@ $page_title = get_the_title();
 
             <!-- MAIN POST CONTENT -->
             <div class="layout__two-third">
-                <h1 class="page-title"><?php echo $page_title; ?></h1>
+                <div class="page-header">
+                    <h1 class="page-title"><?php echo $page_title; ?></h1>
+                    <p class="post-date"><?php echo get_the_date(); ?></p>
+                </div>
                 <div class="newsletter-article">
                     <article class="newsletter-article__item entry-content">
                         <div class="post-author">
@@ -67,9 +70,6 @@ $page_title = get_the_title();
                                 <?php echo get_field('news_subtitle'); ?>
                             </span>
                         </div>
-                        <span class="post-date">
-                            <?php echo get_the_date(); ?>
-                        </span>
 
                         <!-- START FLEX CONTENT -->
 

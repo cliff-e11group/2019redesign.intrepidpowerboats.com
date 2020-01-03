@@ -6919,12 +6919,12 @@ $(function () {
 
     $('.page__single--boat').e11_BuildABoat();
 
-    $(".model__360-view").fancybox({
-        touch: false
-    });
+    var $spinnerContainer = $('#spinner-container');
 
-    var $spriteSpin = $("#spinner-view");
-    if ($spriteSpin.length > 0) {
+    if ($spinnerContainer.length > 0) {
+
+        var $spriteSpin = $("#spinner-view");
+
         $spriteSpin.spritespin({
             source: view_360_urls,
             animate: false,
@@ -7412,11 +7412,22 @@ jQuery(document).ready(function ($) {
         $(this).next().toggleClass('active')
     });
 
+    var $compareMode = $('[data-class="compare-mode"]'),
+        $modelList__grid = $('.model-list__grid');
 
-    if ($(".compare-mode--active").length > 0) {
-        $('.model-list__block').on('click', function () {
-            var selected = $('body').find('.selected');
-            var data = selected.find('img').data();
+    if ($compareMode.length > 0 && $modelList__grid.length > 0) {
+        var compareModeActiveClass = 'compare-mode--active';
+
+        $compareMode.on('click', function (e) {
+            e.preventDefault();
+            $modelList__grid.toggleClass(compareModeActiveClass);
+        });
+
+        $('.model-list__compare').on('click', function () {
+            var $this = $(this),
+                $container = $this.closest('.model-list__block'),
+                data = $container.find('img').data();
+
             var newHtml = "<div class=\"module-comparision__item\">" +
                 "<div class=\"model-list__image\">" +
                 "    <img src=\"" + data['imgSrc'] + "\" alt=\"" + data['alt'] + "\">" +
@@ -7455,68 +7466,68 @@ jQuery(document).ready(function ($) {
                 "    </div>" +
                 "</div>" +
                 "</div>";
-            var select_length = selected.length;
-            $(".module-comparision__list").append(newHtml);
-            if (select_length > 1) {
-                $('.module-btn-box').fadeIn("slow");
-                $('.module-selection-count a').text("COMPARE THESE " + select_length + ' MODELS');
-            } else {
-                $('.module-btn-box').fadeOut("slow");
-            }
+            // var select_length = selected.length;
+            // $(".module-comparision__list").append(newHtml);
+            // if (select_length > 1) {
+            //     $('.module-btn-box').fadeIn("slow");
+            //     $('.module-selection-count a').text("COMPARE THESE " + select_length + ' MODELS');
+            // } else {
+            //     $('.module-btn-box').fadeOut("slow");
+            // }
         });
     }
 
 
-    $('.compare-btn').on('click', function () {
-        var length = $('body').find('.selected').length;
-        var modalContainer = $('.module-comparision__block.module-item-box');
-        modalContainer.css('opacity', 0);
-        $('.module-comparision__list').on('init', function (event, slick) {
-            $('.module-item-box').hide(function () {
-                modalContainer.css('opacity', 1);
-                $('.module-item-box').slideDown("slow");
-            });
-        });
-        $('.module-item-box').slideDown("slow", function () {
-            $('.module-comparision__list').slick({
-                infinite: false,
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 800,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    },
-                    {
-                        breakpoint: 400,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                ]
-            });
-        });
-    });
-    $('.module-comparision__block.module-item-box .close').on('click', function () {
-        $('.module-item-box').slideUp("slow");
-        $('.module-comparision__list').slick('destroy');
-    });
-    $('.module-comparision__block.module-btn-box .close').on('click', function () {
-        $('.model-list__block').removeClass('selected');
-        $('.module-comparision__block').fadeOut("slow");
-        $('.module-comparision__list').slick('destroy');
-    });
+    // $('.compare-btn').on('click', function () {
+    //     var length = $('body').find('.selected').length;
+    //     var modalContainer = $('.module-comparision__block.module-item-box');
+    //     modalContainer.css('opacity', 0);
+    //     $('.module-comparision__list').on('init', function (event, slick) {
+    //         $('.module-item-box').hide(function () {
+    //             modalContainer.css('opacity', 1);
+    //             $('.module-item-box').slideDown("slow");
+    //         });
+    //     });
+    //     $('.module-item-box').slideDown("slow", function () {
+    //         $('.module-comparision__list').slick({
+    //             infinite: false,
+    //             slidesToShow: 4,
+    //             slidesToScroll: 1,
+    //             responsive: [
+    //                 {
+    //                     breakpoint: 800,
+    //                     settings: {
+    //                         slidesToShow: 3,
+    //                         slidesToScroll: 3,
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 600,
+    //                     settings: {
+    //                         slidesToShow: 1,
+    //                         slidesToScroll: 1
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 400,
+    //                     settings: {
+    //                         slidesToShow: 1,
+    //                         slidesToScroll: 1
+    //                     }
+    //                 }
+    //             ]
+    //         });
+    //     });
+    // });
+    // $('.module-comparision__block.module-item-box .close').on('click', function () {
+    //     $('.module-item-box').slideUp("slow");
+    //     $('.module-comparision__list').slick('destroy');
+    // });
+    // $('.module-comparision__block.module-btn-box .close').on('click', function () {
+    //     $('.model-list__block').removeClass('selected');
+    //     $('.module-comparision__block').fadeOut("slow");
+    //     $('.module-comparision__list').slick('destroy');
+    // });
 
     $(".mobile-nav__toggle").click(function (e) {
 
@@ -7585,6 +7596,24 @@ jQuery(document).ready(function ($) {
 
     $active_text = $(".model-nav__item.resp-tab-active").text();
     $(".nav-block__active-tab").text($active_text);
+
+    var $modelNav__item = $('.model-nav__item'),
+        $overviewNav__item = $('.overview-nav__item a');
+
+    if ($overviewNav__item.length > 0 && $modelNav__item.length > 0) {
+        $overviewNav__item.on('click', function (e) {
+            e.preventDefault();
+            var $target = $(this).data('target');
+
+            if ($target !== undefined) {
+                $('[data-class="' + $target + '"]').trigger('click');
+                var $subtarget = $(this).data('subtarget');
+                if ($subtarget !== undefined) {
+                    $('[data-class="' + $subtarget + '"]').trigger('click');
+                }
+            }
+        });
+    }
 
     var settings = {
         autoplay: false,

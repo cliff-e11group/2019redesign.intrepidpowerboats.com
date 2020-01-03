@@ -124,12 +124,83 @@
 }
 
 .model-list__image {
+    position: relative;
     width: 100%;
+
+    .compare-mode--active & {
+
+    }
 
     img {
         display: block;
         width: 100%;
         height: auto;
+
+        .compare-mode--active & {
+            opacity: 0.7;
+        }
+    }
+}
+
+.model-list__compare {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    z-index: 10;
+
+    .compare-mode--active & {
+        display: block;
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        z-index: 1;
+
+        @media #{$header} {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &:before {
+        background: url("images/loding-spiral.png") no-repeat center;
+        background-size: cover;
+        transition: 0.25s;
+    }
+
+    &:after {
+        transform: translate(-50%, -50%) rotate(0deg) scale(0);
+        transition: 0.25s;
+        background-image: url('images/checkmark-white.svg');
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-position: center;
+        background-color: #687683;
+        border-radius: 50%;
+    }
+
+    &:hover {
+        &:before {
+            transform: translate(-50%, -50%) rotate(360deg) scale(1);
+        }
     }
 }
 
@@ -151,12 +222,18 @@
     font-size: 14px;
     text-transform: uppercase;
     width: calc(100% - 30px);
+
     @media #{$phone} {
         font-size: 18px;
     }
 
     a {
         color: $dark-gray;
+        transition: none;
+
+        .active & {
+            color: #fff;
+        }
     }
 }
 
@@ -570,64 +647,16 @@
         display: none;
     }
 
-    .model-list__image {
-        position: relative;
-        cursor: pointer;
-
-        img {
-            opacity: 0.7;
-        }
-
-        &:before,
-        &:after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(0deg) scale(1);
-            z-index: 1;
-            @media #{$header} {
-                width: 60px;
-                height: 60px;
-            }
-        }
-
-        &:before {
-            background: url("images/loding-spiral.png") no-repeat center;
-            background-size: cover;
-            transition: 0.25s;
-        }
-
-        &:after {
-            transform: translate(-50%, -50%) rotate(0deg) scale(0);
-            transition: 0.25s;
-            background-image: url('images/checkmark-white.svg');
-            background-repeat: no-repeat;
-            background-size: 50%;
-            background-position: center;
-            background-color: #687683;
-            border-radius: 50%;
-        }
-
-        &:hover {
-            &:before {
-                transform: translate(-50%, -50%) rotate(360deg) scale(1);
-            }
-        }
-    }
-
     .model-list__block.selected {
-        .model-list__image {
+        .model-list__compare {
             &:after {
                 transform: translate(-50%, -50%) rotate(0) scale(0.98);
                 transition: 0.25s;
             }
+        }
 
-            img {
-                opacity: 1;
-            }
+        img {
+            opacity: 1;
         }
     }
 }
