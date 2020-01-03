@@ -88,6 +88,21 @@
             "delay": 0
         },
         {
+            "key": "field_5e0f702fe1707",
+            "label": "External Link",
+            "name": "event_external_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_5dfa800d98f6e",
             "label": "Content",
             "name": "",
@@ -161,5 +176,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576702482
+    "modified": 1578070091
 }
