@@ -19,8 +19,10 @@ the_post();
     </section>
     <section class="contact-form">
         <div class="container">
-            <span class="contact-form__title">Please select the type of inquiry.</span>
-            <span class="contact-form__title contact-form__title--hide">Fill the form out below for any type of inquiry and we will get back to you shortly.</span>
+            <p class="contact-form__title">
+                <span>Please select the type of inquiry.</span>
+                <span>Fill the form out below for any type of inquiry and we will get back to you shortly.</span>
+            </p>
             <div class="contact-form__inner">
                 <div class="toggle-nav">
                     <span class="toggle-nav__title">Message us Directly</span>

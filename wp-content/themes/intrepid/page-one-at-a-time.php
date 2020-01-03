@@ -14,7 +14,7 @@ the_post();
                 <div class="primary-block__description">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at odio id ipsum volutpat dapibus sagittis et urna. Vestibulum nec volutpat risus. Cras nec eros turpis. Aenean at egestas erat, ut dictum ante. Mauris nisl mi, suscipit sed libero eu, tincidunt sagittis dui. Sed at blandit eros, eget malesuada dui.</p>
                 </div>
-                <a href="#" class="btn btn--light btn--outline">Watch our brand video</a>
+                <a href="https://www.youtube.com/watch?time_continue=3&v=zlsp9Mo0NuE&feature=emb_title" data-fancybox="" class="btn btn--light btn--outline">Watch our brand video</a>
             </div>
             <div class="primary-block__sticky-box">
                 <p>You can’t wait for innovation, <strong>you have to go after it.</strong></p>
@@ -26,25 +26,25 @@ the_post();
             <div class="custom-tab__wrap">
                 <h2 class="custom-tab__title">Craftmanship</h2>
                 <ul class="custom-tab__nav custom-tab-slider">
-                    <li class="custom-tab__nav-item"><a href="#engineering">Engineering</a></li>
-                    <li class="custom-tab__nav-item"><a href="#hull">Hull</a></li>
-                    <li class="custom-tab__nav-item"><a href="#technology">Technology</a></li>
-                    <li class="custom-tab__nav-item"><a href="#design">Design</a></li>
+                    <li class="custom-tab__nav-item"><a href="tab-engineering">Engineering</a></li>
+                    <li class="custom-tab__nav-item"><a href="tab-hull">Hull</a></li>
+                    <li class="custom-tab__nav-item"><a href="tab-technology">Technology</a></li>
+                    <li class="custom-tab__nav-item"><a href="tab-design">Design</a></li>
                 </ul>
                 <div class="custom-tab__content">
-                    <div id="engineering" class="custom-tab__content-item">
+                    <div id="engineering" class="custom-tab__content-item tab-engineering">
                         <p>Innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style. Fully-infused resin hulls. Actuating helm seats. Fold-in dive doors that take up no cockpit space equipped with flip out ladders. Or introducing quad-outboard controls before the outboard manufacturers did. The list goes on and will continue to do so because we are never satisfied and know there is always a better way. We are highly collaborative with our customers and some of our most prideful achievements are ones we created from sketched “dream” ideas on cocktail napkins they had. Sure, everything we do is highly innovative and precise but we do it for one very simple reason. So our customers are happy and satisfied knowing they own the finest,
                             custom-crafted boat on the water.</p>
                     </div>
-                    <div id="hull" class="custom-tab__content-item">
+                    <div id="hull" class="custom-tab__content-item tab-hull">
                         <p>We constantly chase innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style. Fully-infused resin hulls. Actuating helm seats. Fold-in dive doors that take up no cockpit space equipped with flip out ladders. Or introducing quad-outboard controls before the outboard manufacturers did. The list goes on and will continue to do so because we are never satisfied and know there is always a better way. We are highly collaborative with our customers and some of our most prideful achievements are ones we created from sketched “dream” ideas on cocktail napkins they had. Sure, everything we do is highly innovative and precise but we do it for one very simple reason. So our customers are happy and satisfied knowing they own the finest,
                             custom-crafted boat on the water.</p>
                     </div>
-                    <div id="technology" class="custom-tab__content-item">
+                    <div id="technology" class="custom-tab__content-item tab-technology">
                         <p>Constantly chase innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style. Fully-infused resin hulls. Actuating helm seats. Fold-in dive doors that take up no cockpit space equipped with flip out ladders. Or introducing quad-outboard controls before the outboard manufacturers did. The list goes on and will continue to do so because we are never satisfied and know there is always a better way. We are highly collaborative with our customers and some of our most prideful achievements are ones we created from sketched “dream” ideas on cocktail napkins they had. Sure, everything we do is highly innovative and precise but we do it for one very simple reason. So our customers are happy and satisfied knowing they own the finest,
                             custom-crafted boat on the water.</p>
                     </div>
-                    <div id="design" class="custom-tab__content-item">
+                    <div id="design" class="custom-tab__content-item tab-design">
                         <p>No two Intrepids are alike. We constantly chase innovation and champion new technologies to consistently lead the industry in performance, comfort, safety and style. Fully-infused resin hulls. Actuating helm seats. Fold-in dive doors that take up no cockpit space equipped with flip out ladders. Or introducing quad-outboard controls before the outboard manufacturers did. The list goes on and will continue to do so because we are never satisfied and know there is always a better way. We are highly collaborative with our customers and some of our most prideful achievements are ones we created from sketched “dream” ideas on cocktail napkins they had. Sure, everything we do is highly innovative and precise but we do it for one very simple reason. So our customers are happy and satisfied knowing they own the finest,
                             custom-crafted boat on the water.</p>
                     </div>
@@ -57,7 +57,7 @@ the_post();
             <div class="media-content__item media-content__item--sticky-image">
                 <figure class="media-content__thumbnail">
                     <img src="<?php echo STYLEDIR; ?>/uploads/glad-customer.jpg" alt="glad-customer" />
-                    <div class="thumbnail-sticky thumbnail-sticky--bottom-right" style="background-image:url('uploads/engineer-thumb.jpg');">
+                    <div class="thumbnail-sticky thumbnail-sticky--bottom-right" style="background-image:url('<?php echo STYLEDIR; ?>/uploads/engineer-thumb.jpg');">
                     </div>
                 </figure>
                 <div class="media-content__details">
@@ -70,7 +70,7 @@ the_post();
             <div class="media-content__item media-content__item--sticky-image">
                 <figure class="media-content__thumbnail">
                     <img src="<?php echo STYLEDIR; ?>/uploads/customizable-technology.jpg" alt="customizable-technology" />
-                    <div class="thumbnail-sticky thumbnail-sticky--top-right" style="background-image:url('uploads/boat-engine-light.jpg');">
+                    <div class="thumbnail-sticky thumbnail-sticky--top-right" style="background-image:url('<?php echo STYLEDIR; ?>/uploads/boat-engine-light.jpg');">
                     </div>
                 </figure>
                 <div class="media-content__details">
@@ -94,7 +94,7 @@ the_post();
                 <div class="media-content__details">
                     <h2 class="media-content__title">World Class Service.</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et rutrum arcu. Donec faucibus molestie nisl, elementum facilisis diam finibus in. Aliquam a scelerisque eros.</p>
-                    <a href="#" class="btn btn--light btn--outline">Learn more about our service department</a>
+                    <a href="<?php echo site_url('service'); ?>" class="btn btn--light btn--outline">Learn more about our service department</a>
                 </div>
             </div>
         </div>

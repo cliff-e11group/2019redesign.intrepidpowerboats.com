@@ -461,19 +461,59 @@ jQuery(document).ready(function ($) {
         ]
     });
 
-    $('.toggle-list__item').on('click', function () {
-        $(".toggle-nav__title").hide();
-        $(".contact-form__title").removeClass('contact-form__title--hide');
-        $(".contact-form__title:first-child").addClass('contact-form__title--hide');
-        $(".toggle-list__item, .toggle-content__item").siblings().removeClass('active');
-        var index = $(".toggle-list__item").index(this);
-        $(this).addClass('active');
-        $(".toggle-content__item").eq(index).addClass('active');
-        $active_text = $(this).text();
-        $('.fake-select').text($active_text);
-        $(this).parent().removeClass('active');
-        $(this).parent().prev().addClass('active');
-    });
+    var $toggleList__item = $('.toggle-list__item');
+
+    if ($toggleList__item.length > 0) {
+        var activeToggle = 0,
+            $contactForm__title = $('.contact-form__title');
+
+        $toggleList__item.each(function () {
+            var $this = $(this),
+                toggleIndex = $this.index(),
+                $toggleItems = $this.siblings(),
+                $toggleContent__item = $('.toggle-content__item').eq(toggleIndex),
+                activeToggleClass = 'active',
+                activeToggleTitleClass = 'contact-form__title--active';
+
+            $this.on('click', function () {
+                if ($this.hasClass(activeToggleClass)) {
+                    $this.removeClass(activeToggleClass);
+                    $toggleContent__item.removeClass(activeToggleClass);
+                    $('.toggle-content__item').eq(0).addClass(activeToggleClass);
+
+                    if ($contactForm__title.length > 0) {
+                        $contactForm__title.removeClass(activeToggleTitleClass);
+                    }
+
+                } else {
+                    $toggleItems.removeClass(activeToggleClass);
+                    $('.toggle-content__item').eq(0).removeClass(activeToggleClass);
+                    $('.toggle-content__item').eq(activeToggle).removeClass(activeToggleClass);
+
+                    if ($contactForm__title.length > 0) {
+                        $contactForm__title.addClass(activeToggleTitleClass);
+                    }
+                    $this.addClass(activeToggleClass);
+                    $toggleContent__item.addClass(activeToggleClass);
+                }
+                activeToggle = toggleIndex;
+            })
+        });
+    }
+
+    // $('.toggle-list__item').on('click', function () {
+    //     $(".toggle-nav__title").hide();
+    //     $(".contact-form__title").removeClass('contact-form__title--hide');
+    //     $(".contact-form__title:first-child").addClass('contact-form__title--hide');
+    //     $(".toggle-list__item, .toggle-content__item").siblings().removeClass('active');
+    //     var index = $(".toggle-list__item").index(this);
+    //     $(this).addClass('active');
+    //     $(".toggle-content__item").eq(index).addClass('active');
+    //     $active_text = $(this).text();
+    //     $('.fake-select').text($active_text);
+    //     $(this).parent().removeClass('active');
+    //     $(this).parent().prev().addClass('active');
+    // });
 
     $('.fake-select').on('click', function () {
         $(this).next().toggleClass('active');
