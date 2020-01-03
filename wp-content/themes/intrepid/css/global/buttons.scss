@@ -72,6 +72,10 @@ button[type="submit"] {
         }
     }
 
+    &--outline-dark {
+        border-color: $dark-gray;
+    }
+
     &--light {
         color: $white;
 

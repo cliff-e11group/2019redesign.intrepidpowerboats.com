@@ -104,11 +104,11 @@ the_post();
                         </a>
                     </figure>
                     <h3 class="company-info__title">Service Location</h3>
-                    <address class="company-info__address">805 NE 3RD Street<br>Dania, FL 33004<br>
+                    <address class="company-info__address">11700 Belcher Road S <br>Largo, Florida 33773<br>
                         <a class="company-info__direction" href="" target="_blank">Driving Directions</a>
                     </address>
 
-                    <a class="company-info__phone" href="tel:9543244196">954.324.4196</a>
+                    <a class="company-info__phone" href="tel:9543244196">727.548.1260</a>
                     <div class="company-info__office-hr">
                         <span class="label">Hours:</span>
                         <p>MON-FRI – 8AM TO 5PM<br>
@@ -124,10 +124,10 @@ the_post();
                             <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                         </figure>
                         <div class="member__details">
-                            <h3 class="member__name">Mike Obolsky</h3>
-                            <span class="member__designation">Senior VP</span>
-                            <a class="member__phone" href="tel:9543244196">954.324.4196</a>
-                            <span class="member__email"><a href="">mike@intrepidpowerboats.com</a></span>
+                            <h3 class="member__name">Joe Brenna</h3>
+                            <span class="member__designation">V.P. of Customer Support</span>
+                            <a class="member__phone" href="tel:9543244196">954.324.4196 (EXT. 229)</a>
+                            <span class="member__email"><a href="mailto:jbrenna@intrepidpowerboats.com">jbrenna@intrepidpowerboats.com</a></span>
                         </div>
                     </li>
                     <li class="member member-list__item">
@@ -135,10 +135,84 @@ the_post();
                             <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
                         </figure>
                         <div class="member__details">
-                            <h3 class="member__name">Mike Obolsky</h3>
-                            <span class="member__designation">Senior VP</span>
-                            <a class="member__phone" href="tel:9543244196">954.324.4196</a>
-                            <span class="member__email"><a href="">mike@intrepidpowerboats.com</a></span>
+                            <h3 class="member__name">Felicia Johnson</h3>
+                            <span class="member__designation">Customer Service Manager</span>
+                            <a class="member__phone" href="tel:9543244196">954.324.4196 (EXT. 242)</a>
+                            <span class="member__email"><a href="mailto:customercare@intrepidpowerboats.com">customercare@intrepidpowerboats.com</a></span>
+                        </div>
+                    </li>
+                    <li class="member member-list__item">
+                        <figure class="member__image">
+                            <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                        </figure>
+                        <div class="member__details">
+                            <h3 class="member__name">Walt Putman</h3>
+                            <span class="member__designation">Warranty Manager</span>
+                            <a class="member__phone" href="tel:9543244196">954.324.4196 (EXT. 267)</a>
+                            <span class="member__email"><a href="mailto:warranty@intrepidpowerboats.com">warranty@intrepidpowerboats.com</a></span>
+                        </div>
+                    </li>
+                    <li class="member member-list__item">
+                        <figure class="member__image">
+                            <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                        </figure>
+                        <div class="member__details">
+                            <h3 class="member__name">Michael Erturk</h3>
+                            <span class="member__designation">Parts</span>
+                            <a class="member__phone" href="tel:9543244196">954.324.4196 (EXT. 271)</a>
+                            <span class="member__email"><a href="mailto:support@intrepidpowerboats.com">support@intrepidpowerboats.com</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="customer-support">
+        <div class="container">
+            <div class="customer-support__location">
+                <h2 class="customer-support__title">Location and Hours</h2>
+                <div class="company-info__item company-info__item--fullwidth">
+                    <figure class="company-info__map">
+                        <a href="#" target="_blank">
+                            <img src="<?php echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
+                        </a>
+                    </figure>
+                    <h3 class="company-info__title">Service Location</h3>
+                    <address class="company-info__address">805 NE 3RD Street<br>Dania, FL 33004<br>
+                        <a class="company-info__direction" href="" target="_blank">Driving Directions</a>
+                    </address>
+
+                    <a class="company-info__phone" href="tel:9543244196">954.922.7544</a>
+                    <div class="company-info__office-hr">
+                        <span class="label">Hours:</span>
+                        <p>MON-FRI – 8AM TO 5PM<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="customer-support__team">
+                <h2 class="customer-support__title">Customer Service</h2>
+                <ul class="member-list">
+                    <li class="member member-list__item">
+                        <figure class="member__image">
+                            <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                        </figure>
+                        <div class="member__details">
+                            <h3 class="member__name">Che De Boehmler</h3>
+                            <span class="member__designation">Customer Service Manager</span>
+                            <a class="member__phone" href="tel:9543244196">954.324.4196 (EXT. 29)</a>
+                            <span class="member__email"><a href="mailto:iseservice@intrepidpowerboats.com">iseservice@intrepidpowerboats.com</a></span>
+                        </div>
+                    </li>
+                    <li class="member member-list__item">
+                        <figure class="member__image">
+                            <img src="<?php echo STYLEDIR; ?>/uploads/mike.jpg" alt="mike" />
+                        </figure>
+                        <div class="member__details">
+                            <h3 class="member__name">Corinne Gay</h3>
+                            <span class="member__designation">Customer Service Asst.</span>
+                            <a class="member__phone" href="tel:9543244196">954.324.4196 (EXT. 32)</a>
+                            <span class="member__email"><a href="mailto:isecustomercare@intrepidpowerboats.com">isecustomercare@intrepidpowerboats.com</a></span>
                         </div>
                     </li>
                 </ul>

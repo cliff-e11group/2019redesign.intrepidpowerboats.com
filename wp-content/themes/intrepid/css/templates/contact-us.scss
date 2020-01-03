@@ -154,10 +154,12 @@
 }
 
 .phone-list {
+
     .phone-list__item {
         margin-bottom: 12px;
+
         @media #{$phone} {
-            padding: 18px 50px;
+            padding: 18px 16px;
             background-color: $bright-gray;
             margin-bottom: 10px;
             position: relative;

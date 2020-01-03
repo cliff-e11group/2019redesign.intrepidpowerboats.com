@@ -63,7 +63,10 @@
 
                 <!-- SIDEBAR CATS -->
                 <?php
-                    $cat_args = array('post');
+                    $cat_args = array(
+                        'type' => 'post',
+                        'exclude' => array('1'),
+                    );
                     $cats = get_categories($cat_args);
                 ?>
                 <?php if (!empty($cats)) : ?>
@@ -122,11 +125,17 @@
             </div>
 
         <?php
+        $category_id = array();
+        if(is_category()) {
+            $categories = get_the_category();
+            $category_id = array($categories[0]->cat_ID);
+        }
             $older_args = array(
                 'posts_per_page'	=> 4,
                 'post_type'		=> 'post',
                 'post_status'	=> 'publish',
                 'post__not_in' 	=> $heroPostID,
+                'category__in' 	=> $category_id,
             );
 
             $older_posts = new WP_Query($older_args);
@@ -172,7 +181,7 @@
             // global $wp_query;
             if (  $older_posts->max_num_pages > 1 ) : ?>
                 <div class="load-more" >
-                    <button  class="btn btn--fullwidth btn--outline btn--large-mobile" data-class="load-more">Load More</button>
+                    <button  class="btn btn--fullwidth btn--outline btn--outline-dark btn--large-mobile" data-class="load-more">Load More</button>
                     </div>
                 </div>
             <?php endif; ?>
