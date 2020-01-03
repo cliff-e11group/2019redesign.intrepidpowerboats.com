@@ -465,15 +465,18 @@ jQuery(document).ready(function ($) {
 
     if ($toggleList__item.length > 0) {
         var activeToggle = 0,
-            $contactForm__title = $('.contact-form__title');
+            $contactForm__title = $('.contact-form__title'),
+            $fakeSelect = $('.fake-select'),
+            $toggleList = $('.toggle-list'),
+            activeToggleClass = 'active',
+            activeToggleTitleClass = 'contact-form__title--active';
 
         $toggleList__item.each(function () {
             var $this = $(this),
                 toggleIndex = $this.index(),
                 $toggleItems = $this.siblings(),
                 $toggleContent__item = $('.toggle-content__item').eq(toggleIndex),
-                activeToggleClass = 'active',
-                activeToggleTitleClass = 'contact-form__title--active';
+                $fakeSelectText = $fakeSelect.text();
 
             $this.on('click', function () {
                 if ($this.hasClass(activeToggleClass)) {
@@ -484,6 +487,7 @@ jQuery(document).ready(function ($) {
                     if ($contactForm__title.length > 0) {
                         $contactForm__title.removeClass(activeToggleTitleClass);
                     }
+                    $fakeSelect.text($fakeSelectText);
 
                 } else {
                     $toggleItems.removeClass(activeToggleClass);
@@ -495,10 +499,20 @@ jQuery(document).ready(function ($) {
                     }
                     $this.addClass(activeToggleClass);
                     $toggleContent__item.addClass(activeToggleClass);
+                    $fakeSelect.text($this.text());
                 }
+
+                $toggleList.removeClass(activeToggleClass);
+
                 activeToggle = toggleIndex;
             })
         });
+
+        if ($fakeSelect.length > 0) {
+            $fakeSelect.on('click', function () {
+                $toggleList.toggleClass(activeToggleClass);
+            });
+        }
     }
 
     // $('.toggle-list__item').on('click', function () {
@@ -514,10 +528,6 @@ jQuery(document).ready(function ($) {
     //     $(this).parent().removeClass('active');
     //     $(this).parent().prev().addClass('active');
     // });
-
-    $('.fake-select').on('click', function () {
-        $(this).next().toggleClass('active');
-    });
 
     $('.service-form__trigger').on('click', function () {
         $(this).toggleClass('active');

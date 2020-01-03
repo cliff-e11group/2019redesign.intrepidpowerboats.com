@@ -1,5 +1,6 @@
 .contact-form {
     padding: 40px 0 60px;
+
     @media #{$phone} {
         padding: 40px 0;
     }
@@ -9,15 +10,29 @@
     }
 }
 
+.contact-form__phone--mobile {
+    display: none;
+    margin-bottom: 40px;
+
+    @media #{$phone} {
+        display: block;
+    }
+}
+
 .contact-form__inner {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 40px;
+
+    @media #{$phone} {
+        margin-top: 0;
+    }
 }
 
 .contact-form__title {
     text-align: center;
+    margin: 0;
 
     span {
         display: block;
@@ -45,23 +60,23 @@
     width: 48.8%;
     @media #{$phone} {
         width: 100%;
-        margin-bottom: 23px;
+        margin-top: 23px;
     }
+}
 
-    .toggle-nav__title {
-        @include fsz(11px);
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 2.6px;
-        border-bottom: 1px solid rgba($dark-gray, 0.5);
-        display: block;
-        padding-bottom: 6px;
-        margin-bottom: 10px;
-        @media #{$phone} {
-            @include fsz(12px);
-            text-align: center;
-            padding-bottom: 8px;
-        }
+.toggle-nav__title {
+    @include fsz(11px);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2.6px;
+    border-bottom: 1px solid rgba($dark-gray, 0.5);
+    display: block;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    @media #{$phone} {
+        @include fsz(12px);
+        text-align: center;
+        padding-bottom: 8px;
     }
 }
 
@@ -202,14 +217,23 @@
 
 .toggle-content {
     width: 48.8%;
+
     @media #{$phone} {
         width: 100%;
     }
 
     .toggle-content__item {
         display: none;
+
         @media #{$phone} {
             padding: 0 15px;
+        }
+
+        &:first-child {
+
+            @media #{$phone} {
+                display: none;
+            }
         }
 
         .form__title {
@@ -220,24 +244,31 @@
 
         &.active {
             display: block;
+
+            &:first-child {
+
+                @media #{$phone} {
+                    display: none;
+                }
+            }
         }
     }
+}
 
-    .toggle-content__title {
-        @include fsz(11px);
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 2.6px;
-        border-bottom: 1px solid rgba($dark-gray, 0.5);
-        display: block;
-        padding-bottom: 6px;
-        margin-bottom: 6px;
-        @media #{$phone} {
-            @include fsz(12px);
-            text-align: center;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
+.toggle-content__title {
+    @include fsz(11px);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2.6px;
+    border-bottom: 1px solid rgba($dark-gray, 0.5);
+    display: block;
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    @media #{$phone} {
+        @include fsz(12px);
+        text-align: center;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
     }
 }
 

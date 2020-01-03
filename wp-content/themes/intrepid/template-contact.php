@@ -19,13 +19,36 @@ the_post();
     </section>
     <section class="contact-form">
         <div class="container">
+            <div class="contact-form__phone--mobile">
+                <h2 class="toggle-content__title">Call Us Direct</h2>
+                <ul class="phone-list">
+                    <li class="phone-list__item">
+                                    <span class="phone-list__label">
+                                        Sales
+                                    </span>
+                        <a class="phone-list__number" href="tel:9543244196">954.324.4196</a>
+                    </li>
+                    <li class="phone-list__item">
+                                    <span class="phone-list__label">
+                                        Service
+                                    </span>
+                        <a class="phone-list__number" href="tel:9543244196">954.324.4196</a>
+                    </li>
+                    <li class="phone-list__item">
+                                    <span class="phone-list__label">
+                                        General Inquiry
+                                    </span>
+                        <a class="phone-list__number" href="tel:9543244196">954.324.4196</a>
+                    </li>
+                </ul>
+            </div>
             <p class="contact-form__title">
                 <span>Please select the type of inquiry.</span>
                 <span>Fill the form out below for any type of inquiry and we will get back to you shortly.</span>
             </p>
             <div class="contact-form__inner">
                 <div class="toggle-nav">
-                    <span class="toggle-nav__title">Message us Directly</span>
+                    <h2 class="toggle-nav__title">Message us Directly</h2>
                     <span class="fake-select">Select a Department</span>
                     <ul class="toggle-list">
                         <li class="toggle-list__item active">Message us Directly</li>
