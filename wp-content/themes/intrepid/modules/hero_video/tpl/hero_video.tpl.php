@@ -7,7 +7,7 @@
 
                 <?php endif; ?>
                 <?php if ($data['video']) : ?>
-                    <a href="<?php echo $data['video']; ?>" data-fancybox  class="play-btn">Play Video</a>
+                    <a href="<?php echo $data['video']; ?>" data-fancybox  class="play-btn"><span>Play Video</span></a>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

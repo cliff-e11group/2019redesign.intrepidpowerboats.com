@@ -23,7 +23,7 @@
 
                 <div class="gallery-grid__item gallery-grid__item--full gallery-grid__item--video">
                     <a data-fancybox="gallery" href="<?php echo $video_link; ?>" style="background-image: url(<?php echo $placeholder['url']; ?>);">
-                        <span class="play-btn">Play Video</span>
+                        <span class="play-btn"><span>Play Video</span></span>
                         <img src="<?php echo $placeholder['url']; ?>" alt="<?php echo $placeholder['alt']; ?>" class="accessible-text">
                         <div class="overlay-content">
                             <img src="<?php echo IMAGES; ?>/amazing-with-text.png" alt="Proof that amazing takes time">
