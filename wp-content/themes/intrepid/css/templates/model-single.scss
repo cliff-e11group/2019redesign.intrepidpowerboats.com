@@ -476,20 +476,18 @@
         width: 53px;
         height: 53px;
         display: inline-block;
-        margin-left: -13px;
         vertical-align: middle;
-        position: absolute;
+        position: relative;
+        left: auto;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin-left: 5px;
         z-index: 1;
-
-        @media #{$header} {
-            top: -3px;
-        }
 
         @media #{$phone} {
             width: 31px;
             height: 31px;
-            right: 0;
-            top: -5px;
         }
     }
 
@@ -527,23 +525,40 @@
         }
     }
 
-    .motor-list__title {
+    .motor-list__content {
         position: relative;
         left: -44px;
-        text-transform: uppercase;
-        @include fsz(45px);
-        margin-bottom: 13px;
-        display: inline-block;
-        padding-right: 50px;
 
         @media #{$header} {
             left: -71px;
-            @include fsz(40px);
         }
         @media #{$phone} {
             left: 0;
+        }
+    }
+
+    .motor-list__outer {
+        display: inline-block;
+    }
+
+    .motor-list__inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 13px;
+    }
+
+    .motor-list__title {
+        margin: 0;
+        text-transform: uppercase;
+        @include fsz(45px);
+        display: inline-block;
+
+        @media #{$header} {
+            @include fsz(40px);
+        }
+        @media #{$phone} {
             @include fsz(20px);
-            padding-right: 37px;
         }
     }
 

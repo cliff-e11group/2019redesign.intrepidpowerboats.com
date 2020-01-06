@@ -7360,7 +7360,7 @@ jQuery(document).ready(function ($) {
     if ($modelList__block.length > 0) {
         $modelList__block.each(function () {
             var $this = $(this),
-                $modelList__trigger = $this.find('.model-list__trigger'),
+                $modelList__trigger = $this.find('.model-list__trigger-container'),
                 $sliblings = $this.siblings('.model-list__block');
 
             $modelList__trigger.on('click', function () {
@@ -7370,7 +7370,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    $('.motor-list__trigger').on('click', function () {
+    $('.motor-list__trigger-container').on('click', function () {
         $(this)
             .closest(".motor-list__content").toggleClass('active')
             .closest(".motor-list__item").toggleClass('active');
@@ -7435,8 +7435,7 @@ jQuery(document).ready(function ($) {
                 "<div class=\"model-list__detail\">" +
                 "    <div class=\"model-list__title\">" +
                 "        <h3>" + data['title'] + "</h3>" +
-                "        <span class=\"model-list__trigger\">" +
-                "        </span>" +
+                "        <button class=\"model-list__trigger-container\"><span class=\"model-list__trigger\"></span></button>" +
                 "    </div>" +
                 "    <div class=\"model-list-hidden__content\">" +
                 "        <div class=\"model-list-stat__container\">" +

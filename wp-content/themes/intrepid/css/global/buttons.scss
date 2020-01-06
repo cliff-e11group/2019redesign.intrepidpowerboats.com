@@ -56,8 +56,9 @@ button[type="submit"] {
         &:hover,
         &:active,
         &:focus {
+            color: #6d0707;
             background-position: -170px;
-            background-color: #6d0707;
+            background-color: #ffffff;
         }
     }
 

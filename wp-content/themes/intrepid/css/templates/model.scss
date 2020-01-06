@@ -205,13 +205,14 @@
 }
 
 .model-list__title-wrap {
+    position: relative;
     padding: 12px 14px 14px 19px;
     display: flex;
-    justify-content: space-between;
     background-color: #e3e3e3;
     font-weight: 700;
     align-items: center;
     min-height: 51px;
+
     @media #{$phone} {
         padding: 16px 15px 14px 20px;
     }
@@ -222,17 +223,46 @@
     font-size: 14px;
     text-transform: uppercase;
     width: calc(100% - 30px);
+    color: $dark-gray;
+    transition: none;
+    pointer-events: none;
+
+    .active & {
+        color: #fff;
+    }
 
     @media #{$phone} {
         font-size: 18px;
     }
+}
 
-    a {
-        color: $dark-gray;
-        transition: none;
+.motor-list__trigger-container,
+.model-list__trigger-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: 0;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    z-index: 10;
 
-        .active & {
-            color: #fff;
+    &:hover,
+    &:focus {
+
+        & + .motor-list__trigger,
+        .model-list__trigger,
+        .column-model__trigger {
+
+            &:before {
+                transform: rotate(360deg);
+                transition: transform 0.25s;
+            }
         }
     }
 }
@@ -240,13 +270,18 @@
 .motor-list__trigger,
 .model-list__trigger,
 .column-model__trigger {
-    position: relative;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    display: block;
     text-align: center;
     width: 25px;
     height: 25px;
-    cursor: pointer;
     z-index: 1;
+    transform-origin: center;
     transition: transform 0.25s;
+
     @media #{$phone} {
         width: 30px;
         height: 30px;
@@ -261,6 +296,7 @@
         width: 100%;
         height: 100%;
         transition: transform 0.25s;
+        transform-origin: center;
         z-index: -1;
     }
 
@@ -275,13 +311,6 @@
         background-repeat: no-repeat;
         background-position: center;
         border: none;
-    }
-
-    &:hover {
-        &:before {
-            transform: rotate(360deg);
-            transition: transform 0.25s;
-        }
     }
 }
 
@@ -350,13 +379,13 @@
             }
 
             .model-list__trigger {
-                transform: rotate(45deg);
 
                 &:before {
                     transform: rotate(360deg);
                 }
 
                 &:after {
+                    transform: rotate(45deg);
                     background-image: url("images/add-white.svg");
                 }
             }

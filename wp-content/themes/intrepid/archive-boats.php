@@ -104,8 +104,10 @@ the_post();
                     </div>
                     <div class="model-list__detail">
                         <div class="model-list__title-wrap">
-                            <h3 class="model-list__title"><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
-                            <span class="model-list__trigger"></span>
+                            <h3 class="model-list__title"><?php echo $title; ?></h3>
+                            <button class="model-list__trigger-container">
+                                <span class="model-list__trigger"></span>
+                            </button>
                         </div>
                         <?php
                         $stats = get_field('quick_statistics');

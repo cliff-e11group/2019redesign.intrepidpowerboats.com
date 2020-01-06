@@ -265,7 +265,15 @@ endif;
                                     <img src="<?php echo $motor_block['image']['url']; ?>" alt="<?php echo $motor_block['image']['alt']; ?>" />
                                 </figure>
                                 <div class="motor-list__content">
-                                    <h2 class="motor-list__title"><span class="motor-list__text"><?php echo $motor_block['title']; ?></span><span class="motor-list__trigger"></span></h2>
+                                    <div class="motor-list__outer">
+                                        <div class="motor-list__inner">
+                                            <h2 class="motor-list__title">
+                                                <span class="motor-list__text"><?php echo $motor_block['title']; ?></span>
+                                            </h2>
+                                            <button class="motor-list__trigger-container"><span class="accessible-text">Toggle content.</span></button>
+                                            <span class="motor-list__trigger"></span>
+                                        </div>
+                                    </div>
                                     <div class="motor-list__description">
                                         <?php echo $motor_block['description']; ?>
                                     </div>

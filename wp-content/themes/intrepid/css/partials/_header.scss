@@ -52,13 +52,15 @@
     .quick-links__item {
         margin-right: 22px;
 
-        a {
-            color: $white;
-            font-weight: 700;
-            text-transform: uppercase;
+        &:last-child {
+            a {
+                color: $white;
+                font-weight: 700;
+                text-transform: uppercase;
 
-            &.link:hover {
-                opacity: 0.6;
+                &.link:hover {
+                    opacity: 0.6;
+                }
             }
         }
     }
@@ -228,8 +230,9 @@
             @include fsz(13px);
             text-transform: uppercase;
             font-weight: 700;
-            padding: 19px 21px 32px 17px;
+            padding: 19px 19px 32px;
             line-height: 1.3;
+
             @media #{$desktop-small} {
                 padding: 19px 12px 32px;
             }

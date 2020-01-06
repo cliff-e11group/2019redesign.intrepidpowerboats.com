@@ -17,7 +17,7 @@
 
                     <?php if($data['column_1']['link']) : ?>
                         <a class="landing-hero__link" href="<?php echo $data['column_1']['link']['url']; ?>" target="?php echo $data['column_1']['link']['target']; ?>">
-                            <span class="btn btn--outline btn--light">"<?php echo $data['column_1']['link']['title']; ?></span>
+                            <span class="btn btn--outline btn--light"><?php echo $data['column_1']['link']['title']; ?></span>
                         </a>
                     <?php endif; ?>
                 </div>
