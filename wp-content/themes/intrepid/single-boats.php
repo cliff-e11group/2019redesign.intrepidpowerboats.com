@@ -113,6 +113,7 @@ endif;
                         <?php
                         $quick_stats = get_field('quick_statistics');
                         $quick_stats_brochure = get_field('quick_statistics_brochure');
+                        if(!empty($quick_stats)) :
                         ?>
                         <div class="stat-block">
                             <span class="stat-block__title">Quick Statistics</span>
@@ -130,6 +131,7 @@ endif;
                             <?php endif; ?>
 
                         </div>
+                        <?php endif; ?>
                     </div>
                     <?php if ($boat_footer_link) : ?>
                         <div class="btn-wrap">

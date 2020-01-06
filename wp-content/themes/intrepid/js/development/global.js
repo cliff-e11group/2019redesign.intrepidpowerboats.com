@@ -92,8 +92,14 @@ jQuery(document).ready(function ($) {
             var $this = $(this);
 
             $this.on('click', function () {
-                var filterValue = $this.data('filter-category');
+                var filterValue = $this.data('filter-category'),
+                    $container = $(this).closest('li'),
+                    $siblings = $container.siblings('.filter-type__container');
+
                 selected_cat_filter = filterValue;
+
+                $siblings.removeClass('filter-type--active');
+                $container.addClass('filter-type--active');
 
                 var filters = [filterValue, selected_length_filter];
 
@@ -102,9 +108,7 @@ jQuery(document).ready(function ($) {
                 } else {
                     var finalFilterValue = filterValue;
                 }
-                console.log(finalFilterValue);
                 $grid.isotope({filter: finalFilterValue});
-
 
             });
         });
@@ -634,6 +638,9 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    $(".nav-block").stick_in_parent({
+        offset_top: $('.header').outerHeight()
+    });
 });
 
 

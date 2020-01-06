@@ -5,6 +5,8 @@
     background: linear-gradient(to bottom, rgba(31, 34, 37, 1) 0%, rgba(58, 66, 73, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f2225', endColorstr='$bright-gray', GradientType=0); /* IE6-9 */
     position: relative;
+    z-index: 998;
+
     @media #{$header} {
         background: $dark-gray;
     }

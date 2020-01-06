@@ -123,6 +123,16 @@
     }
 }
 
+.filter-type {
+    .filter-type--active & {
+        font-weight: 700;
+
+        @media #{$phone} {
+            text-decoration: underline;
+        }
+    }
+}
+
 .model-list__image {
     position: relative;
     width: 100%;

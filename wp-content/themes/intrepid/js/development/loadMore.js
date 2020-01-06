@@ -22,10 +22,8 @@ jQuery(function($){
 				type: 'POST',
 				beforeSend: function () {
 					button.text('Loading...');
-					console.log(localized);
 				},
 				success: function (data) {
-					console.log(localized);
 					if (data) {
 						button.text('Load More Posts');
 

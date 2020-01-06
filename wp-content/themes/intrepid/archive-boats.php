@@ -44,8 +44,9 @@ the_post();
 
                     <!-- boat categories  -->
                     <?php if ($boat_cats) : ?>
+                    <li class="filter-type__container filter-type--active"><a href="#" data-filter-category="*" class="filter-type">All Types</a></li>
                         <?php foreach($boat_cats as $boat_cat) : ?>
-                            <li><a href="#" data-filter-category=".<?php echo $boat_cat->slug; ?>"><?php echo $boat_cat->name; ?></a></li>
+                            <li class="filter-type__container"><a href="#" class="filter-type" data-filter-category=".<?php echo $boat_cat->slug; ?>"><?php echo $boat_cat->name; ?></a></li>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </ul>
