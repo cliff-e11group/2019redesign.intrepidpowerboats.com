@@ -48,8 +48,14 @@ endif;
                 <?php endif; ?>
             </div>
             <?php if (!empty($view_360_urls)) : ?>
-            <div id="spinner-container">
-                <div id="spinner-view"></div>
+            <div class="spinner-container">
+                <a class="spinner__toggle model__360-view" href="#">360 view</a>
+                <div id="spinner-container">
+
+                        <a href="#" class="spinner__toggle">CLOSE</a>
+                        <div id="spinner-view"></div>
+
+                </div>
             </div>
             <?php endif; ?>
         </div>
@@ -390,7 +396,7 @@ endif;
         </div>
         <div class="custom-hero">
             <div class="container">
-                <?php echo file_get_contents(STYLEDIR . '/uploads/bab-sample.svg'); ?>
+                <?php echo file_get_contents(STYLEDIR . '/uploads/410-bab-SVG.svg'); ?>
             </div>
         </div>
         <div class="step-nagivation step-nagivation--alt build-a-boat--start">

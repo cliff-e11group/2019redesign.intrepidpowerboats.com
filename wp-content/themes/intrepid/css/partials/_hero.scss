@@ -605,46 +605,54 @@
 }
 
 #spinner-container {
-    position: absolute;
-    left: 0;
+    position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
     height: 100%;
-    //visibility: hidden;
-    //opacity: 0;
-    //transition: visibility 0s linear 300ms, opacity 300ms;
-    z-index: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+    z-index: 1000;
 
-    @media #{$phone} {
-        padding: 30px;
+    .spinner-active & {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 300ms;
     }
+}
 
-    &.spinner--active {
-        //visibility: visible;
-        //opacity: 1;
-        //transition: visibility 0s linear 0s, opacity 300ms;
-    }
+.spinner__inner {
+    max-width: 1442px;
+    margin: 0 auto;
+}
 
-    &:after {
-        content: '';
-        display: block;
-        width: 75px;
-        height: 72px;
-        background: url(images/360-icon.svg) no-repeat center center;
-        background-size: contain;
-        position: absolute;
-        right: 180px;
-        bottom: 98px;
-        z-index: 2;
-        pointer-events: none;
+#spinner-view {
 
-        @media #{$phone} {
-            width: 35px;
-            height: 35px;
-            right: 10px;
-            bottom: 10px;
-        }
-    }
+    //&:after {
+    //    content: '';
+    //    display: block;
+    //    width: 75px;
+    //    height: 72px;
+    //    background: url(images/360-icon.svg) no-repeat center center;
+    //    background-size: contain;
+    //    position: absolute;
+    //    right: 180px;
+    //    bottom: 98px;
+    //    z-index: 2;
+    //    pointer-events: none;
+    //
+    //    @media #{$phone} {
+    //        width: 35px;
+    //        height: 35px;
+    //        right: 10px;
+    //        bottom: 10px;
+    //    }
+    //}
 }
 
 .hero--overlay {

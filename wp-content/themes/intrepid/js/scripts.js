@@ -6929,16 +6929,24 @@ $(function () {
 
     $('.page__single--boat').e11_BuildABoat();
 
-    var $spinnerContainer = $('#spinner-container');
+    var $model__360View = $('.spinner__toggle'),
+        $spinnerContainer = $('.spinner-container');
 
-    if ($spinnerContainer.length > 0) {
+    if ($model__360View.length > 0 && $spinnerContainer.length > 0) {
 
         var $spriteSpin = $("#spinner-view");
 
+        $model__360View.on('click', function () {
+            $spinnerContainer.toggleClass('spinner-active');
+        });
+
         $spriteSpin.spritespin({
             source: view_360_urls,
-            animate: false,
-            responsive: true
+            animate: true,
+            responsive: true,
+            width: 1442,
+            height: 580,
+            sense: -1
         });
     }
 

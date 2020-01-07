@@ -51,7 +51,6 @@ $page = get_the_ID();
                         <li class="toggle-list__item">Careers Department</li>
                     </ul>
                 </div>
-
                 <ul class="toggle-content">
                     <li class="toggle-content__item active">
                         <span class="toggle-content__title">Call Us Direct</span>
@@ -79,37 +78,9 @@ $page = get_the_ID();
                     <li class="toggle-content__item">
                         <form class="form" action="#" method="post">
                             <h3 class="form__title">Your information</h3>
-                            <ul class="form-fields">
-                                <li class="form__field">
-                                    <input type="text" name="txt_name" value="William Rossiter">
-                                </li>
-                                <li class="form__field">
-                                    <input type="email" name="email_add" value="william@slicecreates.com">
-                                </li>
-                                <li class="form__field">
-                                    <input type="text" name="phone_no" placeholder="Phone(XXX-XXX-XXXX)">
-                                </li>
-                                <li class="form__field form__field-select">
-                                    <select class="custom-select">
-                                        <option value="model-410">MODEL: 410 EVOLUTION</option>
-                                        <option value="model-410">MODEL: 410 EVOLUTION</option>
-                                        <option value="model-410">MODEL: 410 EVOLUTION</option>
-                                        <option value="model-410">MODEL: 410 EVOLUTION</option>
-                                    </select>
-                                </li>
-                                <li class="form__field">
-                                    <textarea placeholder="Questions or Comments? Let us know here."></textarea>
-                                </li>
-                                <li class="form__field form__field--captcha">
-                                    <span class="required-symbol">* Required Fields</span>
-                                    <img src="<?php echo STYLEDIR; ?>/uploads/newCaptcha.png" alt="captcha" />
-                                </li>
-                                <li class="form__field form__field--submit">
-                                    <input class="button button--small" type="submit" value="Send Message">
-                                </li>
-                            </ul>
+                            <?php echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]'); ?>
                         </form>
-                        <span class="department-phone">By Phone - <a href="tel:9543244196">954.324.4196</a></span>
+                        <p class="department-phone">By Phone - <a href="tel:9543244196">954.324.4196</a></p>
                     </li>
                     <li class="toggle-content__item">
                         <form class="form" action="#" method="post">
