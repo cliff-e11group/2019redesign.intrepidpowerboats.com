@@ -212,64 +212,6 @@ $page = get_the_ID();
 
     <?php e11_locations(array(), true, 'get_field', $page, ''); ?>
 
-    <section class="company-block">
-        <div class="container">
-            <h2 class="company-block__title">Office Location and Hours</h2>
-            <div class="company-info">
-                <div class="company-info__item">
-                    <figure class="company-info__map">
-                        <a href="#" target="_blank">
-                            <img src="<?php echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
-                        </a>
-                    </figure>
-                    <h3 class="company-info__title">Sales Headquarters</h3>
-                    <address class="company-info__address">
-                        805 NE 3RD Street<br>
-                        Dania, FL 33004<br>
-                        <a class="company-info__direction" href="" target="_blank">Driving Directions</a>
-                    </address>
-                    <a class="company-info__phone" href="tel:9543244196">954.324.4196</a>
-                    <div class="company-info__office-hr">
-                        <span class="label">Hours:</span>
-                        <p>MON-FRI – 8AM TO 5PM<br>
-                            SAT – 9AM TO 4PM<br>
-                            SUN – BY APPOINTMENT
-                        </p>
-                    </div>
-                </div>
-                <div class="company-info__item">
-                    <figure class="company-info__map">
-                        <a href="#" target="_blank">
-                            <img src="<?php echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
-                        </a>
-                    </figure>
-                    <h3 class="company-info__title">Service Location</h3>
-                    <address class="company-info__address">805 NE 3RD Street<br>Dania, FL 33004<br>
-                        <a class="company-info__direction" href="" target="_blank">Driving Directions</a>
-                    </address>
-
-                    <a class="company-info__phone" href="tel:9543244196">954.324.4196</a>
-                    <div class="company-info__office-hr">
-                        <span class="label">Hours:</span>
-                        <p>MON-FRI – 8AM TO 5PM<br>
-                        </p>
-                    </div>
-                </div>
-                <div class="company-info__item">
-                    <figure class="company-info__map">
-                        <a href="#" target="_blank">
-                            <img src="<?php echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
-                        </a>
-                    </figure>
-                    <h3 class="company-info__title">Manufacturing Facility</h3>
-                    <address class="company-info__address">805 NE 3RD Street<br>Dania, FL 33004<br>
-                        <a class="company-info__direction" href="" target="_blank">Driving Directions</a>
-                    </address>
-                    <a class="company-info__phone" href="tel:9543244196">954.324.4196</a>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="team-block">
         <div class="container">
             <div class="team-block__two-third">
