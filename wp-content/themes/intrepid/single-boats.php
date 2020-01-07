@@ -212,7 +212,7 @@ endif;
                                 <img class="deck-block__img" src="<?php echo $deck_plan_image['url']; ?>" alt="<?php echo $deck_plan_image['alt']; ?>">
                                 <?php foreach($deck_points as $deck_point) : ?>
                                 <div class="deck-point__container">
-                                    <button class="deck-point" style="top: <?php echo $deck_point['distance_from_top_border']; ?>%; left: <?php echo $deck_point['distance_from_left_border']; ?>%;"><?php echo $deck_point['number_on_hotspot']; ?></button>
+                                    <button class="deck-point" style="top: calc(<?php echo $deck_point['distance_from_top_border']; ?>% - 13px); left: calc(<?php echo $deck_point['distance_from_left_border']; ?>% - 13px);"><?php echo $deck_point['number_on_hotspot']; ?></button>
                                     <div class="deck-block__info">
                                         <div class="container">
                                             <div class="deck-info">

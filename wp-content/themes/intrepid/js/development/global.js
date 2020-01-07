@@ -608,6 +608,8 @@ jQuery(document).ready(function ($) {
     var $deckPoint__container = $('.deck-point__container');
 
     if ($deckPoint__container.length > 0) {
+        var activeDeckPoint = undefined,
+            activeDeckContainer = undefined;
         $deckPoint__container.each(function () {
             var $this = $(this),
                 $deckPointInfo = $this.find('.deck-block__info'),
@@ -617,6 +619,12 @@ jQuery(document).ready(function ($) {
                 activeClass = 'deck-point--active';
 
             $deckPoint.on('click', function () {
+                if (activeDeckPoint !== undefined && activeDeckContainer !== undefined) {
+                    activeDeckContainer.removeClass(activeClass);
+                    activeDeckPoint.removeClass(activeClass);
+                    activeDeckPoint.appendTo(activeDeckContainer);
+                }
+
                 if ($this.hasClass(activeClass)) {
                     $this.removeClass(activeClass);
                     $deckPointInfo.removeClass(activeClass);
@@ -628,6 +636,8 @@ jQuery(document).ready(function ($) {
                     $deckPointInfo.appendTo('body');
                     $deckPointInfo.addClass(activeClass);
                 }
+                activeDeckContainer = $this;
+                activeDeckPoint = $deckPointInfo;
             });
 
             $deckPointClose.on('click', function () {

@@ -1112,6 +1112,8 @@
         transform: rotate(90deg);
     }
 
+    &:hover,
+    &:focus,
     .deck-point--active & {
         background-color: #F4F4F4;
         border-color: #B0B0B0;
