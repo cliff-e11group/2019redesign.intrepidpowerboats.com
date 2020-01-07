@@ -11,18 +11,7 @@ $tagline = get_field('page_tagline');
 ?>
 <?php get_header(); ?>
 <main class="main">
-    <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
-        <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__title"><?php echo $title ? $title : get_the_title(); ?></h1>
-                <div class="hero__description">
-                    <?php if ($tagline): ?>
-                        <p><?php echo $tagline; ?></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php e11_page_details(array(), true, 'get_field', $page, ''); ?>
 
    <?php e11_hero(array(), true, 'get_field', $page, ''); ?>
 

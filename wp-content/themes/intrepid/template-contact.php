@@ -4,19 +4,12 @@
 */
 get_header();
 the_post();
+$page = get_the_ID();
 ?>
 <?php get_header(); ?>
 <main class="main">
-    <section class="hero hero--inner" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/our-models-bg-image.jpg);">
-        <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__title">Contact Us</h1>
-                <div class="hero__description">
-                    <p>World Class <strong>Service.</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <?php e11_page_details(array(), true, 'get_field', $page, ''); ?>
+
     <section class="contact-form">
         <div class="container">
             <div class="contact-form__phone--mobile">
@@ -216,6 +209,9 @@ the_post();
 
         </div>
     </section>
+
+    <?php e11_locations(array(), true, 'get_field', $page, ''); ?>
+
     <section class="company-block">
         <div class="container">
             <h2 class="company-block__title">Office Location and Hours</h2>
