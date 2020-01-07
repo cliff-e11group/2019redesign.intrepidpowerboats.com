@@ -238,6 +238,10 @@
     margin-bottom: 25px;
     position: relative;
 
+    @media #{$phone}{
+        display: block;
+    }
+
     &:before {
         content: "";
         position: absolute;

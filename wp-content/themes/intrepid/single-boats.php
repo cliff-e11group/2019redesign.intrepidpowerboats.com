@@ -330,6 +330,12 @@ endif;
                         <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
                         <?php endif; ?>
                         <div class="form-wrap">
+                            <div class="form-option">
+                                <ul class="option-list">
+                                    <li class="option-list__item">Please email the boat I created to me and Intrepid, and have them contact me.</li>
+                                    <li class="option-list__item">Please only email me the boat I created.</li>
+                                </ul>
+                            </div>
                             <form class="form" action="#" method="post">
                                 <h3 class="form__title">Your information</h3>
                                 <ul class="form-fields">

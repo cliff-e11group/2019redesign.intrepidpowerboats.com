@@ -205,6 +205,21 @@
             }
         }
 
+        &.menu-item-has-children {
+
+            .icon-arrow-up {
+                display: none;
+                margin-right: 12px;
+                width: 12px;
+                height: 12px;
+                transform: rotate(-90deg);
+
+                @media #{$header} {
+                    display: inline-block;
+                }
+            }
+        }
+
         &.menu-item-has-children.menu-open-parent:before {
             @media #{$header} {
                 content: "";
@@ -219,7 +234,9 @@
 
         &.menu-item-has-children.menu-open-parent a {
             @media #{$header} {
-                padding: 27px 0;
+                display: block;
+                padding: 27px 35px;
+                margin: 0;
             }
         }
 
@@ -381,22 +398,16 @@
     .nav__visible & {
         @media #{$header} {
             position: absolute;
-            top: 12px;
-            right: -35px;
-            display: inline-block;
-            padding: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            padding: 0;
             cursor: pointer;
-            transform: rotate(90deg);
             color: white;
-            vertical-align: middle;
+            z-index: 2;
         }
-    }
-
-    .nav__visible .menu-open & {
-        transform: rotate(270deg);
-        left: -35px;
-        right: auto;
-        top: 19px;
     }
 
     .icon {
@@ -421,7 +432,7 @@
 .primary-nav .mega-menu {
     .menu-open + .sub-menu {
         @media #{$header} {
-            padding: 75px 0 0;
+            padding: 90px 0 0;
         }
     }
 }
@@ -453,6 +464,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         @media #{$header} {
             display: none;
         }
@@ -461,9 +473,9 @@
             @media #{$header} {
                 display: block;
                 position: absolute;
-                height: auto;
+                height: 80px;
                 width: 100%;
-                padding: 26px 10px;
+                padding: 0;
                 border-bottom: 1px solid $black;
                 top: 0;
                 left: 0;
@@ -508,6 +520,9 @@
                     padding-left: 53px !important;
                     margin: 0 !important;
                     width: auto;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+                    white-space: nowrap;
                 }
             }
 

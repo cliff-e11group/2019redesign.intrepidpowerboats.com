@@ -5,7 +5,7 @@
     background: linear-gradient(to bottom, rgba(31, 34, 37, 1) 0%, rgba(58, 66, 73, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1f2225', endColorstr='$bright-gray', GradientType=0); /* IE6-9 */
     position: relative;
-    z-index: 998;
+    z-index: 997;
 
     @media #{$header} {
         background: $dark-gray;
@@ -327,6 +327,7 @@
     align-items: flex-start;
     justify-content: center;
     flex-wrap: wrap;
+
     @media #{$phone} {
         padding: 0 10px 30px;
     }
@@ -943,6 +944,11 @@
     .btn {
         margin-right: 25px;
 
+        @media #{$phone} {
+            margin-right: 0;
+            margin-bottom: 8px;
+        }
+
         &:last-child {
             margin-right: 0;
         }
@@ -951,18 +957,30 @@
 
 .form-wrap {
     width: 100%;
+    max-width: 780px;
+    margin: 38px auto;
     display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
     @media #{$phone} {
         width: 100%;
     }
 
     .active & {
-        display: block;
+        display: flex;
+
+        @media #{$phone} {
+            display: block;
+        }
     }
 
     .form {
-        max-width: 380px;
-        margin: 38px auto 0;
+        width: calc(50% - 10px);
+
+        @media #{$phone} {
+            width: auto;
+        }
     }
 }
 
