@@ -36,6 +36,15 @@ if(!empty($view_360_images)) {
 if (!empty($view_360_urls)) :
     wp_localize_script('scripts', 'view_360_urls', $view_360_urls );
 endif;
+
+$bab_main_image = get_field('bab_main_image');
+$bab_default_colors = get_field('bab_default_colors');
+$hull_color = $bab_default_colors['hull_color'];
+$boot_stripe = $bab_default_colors['boot_stripe'];
+$boot_stripe_accent = $bab_default_colors['boot_stripe_accent'];
+$logo_color = $bab_default_colors['logo_color'];
+$bab_motors = get_field('bab_motors');
+$bab_default_motor = get_field('bab_default_motor');
 ?>
 
 <main class="page__single page__single--boat main">
@@ -78,9 +87,11 @@ endif;
                         <?php endif; ?>
                     </ul>
                 </div>
+                <?php if($bab_main_image) : ?>
                 <a href="#" class="sticky-btn" data-class="build-a-boat-toggle">Build Yours<svg class="icon icon-arrow-up" aria-hidden="true" role="img">
                     <use xlink:href="#icon-arrow-up" x="0" y="0"></use>
                 </svg></a>
+                <?php endif; ?>
             </div>
         </div>
         <div class="resp-tabs-container hor_1">
@@ -303,7 +314,6 @@ endif;
                             <h2 class="model-option__title">The many options for the <strong><?php echo $title; ?></strong></h2>
                             <span>Create a checklist for the optional equipment you’re interested in.</span>
                         </div>
-
                         <div class="option-slider">
                             <?php foreach ($boat_options as $boat_option) : ?>
                                 <div>
@@ -320,8 +330,6 @@ endif;
                                     </ul>
                             </div>
                             <?php endforeach; ?>
-
-
                         </div>
                     </div>
                     <div class="btn-wrap ">
@@ -368,6 +376,7 @@ endif;
             <?php endif; ?>
         </div>
     </div>
+    <?php if($bab_main_image) : ?>
     <section class="build-a-boat">
         <div class="step-block">
             <div class="step-block__close" data-class="build-a-boat-toggle">
@@ -377,12 +386,16 @@ endif;
                 <li class="step__item step__item--active" data-label-back="" data-label-next="Motors">
                     Exterior
                 </li>
+                <?php if ( !empty($bab_motors) ) : ?>
                 <li class="step__item" data-label-back="Colors" data-label-next="Options">
                     Motors
                 </li>
+                <?php endif; ?>
+                <?php if ( !empty($boat_options) ) : ?>
                 <li class="step__item" data-label-back="Motors" data-label-next="Finish">
                     Options
                 </li>
+                <?php endif; ?>
                 <li class="step__item" data-label-back="Options" data-label-next="">
                     Make it yours
                 </li>
@@ -390,7 +403,7 @@ endif;
         </div>
         <div class="custom-hero">
             <div class="container">
-                <?php echo file_get_contents(STYLEDIR . '/uploads/410-bab-SVG.svg'); ?>
+                <?php echo file_get_contents($bab_main_image['url']); ?>
             </div>
         </div>
         <div class="step-nagivation step-nagivation--alt build-a-boat--start">
@@ -398,6 +411,7 @@ endif;
             <a href="#" class="btn btn--dark btn--large-desktop" data-class="next">Finish</a>
             <a href="#" class="step-next" data-class="next">Skip this step &gt;</a>
         </div>
+
         <div class="build-a-boat__steps">
             <div class="color-block step__item--active" data-class="step">
                 <div class="container">
@@ -452,49 +466,59 @@ endif;
                     </div>
                 </div>
             </div>
+            <?php if ( !empty($bab_motors) ) : ?>
             <div class="motor-option" data-class="step">
                 <div class="container">
                     <div class="motor-option__inner">
                         <div class="motor-option__details">
-                            <ul class="motor-color">
-                                <li class="motor-color__item motor-color__item--white active" data-boat-layer="white">
-                                    <span class="motor-color__title">White</span>
-                                    <span class="motor-color__box"></span>
-                                </li>
-                                <li class="motor-color__item motor-color__item--black" data-boat-layer="black">
-                                    <span class="motor-color__title">Black</span>
-                                    <span class="motor-color__box"></span>
-                                </li>
-                            </ul>
+                            <div class="motor-color__container">
+                                <ul class="motor-color">
+                                    <li class="motor-color__item motor-color__item--white active" data-boat-layer="white">
+                                        <span class="motor-color__title">White</span>
+                                        <span class="motor-color__box"></span>
+                                    </li>
+                                                                    </ul>
+                            </div>
                             <div class="motor-thumbnail">
-                                <img src="<?php echo STYLEDIR; ?>/uploads/engine.png" alt="engine" />
+                                <img src="<?php echo STYLEDIR; ?>/uploads/engine.png" alt="engine">
                                 <span class="icon-close"></span>
                             </div>
                         </div>
                         <div class="motor-option__wrap">
                             <span class="motor-option__title">Select a Motor</span>
                             <ul class="motor-option__list">
-                                <li class="motor-option__list-item active" data-boat-layer="sevenmarine">
-                                    <span class="motor-option__list-title">Seven Marine</span>
+                                <?php
+                                $motorCount = 0;
+                                foreach($bab_motors as $bab_motor) :
+                                $motorDetails = get_term($bab_motor);
+                                $motorName = $motorDetails->name;
+                                $motorId = $motorDetails->slug;
+                                $motorDescription = get_field('boat_motor_description', 'boat-motors_' . $motorDetails->term_id);
+                                $motorColors = get_field('boat_motor_colors', 'boat-motors_' . $motorDetails->term_id);
+                                ?>
+                                <li class="motor-option__list-item <?php if($motorCount === 0) : echo 'active'; endif; ?>">
+                                    <span class="motor-option__list-title"><?php echo $motorName; ?></span>
+                                    <?php if($motorDescription) : ?>
+                                    <div class="motor__description"><?php echo $motorDescription; ?></div>
+                                    <?php endif; ?>
+                                    <?php if(!empty($motorColors)) : ?>
+                                    <ul class="motor-color">
+                                        <?php $motorColorCount = 0; foreach($motorColors as $motorColor) : ?>
+                                        <li class="motor-color__item motor-color__item--<?php echo strtolower($motorColor['color']); ?> <?php if($motorColorCount === 0) : echo 'active'; endif; ?>" data-motor-layer="<?php echo $motorId . '-' . strtolower($motorColor['color']); ?>" data-motor-image="<?php echo $motorColor['image']['url']; ?>">
+                                            <span class="motor-color__title"><?php echo $motorColor['color']; ?></span>
+                                            <span class="motor-color__box"></span>
+                                        </li>
+                                        <?php $motorColorCount++; endforeach; ?>
+                                    </ul>
+                                    <?php endif; ?>
                                 </li>
-                                <li class="motor-option__list-item" data-boat-layer="evinrude">
-                                    <span class="motor-option__list-title">Evinrude</span>
-                                </li>
-                                <li class="motor-option__list-item" data-boat-layer="yamaha">
-                                    <span class="motor-option__list-title">Yamaha</span>
-                                </li>
-                                <li class="motor-option__list-item" data-boat-layer="suzuki">
-                                    <span class="motor-option__list-title">Suzuki</span>
-                                </li>
-                                <li class="motor-option__list-item" data-boat-layer="mercury">
-                                    <span class="motor-option__list-title">Mercury</span>
-                                </li>
+                                <?php $motorCount++; endforeach; ?>
                             </ul>
                             <span class="motor-option__note">
                             * Not all engines colors shown
                         </span>
                             <div class="step-nagivation step-nagivation--mobile step-nagivation--text-center">
-                                <a href="build-boat-options.html" class="step-next" data-class="next">Skip this step &gt;</a>
+                                <a href="#" class="step-next" data-class="next">Skip this step &gt;</a>
                             </div>
                         </div>
                         <div class="motor-option__description">
@@ -507,56 +531,27 @@ endif;
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
+            <?php if ( !empty($boat_options) ) : ?>
             <div class="model-option model-option--alt" data-class="step">
                 <span class="model-option__block-title">Select a category for options</span>
                 <div class="container">
                     <div class="option-slider">
+                        <?php foreach ($boat_options as $boat_option) : ?>
                         <div>
-                            <h3 class="option-title option-title--featured">Featured Options</h3>
+                            <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
                             <ul class="option-list">
-                                <li class="option-list__item" data-boat-layer="top-half-tower">Half-Tower Top</li>
-                                <li class="option-list__item" data-boat-layer="top-arch">Arch Top</li>
+                                <?php foreach($boat_option['options'] as $option) : ?>
+                                <li class="option-list__item">
+                                    <?php if ($option['thumbnail']) : ?>
+                                    <span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span>
+                                    <?php endif; ?>
+
+                                    <?php echo $option['option']; ?></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
-                        <div>
-                            <h3 class="option-title">Mechanical</h3>
-                            <ul class="option-list">
-                                <li class="option-list__item">Transom D-Rings</li>
-                                <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                <li class="option-list__item">Bow Thruster</li>
-                                <li class="option-list__item">Underwater Hull Lighting</li>
-                                <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
-                                <li class="option-list__item">SS Polished Anchor</li>
-                                <li class="option-list__item">Fresh Water Washdown for Windlass</li>
-                                <li class="option-list__item">Generator (Diesel) with Sound Shield</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="option-title">Comfort</h3>
-                            <ul class="option-list">
-                                <li class="option-list__item">Transom D-Rings</li>
-                                <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                <li class="option-list__item"><span class="option-list__thumbnail" style="background-image: url('<?php echo STYLEDIR; ?>/uploads/premium-upholstery-package.jpg');"></span>Premium Upholstery Package</li>
-                                <li class="option-list__item">Underwater Hull Lighting</li>
-                                <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
-                                <li class="option-list__item">SS Polished Anchor</li>
-                                <li class="option-list__item">Fresh Water Washdown for Windlass</li>
-                                <li class="option-list__item">Generator (Diesel) with Sound Shield</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="option-title">Fishing</h3>
-                            <ul class="option-list">
-                                <li class="option-list__item">Transom D-Rings</li>
-                                <li class="option-list__item">Stainless Steel Insert for Rub Rail</li>
-                                <li class="option-list__item">Bow Thruster</li>
-                                <li class="option-list__item">Underwater Hull Lighting</li>
-                                <li class="option-list__item">Windlass with 200’ of Rode/15’ Chain</li>
-                                <li class="option-list__item">SS Polished Anchor</li>
-                                <li class="option-list__item">Fresh Water Washdown for Windlass</li>
-                                <li class="option-list__item">Generator (Diesel) with Sound Shield</li>
-                            </ul>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="step-nagivation step-nagivation--mobile step-nagivation--text-center">
@@ -566,6 +561,7 @@ endif;
                     <a href="#" class="btn btn--dark btn--large-mobile" data-class="next">Finish</a>
                 </div>
             </div>
+            <?php endif; ?>
             <div class="contact-block" data-class="step">
                 <div class="container">
                     <h1 class="contact-block__title">Great Design. <strong>Now Let's Make it yours</strong></h1>
@@ -608,6 +604,8 @@ endif;
                 </div>
             </div>
         </div>
+
     </section>
+    <?php endif; ?>
 </main>
 <?php get_footer();

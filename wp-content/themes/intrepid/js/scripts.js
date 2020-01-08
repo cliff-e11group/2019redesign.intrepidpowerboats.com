@@ -7089,41 +7089,48 @@ $(function () {
             //
             // MOTORS
             //
+            this.motorColorContainer = this.$el.find('.motor-color__container');
+            this.$motorImg = this.$el.find('.motor-thumbnail img');
+            this.$motorDescription = this.$el.find('.motor-option__description');
             this.$motorItems = this.$el.find('.motor-option__list-item');
             this.motorItemActiveClass = 'active';
-            this.$activeMotorItem = this.$motorItems.eq(0);
+            this.$activeMotorItem = this.$el.find('.motor-option__list-item.active');
 
             this.$motorColors = this.$el.find('.motor-color__item');
             this.motorColorActiveClass = 'active';
-            this.$activeMotorColor = this.$motorColors.eq(0);
+            this.$activeMotorColor = this.$activeMotorItem.find('.motor-color__item.active');
 
-            this.boatMotorLayer = this.$activeMotorItem.attr('data-boat-layer');
-            this.boatMotorColorLayer = this.$activeMotorColor.attr('data-boat-layer');
+            this.activeMotorLayer = this.$activeMotorColor.data('motor-layer');
+            this.activeMotorImg = this.$activeMotorColor.data('motor-image');
 
-            // Hide all boats except active boat motor
-            this.$motorItems.each(function () {
-                var $this = $(this),
-                    motor = $this.attr('data-boat-layer');
-
-                self.$motorColors.each(function () {
-                    var color = $(this).attr('data-boat-layer');
-                    // Hide motor
-                    self.updateBoatLayerMotor(self.$el.find("#" + motor + "-" + color), '0');
-                });
+            // Hide all boat motors except active boat motor
+            this.$motorColors.each(function () {
+                var motorLayer = $(this).data('motor-layer');
+                // Hide motor
+                self.updateBoatLayerMotor(self.$el.find("#" + motorLayer), '0');
             });
 
-            // Activate first motor
-            this.$boatMotorLayer = this.$el.find("#" + self.boatMotorLayer + "-" + self.boatMotorColorLayer);
-            self.updateBoatLayerMotor(this.$boatMotorLayer, '1');
+            // Activate active motor
+            console.log(this.$activeMotorColor.data('motor-layer'));
+            this.updateBoatLayerMotor(self.$el.find("#" + this.$activeMotorColor.data('motor-layer')), '1');
+            this.motorColorContainer.html(this.$activeMotorItem.find('.motor-color').clone(true));
+            this.$motorDescription.html(this.$activeMotorItem.find('.motor__description').clone());
+            // this.$activeMotorColor
 
             // Toggle between active motor item
             this.$motorItems.on('click', function () {
-                var $this = $(this);
+                var $this = $(this),
+                    $desc = $this.find('.motor__description'),
+                    $motorColors = $this.find('.motor-color');
 
                 // Activate the clicked motor item
                 $this
                     .addClass(self.motorItemActiveClass)
                     .siblings().removeClass(self.motorItemActiveClass);
+
+                // this.$motorImg.attr('src', )
+                self.motorColorContainer.html($motorColors.clone(true));
+                self.$motorDescription.html($desc.clone());
 
                 // Hide old motor
                 self.updateBoatLayerMotor(self.$boatMotorLayer, '0');
@@ -7137,7 +7144,7 @@ $(function () {
                 self.updateBoatLayerMotor(self.$boatMotorLayer, '1');
             });
 
-            // Toggle between active motor item
+            // Toggle between active motor color
             this.$motorColors.on('click', function () {
                 var $this = $(this);
 
@@ -7152,7 +7159,9 @@ $(function () {
                 // Update active layer
                 self.$activeMotorColor = $this;
                 self.boatMotorColorLayer = self.$activeMotorColor.attr('data-boat-layer');
-                self.$boatMotorLayer = self.$el.find("#" + self.boatMotorLayer + "-" + self.boatMotorColorLayer);
+                self.$motorImg.attr('src', self.$activeMotorColor.attr('data-boat-image'));
+                self.$boatMotorLayer = self.$el.find("#" + self.boatMotorColorLayer);
+
 
                 // Show new motor
                 self.updateBoatLayerMotor(self.$boatMotorLayer, '1');
