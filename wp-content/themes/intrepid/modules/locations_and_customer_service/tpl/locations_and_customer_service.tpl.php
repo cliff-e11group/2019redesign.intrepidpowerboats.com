@@ -11,7 +11,7 @@
                             <!-- <a href="#" target="_blank">
                                 <img src="<?php //echo STYLEDIR; ?>/uploads/google-map.jpg" alt="map"/>
                             </a> -->
-                            <img src="<?php echo $location['map']['url']; ?>" alt="<?php echo $location['map']['alt']; ?>">
+                            <img src="<?php echo $location['map']['sizes']['map']; ?>" alt="<?php echo $location['map']['alt']; ?>">
                         </figure>
                     <?php endif; ?>
                     <h3 class="company-info__title">Service Location</h3>
