@@ -39,8 +39,9 @@ endif;
 ?>
 
 <main class="page__single page__single--boat main">
-    <section class="hero hero--model" style="background-image:url(<?php echo $boat_hero_img; ?>);">
+    <section class="hero hero--model">
         <div class="container">
+            <div class="hero__bg" style="background-image:url(<?php echo $boat_hero_img; ?>);"></div>
             <div class="model__title-box <?php echo $boat_hero_title_class; ?>">
                 <h1 class="model__title"><?php echo $formatted_title; ?></h1>
                 <?php if($boat_hero_title_bg_img) : ?>
@@ -48,15 +49,8 @@ endif;
                 <?php endif; ?>
             </div>
             <?php if (!empty($view_360_urls)) : ?>
-            <div class="spinner-container">
-                <a class="spinner__toggle model__360-view" href="#">360 view</a>
-                <div id="spinner-container">
-
-                        <a href="#" class="spinner__toggle">CLOSE</a>
-                        <div id="spinner-view"></div>
-
-                </div>
-            </div>
+            <a class="spinner__toggle model__360-view" href="#">360 view</a>
+            <div id="spinner-view"></div>
             <?php endif; ?>
         </div>
     </section>

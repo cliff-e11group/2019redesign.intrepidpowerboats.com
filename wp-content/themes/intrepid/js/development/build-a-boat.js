@@ -2,23 +2,22 @@ $(function () {
 
     $('.page__single--boat').e11_BuildABoat();
 
-    var $model__360View = $('.spinner__toggle'),
-        $spinnerContainer = $('.spinner-container');
+    var $spinner__toggle = $('.spinner__toggle'),
+        $spinnerView = $('#spinner-view');
 
-    if ($model__360View.length > 0 && $spinnerContainer.length > 0) {
+    if ($spinner__toggle.length > 0 && $spinnerView.length > 0) {
+        var $heroModel = $('.hero--model');
 
-        var $spriteSpin = $("#spinner-view");
-
-        $model__360View.on('click', function () {
-            $spinnerContainer.toggleClass('spinner-active');
+        $spinner__toggle.on('click', function () {
+            $heroModel.toggleClass('spinner-active');
         });
 
-        $spriteSpin.spritespin({
+        $spinnerView.spritespin({
             source: view_360_urls,
-            animate: true,
+            animate: false,
             responsive: true,
-            width: 1442,
-            height: 580,
+            preloadCount: 2,
+            sizeMode: 'fill',
             sense: -1
         });
     }

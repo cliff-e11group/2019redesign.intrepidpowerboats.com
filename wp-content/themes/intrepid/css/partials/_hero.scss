@@ -451,12 +451,16 @@
 
 .hero--model {
     position: relative;
-    min-height: 580px;
+    min-height: 0;
+    height: calc(580/1440 * 100vw);
+    max-height: calc(100vh - 85px);
     padding: 0;
     overflow: hidden;
 
-    @media #{$phone} {
-        min-height: 315px;
+    @media (max-width: 620px) {
+        min-height: 350px;
+        height: auto;
+        max-height: none;
     }
 
     .container {
@@ -492,7 +496,7 @@
         justify-content: center;
         align-items: flex-end;
         padding: 25px 15px;
-        z-index: 2;
+        z-index: 3;
 
         @media #{$phone} {
             min-height: 0;
@@ -604,55 +608,52 @@
     }
 }
 
-#spinner-container {
-    position: fixed;
-    top: 0;
+.hero__bg {
+    position: absolute;
     left: 0;
-    height: 100%;
+    top: 0;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s linear 300ms, opacity 300ms;
-    z-index: 1000;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+    z-index: 2;
 
     .spinner-active & {
-        visibility: visible;
-        opacity: 1;
-        transition: visibility 0s linear 0s, opacity 300ms;
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s linear 300ms, opacity 300ms;
     }
 }
 
-.spinner__inner {
-    max-width: 1442px;
-    margin: 0 auto;
-}
-
 #spinner-view {
+    position: absolute !important;
+    top: 50%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: translate3d(0, -50%, 0);
+    z-index: 1;
 
-    //&:after {
-    //    content: '';
-    //    display: block;
-    //    width: 75px;
-    //    height: 72px;
-    //    background: url(images/360-icon.svg) no-repeat center center;
-    //    background-size: contain;
-    //    position: absolute;
-    //    right: 180px;
-    //    bottom: 98px;
-    //    z-index: 2;
-    //    pointer-events: none;
-    //
-    //    @media #{$phone} {
-    //        width: 35px;
-    //        height: 35px;
-    //        right: 10px;
-    //        bottom: 10px;
-    //    }
-    //}
+    @media (max-width: 620px) {
+        top: 0;
+        transform: none;
+        height: 100% !important;
+    }
+
+    .spritespin-stage,
+    .spritespin-canvas {
+
+        @media (max-width: 620px) {
+            height: 100% !important;
+            width: auto !important;
+            left: 50% !important;
+            transform: translate3d(-50%, 0, 0);
+        }
+    }
 }
 
 .hero--overlay {
