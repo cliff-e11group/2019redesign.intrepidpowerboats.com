@@ -60,7 +60,7 @@
                         <li class="member member-list__item">
                             <?php if ($agent['image']) : ?>
                                 <figure class="member__image">
-                                    <img src="<?php echo $agent['image']['url'];?>" alt="<?php echo $agent['image']['alt'];?>" />
+                                    <img src="<?php echo $agent['image']['sizes']['team-member'];?>" alt="<?php echo $agent['image']['alt'];?>" />
                                 </figure>
                             <?php endif; ?>
 
