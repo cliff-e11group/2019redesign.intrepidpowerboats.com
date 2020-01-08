@@ -21,6 +21,14 @@ function e11_registers_taxonomies() {
                 'boats',
             )
         ),
+        array(
+            'tax_singular' => 'Boat Motor',
+            'tax_plural'   => 'Boat Motors',
+            'tax_slug'     => 'boat-motors',
+            'applicable_post_types' => array(
+                'boats',
+            )
+        ),
 
     );
 
