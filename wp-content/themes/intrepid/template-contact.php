@@ -10,6 +10,8 @@ $page = get_the_ID();
 <main class="main">
     <?php e11_page_details(array(), true, 'get_field', $page, ''); ?>
 
+    <?php e11_leadoff_and_forms(array(), true, 'get_field', $page, ''); ?>
+
     <section class="contact-form">
         <div class="container">
             <div class="contact-form__phone--mobile">
