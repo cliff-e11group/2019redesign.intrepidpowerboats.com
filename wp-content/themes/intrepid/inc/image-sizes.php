@@ -16,6 +16,7 @@ function e11_image_size_setup(){
 	add_image_size('gallery-half', 580, 9999, false);
 	add_image_size('gallery-one-third', 378, 9999, false);
 	add_image_size('gallery-two-third', 778, 9999, false);
+	add_image_size('team-member', 160, 180, false);
 
 }
 add_action( 'after_setup_theme', 'e11_image_size_setup' );
