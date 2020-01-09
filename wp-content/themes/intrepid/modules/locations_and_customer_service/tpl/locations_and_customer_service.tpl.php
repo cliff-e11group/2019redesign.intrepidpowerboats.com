@@ -41,7 +41,11 @@
                     <?php if ( $location['hours'] ): ?>
                         <div class="company-info__office-hr">
                             <span class="label">Hours:</span>
-                            <p><?php echo  $location['hours'];?>
+                            <p>
+                                <?php foreach($location['hours'] as $hours) : ?>
+                                    <?php echo $hours['hours'];?>
+                                    <br>
+                                <?php endforeach; ?>
                             </p>
                         </div>
                     <?php endif; ?>
