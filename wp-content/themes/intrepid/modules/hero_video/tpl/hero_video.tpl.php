@@ -1,4 +1,7 @@
-<section class="hero" style="background-image:url(<?php echo $data['placeholder']['sizes']['hero']; ?>">
+<section class="hero">
+    <div class="heroVideo__container">
+        <div id="heroVideo"></div>
+    </div>
     <div class="container">
         <?php if ($data['video'] || $data['title']) : ?>
             <div class="hero__content">
@@ -13,3 +16,13 @@
         <?php endif; ?>
     </div>
 </section>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    var options = {
+        url: "https://vimeo.com/383542432",
+        background: true
+    };
+
+    var videoPlayer = new Vimeo.Player('heroVideo', options);
+</script>
