@@ -41,9 +41,11 @@
                         <li class="toggle-list__item active"><?php echo $data['leadoff_title'];?></li>
                     <?php endif; ?>
 
-                    <?php foreach( $data['form_content'] as $form => $item) : ?>
-                        <li class="toggle-list__item"><?php echo $item['label']; ?></li>
-                    <?php endforeach; ?>
+                    <?php if (!empty($data['form_content']) ) : ?>
+                        <?php foreach( $data['form_content'] as $form => $item) : ?>
+                            <li class="toggle-list__item"><?php echo $item['label']; ?></li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
             <ul class="toggle-content">
@@ -56,16 +58,17 @@
                     </li>
                 <?php endif; ?>
 
-                <?php foreach( $data['form_content'] as $form => $item): ?>
-                    <li class="toggle-content__item">
-                        <?php if ($item['title']) : ?>
-                            <h3 class="form__title"><?php echo $item['title'];?></h3>
-                        <?php endif; ?>
+                <?php if (!empty($data['form_content']) ) : ?>
+                    <?php foreach( $data['form_content'] as $form => $item): ?>
+                        <li class="toggle-content__item">
+                            <?php if ($item['title']) : ?>
+                                <h3 class="form__title"><?php echo $item['title'];?></h3>
+                            <?php endif; ?>
 
-                        <?php echo $item['content']; ?>
-                    </li>
-                <?php endforeach; ?>
-
+                            <?php echo $item['content']; ?>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
