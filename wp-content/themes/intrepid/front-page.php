@@ -48,5 +48,4 @@ $page = get_the_ID();
         </ul>
     </div>
 </main>
-
 <?php get_footer(); ?>
