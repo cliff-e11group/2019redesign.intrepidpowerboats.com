@@ -4,6 +4,8 @@
 */
 get_header();
 the_post();
+$page = get_the_ID();
+
 ?>
 <?php get_header(); ?>
 <main class="main">
@@ -16,22 +18,35 @@ the_post();
     ?>
     <section class="primary-block">
         <div class="container">
-            <figure class="primary-block__image">
-                <img src="<?php echo STYLEDIR; ?>/uploads/boat-image1.jpg" alt="boat-image1" />
-            </figure>
+            <?php if ($about_interior_hero_image ): ?>
+                <figure class="primary-block__image">
+                    <img src="<?php echo $about_interior_hero_image['url']; ?>" alt="<?php echo $$about_interior_hero_image['alt']; ?>" />
+                </figure>
+            <?php endif; ?>
             <div class="primary-block__content">
-                <h2 class="primary-block__title">One of a kind. <strong>One at a time.</strong></h2>
-                <div class="primary-block__description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at odio id ipsum volutpat dapibus sagittis et urna. Vestibulum nec volutpat risus. Cras nec eros turpis. Aenean at egestas erat, ut dictum ante. Mauris nisl mi, suscipit sed libero eu, tincidunt sagittis dui. Sed at blandit eros, eget malesuada dui.</p>
+                <?php if ($about_interior_hero_title ): ?>
+                <h2 class="primary-block__title"><?php echo $about_interior_hero_title; ?></h2>
+                <?php endif; ?>
+
+                <?php if ($about_interior_hero_description ): ?>
+                    <div class="primary-block__description">
+                        <?php echo $about_interior_hero_description; ?>
+                    </div>
+                <?php endif; ?>
+                <?php if ($about_interior_hero_link ): ?>
+                    <a href="<?php echo $about_interior_hero_link['url']; ?>" target="<?php echo $about_interior_hero_link['target']; ?>" data-fancybox="" class="btn btn--dark btn--large-mobile">Watch our brand video</a>
+                <?php endif; ?>
+            </div>
+
+            <?php if ($about_interior_hero_leadoff ): ?>
+                <div class="primary-block__sticky-box primary-block__sticky-box--dark">
+                    <?php echo $about_interior_hero_leadoff; ?>
                 </div>
-                <a href="https://www.youtube.com/watch?time_continue=3&v=zlsp9Mo0NuE&feature=emb_title" data-fancybox="" class="btn btn--dark btn--large-mobile">Watch our brand video</a>
-            </div>
-            <div class="primary-block__sticky-box primary-block__sticky-box--dark">
-                <p>Whatever you can do, or dream you can, begin it.</p>
-                <p><strong>Boldness has genius, power and magic in it.</strong></p>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
+
+
     <?php
     $about_interior_slider = get_field('about_interior_slider');
     if( !empty($about_interior_slider) ) :
@@ -78,71 +93,141 @@ the_post();
         </div>
     </section>
     <?php endif; ?>
+
+
     <section class="media-content">
+        <?php
+            $content_section_1_title = get_field('about_interior_content_section_1_title');
+            $content_section_1_desc = get_field('about_interior_content_section_1_description');
+            $content_section_1_image_1 = get_field('about_interior_content_section_1_image_1');
+            $content_section_1_image_2 = get_field('about_interior_content_section_1_image_2');
+        ?>
         <div class="container">
-            <div class="media-content__item media-content__item--sticky-image">
-                <figure class="media-content__thumbnail">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/boat-image2.jpg" alt="boat-image2" />
-                    <div class="thumbnail-sticky thumbnail-sticky--bottom-right" style="background-image:url('<?php echo STYLEDIR; ?>/uploads/boat-image3.png');">
+            <?php if ( $content_section_1_title || $content_section_1_desc) : ?>
+                <div class="media-content__item media-content__item--sticky-image">
+                    <figure class="media-content__thumbnail">
+                        <?php if ($content_section_1_image_1): ?>
+                        <img src="<?php echo $content_section_1_image_1['url']; ?>" alt="<?php echo $content_section_1_image_1['alt']; ?>" />
+                        <?php endif; ?>
+
+                        <?php if ($content_section_1_image_2): ?>
+                            <div class="thumbnail-sticky thumbnail-sticky--bottom-right" style="background-image:url('<?php echo $content_section_1_image_2['url']; ?>');">
+                        <?php endif; ?>
+                        </div>
+                    </figure>
+                    <div class="media-content__details">
+                        <?php if ($content_section_1_title): ?>
+                            <h2 class="media-content__title"><?php echo $content_section_1_title; ?></h2>
+                        <?php endif; ?>
+
+                        <?php if ($content_section_1_desc): ?>
+                            <div class="media-content__description">
+                                <p><?php echo $content_section_1_desc ; ?></p>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                </figure>
-                <div class="media-content__details">
-                    <h2 class="media-content__title">Any color, anywhere.</h2>
-                    <div class="media-content__description">
-                        <p>Boat hull color can be anything you like. It’s applied with Imron™ paint to produce a deeper gloss and it’s easier to maintain than a gel coat. Engines can also be painted to match your new Intrepid.</p>
+                </div>
+            <?php endif; ?>
+
+
+            <?php
+                $content_section_2_title = get_field('about_interior_content_section_2_title');
+                $content_section_2_desc = get_field('about_interior_content_section_2_description');
+                $content_section_2_image_1 = get_field('about_interior_content_section_2_image_1');
+                $content_section_2_image_2 = get_field('about_interior_content_section_2_image_2');
+            ?>
+
+            <?php if ($content_section_2_title || $content_section_2_desc ) : ?>
+
+                <div class="media-content__item media-content__item--sticky-image">
+                    <figure class="media-content__thumbnail">
+                        <?php if ($content_section_2_image_1) :?>
+                            <img src="<?php echo $content_section_2_image_1['url']; ?>" alt="<?php echo $content_section_2_image_1['alt']; ?>" />
+                        <?php endif; ?>
+
+                        <?php if ($content_section_2_image_2): ?>
+                            <div class="thumbnail-sticky thumbnail-sticky--top-right" style="background-image:url('<?php echo $content_section_2_image_2['url']; ?>');">
+                        <?php endif; ?>
+
+                        </div>
+                    </figure>
+
+                    <div class="media-content__details">
+                        <?php if ($content_section_2_title): ?>
+                            <h2 class="media-content__title"><?php echo $content_section_2_title;?> </h2>
+                        <?php endif; ?>
+
+                        <?php if ($content_section_2_desc): ?>
+                            <p><?php echo $content_section_2_desc; ?></p>
+                        <?php endif; ?>
+
                     </div>
                 </div>
-            </div>
-            <div class="media-content__item media-content__item--sticky-image">
-                <figure class="media-content__thumbnail">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/boat-image4.jpg" alt="boat-image4" />
-                    <div class="thumbnail-sticky thumbnail-sticky--top-right" style="background-image:url('<?php echo STYLEDIR; ?>/uploads/boat-engine1.jpg');">
+
+            <?php endif; ?>
+
+            <?php
+                $content_section_3_title = get_field('about_interior_content_section_3_title');
+                $content_section_3_desc = get_field('about_interior_content_section_3_description');
+                $content_section_3_image_1 = get_field('about_interior_content_section_3_image_1');
+
+            ?>
+
+            <?php if($content_section_3_title || $content_section_3_desc) : ?>
+                <div class="media-content__item">
+                    <?php if ($content_section_3_image_1) : ?>
+                        <figure class="media-content__thumbnail">
+                            <img src="<?php echo $content_section_3_image_1['url'] ;?>" alt="<?php echo $content_section_3_image_1['alt'] ;?>" />
+                        </figure>
+                    <?php endif; ?>
+
+                    <div class="media-content__details">
+                        <?php if ($content_section_3_title) : ?>
+                            <h2 class="media-content__title"><?php echo $content_section_3_title; ?></h2>
+                        <?php endif; ?>
+
+                        <?php if ($content_section_3_desc) : ?>
+                            <p><?php echo $content_section_3_desc; ?></p>
+                        <?php endif; ?>
                     </div>
-                </figure>
-                <div class="media-content__details">
-                    <h2 class="media-content__title">Customizable Technology.</h2>
-                    <p>TChoose between custom consoles, windshields and hard or canvas tops. We’ll also manufacture custom seats specifically for your boat. Just pick the fabric, color and pattern, including pleats, piping, rolls, stitching and more.</p>
                 </div>
-            </div>
-            <div class="media-content__item">
-                <figure class="media-content__thumbnail">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/boat-at-night.jpg" alt="boat-at-night" />
-                </figure>
-                <div class="media-content__details">
-                    <h2 class="media-content__title">Engines Galore.</h2>
-                    <p>Every Intrepid is installed with the engine brand of your choice.</p>
+            <?php endif; ?>
+
+            <?php
+                $content_section_4_title = get_field('about_interior_content_section_4_title');
+                $content_section_4_desc = get_field('about_interior_content_section_4_description');
+                $content_section_4_image_1 = get_field('about_interior_content_section_4_image_1');
+                $content_section_4_link = get_field('about_interior_content_section_4_link');
+            ?>
+
+            <?php if ($content_section_4_title || $content_section_4_desc) : ?>
+                <div class="media-content__item">
+                    <?php if ($content_section_4_image_1) : ?>
+                        <figure class="media-content__thumbnail">
+                            <img src="<?php echo $content_section_4_image_1['url']; ?>" alt="<?php echo $content_section_4_image_1['alt']; ?>" />
+                        </figure>
+                    <?php endif; ?>
+
+                    <div class="media-content__details">
+                        <?php if ($content_section_4_title) : ?>
+                            <h2 class="media-content__title"><?php echo $content_section_4_title; ?></h2>
+                        <?php endif; ?>
+
+                        <?php if ($content_section_4_desc) : ?>
+                            <p><?php echo $content_section_4_desc; ?></p>
+                        <?php endif; ?>
+
+                        <?php if ($content_section_4_link) : ?>
+                            <a href="<?php echo $content_section_4_link['url'] ?>" target="<?php echo $content_section_4_link['url'] ?>" class="btn btn--dark btn--large-mobile"><?php echo $content_section_4_link['title'] ?></a>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
-            <div class="media-content__item">
-                <figure class="media-content__thumbnail">
-                    <img src="<?php echo STYLEDIR; ?>/uploads/happy-customer.jpg" alt="happy-customer" />
-                </figure>
-                <div class="media-content__details">
-                    <h2 class="media-content__title">World Class Service.</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et rutrum arcu. Donec faucibus molestie nisl, elementum facilisis diam finibus in. Aliquam a scelerisque eros.</p>
-                    <a href="<?php echo site_url('service'); ?>" class="btn btn--dark btn--large-mobile">Learn more about our service department</a>
-                </div>
-            </div>
+            <?php endif; ?>
+
         </div>
     </section>
-    <section class="content-block">
-        <div class="container">
-            <h2 class="content-block__title">Owner<strong>Privileges</strong>
-            </h2>
-            <div class="sub-container">
-                <p>Entering the Intrepid family is unlike any other experience. It is a highly collaborative one. Before we lay a finger on a piece of equipment, we want your fingerprint on the design first. So we work one-on-one with our customers to learn what they want and hope for in their new Intrepid before we build it.</p>
-                <p>You’ll be involved throughout the process as your boat evolves into a craft that is very much your own. Unique and unlike any other. As is the customer service we provide to each owner no matter how long you own an Intrepid.</p>
-            </div>
-        </div>
-    </section>
-    <section class="content-block content-block--bottom-space">
-        <div class="container">
-            <h2 class="content-block__title">Hear it from<strong>Our Owners</strong>
-            </h2>
-            <div class="sub-container sub-container--review">
-                <img src="<?php echo STYLEDIR; ?>/uploads/reviews.jpg" alt="reviews" />
-            </div>
-        </div>
-    </section>
+
+    <?php e11_content_and_dropdowns(array(), true, 'get_field', $page, ''); ?>
+
 </main>
 <?php get_footer(); ?>

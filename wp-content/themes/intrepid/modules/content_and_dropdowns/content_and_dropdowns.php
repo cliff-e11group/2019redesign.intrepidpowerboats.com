@@ -28,7 +28,7 @@ function e11_content_and_dropdowns($args = array(), $use_page_content = false, $
 
     $data = array_merge($defaults, $args);
 
-    if (!empty($data['content'])):
+    if (!empty($data) ):
         include 'tpl/content_and_dropdowns.tpl.php';
     endif;
 
