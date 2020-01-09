@@ -16,7 +16,6 @@ $(function () {
             source: view_360_urls,
             animate: false,
             responsive: true,
-            preloadCount: 2,
             sizeMode: 'fill',
             sense: -1
         });

@@ -1043,9 +1043,10 @@
 
 /* Deck Plan */
 .deck-block {
-    padding: 100px 0;
+    padding: 10px 0 100px;
+
     @media #{$phone} {
-        padding: 30px 0 0;
+        padding: 10px 0 0;
     }
 
     .deck-block__short-note {

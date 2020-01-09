@@ -60,6 +60,8 @@ the_post();
         $model_args = array(
             'post_type' => 'boats',
             'post_status' => 'publish',
+            'orderby' => 'title',
+            'order' => 'ASC',
             'posts_per_page' => -1
         );
         $model_query = new WP_Query($model_args);

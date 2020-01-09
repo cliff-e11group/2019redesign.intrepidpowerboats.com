@@ -17,14 +17,12 @@ function e11_image_gallery($args = array(), $use_page_content = false, $get_fiel
 
     if ($use_page_content):
         $defaults = array(
-            'gallery' => $get_field_type($prefix . 'image_gallery', $field_location),
-            'caption' => $get_field_type($prefix . 'image_gallery_caption', $field_location),
+            'gallery' => $get_field_type($prefix . 'image_gallery', $field_location)
 
         );
     else:
         $defaults = array(
-            'gallery' => array(),
-            'caption' => false,
+            'gallery' => array()
         );
     endif;
 

@@ -61,15 +61,6 @@ $page_title = get_the_title();
                 </div>
                 <div class="newsletter-article">
                     <article class="newsletter-article__item entry-content">
-                        <div class="post-author">
-                            <?php $subtitle_image = get_field('news_subtitle_image'); ?>
-                            <figure class="post-author__photo">
-                                <img src="<?php echo $subtitle_image['url']; ?>" alt="<?php echo $subtitle_image['alt']; ?>" />
-                            </figure>
-                            <span class="post-author__name">
-                                <?php echo get_field('news_subtitle'); ?>
-                            </span>
-                        </div>
 
                         <!-- START FLEX CONTENT -->
 
@@ -99,7 +90,10 @@ $page_title = get_the_title();
     <div class="column-content">
         <div class="container">
             <?php
-                $cat_args = array('post');
+                $cat_args = array(
+                    'type' => 'post',
+                    'exclude' => array('1'),
+                );
                 $cats = get_categories($cat_args);
             ?>
                 <?php if (!empty($cats)) : ?>

@@ -44,6 +44,8 @@
     a {
         color: $bright-gray;
         letter-spacing: 0.74px;
+        transition: none;
+
         @media #{$phone} {
             color: $white;
         }

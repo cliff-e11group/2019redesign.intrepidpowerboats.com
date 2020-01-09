@@ -33,6 +33,14 @@
         }
     }
 
+    &.hero--model {
+        display: block;
+
+        .container {
+            margin-top: 0;
+        }
+    }
+
     .heroVideo__container {
         position: absolute;
         left: 0;
@@ -624,8 +632,7 @@
         position: absolute;
         right: 8%;
         bottom: 100px;
-        z-index: 2;
-        text-indent: -999em;
+        z-index: 4;
 
         @media #{$desktop} {
             right: 50px;
@@ -650,31 +657,75 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s linear 0s, opacity 300ms;
+    //visibility: visible;
+    //opacity: 1;
+    //transition: visibility 0s linear 0s, opacity 300ms;
     z-index: 2;
 
     .spinner-active & {
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s linear 300ms, opacity 300ms;
+        //visibility: hidden;
+        //opacity: 0;
+        //transition: visibility 0s linear 300ms, opacity 300ms;
     }
+}
+
+.spinner__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    z-index: 1001;
+
+    .spinner-active & {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    .spinner__toggle {
+        display: block;
+        position: absolute;
+        right: 5%;
+        top: 20px;
+        z-index: 10;
+        background-color: #f4f4f4;
+        width: 40px;
+        height: 40px;
+        transform: none;
+
+        &:before {
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.spinner__inner {
+    position: relative;
+
+
 }
 
 #spinner-view {
     position: absolute !important;
     top: 50%;
-    left: 0;
+    left: 50%;
     height: 100%;
-    width: 100%;
-    transform: translate3d(0, -50%, 0);
+    width: 90%;
+    transform: translate3d(-50%, -50%, 0);
     z-index: 1;
 
     @media (max-width: 620px) {
-        top: 0;
-        transform: none;
-        height: 100% !important;
+        //top: 0;
+        //transform: none;
+        //height: 100% !important;
     }
 
     .spritespin-stage,
