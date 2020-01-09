@@ -1,3 +1,4 @@
+<?php if (!empty($data['content'] )) :?>
 <?php foreach($data['content'] as $content) : ?>
     <section class="content-block">
         <div class="container">
@@ -31,4 +32,4 @@
         </div>
     </section>
 <?php endforeach; ?>
-
+                        <?php endif; ?>
