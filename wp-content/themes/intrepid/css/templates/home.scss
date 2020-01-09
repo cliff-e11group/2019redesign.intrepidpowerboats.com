@@ -214,6 +214,7 @@
     .grid-block__inner {
         position: relative;
         margin-bottom: 25px;
+        pointer-events: none;
         z-index: 11;
     }
 

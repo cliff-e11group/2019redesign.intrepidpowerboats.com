@@ -155,66 +155,7 @@
 
 .phone-list {
 
-    .phone-list__item {
-        margin-bottom: 12px;
 
-        @media #{$phone} {
-            padding: 18px 16px;
-            background-color: $bright-gray;
-            margin-bottom: 10px;
-            position: relative;
-            text-align: center;
-            color: $white;
-        }
-    }
-
-    .phone-list__label {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        display: block;
-
-        &:after {
-            @media #{$phone} {
-                content: "-";
-                display: inline-block;
-            }
-        }
-
-        @media #{$phone} {
-            display: inline-block;
-            font-weight: 700;
-            @include fsz(14px);
-            letter-spacing: 0;
-        }
-    }
-
-    .phone-list__number {
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 2.6px;
-        color: $dark-gray;
-        @media #{$phone} {
-            @include fsz(14px);
-            letter-spacing: 0;
-            color: $white;
-        }
-
-        &:hover {
-            color: rgba($white, 0.5);
-        }
-
-        &:before {
-            @media #{$phone} {
-                position: absolute;
-                top: 0;
-                left: 0;
-                content: "";
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
 }
 
 .toggle-content {
@@ -252,6 +193,68 @@
                 @media #{$phone} {
                     display: none;
                 }
+            }
+        }
+    }
+
+    .phone-list__item {
+        margin-bottom: 12px;
+
+        @media #{$phone} {
+            padding: 18px 16px;
+            background-color: $bright-gray;
+            margin-bottom: 10px;
+            position: relative;
+            text-align: center;
+            color: $white;
+        }
+    }
+
+    li {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+
+        &:after {
+            @media #{$phone} {
+                content: "-";
+                display: inline-block;
+            }
+        }
+
+        @media #{$phone} {
+            display: inline-block;
+            font-weight: 700;
+            @include fsz(14px);
+            letter-spacing: 0;
+        }
+    }
+
+    .phone-list__number {
+        display: block;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2.6px;
+        color: $dark-gray;
+        @media #{$phone} {
+            @include fsz(14px);
+            letter-spacing: 0;
+            color: $white;
+        }
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &:before {
+            @media #{$phone} {
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
             }
         }
     }
