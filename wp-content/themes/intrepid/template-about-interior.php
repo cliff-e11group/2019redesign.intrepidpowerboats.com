@@ -10,13 +10,14 @@ $page = get_the_ID();
 <?php get_header(); ?>
 <main class="main">
     <?php
+    $color_mode = get_field('about_interior_color_mode');
     $about_interior_hero_title = get_field('about_interior_hero_title');
     $about_interior_hero_description = get_field('about_interior_hero_description');
     $about_interior_hero_link = get_field('about_interior_hero_link');
     $about_interior_hero_image = get_field('about_interior_hero_image');
     $about_interior_hero_leadoff = get_field('about_interior_hero_leadoff');
     ?>
-    <section class="primary-block">
+    <section class="primary-block <?php echo $color_mode ? 'primary-block--'.$color_mode : '' ;?>">
         <div class="container">
             <?php if ($about_interior_hero_image ): ?>
                 <figure class="primary-block__image">
@@ -51,7 +52,7 @@ $page = get_the_ID();
     $about_interior_slider = get_field('about_interior_slider');
     if( !empty($about_interior_slider) ) :
     ?>
-    <section class="custom-tab" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg);">
+    <section class="custom-tab <?php echo  $color_mode === 'dark' ? 'custom-tab--alignright' : ''; ?>" style="background-image:url(<?php echo STYLEDIR; ?>/uploads/fishing.jpg);">
         <?php $about_interior_slider_count = 0; foreach($about_interior_slider as $about_interior_slide) :
         $about_interior_slide_background_image = $about_interior_slide['background_image'];
         $about_interior_slide_background_video = $about_interior_slide['background_video'];
