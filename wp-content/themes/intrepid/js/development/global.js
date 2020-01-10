@@ -568,6 +568,7 @@ jQuery(document).ready(function ($) {
         $(this).closest(".service-form").children(".service-form__content").slideToggle();
     });
 
+    $('.custom-tab__bg.tab-0').addClass('active');
     $('.custom-tab__nav-item:first-child a').addClass('active');
     $('.custom-tab__content-item:first-child').addClass('active');
     $('.custom-tab__nav-item a').click(function (e) {
