@@ -434,25 +434,17 @@ $bab_default_motor = get_field('bab_default_motor');
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Hull Color</span>
                                 </li>
-                                <li class="area-list__item" data-boat-layer="sheer-stripe">
-                                    <span class="area-list__color-box"></span>
-                                    <span class="area-list__title">Sheer Stripe</span>
-                                </li>
                                 <li class="area-list__item" data-boat-layer="boot-stripe">
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Stripe</span>
                                 </li>
-                                <li class="area-list__item" data-boat-layer="sheer-stripe-accent">
+                                <li class="area-list__item" data-boat-layer="logo-color">
                                     <span class="area-list__color-box"></span>
-                                    <span class="area-list__title">Sheer Accent</span>
+                                    <span class="area-list__title">Logo</span>
                                 </li>
                                 <li class="area-list__item" data-boat-layer="boot-stripe-accent">
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Accent</span>
-                                </li>
-                                <li class="area-list__item" data-boat-layer="logo-color">
-                                    <span class="area-list__color-box"></span>
-                                    <span class="area-list__title">Logo</span>
                                 </li>
                             </ul>
                             <div class="step-nagivation step-nagivation--mobile">

@@ -16,7 +16,7 @@
                     <?php endif; ?>
 
                     <?php if($data['column_1']['link']) : ?>
-                        <a class="landing-hero__link" href="<?php echo $data['column_1']['link']['url']; ?>" target="?php echo $data['column_1']['link']['target']; ?>">
+                        <a class="landing-hero__link" href="<?php echo $data['column_1']['link']['url']; ?>">
                             <span class="btn btn--outline btn--light"><?php echo $data['column_1']['link']['title']; ?></span>
                         </a>
                     <?php endif; ?>
@@ -39,7 +39,7 @@
                     <?php endif; ?>
 
                     <?php if ($data['column_2']['link']) : ?>
-                        <a class="landing-hero__link" href="<?php echo $data['column_2']['link']['url']; ?>" target="<?php echo $data['column_2']['link']['target']; ?>">
+                        <a class="landing-hero__link" href="<?php echo $data['column_2']['link']['url']; ?>">
                             <span class="btn btn--outline btn--light"><?php echo $data['column_2']['link']['title']; ?></span>
                         </a>
                     <?php endif; ?>
