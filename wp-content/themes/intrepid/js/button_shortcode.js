@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
                     if( selected ){
                         //If text is selected when button is clicked
                         //Wrap shortcode around it.
-                        content =  '[button class="btn btn--dark"]'+selected+'[/button]';
+                        content =  '[button]'+selected+'[/button]';
                     }else{
                         content =  '[button][/button]';
                     }
