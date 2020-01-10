@@ -191,15 +191,6 @@ $(function () {
                 });
             });
 
-            // Activate active motor
-            this.activeMotor = self.$el.find("#" + this.$activeMotorColor.data('motor-layer'));
-            this.updateBoatLayerMotor(this.activeMotor, {
-                'display': 'block',
-                'opacity': 1
-            });
-            this.motorColorContainer.html(this.$activeMotorItem.find('.motor-color').clone(true));
-            this.$motorDescription.html(this.$activeMotorItem.find('.motor__description').clone());
-
             // Toggle between active motor item
             this.$motorItems.on('click', function () {
                 var $this = $(this),
@@ -251,6 +242,16 @@ $(function () {
                     'opacity': 1
                 });
             });
+
+            // Activate active motor
+            this.activeMotor = self.$el.find("#" + this.activeMotorLayer);
+            this.updateBoatLayerMotor(this.activeMotor, {
+                'display': 'block',
+                'opacity': 1
+            });
+            this.$motorImg.attr('src', this.activeMotorImg);
+            this.motorColorContainer.html(this.$activeMotorItem.find('.motor-color').clone(true));
+            this.$motorDescription.html(this.$activeMotorItem.find('.motor__description').clone());
 
 
             //
