@@ -63,9 +63,14 @@ $bab_default_motor = get_field('bab_default_motor');
         </div>
         <?php if (!empty($view_360_urls)) : ?>
         <div class="spinner__container">
-            <a href="#" class="spinner__toggle icon-close">
+            <button class="spinner__toggle spinner__toggle--bg">
                 <span class="accessible-text">Close 360 view</span>
-            </a>
+            </button>
+            <div class="spinner__toggle-container">
+                <a href="#" class="spinner__toggle icon-close">
+                    <span class="accessible-text">Close 360 view</span>
+                </a>
+            </div>
             <div id="spinner-view"></div>
         </div>
         <?php endif; ?>

@@ -7877,6 +7877,10 @@ jQuery(document).ready(function ($) {
         ]
     });
 
+    $('.model-option .form-wrap .option-list__item').on('click', function () {
+        $(this).siblings().removeClass('selected');
+    });
+
     $('.custom-tab-slider').on('click', '.slick-slide', function (e) {
         e.stopPropagation();
         var index = $(this).data("slick-index");
