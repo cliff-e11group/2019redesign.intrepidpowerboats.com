@@ -18,7 +18,7 @@ jQuery(document).ready(function($) {
                 });
 
             // Register buttons - trigger above command when clicked
-            ed.addButton('e11_button', {title : 'Insert button', cmd : 'e11_insert_shortcode', text: 'AddBbutton' });
+            ed.addButton('e11_button', {title : 'Insert button', cmd : 'e11_insert_shortcode', text: 'Add Button' });
         },
     });
 
