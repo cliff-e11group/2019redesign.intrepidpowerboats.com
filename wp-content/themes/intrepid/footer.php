@@ -15,24 +15,31 @@
             ?>
 
         </div>
-        <div class="contact-list">
-            <h4 class="block-title">Contact Us</h4>
-            <ul class="contact-list__wrap">
-                <li class="contact-list__item"><a href="mailto:test@test.com">Direct Message</a></li>
-                <li class="contact-list__item">
-                    <span class="contact-list__item-label">Sales</span>
-                    <a href="tel:9543244196">954.324.4196</a>
-                </li>
-                <li class="contact-list__item">
-                    <span class="contact-list__item-label">Service</span>
-                    <a href="tel:9543244196">954.324.4196</a>
-                </li>
-                <li class ="contact-list__item">
-                    <span class="contact-list__item-label">General Inquiry</span>
-                    <a href="tel:9543244196">954.324.4196</a>
-                </li>
-            </ul>
-        </div>
+
+        <?php
+            $phone_numbers = get_field('footer_phone_numbers', 'option');
+            $email = get_field('email_address', 'option');
+        ?>
+
+        <?php if( !empty($phone_numbers) || !empty($email)) : ?>
+            <div class="contact-list">
+                <h4 class="block-title">Contact Us</h4>
+                <ul class="contact-list__wrap">
+                    <?php if($email) : ?>
+                        <li class="contact-list__item"><a href="mailto:<?php echo $email; ?> ">Direct Message</a></li>
+                    <?php endif; ?>
+
+                    <?php if($phone_numbers) : ?>
+                        <?php foreach ($phone_numbers as $phone_number) : ?>
+                            <li class="contact-list__item">
+                                <span class="contact-list__item-label"><?php echo $phone_number['title']; ?></span>
+                                <a href="tel:<?php echo $phone_number['phone_number']; ?>"><?php echo $phone_number['phone_number']; ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
 
         <?php
             $facebook = get_field('facebook_link', 'option');
