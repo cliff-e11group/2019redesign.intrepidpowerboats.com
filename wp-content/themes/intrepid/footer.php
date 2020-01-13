@@ -24,37 +24,61 @@
                     <span class="contact-list__item-label">Service</span>
                     <a href="tel:9543244196">954.324.4196</a>
                 </li>
-                <li class="contact-list__item">
+                <li class ="contact-list__item">
                     <span class="contact-list__item-label">General Inquiry</span>
                     <a href="tel:9543244196">954.324.4196</a>
                 </li>
             </ul>
         </div>
+
+        <?php
+            $facebook = get_field('facebook_link', 'option');
+            $insta = get_field('instagram_link', 'option');
+            $youtube = get_field('youtube_link', 'option');
+            $twitter = get_field('twitter_link', 'option');
+        ?>
+
+        <?php if ($facebook || $insta || $youtube || $twitter) : ?>
         <div class="social-block">
             <h4 class="block-title">Connect</h4>
             <div class="social-links">
-                <a href="#" target="_blank">
-                    <svg class="icon icon-facebook" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-facebook" x="0" y="0"></use>
-                    </svg>
-                </a>
-                <a href="#" target="_blank">
-                    <svg class="icon icon-instagram" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-instagram" x="0" y="0"></use>
-                    </svg>
-                </a>
-                <a href="#" target="_blank">
-                    <svg class="icon icon-youtube" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-youtube" x="0" y="0"></use>
-                    </svg>
-                </a>
-                <a href="#" target="_blank">
-                    <svg class="icon icon-twitter" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-twitter" x="0" y="0"></use>
-                    </svg>
-                </a>
+                <?php if ($facebook) :?>
+                    <a href="<?php echo $facebook['url']; ?>" target="_blank">
+                        <svg class="icon icon-facebook" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-facebook" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($insta) :?>
+                    <a href="<?php echo $insta['url']; ?>" target="_blank">
+                        <svg class="icon icon-instagram" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-instagram" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($youtube) :?>
+                    <a href="<?php echo $youtube['url']; ?>" target="_blank">
+                        <svg class="icon icon-youtube" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-youtube" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($twitter) :?>
+                    <a href="<?php echo $twitter['url']; ?>" target="_blank">
+                        <svg class="icon icon-twitter" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-twitter" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
             </div>
         </div>
+
+        <?php endif; ?>
+
         <div class="footer-logo">
             <a href="<?php echo site_url(); ?>">
                 <img src="<?php echo IMAGES; ?>/logo.svg" alt="Intrepid Powerboats" />
