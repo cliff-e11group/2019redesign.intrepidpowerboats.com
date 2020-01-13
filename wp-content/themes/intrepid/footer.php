@@ -2,15 +2,18 @@
     <div class="container">
         <div class="footer-links">
             <h4 class="block-title">Main Menu</h4>
-            <ul class="footer-links__list">
-                <li class="footer-links__item"><a href="<?php echo site_url('boats'); ?>">All Models</a></li>
-                <li class="footer-links__item"><a href="<?php echo site_url('news'); ?>">Latest News</a></li>
-                <li class="footer-links__item"><a href="<?php echo site_url('events'); ?>">Our Events</a></li>
-                <li class="footer-links__item"><a href="#">About Us</a></li>
-                <li class="footer-links__item"><a href="#">Gear</a></li>
-                <li class="footer-links__item"><a href="http://www.yachtworld.com/core/listing/cache/pl_search_results.jsp?ywo=intrepidse&ps=50&type=&new=&luom=126&hosturl=intrepidse&page=broker&slim=broker&lineonly" target="_blank">Pre-Owned</a></li>
-                <li class="footer-links__item"><a href="<?php echo site_url('terms-of-use'); ?>">Terms of Use</a></li>
-            </ul>
+
+            <?php
+                $args = array(
+                    'container' => false,
+                    'menu_class' => 'footer-links__list',
+                    'theme_location' => 'footer-menu-1',
+                    'before' =>  '<li class="footer-links__item">',
+                    'after' => '</li>'
+                );
+                wp_nav_menu($args);
+            ?>
+
         </div>
         <div class="contact-list">
             <h4 class="block-title">Contact Us</h4>
