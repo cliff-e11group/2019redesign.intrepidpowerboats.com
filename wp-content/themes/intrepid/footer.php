@@ -2,59 +2,93 @@
     <div class="container">
         <div class="footer-links">
             <h4 class="block-title">Main Menu</h4>
-            <ul class="footer-links__list">
-                <li class="footer-links__item"><a href="<?php echo site_url('boats'); ?>">All Models</a></li>
-                <li class="footer-links__item"><a href="<?php echo site_url('news'); ?>">Latest News</a></li>
-                <li class="footer-links__item"><a href="<?php echo site_url('events'); ?>">Our Events</a></li>
-                <li class="footer-links__item"><a href="#">About Us</a></li>
-                <li class="footer-links__item"><a href="#">Gear</a></li>
-                <li class="footer-links__item"><a href="http://www.yachtworld.com/core/listing/cache/pl_search_results.jsp?ywo=intrepidse&ps=50&type=&new=&luom=126&hosturl=intrepidse&page=broker&slim=broker&lineonly" target="_blank">Pre-Owned</a></li>
-                <li class="footer-links__item"><a href="<?php echo site_url('terms-of-use'); ?>">Terms of Use</a></li>
-            </ul>
+
+            <?php
+                $args = array(
+                    'container' => false,
+                    'menu_class' => 'footer-links__list',
+                    'theme_location' => 'footer-menu-1',
+                    'before' =>  '<li class="footer-links__item">',
+                    'after' => '</li>'
+                );
+                wp_nav_menu($args);
+            ?>
+
         </div>
-        <div class="contact-list">
-            <h4 class="block-title">Contact Us</h4>
-            <ul class="contact-list__wrap">
-                <li class="contact-list__item"><a href="mailto:test@test.com">Direct Message</a></li>
-                <li class="contact-list__item">
-                    <span class="contact-list__item-label">Sales</span>
-                    <a href="tel:9543244196">954.324.4196</a>
-                </li>
-                <li class="contact-list__item">
-                    <span class="contact-list__item-label">Service</span>
-                    <a href="tel:9543244196">954.324.4196</a>
-                </li>
-                <li class="contact-list__item">
-                    <span class="contact-list__item-label">General Inquiry</span>
-                    <a href="tel:9543244196">954.324.4196</a>
-                </li>
-            </ul>
-        </div>
+
+        <?php
+            $phone_numbers = get_field('footer_phone_numbers', 'option');
+            $email = get_field('email_address', 'option');
+        ?>
+
+        <?php if( !empty($phone_numbers) || !empty($email)) : ?>
+            <div class="contact-list">
+                <h4 class="block-title">Contact Us</h4>
+                <ul class="contact-list__wrap">
+                    <?php if($email) : ?>
+                        <li class="contact-list__item"><a href="mailto:<?php echo $email; ?> ">Direct Message</a></li>
+                    <?php endif; ?>
+
+                    <?php if($phone_numbers) : ?>
+                        <?php foreach ($phone_numbers as $phone_number) : ?>
+                            <li class="contact-list__item">
+                                <span class="contact-list__item-label"><?php echo $phone_number['title']; ?></span>
+                                <a href="tel:<?php echo $phone_number['phone_number']; ?>"><?php echo $phone_number['phone_number']; ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
+        <?php
+            $facebook = get_field('facebook_link', 'option');
+            $insta = get_field('instagram_link', 'option');
+            $youtube = get_field('youtube_link', 'option');
+            $twitter = get_field('twitter_link', 'option');
+        ?>
+
+        <?php if ($facebook || $insta || $youtube || $twitter) : ?>
         <div class="social-block">
             <h4 class="block-title">Connect</h4>
             <div class="social-links">
-                <a href="#" target="_blank">
-                    <svg class="icon icon-facebook" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-facebook" x="0" y="0"></use>
-                    </svg>
-                </a>
-                <a href="#" target="_blank">
-                    <svg class="icon icon-instagram" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-instagram" x="0" y="0"></use>
-                    </svg>
-                </a>
-                <a href="#" target="_blank">
-                    <svg class="icon icon-youtube" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-youtube" x="0" y="0"></use>
-                    </svg>
-                </a>
-                <a href="#" target="_blank">
-                    <svg class="icon icon-twitter" aria-hidden="true" role="img">
-                        <use xlink:href="#icon-twitter" x="0" y="0"></use>
-                    </svg>
-                </a>
+                <?php if ($facebook) :?>
+                    <a href="<?php echo $facebook['url']; ?>" target="_blank">
+                        <svg class="icon icon-facebook" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-facebook" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($insta) :?>
+                    <a href="<?php echo $insta['url']; ?>" target="_blank">
+                        <svg class="icon icon-instagram" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-instagram" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($youtube) :?>
+                    <a href="<?php echo $youtube['url']; ?>" target="_blank">
+                        <svg class="icon icon-youtube" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-youtube" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
+                <?php if ($twitter) :?>
+                    <a href="<?php echo $twitter['url']; ?>" target="_blank">
+                        <svg class="icon icon-twitter" aria-hidden="true" role="img">
+                            <use xlink:href="#icon-twitter" x="0" y="0"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
             </div>
         </div>
+
+        <?php endif; ?>
+
         <div class="footer-logo">
             <a href="<?php echo site_url(); ?>">
                 <img src="<?php echo IMAGES; ?>/logo.svg" alt="Intrepid Powerboats" />
