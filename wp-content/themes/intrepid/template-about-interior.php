@@ -35,7 +35,7 @@ $page = get_the_ID();
                     </div>
                 <?php endif; ?>
                 <?php if ($about_interior_hero_link ): ?>
-                    <a href="<?php echo $about_interior_hero_link['url']; ?>" target="<?php echo $about_interior_hero_link['target']; ?>" data-fancybox="" class="btn btn--dark btn--large-mobile">Watch our brand video</a>
+                    <a href="<?php echo $about_interior_hero_link['url']; ?>" target="<?php echo $about_interior_hero_link['target']; ?>" data-fancybox="" class="btn <?php echo $color_mode === 'light' ? 'btn--dark' : '' ;?>btn--large-mobile">Watch our brand video</a>
                 <?php endif; ?>
             </div>
 
