@@ -88,14 +88,14 @@ $bab_default_motor = get_field('bab_default_motor');
                         <?php if ( !empty($features) ) : ?>
                             <li class="model-nav__item">Features</li>
                         <?php endif; ?>
+                        <?php if ( !empty($motor_blocks) ) : ?>
+                        <li class="model-nav__item">Options</li>
+                        <?php endif; ?>
                         <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>
                         <li class="model-nav__item" data-class="nav-item-deck-plan">Deck Plan</li>
                         <?php endif; ?>
                         <?php if (!empty($motor_blocks) ) : ?>
                             <li class="model-nav__item">Motors</li>
-                        <?php endif; ?>
-                        <?php if ( !empty($motor_blocks) ) : ?>
-                            <li class="model-nav__item">Options</li>
                         <?php endif; ?>
                     </ul>
                 </div>
@@ -225,6 +225,75 @@ $bab_default_motor = get_field('bab_default_motor');
                 <!-- features end -->
             </div>
             <?php endif; ?>
+            <?php if ( !empty($boat_options) ) : ?>
+            <div>
+                <!-- option start -->
+                <section class="model-option">
+                    <div class="container">
+                        <div class="model-option__header">
+                            <h2 class="model-option__title">The many options for the <strong><?php echo $title; ?></strong></h2>
+                            <span>Create a checklist for the optional equipment you’re interested in.</span>
+                        </div>
+                        <div class="option-slider">
+                            <?php foreach ($boat_options as $boat_option) : ?>
+                            <div>
+                                <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
+                                <ul class="option-list">
+                                    <?php foreach($boat_option['options'] as $option) : ?>
+                                    <li class="option-list__item">
+                                        <?php if ($option['thumbnail']) : ?>
+                                        <span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span>
+                                        <?php endif; ?>
+
+                                        <?php echo $option['option']; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <div class="btn-wrap ">
+                        <a class="form-toggle btn btn--dark" href="#">Email This List</a>
+                        <?php if ($boat_footer_link) : ?>
+                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
+                        <?php endif; ?>
+                        <div class="form-wrap">
+                            <div class="form-option">
+                                <ul class="option-list">
+                                    <li class="option-list__item">Please email the boat I created to me and Intrepid, and have them contact me.</li>
+                                    <li class="option-list__item">Please only email me the boat I created.</li>
+                                </ul>
+                            </div>
+                            <form class="form" action="#" method="post">
+                                <h3 class="form__title">Your information</h3>
+                                <ul class="form-fields">
+                                    <li class="form__field">
+                                        <label for="name" class="accessible-text"></label>
+                                        <input type="text" id="name" name="txt_name" placeholder="Name">
+                                    </li>
+                                    <li class="form__field">
+                                        <label for="email-address" class="accessible-text"></label>
+                                        <input type="email" id="email-address" name="email_add" placeholder="Email Address">
+                                    </li>
+                                    <li class="form__field">
+                                        <label for="phone-number" class="accessible-text"></label>
+                                        <input type="text" id="phone-number" name="phone_no" placeholder="Phone Number">
+                                    </li>
+                                    <li class="form__field">
+                                        <label for="questions-comments" class="accessible-text"></label>
+                                        <textarea id="questions-comments" placeholder="Questions or Comments?"></textarea>
+                                    </li>
+                                    <li class="form__field">
+                                        <input class="button" type="submit" value="Submit">
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <!-- option end -->
+            </div>
+            <?php endif; ?>
             <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>
             <div>
                 <!-- deck plan start -->
@@ -315,75 +384,6 @@ $bab_default_motor = get_field('bab_default_motor');
                     <?php endif; ?>
                 </section>
                 <!-- motor end -->
-            </div>
-            <?php endif; ?>
-            <?php if ( !empty($boat_options) ) : ?>
-            <div>
-                <!-- option start -->
-                <section class="model-option">
-                    <div class="container">
-                        <div class="model-option__header">
-                            <h2 class="model-option__title">The many options for the <strong><?php echo $title; ?></strong></h2>
-                            <span>Create a checklist for the optional equipment you’re interested in.</span>
-                        </div>
-                        <div class="option-slider">
-                            <?php foreach ($boat_options as $boat_option) : ?>
-                                <div>
-                                    <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
-                                    <ul class="option-list">
-                                        <?php foreach($boat_option['options'] as $option) : ?>
-                                            <li class="option-list__item">
-                                            <?php if ($option['thumbnail']) : ?>
-                                                <span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span>
-                                            <?php endif; ?>
-
-                                            <?php echo $option['option']; ?></li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                            </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                    <div class="btn-wrap ">
-                        <a class="form-toggle btn btn--dark" href="#">Email This List</a>
-                        <?php if ($boat_footer_link) : ?>
-                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                        <?php endif; ?>
-                        <div class="form-wrap">
-                            <div class="form-option">
-                                <ul class="option-list">
-                                    <li class="option-list__item">Please email the boat I created to me and Intrepid, and have them contact me.</li>
-                                    <li class="option-list__item">Please only email me the boat I created.</li>
-                                </ul>
-                            </div>
-                            <form class="form" action="#" method="post">
-                                <h3 class="form__title">Your information</h3>
-                                <ul class="form-fields">
-                                    <li class="form__field">
-                                        <label for="name" class="accessible-text"></label>
-                                        <input type="text" id="name" name="txt_name" placeholder="Name">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="email-address" class="accessible-text"></label>
-                                        <input type="email" id="email-address" name="email_add" placeholder="Email Address">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="phone-number" class="accessible-text"></label>
-                                        <input type="text" id="phone-number" name="phone_no" placeholder="Phone Number">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="questions-comments" class="accessible-text"></label>
-                                        <textarea id="questions-comments" placeholder="Questions or Comments?"></textarea>
-                                    </li>
-                                    <li class="form__field">
-                                        <input class="button" type="submit" value="Submit">
-                                    </li>
-                                </ul>
-                            </form>
-                        </div>
-                    </div>
-                </section>
-                <!-- option end -->
             </div>
             <?php endif; ?>
         </div>
