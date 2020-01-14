@@ -53,7 +53,7 @@
             <h4 class="block-title">Connect</h4>
             <div class="social-links">
                 <?php if ($facebook) :?>
-                    <a href="<?php echo $facebook['url']; ?>" target="_blank">
+                    <a href="<?php echo $facebook; ?>" target="_blank">
                         <svg class="icon icon-facebook" aria-hidden="true" role="img">
                             <use xlink:href="#icon-facebook" x="0" y="0"></use>
                         </svg>
@@ -61,7 +61,7 @@
                 <?php endif; ?>
 
                 <?php if ($insta) :?>
-                    <a href="<?php echo $insta['url']; ?>" target="_blank">
+                    <a href="<?php echo $insta; ?>" target="_blank">
                         <svg class="icon icon-instagram" aria-hidden="true" role="img">
                             <use xlink:href="#icon-instagram" x="0" y="0"></use>
                         </svg>
@@ -69,7 +69,7 @@
                 <?php endif; ?>
 
                 <?php if ($youtube) :?>
-                    <a href="<?php echo $youtube['url']; ?>" target="_blank">
+                    <a href="<?php echo $youtube; ?>" target="_blank">
                         <svg class="icon icon-youtube" aria-hidden="true" role="img">
                             <use xlink:href="#icon-youtube" x="0" y="0"></use>
                         </svg>
@@ -77,7 +77,7 @@
                 <?php endif; ?>
 
                 <?php if ($twitter) :?>
-                    <a href="<?php echo $twitter['url']; ?>" target="_blank">
+                    <a href="<?php echo $twitter; ?>" target="_blank">
                         <svg class="icon icon-twitter" aria-hidden="true" role="img">
                             <use xlink:href="#icon-twitter" x="0" y="0"></use>
                         </svg>

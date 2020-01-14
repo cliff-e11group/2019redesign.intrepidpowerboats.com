@@ -7647,7 +7647,7 @@ jQuery(document).ready(function ($) {
             $('.option-slider')[0].slick.refresh();
             var $tab = $(this);
             $active_tab_text = $tab.text();
-            
+
             if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
                 $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
                 $(".nav-block__active-tab").text($active_tab_text);
