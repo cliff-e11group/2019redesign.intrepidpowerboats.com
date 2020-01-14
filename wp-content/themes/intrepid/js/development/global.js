@@ -178,47 +178,34 @@ jQuery(document).ready(function ($) {
 
     if ($compareMode.length > 0 && $modelList__grid.length > 0) {
         var $moduleComparision__list = $(".module-comparision__list"),
+            selectedCompareModels = [],
             compareModeActiveClass = 'compare-mode--active';
 
         $compareMode.on('click', function (e) {
             e.preventDefault();
             $modelList__grid.toggleClass(compareModeActiveClass);
-            $('.model-list__block').removeClass('active');
+            $('.model-list__block').removeClass('active').removeClass('selected');
+            $('.module-comparision__block').fadeOut();
+            selectedCompareModels = [];
         });
 
         $('.model-list__compare').on('click', function () {
             var $this = $(this),
                 activeClass = 'selected',
                 $container = $this.closest('.model-list__block'),
-                data = $container.find('img').data();
+                id = $container.index() - 2;
 
-            $container.toggleClass(activeClass);
+            if ($container.hasClass(activeClass)) {
+                $container.removeClass(activeClass);
+                selectedCompareModels = $.grep(selectedCompareModels, function (value) {
+                    return value !== id;
+                });
+            } else {
+                $container.addClass(activeClass);
+                selectedCompareModels.push(id);
+            }
 
-            var selected = $('.model-list__block.selected'),
-                $details = $container.find('.model-list-stat__container').clone();
-            console.log($details);
-            var $newHtmlStart = $("<div class=\"module-comparision__item\">" +
-                "<div class=\"model-list__image\">" +
-                "    <img src=\"" + data['imgSrc'] + "\" alt=\"" + data['alt'] + "\">" +
-                "</div>" +
-                "<div class=\"model-list__detail\">" +
-                "    <div class=\"model-list__title\">" +
-                "        <h3>" + data['title'] + "</h3>" +
-                "        <button class=\"model-list__trigger-container\"><span class=\"model-list__trigger\"></span></button>" +
-                "    </div>" +
-                "    <div class=\"model-list-hidden__content\">" +
-                "        <div class=\"model-list-cta__container\">" +
-                "            <a href=\"' + data['link'] + '\" class=\"btn btn--outline\">Visit Model Page</a>" +
-                "        </div>" +
-                "    </div>" +
-                "</div>" +
-                "</div>");
-
-            $newHtmlStart.find('.model-list-hidden__content').prepend($details);
-            console.log(newHtmlStart);
-
-            var select_length = selected.length;
-            $moduleComparision__list.append(newHtml);
+            var select_length = selectedCompareModels.length;
 
             if (select_length > 1) {
                 $('.module-btn-box').fadeIn("slow");
@@ -228,13 +215,40 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        $('.compare-btn').on('click', function () {
-            var length = $('body').find('.selected').length;
-            var modalContainer = $('.module-comparision__block.module-item-box');
+        var modalContainer = $('.module-comparision__block.module-item-box');
 
+        $('.compare-btn').on('click', function () {
             modalContainer.css('opacity', 0);
 
-            $('.module-comparision__list').on('init', function (event, slick) {
+            var i;
+            for (i = 0; i < selectedCompareModels.length; i++) {
+
+                var $compareItem = $('.model-list__block').eq(selectedCompareModels[i]),
+                    $details = $compareItem.find('.model-list-stat__container').clone(),
+                    data = $compareItem.find('img').data();
+
+                var $newHtmlStart = $("<div class=\"module-comparision__item\">" +
+                    "<div class=\"model-list__image\">" +
+                    "    <img src=\"" + data['imgSrc'] + "\" alt=\"" + data['alt'] + "\">" +
+                    "</div>" +
+                    "<div class=\"model-list__detail\">" +
+                    "    <div class=\"model-list__title-wrap\">" +
+                    "        <h3 class='model-list__title'>" + data['title'] + "</h3>" +
+                    "        <button class=\"model-list__trigger-container compareMode__remove\"><span class=\"model-list__trigger\"></span></button>" +
+                    "    </div>" +
+                    "    <div class=\"model-list-hidden__content\">" +
+                    "        <div class=\"model-list-cta__container\">" +
+                    "            <a href=\"" + data['link'] + "\" class=\"btn btn--outline\">Visit Model Page</a>" +
+                    "        </div>" +
+                    "    </div>" +
+                    "</div>" +
+                    "</div>");
+
+                $newHtmlStart.find('.model-list-hidden__content').prepend($details);
+                $moduleComparision__list.append($newHtmlStart);
+            }
+
+            $moduleComparision__list.on('init', function (event, slick) {
                 $('.module-item-box').hide(function () {
                     modalContainer.css('opacity', 1);
                     $('.module-item-box').slideDown("slow");
@@ -242,7 +256,7 @@ jQuery(document).ready(function ($) {
             });
 
             $('.module-item-box').slideDown("slow", function () {
-                $('.module-comparision__list').slick({
+                $moduleComparision__list.slick({
                     infinite: false,
                     slidesToShow: 4,
                     slidesToScroll: 1,
@@ -273,15 +287,34 @@ jQuery(document).ready(function ($) {
             });
         });
 
-        $('.module-comparision__block.module-item-box .close').on('click', function () {
-            $('.module-item-box').slideUp("slow");
-            $('.module-comparision__list').slick('destroy');
+        $('.module-comparision__block.module-btn-box .close').on('click', function (e) {
+            e.preventDefault();
+            $('.module-comparision__block').fadeOut("slow", function () {
+                $('.model-list__block').removeClass('selected');
+                if ($moduleComparision__list.hasClass('slick-initialized')) {
+                    $moduleComparision__list.slick('destroy');
+                }
+                $modelList__grid.removeClass(compareModeActiveClass);
+                selectedCompareModels = [];
+            });
         });
 
-        $('.module-comparision__block.module-btn-box .close').on('click', function () {
-            $('.model-list__block').removeClass('selected');
-            $('.module-comparision__block').fadeOut("slow");
-            $('.module-comparision__list').slick('destroy');
+        $('.module-comparision__block.module-item-box .close').on('click', function (e) {
+            e.preventDefault();
+            $('.module-item-box').slideUp("slow", function () {
+                if ($moduleComparision__list.hasClass('slick-initialized')) {
+                    $moduleComparision__list.slick('destroy');
+
+                }
+                $moduleComparision__list.empty();
+            });
+        });
+
+        $(document).on('click', '.compareMode__remove', function () {
+            var $this = $(this),
+                $container = $this.closest('.module-comparision__item');
+
+            $moduleComparision__list.slick('slickRemove', $container.index());
         });
     }
 
@@ -336,7 +369,7 @@ jQuery(document).ready(function ($) {
             $('.option-slider')[0].slick.refresh();
             var $tab = $(this);
             $active_tab_text = $tab.text();
-            //console.log($active_tab_text);
+
             if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
                 $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
                 $(".nav-block__active-tab").text($active_tab_text);

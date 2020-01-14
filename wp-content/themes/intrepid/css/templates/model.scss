@@ -250,6 +250,7 @@
     transition: none;
     pointer-events: none;
 
+    .module-comparision__item &,
     .active & {
         color: #fff;
     }
@@ -431,6 +432,10 @@
 
 .model-list-stat__container {
     padding: 0 20px 20px;
+
+    .module-comparision__item & {
+        min-height: 161px;
+    }
 
     .data-title {
         margin-bottom: 15px;
@@ -814,20 +819,32 @@
 .module-comparision__item {
     padding: 0 10px;
 
+    //.model-list__trigger {
+    //    transform: rotate(45deg);
+    //
+    //    &:before {
+    //        background: url("images/loding-spiral-sm.png") no-repeat center;
+    //        background-size: cover;
+    //    }
+    //
+    //    &:after {
+    //        background-image: url("images/add-white.svg");
+    //        background-size: 60%;
+    //        background-repeat: no-repeat;
+    //        background-position: center;
+    //        border: none;
+    //    }
+    //}
+
     .model-list__trigger {
-        transform: rotate(45deg);
 
         &:before {
-            background: url("images/loding-spiral-sm.png") no-repeat center;
-            background-size: cover;
+            transform: rotate(360deg);
         }
 
         &:after {
+            transform: rotate(45deg);
             background-image: url("images/add-white.svg");
-            background-size: 60%;
-            background-repeat: no-repeat;
-            background-position: center;
-            border: none;
         }
     }
 
