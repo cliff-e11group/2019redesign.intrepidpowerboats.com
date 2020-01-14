@@ -147,10 +147,6 @@ jQuery(document).ready(function ($) {
         $(this).closest(".column-model__item").children(".column-model__content").slideToggle();
     });
 
-    $('.compare-mode--active .model-list__image').on('click', function () {
-        $(this).parent().toggleClass('selected');
-    });
-
     $('.newsletter-block__title, .language-switcher__title').on('click', function () {
         $(this).parent().siblings().removeClass('active');
         $(this).parent().toggleClass('active');
@@ -181,19 +177,27 @@ jQuery(document).ready(function ($) {
         $modelList__grid = $('.model-list__grid');
 
     if ($compareMode.length > 0 && $modelList__grid.length > 0) {
-        var compareModeActiveClass = 'compare-mode--active';
+        var $moduleComparision__list = $(".module-comparision__list"),
+            compareModeActiveClass = 'compare-mode--active';
 
         $compareMode.on('click', function (e) {
             e.preventDefault();
             $modelList__grid.toggleClass(compareModeActiveClass);
+            $('.model-list__block').removeClass('active');
         });
 
         $('.model-list__compare').on('click', function () {
             var $this = $(this),
+                activeClass = 'selected',
                 $container = $this.closest('.model-list__block'),
                 data = $container.find('img').data();
 
-            var newHtml = "<div class=\"module-comparision__item\">" +
+            $container.toggleClass(activeClass);
+
+            var selected = $('.model-list__block.selected'),
+                $details = $container.find('.model-list-stat__container').clone();
+            console.log($details);
+            var $newHtmlStart = $("<div class=\"module-comparision__item\">" +
                 "<div class=\"model-list__image\">" +
                 "    <img src=\"" + data['imgSrc'] + "\" alt=\"" + data['alt'] + "\">" +
                 "</div>" +
@@ -203,95 +207,84 @@ jQuery(document).ready(function ($) {
                 "        <button class=\"model-list__trigger-container\"><span class=\"model-list__trigger\"></span></button>" +
                 "    </div>" +
                 "    <div class=\"model-list-hidden__content\">" +
-                "        <div class=\"model-list-stat__container\">" +
-                "            <h4>" + data['secondaryTitle'] + "</h4>" +
-                "            <ul>" +
-                "                <li>" +
-                "                    <div class=\"title\">" + data['liTitle_1'] + "</div>" +
-                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-                "                </li>" +
-                "                <li>" +
-                "                    <div class=\"title\">" + data['liTitle_2'] + "</div>" +
-                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-                "                </li>" +
-                "                <li>" +
-                "                    <div class=\"title\">" + data['liTitle_3'] + "</div>" +
-                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-                "                </li>" +
-                "                <li>" +
-                "                    <div class=\"title\">" + data['liTitle_4'] + "</div>" +
-                "                    <div class=\"detail\">" + data['liDesc_1'] + "</div>" +
-                "                </li>" +
-                "            </ul>" +
-                "        </div>" +
                 "        <div class=\"model-list-cta__container\">" +
-                "            <a href=\"#\" class=\"btn btn--outline\">" + data['btn_txt'] + "</a>" +
+                "            <a href=\"' + data['link'] + '\" class=\"btn btn--outline\">Visit Model Page</a>" +
                 "        </div>" +
                 "    </div>" +
                 "</div>" +
-                "</div>";
-            // var select_length = selected.length;
-            // $(".module-comparision__list").append(newHtml);
-            // if (select_length > 1) {
-            //     $('.module-btn-box').fadeIn("slow");
-            //     $('.module-selection-count a').text("COMPARE THESE " + select_length + ' MODELS');
-            // } else {
-            //     $('.module-btn-box').fadeOut("slow");
-            // }
+                "</div>");
+
+            $newHtmlStart.find('.model-list-hidden__content').prepend($details);
+            console.log(newHtmlStart);
+
+            var select_length = selected.length;
+            $moduleComparision__list.append(newHtml);
+
+            if (select_length > 1) {
+                $('.module-btn-box').fadeIn("slow");
+                $('.module-selection-count a').text("COMPARE THESE " + select_length + ' MODELS');
+            } else {
+                $('.module-btn-box').fadeOut("slow");
+            }
+        });
+
+        $('.compare-btn').on('click', function () {
+            var length = $('body').find('.selected').length;
+            var modalContainer = $('.module-comparision__block.module-item-box');
+
+            modalContainer.css('opacity', 0);
+
+            $('.module-comparision__list').on('init', function (event, slick) {
+                $('.module-item-box').hide(function () {
+                    modalContainer.css('opacity', 1);
+                    $('.module-item-box').slideDown("slow");
+                });
+            });
+
+            $('.module-item-box').slideDown("slow", function () {
+                $('.module-comparision__list').slick({
+                    infinite: false,
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    responsive: [
+                        {
+                            breakpoint: 800,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        },
+                        {
+                            breakpoint: 400,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+                });
+            });
+        });
+
+        $('.module-comparision__block.module-item-box .close').on('click', function () {
+            $('.module-item-box').slideUp("slow");
+            $('.module-comparision__list').slick('destroy');
+        });
+
+        $('.module-comparision__block.module-btn-box .close').on('click', function () {
+            $('.model-list__block').removeClass('selected');
+            $('.module-comparision__block').fadeOut("slow");
+            $('.module-comparision__list').slick('destroy');
         });
     }
 
-
-    // $('.compare-btn').on('click', function () {
-    //     var length = $('body').find('.selected').length;
-    //     var modalContainer = $('.module-comparision__block.module-item-box');
-    //     modalContainer.css('opacity', 0);
-    //     $('.module-comparision__list').on('init', function (event, slick) {
-    //         $('.module-item-box').hide(function () {
-    //             modalContainer.css('opacity', 1);
-    //             $('.module-item-box').slideDown("slow");
-    //         });
-    //     });
-    //     $('.module-item-box').slideDown("slow", function () {
-    //         $('.module-comparision__list').slick({
-    //             infinite: false,
-    //             slidesToShow: 4,
-    //             slidesToScroll: 1,
-    //             responsive: [
-    //                 {
-    //                     breakpoint: 800,
-    //                     settings: {
-    //                         slidesToShow: 3,
-    //                         slidesToScroll: 3,
-    //                     }
-    //                 },
-    //                 {
-    //                     breakpoint: 600,
-    //                     settings: {
-    //                         slidesToShow: 1,
-    //                         slidesToScroll: 1
-    //                     }
-    //                 },
-    //                 {
-    //                     breakpoint: 400,
-    //                     settings: {
-    //                         slidesToShow: 1,
-    //                         slidesToScroll: 1
-    //                     }
-    //                 }
-    //             ]
-    //         });
-    //     });
-    // });
-    // $('.module-comparision__block.module-item-box .close').on('click', function () {
-    //     $('.module-item-box').slideUp("slow");
-    //     $('.module-comparision__list').slick('destroy');
-    // });
-    // $('.module-comparision__block.module-btn-box .close').on('click', function () {
-    //     $('.model-list__block').removeClass('selected');
-    //     $('.module-comparision__block').fadeOut("slow");
-    //     $('.module-comparision__list').slick('destroy');
-    // });
 
     $(".mobile-nav__toggle").click(function (e) {
 

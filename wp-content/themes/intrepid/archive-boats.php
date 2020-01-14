@@ -95,11 +95,8 @@ the_post();
                     <div class="model-list__image">
                         <a href="<?php echo $link; ?>">
                             <img src="<?php echo $thumb; ?>" alt="<?php echo $title; ?>"
-                                 data-img-src="uploads/Intrepid_Boat_Model.jpg" data-alt ="Model 200 Flats" data-title="200 Flats"
-                                 data-secondary-title="STATISTICS" data-li-title_1='Standard Fuel'
-                                 data-li-desc_1='420 GALLONS' data-li-title_2='BEAM' data-li-desc_2=`9'10"`
-                                 data-li-title_3='LENGTH' data-li-desc_3=`41'7"` data-li-title_4='WATER'
-                                 data-li-desc_4="40 GALLONS" data-btn_txt = 'visit model page'>
+                                 data-img-src="<?php echo $thumb; ?>" data-alt ="Model <?php echo $title; ?>" data-title="<?php echo $title; ?>"
+                                 data-link="<?php echo $link; ?>">
                         </a>
                         <button class="model-list__compare">
                             <span class="accessible-text">Compare boat</span>
@@ -145,6 +142,27 @@ the_post();
 
 
         <!-- end boat models  -->
+
+        <div class="module-comparision__block module-btn-box" style="display: none;">
+            <div class="container">
+                <div class="module-selection-count">
+                    <a href="javascript:void(0);" class="btn btn--outline btn--dark btn--large compare-btn">COMPARE THESE 4 MODELS</a>
+                </div>
+                <div class="panel-close text--right">
+                    <a href="javascript:void(0);" class="close">CLOSE <span class="icon-close"></span></a>
+                </div>
+            </div>
+        </div>
+        <div class="module-comparision__block module-item-box " style="display: none">
+            <div class="container">
+                <div class="panel-close text--right">
+                    <a href="#" class="close">CLOSE <span class="icon-close"></span></a>
+                </div>
+                <div class="module-comparision__list">
+
+                </div>
+            </div>
+        </div>
 
     </section>
     <div class="icon-list">
