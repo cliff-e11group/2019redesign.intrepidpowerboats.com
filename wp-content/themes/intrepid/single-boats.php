@@ -194,6 +194,11 @@ $bab_default_motor = get_field('bab_default_motor');
                         </div>
                     </div>
                 </div>
+                <?php if ($boat_footer_link) : ?>
+                <div class="btn-wrap">
+                    <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
+                </div>
+                <?php endif; ?>
             </div>
             <?php endif; ?>
             <?php if ( !empty($features) ) : ?>
