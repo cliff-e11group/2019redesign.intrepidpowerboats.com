@@ -473,9 +473,11 @@ jQuery(document).ready(function ($) {
         speed: 500,
     });
 
-    $('.feed-carousel').slick({
+    $('#sbi_images').slick({
         autoplay: false,
         autoplaySpeed: 3000,
+        slide: '.sbi_item',
+        rows: 0,
         dots: false,
         arrows: true,
         draggable: false,

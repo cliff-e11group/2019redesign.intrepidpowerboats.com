@@ -50,15 +50,21 @@
         <div class="container">
             <div class="sidebar layout__one-third">
                 <div class="instagram-block">
-                    <figure class="instagram-block__thumbnail">
-                        <a href="#" target="_blank"><img src="<?php echo STYLEDIR; ?>/uploads/instagram-img.jpg" alt="instagram-img" /></a>
+                    <!-- <figure class="instagram-block__thumbnail">
+                        <a href="#" target="_blank"><img src="<?php// echo STYLEDIR; ?>/uploads/instagram-img.jpg" alt="instagram-img" /></a>
                         <a class="instagram-block__icon" href="#" target="_blank">
                             <svg class="icon icon-instagram" aria-hidden="true" role="img">
                                 <use xlink:href="#icon-instagram" x="0" y="0"></use>
                             </svg>
                         </a>
-                    </figure>
-                    <a class="instagram-block__link" href="#" target="_blank">@intrepidpowerboats</a>
+                    </figure> -->
+                    <?php echo do_shortcode('[instagram-feed num=1 cols=1 showfollow=false showbutton=false showheader=false]'); ?>
+                    <?php
+                    $insta = get_field('instagram_link', 'option');
+                    ?>
+                    <?php if ($insta) : ?>
+                        <a class="instagram-block__link" href="<?php echo $insta; ?>" target="_blank">@intrepidpowerboats</a>
+                    <?php endif; ?>
                 </div>
 
                 <!-- SIDEBAR CATS -->
@@ -86,7 +92,6 @@
                         <?php
                             $facebook = get_field('facebook_link', 'option');
                             $twitter = get_field('twitter_link', 'option');
-                            $insta = get_field('instagram_link', 'option');
                             $youtube = get_field('youtube_link', 'option');
                         ?>
                         <?php if ($facebook) : ?>

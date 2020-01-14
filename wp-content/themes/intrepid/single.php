@@ -78,15 +78,18 @@ $page_title = get_the_title();
         </div>
     </section>
     <div class="instagram-feed">
-        <h2 class="instagram-feed__title"><span>Latest Updates on</span><a href="#" target="_blank">@intrepidpowerboats</a></h2>
-        <div class="feed-carousel">
-            <div class="feed-carousel__item"><img src="<?php echo STYLEDIR; ?>/uploads/instagram-image1.jpg" alt="instagram-image1"/> </div>
-            <div class="feed-carousel__item"><img src="<?php echo STYLEDIR; ?>/uploads/instagram-image2.jpg" alt="instagram-image1"/> </div>
-            <div class="feed-carousel__item"><img src="<?php echo STYLEDIR; ?>/uploads/instagram-image3.jpg" alt="instagram-image1"/> </div>
-            <div class="feed-carousel__item"><img src="<?php echo STYLEDIR; ?>/uploads/instagram-image4.jpg" alt="instagram-image1"/> </div>
-            <div class="feed-carousel__item"><img src="<?php echo STYLEDIR; ?>/uploads/instagram-image5.jpg" alt="instagram-image1"/> </div>
-        </div>
+        <?php
+            $insta = get_field('instagram_link', 'option');
+        ?>
+        <?php if ($insta) :?>
+            <h2 class="instagram-feed__title"><span>Latest Updates on</span><a href="<?php echo $insta; ?>" target="_blank">@intrepidpowerboats</a></h2>
+        <?php endif; ?>
+
+        <!-- <div class="feed-carousel"> -->
+            <?php echo do_shortcode('[instagram-feed num=20 cols=1 showfollow=false showbutton=false showheader=false class=feed-carousel layout=carousel]'); ?>
+        <!-- </div> -->
     </div>
+
     <div class="column-content">
         <div class="container">
             <?php

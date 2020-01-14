@@ -109,6 +109,16 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                     <?php endif; ?></a>
 
                             <?php endwhile; ?>
+
+                            <div class="portal-gallery__prompt-wrap">
+                                <a href="#owners-portal__upload" class="btn btn--dark" data-fancybox>UPLOAD PHOTO/VIDEO</a>
+                            </div>
+
+                        <?php else : ?>
+                            <div class="portal-gallery__prompt-wrap">
+                                <p class="portal-gallery__upload-prompt">SHARE YOUR DREAMS AND ADVENTURES WITH THE INTREPID COMMUNITY</p>
+                                <a href="#owners-portal__upload" class="btn btn--dark" data-fancybox>UPLOAD PHOTO/VIDEO</a>
+                            </div>
                         <?php endif; wp_reset_query()?>
                         </div>
                     </div>
@@ -154,14 +164,24 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                     </a>
 
                             <?php endwhile; ?>
-                        <?php endif; ?>
+
+                                <div class="portal-gallery__prompt-wrap">
+                                    <a href="#owners-portal__upload" class="btn btn--dark" data-fancybox>UPLOAD PHOTO/VIDEO</a>
+                                </div>
+
+                            <?php else : ?>
+                                <div class="portal-gallery__prompt-wrap">
+                                    <p class="portal-gallery__upload-prompt">SHARE YOUR DREAMS AND ADVENTURES WITH THE INTREPID COMMUNITY</p>
+                                    <a href="#owners-portal__upload" class="btn btn--dark" data-fancybox>UPLOAD PHOTO/VIDEO</a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="owners-portal__upload">
+        <div class="owners-portal__upload" id="owners-portal__upload" style="display: none;">
             <div class="container">
                 <div class="owner-portal__form-wrap">
                     <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" class="owner-portal__form" method="post" id="owner-gallery-video" enctype="multipart/form-data">
