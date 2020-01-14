@@ -48,7 +48,7 @@ $bab_default_motor = get_field('bab_default_motor');
 ?>
 
 <main class="page__single page__single--boat main">
-    <section class="hero hero--model">
+    <section class="hero hero--model <?php if (!empty($view_360_urls)) : ?>hero--overlay<?php endif; ?>">
         <div class="container">
             <div class="hero__bg" style="background-image:url(<?php echo $boat_hero_img; ?>);"></div>
             <div class="model__title-box <?php echo $boat_hero_title_class; ?>">
