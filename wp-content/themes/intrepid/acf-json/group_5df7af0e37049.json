@@ -613,7 +613,7 @@
                     "label": "Title Image",
                     "name": "title_image",
                     "type": "image",
-                    "instructions": "You can place an image\/logo instead of the title. The title should be filled out for SEO and accessibility.",
+                    "instructions": "You can place an image\/logo instead of the title. The title should be filled out for SEO and accessibility. Recommended height is 120px.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -697,7 +697,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -706,6 +706,33 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5e1f58e535b81",
+                    "label": "Select how many options a user can choose from this column:",
+                    "name": "number_of_choices",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1": "1",
+                        "unlimited": "Unlimited"
+                    },
+                    "default_value": [
+                        "unlimited"
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 },
                 {
                     "key": "field_5df7e8894c25b",
@@ -768,6 +795,25 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_5e1f5a4235b82",
+                            "label": "SVG ID",
+                            "name": "svg_id",
+                            "type": "text",
+                            "instructions": "Add the SVG layer name here to toggle visibility on the boat image.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ]
                 }
@@ -1113,5 +1159,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579110251
+    "modified": 1579113223
 }
