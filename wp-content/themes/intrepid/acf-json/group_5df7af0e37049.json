@@ -598,7 +598,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -607,6 +607,30 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5e1f4dc6650ef",
+                    "label": "Title Image",
+                    "name": "title_image",
+                    "type": "image",
+                    "instructions": "You can place an image\/logo instead of the title. The title should be filled out for SEO and accessibility.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
                     "key": "field_5df7e5e409f4c",
@@ -1089,5 +1113,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1578507780
+    "modified": 1579110251
 }
