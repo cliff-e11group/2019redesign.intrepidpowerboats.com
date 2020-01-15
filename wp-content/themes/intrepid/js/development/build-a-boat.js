@@ -244,14 +244,14 @@ $(function () {
             });
 
             // Activate active motor
-            this.activeMotor = self.$el.find("#" + this.activeMotorLayer);
-            this.updateBoatLayerMotor(this.activeMotor, {
-                'display': 'block',
-                'opacity': 1
-            });
-            this.$motorImg.attr('src', this.activeMotorImg);
-            this.motorColorContainer.html(this.$activeMotorItem.find('.motor-color').clone(true));
-            this.$motorDescription.html(this.$activeMotorItem.find('.motor__description').clone());
+            // this.activeMotor = self.$el.find("#" + this.activeMotorLayer);
+            // this.updateBoatLayerMotor(this.activeMotor, {
+            //     'display': 'block',
+            //     'opacity': 1
+            // });
+            // this.$motorImg.attr('src', this.activeMotorImg);
+            // this.motorColorContainer.html(this.$activeMotorItem.find('.motor-color').clone(true));
+            // this.$motorDescription.html(this.$activeMotorItem.find('.motor__description').clone());
 
 
             //

@@ -88,7 +88,7 @@ $bab_default_motor = get_field('bab_default_motor');
                         <?php if ( !empty($features) ) : ?>
                             <li class="model-nav__item">Features</li>
                         <?php endif; ?>
-                        <?php if ( !empty($motor_blocks) ) : ?>
+                        <?php if ( !empty($boat_options) ) : ?>
                         <li class="model-nav__item">Options</li>
                         <?php endif; ?>
                         <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>

@@ -7171,14 +7171,14 @@ $(function () {
             });
 
             // Activate active motor
-            this.activeMotor = self.$el.find("#" + this.activeMotorLayer);
-            this.updateBoatLayerMotor(this.activeMotor, {
-                'display': 'block',
-                'opacity': 1
-            });
-            this.$motorImg.attr('src', this.activeMotorImg);
-            this.motorColorContainer.html(this.$activeMotorItem.find('.motor-color').clone(true));
-            this.$motorDescription.html(this.$activeMotorItem.find('.motor__description').clone());
+            // this.activeMotor = self.$el.find("#" + this.activeMotorLayer);
+            // this.updateBoatLayerMotor(this.activeMotor, {
+            //     'display': 'block',
+            //     'opacity': 1
+            // });
+            // this.$motorImg.attr('src', this.activeMotorImg);
+            // this.motorColorContainer.html(this.$activeMotorItem.find('.motor-color').clone(true));
+            // this.$motorDescription.html(this.$activeMotorItem.find('.motor__description').clone());
 
 
             //
@@ -7379,7 +7379,8 @@ jQuery(document).ready(function ($) {
         $cat_filters.each(function () {
             var $this = $(this);
 
-            $this.on('click', function () {
+            $this.on('click', function (e) {
+                e.preventDefault();
                 var filterValue = $this.data('filter-category'),
                     $container = $(this).closest('li'),
                     $siblings = $container.siblings('.filter-type__container');
@@ -7964,6 +7965,12 @@ jQuery(document).ready(function ($) {
             });
 
             $deckPointClose.on('click', function () {
+                $this.removeClass(activeClass);
+                $deckPointInfo.removeClass(activeClass);
+                $deckPointInfo.appendTo($this);
+            });
+
+            $modelNav__item.on('click', function () {
                 $this.removeClass(activeClass);
                 $deckPointInfo.removeClass(activeClass);
                 $deckPointInfo.appendTo($this);
