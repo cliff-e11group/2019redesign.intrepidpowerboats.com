@@ -7190,7 +7190,6 @@ $(function () {
             //
             // Options
             //
-            // this.$optionItems = self.$el.find('.model-option .option-list__item');
             this.$optionItems = self.$el.find('.boatOption');
 
             // Hide all options on load
@@ -7956,7 +7955,9 @@ jQuery(document).ready(function ($) {
     });
 
     $('.model-option .form-wrap .option-list__item').on('click', function () {
-        $(this).siblings().removeClass('selected');
+        $(this)
+            .addClass('selected')
+            .siblings().removeClass('selected');
     });
 
     $('.custom-tab-slider').on('click', '.slick-slide', function (e) {

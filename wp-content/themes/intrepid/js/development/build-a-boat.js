@@ -263,7 +263,6 @@ $(function () {
             //
             // Options
             //
-            // this.$optionItems = self.$el.find('.model-option .option-list__item');
             this.$optionItems = self.$el.find('.boatOption');
 
             // Hide all options on load
