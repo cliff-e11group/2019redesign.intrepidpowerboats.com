@@ -72,3 +72,9 @@ function e11_hide_youtube_related_videos($data, $url, $args = array()) {
     //All Set
     return $data;
 }
+
+// Wrap iframes to make them responsive
+function wrap_embed_with_div($html, $url, $attr) {
+    return '<div class="video-container">' . $html . '</div>';
+}
+add_filter('embed_oembed_html', 'wrap_embed_with_div', 10, 3);

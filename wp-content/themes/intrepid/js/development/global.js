@@ -1,5 +1,15 @@
 jQuery(document).ready(function ($) {
 
+    var $WYSIWYGiframes = $('.content-block iframe');
+
+    if ($WYSIWYGiframes.length > 0) {
+        $WYSIWYGiframes.each(function () {
+            var $this = $(this);
+
+            $this.wrap('<div class="video-container"></div>');
+        });
+    }
+
     $(window).scroll(function () {
         doAnimateCss();
     });
