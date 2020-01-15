@@ -1,7 +1,7 @@
 <?php
 
 function e11_button_shortcode($atts = [], $content = null) {
-	return '<button class="btn btn--outline-dark btn--outline">'.$content.'</button>';
+	return '<div class="btn-shortcode">'.$content.'</div>';
 }
 add_shortcode('button', 'e11_button_shortcode');
 

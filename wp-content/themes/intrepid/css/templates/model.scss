@@ -688,6 +688,18 @@
     }
 }
 
+.btn-shortcode {
+    display: inline-block;
+    vertical-align: top;
+
+    a {
+        @extend .btn;
+        @extend .btn--outline-dark;
+        @extend .btn--outline;
+        text-decoration: none;
+    }
+}
+
 .accordion__container {
     .accordion__heading {
         margin: 20px 0;
