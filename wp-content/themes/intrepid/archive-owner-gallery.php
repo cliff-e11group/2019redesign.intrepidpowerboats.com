@@ -50,7 +50,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="sticky-btn">Upload Photo/Video<svg class="icon icon-arrow-up" aria-hidden="true" role="img">
+                <a href="#owners-portal__upload" data-fancybox="" class="sticky-btn">Upload Photo/Video<svg class="icon icon-arrow-up" aria-hidden="true" role="img">
                     <use xlink:href="#icon-arrow-up" x="0" y="0"></use>
                 </svg></a>
             </div>

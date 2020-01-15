@@ -1,6 +1,12 @@
 .owners-portal__upload{
+    background: #f8f8f8;
+
     .container{
         display: flex;
+
+        @media #{$phone} {
+            display: block;
+        }
     }
 }
 
@@ -10,11 +16,22 @@
 
 .owner-portal__form-wrap{
     width: 50%;
-    border: 1px solid #979797;
-    background: #f8f8f8;
+    border-right: 1px solid #979797;
     height: 100%;
-    border: none;
-    margin: 11px 13px;
+
+    @media #{$phone} {
+        width: auto;
+        border-right: none;
+        border-bottom: 1px solid #979797;
+    }
+
+    &:last-child {
+        border-right: none;
+
+        @media #{$phone} {
+            border-bottom: none;
+        }
+    }
 }
 
 .owners-portal__form-input{
@@ -24,7 +41,7 @@
     box-shadow: none;
     color: #1f2225;
     display: flex;
-    font-family: 'Montserrat', sans-serif;
+    font-family: $primary-family;
     font-size: .6875rem;
     margin-bottom: 10px;
 }
