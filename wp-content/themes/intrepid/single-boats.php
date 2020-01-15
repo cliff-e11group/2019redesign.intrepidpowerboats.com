@@ -367,7 +367,8 @@ $bab_default_motor = get_field('bab_default_motor');
                                     <div class="motor-list__outer">
                                         <div class="motor-list__inner">
                                             <h2 class="motor-list__title">
-                                                <span class="motor-list__text"><?php echo $motor_block['title']; ?></span>
+                                                <span class="motor-list__text <?php if($motor_block['title_image']) : ?>accessible-text<?php endif; ?>"><?php echo $motor_block['title']; ?></span>
+                                                <img src="<?php echo $motor_block['title_image']['url']; ?>" alt="<?php echo $motor_block['title_image']['alt']; ?>" class="motor-list__logo">
                                             </h2>
                                             <button class="motor-list__trigger-container"><span class="accessible-text">Toggle content.</span></button>
                                             <span class="motor-list__trigger"></span>

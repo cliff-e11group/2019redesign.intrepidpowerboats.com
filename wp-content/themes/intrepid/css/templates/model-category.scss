@@ -17,6 +17,10 @@
 
         .page-template-template-service & {
             height: calc(376/1440 * 100vw);
+
+            @media #{$phone} {
+                min-height: 200px;
+            }
         }
     }
 

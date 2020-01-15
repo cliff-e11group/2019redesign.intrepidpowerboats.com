@@ -531,10 +531,8 @@
 
     .motor-list__content {
         position: relative;
-        left: -44px;
 
         @media #{$header} {
-            left: -71px;
         }
         @media #{$phone} {
             left: 0;
@@ -570,6 +568,10 @@
         position: relative;
         pointer-events: none;
         z-index: 2;
+    }
+
+    .motor-list__logo {
+
     }
 
     .motor-list__description {
