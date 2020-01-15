@@ -493,6 +493,10 @@
             width: 31px;
             height: 31px;
         }
+
+        &:before {
+            background-size: contain;
+        }
     }
 
     .motor-list__thumbnail {
@@ -568,10 +572,21 @@
         position: relative;
         pointer-events: none;
         z-index: 2;
+
+        &.accessible-text {
+            position: absolute;
+        }
     }
 
     .motor-list__logo {
+        display: block;
+        height: 60px;
+        width: auto;
 
+        @media #{$phone} {
+            height: auto;
+            max-height: 60px;
+        }
     }
 
     .motor-list__description {
