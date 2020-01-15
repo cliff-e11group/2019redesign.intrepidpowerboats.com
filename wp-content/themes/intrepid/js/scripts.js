@@ -7095,7 +7095,8 @@ $(function () {
             // MOTORS
             //
             this.motorColorContainer = this.$el.find('.motor-color__container');
-            this.$motorImg = this.$el.find('.motor-thumbnail img');
+            this.$motorImgContainer = this.$el.find('.motor-thumbnail');
+            this.$motorImg = this.$motorImgContainer.find('img');
             this.$motorDescription = this.$el.find('.motor-option__description');
             this.$motorItems = this.$el.find('.motor-option__list-item');
             this.motorItemActiveClass = 'active';
@@ -7132,14 +7133,19 @@ $(function () {
                     .addClass(self.motorItemActiveClass)
                     .siblings().removeClass(self.motorItemActiveClass);
 
+                self.$motorImgContainer.addClass('motor-thumbnail--active');
+
                 self.$motorImg.attr('src', $activeMotorImg);
                 self.motorColorContainer.html($motorColors.clone(true));
                 self.$motorDescription.html($desc.clone());
 
-                self.updateBoatLayerMotor(self.activeMotor, {
-                    'display': 'none',
-                    'opacity': 0
-                });
+                if (self.activeMotor !== undefined) {
+                    self.updateBoatLayerMotor(self.activeMotor, {
+                        'display': 'none',
+                        'opacity': 0
+                    });
+                }
+
                 self.activeMotor = self.$el.find("#" + $activeMotorColor);
                 self.updateBoatLayerMotor(self.activeMotor, {
                     'display': 'block',
@@ -7184,30 +7190,62 @@ $(function () {
             //
             // Options
             //
-            this.$optionItems = self.$el.find('.model-option .option-list__item');
+            // this.$optionItems = self.$el.find('.model-option .option-list__item');
+            this.$optionItems = self.$el.find('.boatOption');
 
             // Hide all options on load
             this.$optionItems.each(function () {
-                var $optionLayer = $(this).attr('data-boat-layer');
-
-                if ($optionLayer !== 'undefined' || $optionLayer !== '') {
-                    var $boatOptionLayer = self.$el.find("#" + $optionLayer);
-                    self.updateBoatLayerOption($boatOptionLayer, '0');
-                }
-            });
-
-            this.$optionItems.on('click', function () {
                 var $this = $(this),
+                    userChoices = $this.closest('.option-list').data('user-choices'),
                     $optionLayer = $this.attr('data-boat-layer');
 
-                $this.toggleClass('selected');
+                userChoices = userChoices.toString();
 
-                if ($optionLayer !== 'undefined' || $optionLayer !== '') {
-                    var $boatOptionLayer = self.$el.find("#" + $optionLayer);
-                    if ($boatOptionLayer !== 'undefined') {
-                        self.updateBoatLayerOption($boatOptionLayer, $this.hasClass('selected') ? '1' : '0');
+                $this.on('click', function () {
+                    var $this = $(this),
+                        $optionDisplay = 'none',
+                        $optionOpacity = '0';
+
+                    $this.toggleClass('selected');
+
+                    if (userChoices === '1') {
+                        var $siblings = $this.siblings();
+
+                        if($siblings.length > 0) {
+                            $siblings.removeClass('selected');
+
+                            $siblings.each(function () {
+                                var $this = $(this),
+                                    $siblingLayer = $this.attr('data-boat-layer');
+
+                                if ($siblingLayer != 'undefined' || $siblingLayer != '' || $siblingLayer != null) {
+                                    var $boatOptionLayer = self.$el.find("#" + $siblingLayer);
+                                    if ($boatOptionLayer !== 'undefined') {
+
+                                        self.updateBoatLayerOption($boatOptionLayer, {
+                                            'display': 'none',
+                                            'opacity': 0
+                                        });
+                                    }
+                                }
+                            });
+                        }
                     }
-                }
+
+                    if ($optionLayer != 'undefined' || $optionLayer != '' || $optionLayer != null) {
+                        var $boatOptionLayer = self.$el.find("#" + $optionLayer);
+                        if ($boatOptionLayer !== 'undefined') {
+                            $optionDisplay = $this.hasClass('selected') ? 'block' : 'none';
+                            $optionOpacity = $this.hasClass('selected') ? 1 : 0;
+
+                            self.updateBoatLayerOption($boatOptionLayer, {
+                                'display': $optionDisplay,
+                                'opacity': $optionOpacity
+                            });
+                        }
+                    }
+                });
+
             });
 
             //
@@ -7234,8 +7272,8 @@ $(function () {
         updateBoatLayerMotor: function (layer, css) {
             layer.css(css);
         },
-        updateBoatLayerOption: function (layer, opacity) {
-            layer.css('opacity', opacity);
+        updateBoatLayerOption: function (layer, css) {
+            layer.css(css);
         },
         updateNav: function () {
             // Add class if at first step

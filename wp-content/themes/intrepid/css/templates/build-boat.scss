@@ -529,7 +529,22 @@
     padding-left: 10px;
     position: relative;
 
+    &.motor-thumbnail--active {
+        img {
+            opacity: 1;
+        }
+
+        .icon-close {
+            display: block;
+        }
+    }
+
+    img {
+        opacity: 0;
+    }
+
     .icon-close {
+        display: none;
         width: 27px;
         height: 27px;
         position: absolute;

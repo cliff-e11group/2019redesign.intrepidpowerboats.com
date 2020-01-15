@@ -243,9 +243,9 @@ $bab_default_motor = get_field('bab_default_motor');
                             <?php foreach ($boat_options as $boat_option) : ?>
                             <div>
                                 <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
-                                <ul class="option-list">
+                                <ul class="option-list" data-user-choices="<?php echo $boat_option['number_of_choices']; ?>">
                                     <?php foreach($boat_option['options'] as $option) : ?>
-                                    <li class="option-list__item">
+                                    <li class="option-list__item boatOption">
                                         <?php if ($option['thumbnail']) : ?>
                                         <span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span>
                                         <?php endif; ?>
@@ -484,15 +484,10 @@ $bab_default_motor = get_field('bab_default_motor');
                     <div class="motor-option__inner">
                         <div class="motor-option__details">
                             <div class="motor-color__container">
-                                <ul class="motor-color">
-                                    <li class="motor-color__item motor-color__item--white active" data-boat-layer="white">
-                                        <span class="motor-color__title">White</span>
-                                        <span class="motor-color__box"></span>
-                                    </li>
-                                                                    </ul>
+
                             </div>
                             <div class="motor-thumbnail">
-                                <img src="<?php echo STYLEDIR; ?>/uploads/engine.png" alt="engine">
+                                <img src="" alt="">
                                 <span class="icon-close"></span>
                             </div>
                         </div>
@@ -508,7 +503,7 @@ $bab_default_motor = get_field('bab_default_motor');
                                 $motorDescription = get_field('boat_motor_description', 'boat-motors_' . $motorDetails->term_id);
                                 $motorColors = get_field('boat_motor_colors', 'boat-motors_' . $motorDetails->term_id);
                                 ?>
-                                <li class="motor-option__list-item <?php if($motorCount === 0) : echo 'active'; endif; ?>">
+                                <li class="motor-option__list-item">
                                     <span class="motor-option__list-title"><?php echo $motorName; ?></span>
                                     <?php if($motorDescription) : ?>
                                     <div class="motor__description"><?php echo $motorDescription; ?></div>
@@ -552,9 +547,9 @@ $bab_default_motor = get_field('bab_default_motor');
                         <?php foreach ($boat_options as $boat_option) : ?>
                         <div>
                             <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
-                            <ul class="option-list">
+                            <ul class="option-list" data-user-choices="<?php echo $boat_option['number_of_choices']; ?>">
                                 <?php foreach($boat_option['options'] as $option) : ?>
-                                <li class="option-list__item">
+                                <li class="option-list__item boatOption" <?php if($option['svg_id']) : ?>data-boat-layer="<?php echo $option['svg_id']; ?>"<?php endif; ?>>
                                     <?php if ($option['thumbnail']) : ?>
                                     <span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span>
                                     <?php endif; ?>
