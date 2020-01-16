@@ -1140,6 +1140,52 @@
             "message": "Options for Build a Boat are pulled from the Options tab above.",
             "new_lines": "wpautop",
             "esc_html": 0
+        },
+        {
+            "key": "field_5e20cba086509",
+            "label": "Mobile Title Styles",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5e20cb8c86508",
+            "label": "Mobile Title Color",
+            "name": "mobile_title_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5e20cbae8650a",
+            "label": "Mobile Title Background Color",
+            "name": "mobile_title_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
         }
     ],
     "location": [
@@ -1159,5 +1205,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579113223
+    "modified": 1579207619
 }
