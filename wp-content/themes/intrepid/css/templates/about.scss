@@ -151,9 +151,9 @@
         padding: 43px 30px;
         background-color: #DBDBDB;
     }
-    @media #{$phone}{
-        margin: -20px 10px;
-    }
+    // @media #{$phone}{
+    //     margin: -20px 10px;
+    // }
 
     &.primary-block__sticky-box--dark {
         background-color: $bright-gray;
