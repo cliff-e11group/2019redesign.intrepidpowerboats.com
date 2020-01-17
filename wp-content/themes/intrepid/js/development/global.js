@@ -357,7 +357,7 @@ jQuery(document).ready(function ($) {
             } else {
                 $(this).parent().addClass('menu-open');
                 $(this).closest('.menu-item-has-children').addClass('menu-open-parent');
-                var heightfull = $(this).parent().siblings(".sub-menu").css({height: 'auto'}).height();
+                var heightfull = $(this).parent().siblings(".sub-menu").css({height: 'auto'}).outerHeight(true);
                 $(this).parent().siblings(".sub-menu").animate({"left": "0", "height": heightfull}, 350);
                 $(this).closest('.menu-item-has-children').siblings().hide();
                 $('.secondary-nav, .social-block').hide();
@@ -702,8 +702,15 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    var $adminbarHeight = 0,
+    $wpadminbar = $('#wpadminbar');
+
+    if($wpadminbar.length > 0) {
+        $adminbarHeight = $wpadminbar.outerHeight();
+    }
+
     $(".nav-block").stick_in_parent({
-        offset_top: $('.header').outerHeight()
+        offset_top: $('.header').outerHeight() + $adminbarHeight
     });
 });
 

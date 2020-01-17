@@ -8,10 +8,10 @@
     align-items: center;
     padding: 65px 0 50px;
     max-height: calc(100vh - 85px);
-    height: calc(56.25vw);
+    height: 56.25vw;
 
     @media #{$phone} {
-        //min-height: 520px;
+        height: 112.5vw;
     }
 
     &:after {
@@ -51,6 +51,11 @@
     #heroVideo iframe {
         width: 100vw;
         height: 56.25vw;
+
+        @media #{$phone} {
+            width: 200vw;
+            height: 112.5vw;
+        }
     }
 
     .container {

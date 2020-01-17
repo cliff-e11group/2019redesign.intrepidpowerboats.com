@@ -184,6 +184,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
         <div class="owners-portal__upload" id="owners-portal__upload" style="display: none;">
             <div class="container">
                 <div class="owner-portal__form-wrap">
+                    <h3>Upload Image</h3>
                     <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" class="owner-portal__form" method="post" id="owner-gallery-video" enctype="multipart/form-data">
                         <!-- action  -->
                         <input type="hidden" name="action" value="owner_gallery_upload_action">
@@ -224,6 +225,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
 
                 <!-- video form  -->
                 <div class="owner-portal__form-wrap">
+                    <h3>Upload Video</h3>
                     <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method='post' id="owner-gallery-image" class="owner-portal__form" enctype="multipart/form-data">
                         <!-- action  -->
                         <input type="hidden" name="action" value="owner_gallery_upload_video_action">
@@ -265,7 +267,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         </div>
 
                         <!-- submit  -->
-                        <input type="submit" id="owner_gallery_upload_video_submit" name="owner_gallery_upload_video_submit" class="owners-portal__form-button" value="Upload Image">
+                        <input type="submit" id="owner_gallery_upload_video_submit" name="owner_gallery_upload_video_submit" class="owners-portal__form-button" value="Upload Video">
                     </form>
                 </div>
 
