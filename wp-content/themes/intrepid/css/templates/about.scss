@@ -391,6 +391,10 @@
             .media-content__details {
                 margin-right: 20px;
                 padding-right: 30px;
+
+                @media #{$phone}{
+                    padding-right: 0;
+                }
             }
         }
     }
