@@ -7315,6 +7315,10 @@ $(function () {
 
 jQuery(document).ready(function ($) {
 
+    $(window).on('load', function() {
+        $('body').addClass('page-loaded');
+    });
+
     var $WYSIWYGiframes = $('.content-block iframe');
 
     if ($WYSIWYGiframes.length > 0) {
@@ -7686,18 +7690,56 @@ jQuery(document).ready(function ($) {
         $(this).parent().toggleClass('active');
     });
 
+    var settings = {
+        autoplay: false,
+        autoplaySpeed: 3000,
+        dots: true,
+        arrows: true,
+        draggable: false,
+        infinite: false,
+        speed: 1000,
+        pauseOnFocus: false,
+        pauseOnHover: true,
+        pauseOnArrowsHover: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+
+            },
+            {
+                breakpoint: 768,
+                settings: 'unslick'
+
+            }
+        ]
+    };
+    $('.option-slider').slick(settings);
+    // var slickClients = $('.option-slider').slick(settings);
+    // $(window).on('resize', function () {
+    //     if ($(window).width() > 768 && !slickClients.hasClass('slick-initialized')) {
+    //
+    //     }
+    // });
+
     $('#parentTab').easyResponsiveTabs({
         type: 'default', //Types: default, vertical, accordion
         width: 'auto', //auto or any width like 600px
         fit: true, // 100% fit in a container
         tabidentify: 'hor_1', // The tab groups identifier
         activate: function (event) { // Callback function if tab is switched
-            $('.option-slider')[0].slick.refresh();
+            $('.option-slider')[0].slick.refresh(settings);
             var $tab = $(this);
             $active_tab_text = $tab.text();
+            $('.nav-block__toggle, .nav-block__inner').removeClass('active');
 
             if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
-                $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
+                // $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
                 $(".nav-block__active-tab").text($active_tab_text);
             }
 
@@ -7733,42 +7775,6 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    var settings = {
-        autoplay: false,
-        autoplaySpeed: 3000,
-        dots: true,
-        arrows: true,
-        draggable: false,
-        infinite: false,
-        speed: 1000,
-        pauseOnFocus: false,
-        pauseOnHover: true,
-        pauseOnArrowsHover: true,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1100,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-
-            },
-            {
-                breakpoint: 768,
-                settings: 'unslick'
-
-            }
-        ]
-    };
-    var slickClients = $('.option-slider').slick(settings);
-    $(window).on('resize', function () {
-        if ($(window).width() > 768 && !slickClients.hasClass('slick-initialized')) {
-            $('.option-slider').slick(settings);
-        }
-    });
-
 
     $('.motor-thumbnail .icon-close').on('click', function () {
         $(this).toggleClass('active');
@@ -7776,8 +7782,14 @@ jQuery(document).ready(function ($) {
     });
 
     $('.nav-block__toggle').on('click', function () {
-        $(this).toggleClass('active');
-        $(this).next('.nav-block__inner').toggleClass('active');
+        var $this = $(this);
+        if($this.hasClass('active')) {
+            $this.removeClass('active');
+            $this.next('.nav-block__inner').removeClass('active');
+        } else {
+            $this.addClass('active');
+            $this.next('.nav-block__inner').addClass('active');
+        }
     });
 
     $('.scroll-to-top').on('click', function (e) {
