@@ -502,7 +502,6 @@ jQuery(document).ready(function ($) {
     var $sbi_images = $('.instagram-feed #sbi_images');
 
     if ($sbi_images.length > 0) {
-        var $sbi_item = $sbi_images.find('.sbi_slick_item');
 
         $sbi_images.slick({
             autoplay: true,
@@ -552,6 +551,8 @@ jQuery(document).ready(function ($) {
             ]
         });
     }
+
+    $('.sbi_photo').fancybox();
 
     var $toggleList__item = $('.toggle-list__item');
 
