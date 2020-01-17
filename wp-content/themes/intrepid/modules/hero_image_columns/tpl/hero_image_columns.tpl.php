@@ -2,7 +2,15 @@
     <div class="container">
         <?php if($data['column_1']) : ?>
             <div class="landing-hero__item landing-hero__item--active">
-                <div class="landing-hero__item-bg" style="background-image:url('<?php echo $data['column_1']['image']['url']; ?>')"></div>
+                <div class="landing-hero__item-bg" style="background-image:url('<?php echo $data['column_1']['image']['url']; ?>')">
+                    <?php if (!empty($data['column_1']['video'])) : ?>
+                        <video class="landing-hero__item-bg-video" autoplay muted loop>
+                            <source src="<?php echo $data['column_1']['video']['url']; ?>" type="video/mp4">
+                        </video>
+                    <?php endif; ?>
+                </div>
+
+
 
                 <div class="landing-hero__content landing-hero__content--fade">
                     <?php if($data['column_1']['title']) : ?>
@@ -26,7 +34,20 @@
 
         <?php if($data['column_2']) : ?>
             <div class="landing-hero__item">
-                <div class="landing-hero__item-bg" style="background-image:url('<?php echo $data['column_2']['image']['url']; ?>')"></div>
+                <div class="landing-hero__item-bg" style="background-image:url('<?php echo $data['column_2']['image']['url']; ?>')">
+
+                    <?php if ($data['column_2']['video']) : ?>
+                        <?php if (!empty($data['column_2']['video'])) : ?>
+                            <video class="landing-hero__item-bg-video" autoplay muted loop>
+                                <source src="<?php echo $data['column_2']['video']['url']; ?>" type="video/mp4">
+                            </video>
+                        <?php endif; ?>
+                    <?php endif; ?>
+
+                </div>
+
+
+
                 <div class="landing-hero__content">
                     <?php if ($data['column_2']['title']) : ?>
                         <h2 class="landing-hero__title"><?php echo $data['column_2']['title']; ?></h2>

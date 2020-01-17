@@ -45,14 +45,17 @@ $boot_stripe_accent = $bab_default_colors['boot_stripe_accent'];
 $logo_color = $bab_default_colors['logo_color'];
 $bab_motors = get_field('bab_motors');
 $bab_default_motor = get_field('bab_default_motor');
+
+$mobile_title_color = get_field('mobile_title_color');
+$mobile_title_background_color = get_field('mobile_title_background_color');
 ?>
 
 <main class="page__single page__single--boat main">
     <section class="hero hero--model <?php if (!empty($view_360_urls)) : ?>hero--overlay<?php endif; ?>">
         <div class="container">
             <div class="hero__bg" style="background-image:url(<?php echo $boat_hero_img; ?>);"></div>
-            <div class="model__title-box <?php echo $boat_hero_title_class; ?>">
-                <h1 class="model__title"><?php echo $formatted_title; ?></h1>
+            <div class="model__title-box <?php echo $boat_hero_title_class; ?>" <?php echo $mobile_title_background_color ? 'style="background-color:'. $mobile_title_background_color . '"' : ''; ?>>
+                <h1 class="model__title" <?php echo $mobile_title_color ? 'style="color:'.$mobile_title_color.'"': ''; ?>><?php echo $formatted_title; ?></h1>
                 <?php if($boat_hero_title_bg_img) : ?>
                 <img src="<?php echo $boat_hero_title_bg_img['url']; ?>" alt="<?php echo $boat_hero_title_bg_img['alt']; ?>" class="model__title--img">
                 <?php endif; ?>

@@ -513,6 +513,7 @@
         @include fsz(12px);
         color: $dark-gray;
         margin-bottom: 0;
+        font-size: 1rem;
         @media #{$phone} {
             @include fsz(14px);
             font-weight: 300;
@@ -520,7 +521,7 @@
     }
 
     .member__designation {
-        margin-bottom: 18px;
+        // margin-bottom: 18px;
         display: block;
         line-height: 1.6;
         @media #{$phone} {
@@ -531,7 +532,7 @@
     .member__phone {
         @include fsz(12px);
         font-weight: 700;
-        color: $dark-gray;
+        color: #8a0808;
         @media #{$phone} {
             @include fsz(14px);
             font-weight: 300;
