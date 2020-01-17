@@ -499,10 +499,11 @@
     padding: 0;
     overflow: hidden;
 
-    @media (max-width: 620px) {
-        min-height: 350px;
-        height: auto;
-        max-height: none;
+    @media #{$phone} {
+        height: calc((580 / 1440 * 100vw) + 50px);
+        //min-height: 350px;
+        //height: auto;
+        //max-height: none;
     }
 
     &:after {
@@ -596,8 +597,10 @@
         text-transform: uppercase;
         line-height: 1;
         margin-bottom: 0;
+
         @media #{$phone} {
             @include fsz(22px);
+            letter-spacing: 1px;
         }
 
         strong {
@@ -643,6 +646,15 @@
             background-size: contain;
             right: 25px;
             bottom: 25px;
+        }
+    }
+
+    .hero__bg {
+
+        @media #{$phone} {
+            top: 50px;
+            height: auto;
+            bottom: 0;
         }
     }
 }
