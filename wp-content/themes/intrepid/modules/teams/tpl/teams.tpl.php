@@ -32,15 +32,17 @@
                                         <?php endif; ?>
 
                                         <?php if ($team_member['title']) : ?>
-                                            <span class="member__designation"><?php echo $team_member['title']; ?></span>
+                                            <p class="member__designation"><?php echo $team_member['title']; ?></p>
                                         <?php endif; ?>
 
                                         <?php if ($team_member['phone']) : ?>
-                                            <a class="member__phone" href="tel:<?php echo $team_member['phone']; ?>"><?php echo $team_member['phone']; ?></a>
+                                        <p class="member__phone">
+                                            <a href="tel:<?php echo $team_member['phone']; ?>"><?php echo $team_member['phone']; ?></a>
+                                        </p>
                                         <?php endif; ?>
 
                                         <?php if ($team_member['email']) : ?>
-                                            <span class="member__email"><a href="mailto<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['email']; ?></a></span>
+                                            <p class="member__email"><a href="mailto<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['email']; ?></a></p>
                                         <?php endif; ?>
                                     </div>
                                 </li>
@@ -80,15 +82,17 @@
                                             <?php endif; ?>
 
                                             <?php if ($team_member['title']) : ?>
-                                                <span class="member__designation"><?php echo $team_member['title']; ?></span>
+                                                <p class="member__designation"><?php echo $team_member['title']; ?></p>
                                             <?php endif; ?>
 
                                             <?php if ($team_member['phone_number']) : ?>
-                                                <a class="member__phone" href="tel:<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['phone_number']; ?></a>
+                                            <p class="member__phone">
+                                                <a href="tel:<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['phone_number']; ?></a>
+                                            </p>
                                             <?php endif; ?>
 
                                             <?php if ($team_member['email']) : ?>
-                                                <span class="member__email"><a href="mailto<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['email']; ?></a></span>
+                                                <p class="member__email"><a href="mailto<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['email']; ?></a></p>
                                             <?php endif; ?>
                                         </div>
                                     </li>

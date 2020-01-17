@@ -74,15 +74,17 @@
                                 <?php endif; ?>
 
                                 <?php if ($agent['title']) : ?>
-                                    <span class="member__designation"><?php echo $agent['title']; ?></span>
+                                    <p class="member__designation"><?php echo $agent['title']; ?></p>
                                 <?php endif; ?>
 
                                 <?php if ($agent['phone_number']) : ?>
-                                    <a class="member__phone" href="tel:<?php echo $agent['phone_number']; ?>"><?php echo $agent['phone_number']; ?></a>
+                                <p class="member__phone">
+                                    <a href="tel:<?php echo $agent['phone_number']; ?>"><?php echo $agent['phone_number']; ?></a>
+                                </p>
                                 <?php endif; ?>
 
                                 <?php if ($agent['email']) : ?>
-                                    <span class="member__email"><a href="mailto:<?php echo $agent['email']; ?>"><?php echo $agent['email']; ?></a></span>
+                                    <p class="member__email"><a href="mailto:<?php echo $agent['email']; ?>"><?php echo $agent['email']; ?></a></p>
                                 <?php endif; ?>
                             </div>
                         </li>

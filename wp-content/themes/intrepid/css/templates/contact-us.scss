@@ -351,6 +351,10 @@
 
 .company-info__map {
     margin-bottom: 37px;
+
+    img {
+        margin: 0 auto;
+    }
 }
 
 .company-info__title {
@@ -515,17 +519,17 @@
         margin-bottom: 0;
         font-size: 1rem;
         @media #{$phone} {
-            @include fsz(14px);
+            @include fsz(16px);
             font-weight: 300;
         }
     }
 
     .member__designation {
-        // margin-bottom: 18px;
-        display: block;
-        line-height: 1.6;
+        margin: 0;
+        @include fsz(12px);
+
         @media #{$phone} {
-            margin-bottom: 10px;
+            @include fsz(14px);
         }
     }
 
@@ -533,6 +537,8 @@
         @include fsz(12px);
         font-weight: 700;
         color: #8a0808;
+        margin: 0;
+
         @media #{$phone} {
             @include fsz(14px);
             font-weight: 300;
@@ -541,7 +547,8 @@
 
     .member__email {
         @include fsz(12px);
-        display: block;
+        margin: 0;
+
         @media #{$phone} {
             @include fsz(14px);
             font-weight: 300;
