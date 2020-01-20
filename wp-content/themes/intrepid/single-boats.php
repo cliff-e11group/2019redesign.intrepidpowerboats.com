@@ -589,32 +589,9 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             </ul>
                         </div>
                         <div class="form-holder">
-                            <form class="form build-a-boat__form" action="#" method="post">
-                                <h3 class="form__title">Your information</h3>
-                                <ul class="form-fields">
-                                    <li class="form__field">
-                                        <label for="build-a-boat-name" class="accessible-text">Name</label>
-                                        <input type="text" name="build-a-boat-name" id="build-a-boat-name" placeholder="Name *">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="build-a-boat-email" class="accessible-text">Name</label>
-                                        <input type="email" name="build-a-boat-email" id="build-a-boat-email" placeholder="Email *">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="build-a-boat-phone" class="accessible-text">Name</label>
-                                        <input type="text" name="build-a-boat-phone" id="build-a-boat-phone" placeholder="Phone (XXX-XXX-XXXX)">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="build-a-boat-message" class="accessible-text">Name</label>
-                                        <textarea id="build-a-boat-message" name="build-a-boat-message" placeholder="Want something even more custom? Let us know here."></textarea>
-                                    </li>
-                                    <li class="form__field">
-                                        <input class="button" type="submit" value="Submit">
-                                        <span class="form__note">* Required Fields</span>
-                                    </li>
-                                </ul>
-                            </form>
-                            <span class="terms-condition">By hitting “SUBMIT” you agree to our <a href="#">TERMS OF USE.</a></span>
+                            <h3 class="form__title">Your information</h3>
+                            <?php echo do_shortcode('[gravityform id="7" title="false" description="false" ajax="true"]'); ?>
+                            <p class="terms-condition">By hitting “SUBMIT” you agree to our <a href="<?php echo site_url(); ?>terms_of_use">TERMS OF USE.</a></p>
                         </div>
                     </div>
                 </div>

@@ -82,6 +82,7 @@ $(function () {
                 self.activeItem--;
                 self.activateItem(self.activeItem);
                 self.updateNav();
+                self.updateForm();
             });
 
             this.$next.on('click', function () {
@@ -89,6 +90,7 @@ $(function () {
                 self.activeItem++;
                 self.activateItem(self.activeItem);
                 self.updateNav();
+                self.updateForm();
             });
 
             //
@@ -356,6 +358,7 @@ $(function () {
             //
             // Make It Yours
             //
+            this.$form = self.$el.find('#gform_7');
             this.$contactItems = self.$el.find('.contact-block .option-list__item');
             this.$contactForm = self.$el.find('.build-a-boat__form');
 
@@ -366,10 +369,18 @@ $(function () {
                 $this.siblings().removeClass('selected');
             });
 
-            this.$contactForm.on('submit', function () {
-                $('body').removeClass(self.activeBABClass);
-            });
+            this.$formHullData = self.$el.find('[data-boat-layer="hull-color"] .area-list__color-box');
+            this.$formHullInput = self.$el.find('.gfield.hull-color input');
+            console.log(this.$formHullData);
+            console.log(this.$formHullInput);
 
+            // this.$contactForm.on('submit', function () {
+            //     $('body').removeClass(self.activeBABClass);
+            // });
+
+        },
+        updateForm: function () {
+            this.$formHullInput.val(this.$formHullData.css('background-color'));
         },
         updateBoatLayerColor: function (layer, css) {
             layer.css(css);

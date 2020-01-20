@@ -272,3 +272,8 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
         display: none !important;
     }
 }
+
+.gfield_visibility_hidden,
+.gform_hidden {
+    @extend .accessible-text;
+}
