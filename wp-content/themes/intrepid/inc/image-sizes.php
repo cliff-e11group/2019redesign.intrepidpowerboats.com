@@ -4,11 +4,11 @@ function e11_image_size_setup(){
 
 	// Add custom image sizes.
 	add_image_size('hero', 1440, 9999, false);
-	add_image_size('featured-thumb', 800, 99999, false);
+	add_image_size('featured-thumb', 280, 99999, false);
 	add_image_size('image-gallery', 715, 730, true);
 	add_image_size('boat-featured', 546, 228, true);
 	add_image_size('boat-options', 560, 306, true);
-	add_image_size('boat-archive', 275, 115, true);
+	add_image_size('boat-archive', 840, 504, true);
 	add_image_size('boat-cat-pullin', 985, 415, true);
 	add_image_size('event-archive', 580, 410, true);
 	add_image_size('view-gallery', 1440, 580, true);
