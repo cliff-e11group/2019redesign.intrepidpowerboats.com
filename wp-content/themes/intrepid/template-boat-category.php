@@ -38,76 +38,78 @@ $description = get_field( 'description' );
         $boat_cat_content = get_field('boat_other_content_section');
         ?>
         <?php $count = 0; ?>
-        <?php foreach($boat_cat_content as $content) : ?>
-            <?php
-            if($content['include_boats']) :
-                $count++;
-            endif; ?>
+        <?php if (!empty($boat_cat_content)) : ?>
+            <?php foreach($boat_cat_content as $content) : ?>
+                <?php
+                if($content['include_boats']) :
+                    $count++;
+                endif; ?>
 
 
-            <section class="content-block">
-                <div class="container">
-                    <?php if ($content['title']) : ?>
-                        <h2 class="content-block__title"><?php echo $content['title']; ?>
-                        </h2>
-                    <?php endif; ?>
-
-                    <?php if ($content['content']) : ?>
-                        <div class="sub-container">
-                            <?php echo $content['content']; ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if($content['include_boats'] && $count <= 1) : ?>
-
-                        <?php
-                        $boat_args = array(
-                            'post_type' => 'boats',
-                            'tax_query' => array(
-                                    array(
-                                        'taxonomy' => 'boat-category',
-                                        'field' => 'id',
-                                        'terms' => $cat_id,
-                                    ),
-                                ),
-                            );
-
-                            $boat_cat_query = new WP_Query($boat_args);
-                        ?>
-
-                        <?php if($boat_cat_query->have_posts()): ?>
-                            <?php while ($boat_cat_query->have_posts()): $boat_cat_query->the_post(); ?>
-
-                            <?php
-                                $title = get_the_title();
-                                $brochure = get_field('quick_statistics_brochure');
-                            ?>
-
-                            <!-- boat_category_description -->
-                            <div class="column-model">
-                                <div class="column-model__item">
-                                    <figure class="column-model__thumbnail">
-                                        <?php echo get_the_post_thumbnail($post, 'boat-cat-pullin'); ?>
-                                    </figure>
-                                    <div class="column-model__title-wrap">
-                                        <h2 class="column-model__title"><?php echo $title; ?></h2>
-                                        <span class="column-model__trigger"></span>
-                                    </div>
-                                    <div class="column-model__content">
-                                        <?php echo get_field('boat_category_description'); ?>
-                                        <?php if ($brochure) : ?>
-                                            <a href="<?php echo $brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endwhile; ?>
+                <section class="content-block">
+                    <div class="container">
+                        <?php if ($content['title']) : ?>
+                            <h2 class="content-block__title"><?php echo $content['title']; ?>
+                            </h2>
                         <?php endif; ?>
 
-                    <?php endif; ?>
-                </div>
-            </section>
-        <?php endforeach; ?>
+                        <?php if ($content['content']) : ?>
+                            <div class="sub-container">
+                                <?php echo $content['content']; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if($content['include_boats'] && $count <= 1) : ?>
+
+                            <?php
+                            $boat_args = array(
+                                'post_type' => 'boats',
+                                'tax_query' => array(
+                                        array(
+                                            'taxonomy' => 'boat-category',
+                                            'field' => 'id',
+                                            'terms' => $cat_id,
+                                        ),
+                                    ),
+                                );
+
+                                $boat_cat_query = new WP_Query($boat_args);
+                            ?>
+
+                            <?php if($boat_cat_query->have_posts()): ?>
+                                <?php while ($boat_cat_query->have_posts()): $boat_cat_query->the_post(); ?>
+
+                                <?php
+                                    $title = get_the_title();
+                                    $brochure = get_field('quick_statistics_brochure');
+                                ?>
+
+                                <!-- boat_category_description -->
+                                <div class="column-model">
+                                    <div class="column-model__item">
+                                        <figure class="column-model__thumbnail">
+                                            <?php echo get_the_post_thumbnail($post, 'boat-cat-pullin'); ?>
+                                        </figure>
+                                        <div class="column-model__title-wrap">
+                                            <h2 class="column-model__title"><?php echo $title; ?></h2>
+                                            <span class="column-model__trigger"></span>
+                                        </div>
+                                        <div class="column-model__content">
+                                            <?php echo get_field('boat_category_description'); ?>
+                                            <?php if ($brochure) : ?>
+                                                <a href="<?php echo $brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+
+                        <?php endif; ?>
+                    </div>
+                </section>
+            <?php endforeach; ?>
+        <?php endif; ?>
 
     </div>
 
