@@ -275,5 +275,5 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
 
 .gfield_visibility_hidden,
 .gform_hidden {
-    @extend .accessible-text;
+    display: none;
 }

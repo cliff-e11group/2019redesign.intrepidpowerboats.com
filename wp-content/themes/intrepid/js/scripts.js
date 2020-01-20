@@ -7299,10 +7299,9 @@ $(function () {
                 $this.siblings().removeClass('selected');
             });
 
-            this.$formHullData = self.$el.find('[data-boat-layer="hull-color"] .area-list__color-box');
-            this.$formHullInput = self.$el.find('.gfield.hull-color input');
-            console.log(this.$formHullData);
-            console.log(this.$formHullInput);
+            // Form inputs
+            this.$formMotorInput = self.$el.find('.gfield.input-motor input');
+            this.$formOptionsInput = self.$el.find('.gfield.input-options textarea');
 
             // this.$contactForm.on('submit', function () {
             //     $('body').removeClass(self.activeBABClass);
@@ -7310,7 +7309,26 @@ $(function () {
 
         },
         updateForm: function () {
-            this.$formHullInput.val(this.$formHullData.css('background-color'));
+            // Form data - Motor
+            this.$formMotor = this.$el.find('.motor-option__list-item.active');
+            if(this.$formMotor.length > 0) {
+                this.$formMotorData = this.$formMotor.find('.motor-option__list-title').text();
+                this.$formMotorInput.val(this.$formMotorData);
+            }
+
+            // Form data - Options
+            this.$formOptions = this.$el.find('.model-option.model-option--alt .option-list__item.boatOption.selected');
+            if(this.$formOptions.length > 0) {
+                this.$formOptionsData = [];
+                var that = this;
+                this.$formOptions.each(function () {
+                    that.$formOptionsData.push($(this).find('.option-list__text').text());
+                });
+
+                that.$formOptionsData = that.$formOptionsData.join('\n');
+                console.log(that.$formOptionsData);
+                this.$formOptionsInput.val(that.$formOptionsData);
+            }
         },
         updateBoatLayerColor: function (layer, css) {
             layer.css(css);
