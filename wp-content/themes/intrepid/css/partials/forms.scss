@@ -139,6 +139,11 @@ body main .gform_wrapper {
 
     .gfield {
         margin-bottom: 10px;
+
+        @media #{$phone} {
+            width: 100%;
+            display: block;
+        }
     }
 
     ul li.gfield {
@@ -259,3 +264,11 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
     }
 }
 
+
+
+@media screen and (max-width: 767px){
+    .toggle-content li:after {
+        content: "" !important;
+        display: none !important;
+    }
+}

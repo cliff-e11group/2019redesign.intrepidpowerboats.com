@@ -197,18 +197,6 @@
         }
     }
 
-    .phone-list__item {
-        margin-bottom: 12px;
-
-        @media #{$phone} {
-            padding: 18px 16px;
-            background-color: $bright-gray;
-            margin-bottom: 10px;
-            position: relative;
-            text-align: center;
-            color: $white;
-        }
-    }
 
     li {
         text-transform: uppercase;
@@ -257,6 +245,20 @@
                 height: 100%;
             }
         }
+    }
+}
+
+.phone-list__item {
+    margin-bottom: 12px;
+    display: block;
+
+    @media #{$phone} {
+        padding: 18px 16px;
+        background-color: $bright-gray;
+        margin-bottom: 10px;
+        position: relative;
+        text-align: center;
+        color: $white;
     }
 }
 
