@@ -97,6 +97,7 @@ $(function () {
             this.$colorPicker = this.$el.find('#color-picker');
             this.$colorItems = this.$el.find('.area-list__item');
             this.$colorPalette = this.$el.find('.color-palette');
+            this.$colorPaletteClear = this.$el.find('.color-block__picker--clear');
             this.$reflection = this.$el.find('#reflection');
             this.$recentColors = this.$el.find('#recent-colors');
             this.colorItemActiveClass = 'active';
@@ -118,7 +119,7 @@ $(function () {
                         $boatColorLayer = $this.data('boat-layer');
 
                     $colorBox.css('background', $defaultColor);
-                    self.updateBoatLayerColor($("#" + $boatColorLayer).find('path, polygon'), $defaultColor);
+                    self.updateBoatLayerColor($("#" + $boatColorLayer).find('path, polygon'), {'fill': $defaultColor});
                 }
 
             });
@@ -176,8 +177,16 @@ $(function () {
 
                     // Update active color item with chosen color
                     self.$activeColorItem.find('.area-list__color-box').css('background', color);
-                    self.updateBoatLayerColor(self.$boatLayer, color);
+                    self.updateBoatLayerColor(self.$boatLayer, {'fill': color});
                 });
+
+            this.$colorPaletteClear.on('click', function (e) {
+                e.preventDefault();
+                self.$activeColorItem.find('.area-list__color-box').css({
+                    'background': ''
+                });
+                self.updateBoatLayerColor(self.$boatLayer, {'fill': ''});
+            });
 
             // Listen for click of recent colors
             $(document).on('click', '.color-list__item', function () {
@@ -187,7 +196,7 @@ $(function () {
                 self.$activeColorItem.find('.area-list__color-box').css('background', recentlyUsedColor);
                 self.$colorPicker.wheelColorPicker('setValue', recentlyUsedColor);
 
-                self.updateBoatLayerColor(self.$boatLayer, recentlyUsedColor);
+                self.updateBoatLayerColor(self.$boatLayer, {'fill': recentlyUsedColor});
             });
 
             //
@@ -364,8 +373,8 @@ $(function () {
             });
 
         },
-        updateBoatLayerColor: function (layer, color) {
-            layer.css('fill', color);
+        updateBoatLayerColor: function (layer, css) {
+            layer.css(css);
         },
         updateBoatLayerMotor: function (layer, css) {
             layer.css(css);

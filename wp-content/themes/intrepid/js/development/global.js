@@ -512,60 +512,60 @@ jQuery(document).ready(function ($) {
     //     slidesToScroll: 1
     // });
 
-    var $sbi_images = $('.instagram-feed #sbi_images');
-
-    if ($sbi_images.length > 0) {
-
-        $sbi_images.slick({
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            arrows: true,
-            draggable: false,
-            speed: 1000,
-            pauseOnFocus: false,
-            pauseOnHover: false,
-            pauseOnArrowsHover: false,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 1000,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                    }
-
-                },
-                {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    }
-
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-
-                },
-                {
-                    breakpoint: 400,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-
-                }
-            ]
-        });
-    }
-
-    $('.sbi_photo').fancybox();
+    // var $sbi_images = $('.instagram-feed #sbi_images');
+    //
+    // if ($sbi_images.length > 0) {
+    //
+    //     $sbi_images.slick({
+    //         autoplay: true,
+    //         autoplaySpeed: 3000,
+    //         dots: false,
+    //         arrows: true,
+    //         draggable: false,
+    //         speed: 1000,
+    //         pauseOnFocus: false,
+    //         pauseOnHover: false,
+    //         pauseOnArrowsHover: false,
+    //         slidesToShow: 5,
+    //         slidesToScroll: 1,
+    //         responsive: [
+    //             {
+    //                 breakpoint: 1000,
+    //                 settings: {
+    //                     slidesToShow: 4,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             },
+    //             {
+    //                 breakpoint: 800,
+    //                 settings: {
+    //                     slidesToShow: 3,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             },
+    //             {
+    //                 breakpoint: 600,
+    //                 settings: {
+    //                     slidesToShow: 2,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             },
+    //             {
+    //                 breakpoint: 400,
+    //                 settings: {
+    //                     slidesToShow: 1,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             }
+    //         ]
+    //     });
+    // }
+    //
+    // $('.sbi_photo').fancybox();
 
     var $toggleList__item = $('.toggle-list__item');
 

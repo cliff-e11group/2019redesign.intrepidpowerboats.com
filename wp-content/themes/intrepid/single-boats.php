@@ -440,6 +440,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                 <div class="container">
                     <div class="color-block__inner">
                         <div class="color-block__picker">
+                            <button class="color-block__picker--clear"></button>
                             <label for="color-picker" class="accessible-text">Choose a color</label>
                             <input id="color-picker" type="text" value="#ff8800">
                         </div>

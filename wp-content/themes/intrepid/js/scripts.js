@@ -7024,6 +7024,7 @@ $(function () {
             this.$colorPicker = this.$el.find('#color-picker');
             this.$colorItems = this.$el.find('.area-list__item');
             this.$colorPalette = this.$el.find('.color-palette');
+            this.$colorPaletteClear = this.$el.find('.color-block__picker--clear');
             this.$reflection = this.$el.find('#reflection');
             this.$recentColors = this.$el.find('#recent-colors');
             this.colorItemActiveClass = 'active';
@@ -7045,7 +7046,7 @@ $(function () {
                         $boatColorLayer = $this.data('boat-layer');
 
                     $colorBox.css('background', $defaultColor);
-                    self.updateBoatLayerColor($("#" + $boatColorLayer).find('path, polygon'), $defaultColor);
+                    self.updateBoatLayerColor($("#" + $boatColorLayer).find('path, polygon'), {'fill': $defaultColor});
                 }
 
             });
@@ -7103,8 +7104,16 @@ $(function () {
 
                     // Update active color item with chosen color
                     self.$activeColorItem.find('.area-list__color-box').css('background', color);
-                    self.updateBoatLayerColor(self.$boatLayer, color);
+                    self.updateBoatLayerColor(self.$boatLayer, {'fill': color});
                 });
+
+            this.$colorPaletteClear.on('click', function (e) {
+                e.preventDefault();
+                self.$activeColorItem.find('.area-list__color-box').css({
+                    'background': ''
+                });
+                self.updateBoatLayerColor(self.$boatLayer, {'fill': ''});
+            });
 
             // Listen for click of recent colors
             $(document).on('click', '.color-list__item', function () {
@@ -7114,7 +7123,7 @@ $(function () {
                 self.$activeColorItem.find('.area-list__color-box').css('background', recentlyUsedColor);
                 self.$colorPicker.wheelColorPicker('setValue', recentlyUsedColor);
 
-                self.updateBoatLayerColor(self.$boatLayer, recentlyUsedColor);
+                self.updateBoatLayerColor(self.$boatLayer, {'fill': recentlyUsedColor});
             });
 
             //
@@ -7291,8 +7300,8 @@ $(function () {
             });
 
         },
-        updateBoatLayerColor: function (layer, color) {
-            layer.css('fill', color);
+        updateBoatLayerColor: function (layer, css) {
+            layer.css(css);
         },
         updateBoatLayerMotor: function (layer, css) {
             layer.css(css);
@@ -7853,60 +7862,60 @@ jQuery(document).ready(function ($) {
     //     slidesToScroll: 1
     // });
 
-    var $sbi_images = $('.instagram-feed #sbi_images');
-
-    if ($sbi_images.length > 0) {
-
-        $sbi_images.slick({
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            arrows: true,
-            draggable: false,
-            speed: 1000,
-            pauseOnFocus: false,
-            pauseOnHover: false,
-            pauseOnArrowsHover: false,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            responsive: [
-                {
-                    breakpoint: 1000,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                    }
-
-                },
-                {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                    }
-
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-
-                },
-                {
-                    breakpoint: 400,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-
-                }
-            ]
-        });
-    }
-
-    $('.sbi_photo').fancybox();
+    // var $sbi_images = $('.instagram-feed #sbi_images');
+    //
+    // if ($sbi_images.length > 0) {
+    //
+    //     $sbi_images.slick({
+    //         autoplay: true,
+    //         autoplaySpeed: 3000,
+    //         dots: false,
+    //         arrows: true,
+    //         draggable: false,
+    //         speed: 1000,
+    //         pauseOnFocus: false,
+    //         pauseOnHover: false,
+    //         pauseOnArrowsHover: false,
+    //         slidesToShow: 5,
+    //         slidesToScroll: 1,
+    //         responsive: [
+    //             {
+    //                 breakpoint: 1000,
+    //                 settings: {
+    //                     slidesToShow: 4,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             },
+    //             {
+    //                 breakpoint: 800,
+    //                 settings: {
+    //                     slidesToShow: 3,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             },
+    //             {
+    //                 breakpoint: 600,
+    //                 settings: {
+    //                     slidesToShow: 2,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             },
+    //             {
+    //                 breakpoint: 400,
+    //                 settings: {
+    //                     slidesToShow: 1,
+    //                     slidesToScroll: 1,
+    //                 }
+    //
+    //             }
+    //         ]
+    //     });
+    // }
+    //
+    // $('.sbi_photo').fancybox();
 
     var $toggleList__item = $('.toggle-list__item');
 
