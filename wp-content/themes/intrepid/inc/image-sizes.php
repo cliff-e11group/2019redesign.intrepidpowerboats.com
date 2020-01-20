@@ -18,7 +18,7 @@ function e11_image_size_setup(){
 	add_image_size('gallery-two-third', 778, 9999, false);
 	add_image_size('team-member', 160, 180, false);
 	add_image_size('map', 380, 185, false);
-	add_image_size('nav-image', 380, 185, false);
+	add_image_size('nav-image', 520, 560, false);
 
 }
 add_action( 'after_setup_theme', 'e11_image_size_setup' );

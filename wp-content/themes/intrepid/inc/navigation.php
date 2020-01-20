@@ -26,7 +26,7 @@ function e11_nav_images( $atts, $item, $args ) {
 
 	if( $image ) {
 
-		$atts['data-src'] = $image['url'];
+		$atts['data-src'] = $image['sizes']['nav-image'];
 
 	}
 
