@@ -119,6 +119,37 @@
                 "id": ""
             },
             "return_format": "array"
+        },
+        {
+            "key": "field_5e25b038e080c",
+            "label": "Single Boat",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5e25b044e080d",
+            "label": "Footer Link",
+            "name": "boat_single_footer_link",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -138,5 +169,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576869332
+    "modified": 1579528279
 }

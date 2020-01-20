@@ -121,21 +121,6 @@
             "delay": 0
         },
         {
-            "key": "field_5df91f26741e3",
-            "label": "Footer Link",
-            "name": "boat_footer_link",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array"
-        },
-        {
             "key": "field_5df7af347631a",
             "label": "Quick Statistics",
             "name": "quick_statistics",
@@ -1205,5 +1190,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579207619
+    "modified": 1579528242
 }
