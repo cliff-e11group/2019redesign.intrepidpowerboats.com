@@ -97,6 +97,20 @@ $(function () {
                 'opacity': 0.2
             });
 
+            this.$colorItems.each(function () {
+                var $this = $(this),
+                    $defaultColor = $this.data('default-color');
+
+                if ($defaultColor) {
+                    var $colorBox = $this.find('.area-list__color-box'),
+                        $boatColorLayer = $this.data('boat-layer');
+
+                    $colorBox.css('background', $defaultColor);
+                    self.updateBoatLayerColor($("#" + $boatColorLayer).find('path, polygon'), $defaultColor);
+                }
+
+            });
+
             // Toggle between active color item
             this.$colorItems.on('click', function () {
                 var $this = $(this),
@@ -283,7 +297,7 @@ $(function () {
                     if (userChoices === '1') {
                         var $siblings = $this.siblings();
 
-                        if($siblings.length > 0) {
+                        if ($siblings.length > 0) {
                             $siblings.removeClass('selected');
 
                             $siblings.each(function () {

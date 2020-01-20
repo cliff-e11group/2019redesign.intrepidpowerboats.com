@@ -537,11 +537,17 @@
         align-items: flex-end;
         padding: 25px 15px;
         z-index: 3;
+        opacity: 0;
+        transition: 0.4s ease;
 
         @media #{$phone} {
             min-height: 0;
             width: 100%;
             padding: 13px 10px;
+        }
+
+        .page-loaded & {
+            opacity: 1;
         }
 
         &:after {
@@ -620,15 +626,9 @@
         display: block;
         width: 100%;
         height: auto;
-        opacity: 0;
-        transition: 0.4s ease;
 
         @media #{$phone} {
             display: none;
-        }
-
-        .page-loaded & {
-            opacity: 1;
         }
     }
 

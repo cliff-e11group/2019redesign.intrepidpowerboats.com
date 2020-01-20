@@ -445,20 +445,23 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         </div>
                         <div class="color-block__option">
                             <span class="color-block__title">Select an area to color</span>
+                            <?php
+                            $bab_default_colors = get_field('bab_default_colors');
+                            ?>
                             <ul class="area-list">
-                                <li class="area-list__item active" data-boat-layer="hull-color">
+                                <li class="area-list__item active" data-boat-layer="hull-color" <?php if($bab_default_colors['hull_color']) : ?>data-default-color="<?php echo $bab_default_colors['hull_color']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Hull Color</span>
                                 </li>
-                                <li class="area-list__item" data-boat-layer="boot-stripe">
+                                <li class="area-list__item" data-boat-layer="boot-stripe" <?php if($bab_default_colors['boot_stripe']) : ?>data-default-color="<?php echo $bab_default_colors['boot_stripe']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Stripe</span>
                                 </li>
-                                <li class="area-list__item" data-boat-layer="logo-color">
+                                <li class="area-list__item" data-boat-layer="logo-color" <?php if($bab_default_colors['logo_color']) : ?>data-default-color="<?php echo $bab_default_colors['logo_color']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Logo</span>
                                 </li>
-                                <li class="area-list__item" data-boat-layer="boot-stripe-accent">
+                                <li class="area-list__item" data-boat-layer="boot-stripe-accent" <?php if($bab_default_colors['boot_stripe_accent']) : ?>data-default-color="<?php echo $bab_default_colors['boot_stripe_accent']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Accent</span>
                                 </li>
