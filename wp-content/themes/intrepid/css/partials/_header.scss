@@ -223,15 +223,43 @@
 
         &.menu-item-has-children {
 
+            &.menu-open-parent {
+                @media #{$header} {
+
+                    .icon-arrow-up {
+
+                        &.icon-nav-right {
+                            opacity: 0;
+                        }
+
+                        &.icon-nav-left {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
             .icon-arrow-up {
                 display: none;
-                margin-right: 12px;
+                margin: 0 12px 4px 0;
                 width: 12px;
                 height: 12px;
                 transform: rotate(-90deg);
+                transition: 0.2s ease;
 
                 @media #{$header} {
                     display: inline-block;
+                }
+
+                &.icon-nav-left {
+                    @media #{$header} {
+                        opacity: 0;
+                    }
+                }
+
+                &.icon-nav-right {
+                    transform: rotate(90deg);
+                    margin: 0 0 4px 12px;
                 }
             }
         }

@@ -348,8 +348,9 @@ jQuery(document).ready(function ($) {
 
     if ($(".menu-item-has-children ").length > 0) {
         $('.primary-nav li.menu-item-has-children > a')
-            .prepend('<svg class="icon icon-arrow-up" aria-hidden="true" role="img"><use xlink:href="#icon-arrow-up" x="0" y="0"></use></svg>')
-            .append('<button class="nav__parent-arrow--mobile" data-class="mobile-nav-dropdown-toggle"></button>');
+            .prepend('<svg class="icon icon-nav-left icon-arrow-up" aria-hidden="true" role="img"><use xlink:href="#icon-arrow-up" x="0" y="0"></use></svg>')
+            .append('<button class="nav__parent-arrow--mobile" data-class="mobile-nav-dropdown-toggle"></button>')
+            .append('<svg class="icon icon-nav-right icon-arrow-up" aria-hidden="true" role="img"><use xlink:href="#icon-arrow-up" x="0" y="0"></use></svg>');
         $(".nav__parent-arrow--mobile").click(function (e) {
             e.preventDefault();
             if ($(this).parent().hasClass("menu-open")) {
