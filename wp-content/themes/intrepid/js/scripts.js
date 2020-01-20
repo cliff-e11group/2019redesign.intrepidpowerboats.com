@@ -7751,7 +7751,6 @@ jQuery(document).ready(function ($) {
             {
                 breakpoint: 768,
                 settings: 'unslick'
-
             }
         ]
     };
@@ -7769,15 +7768,18 @@ jQuery(document).ready(function ($) {
         fit: true, // 100% fit in a container
         tabidentify: 'hor_1', // The tab groups identifier
         activate: function (event) { // Callback function if tab is switched
-            $('.option-slider')[0].slick.refresh(settings);
             var $tab = $(this);
-            $active_tab_text = $tab.text();
+            var $active_tab_text = $tab.text();
             $('.nav-block__toggle, .nav-block__inner').removeClass('active');
 
             if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
                 // $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
                 $(".nav-block__active-tab").text($active_tab_text);
             }
+
+            // setTimeout(function () {
+                // $('.option-slider')[0].slick.refresh();
+            // }, 200);
 
         }
     });
