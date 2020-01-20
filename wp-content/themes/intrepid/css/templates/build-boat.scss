@@ -250,11 +250,28 @@
         }
     }
 
+    .color-shader__title,
+    .color-picker__title {
+        display: block;
+        text-align: center;
+        margin: 0 0 8px;
+        text-transform: uppercase;
+        @include fsz(9px);
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: $dark-gray;
+        pointer-events: none;
+    }
+
+    .color-shader__title {
+        margin-top: 24px;
+    }
+
     .color-block__picker--clear {
         display: block;
         position: absolute;
         left: -20px;
-        top: 0;
+        top: 20px;
         width: 27px;
         height: 30px;
         background: url(images/no-color-large-2.svg) no-repeat 0 0;

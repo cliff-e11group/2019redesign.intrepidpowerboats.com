@@ -110,6 +110,21 @@ $(function () {
                 'opacity': 0.2
             });
 
+            // Activate color picker
+            var colorPicker = new iro.ColorPicker('#color-picker', {
+                width: 180,
+                color: '#ffffff'
+            });
+
+            $('<h3 class="color-shader__title">Shader Selection</h3>').insertBefore('.iro__slider');
+
+            function onColorChange(color, changes) {
+                self.$activeColorItem.find('.area-list__color-box').css('background', color.hexString);
+                self.updateBoatLayerColor(self.$boatLayer, {'fill': color.hexString});
+            }
+
+            colorPicker.on('color:change', onColorChange);
+
             this.$colorItems.each(function () {
                 var $this = $(this),
                     $defaultColor = $this.data('default-color');
@@ -128,6 +143,8 @@ $(function () {
             this.$colorItems.on('click', function () {
                 var $this = $(this),
                     recentColor = self.$activeColorItem.find('.area-list__color-box').css('background-color');
+
+                colorPicker.color.rgbString = recentColor;
 
                 // If color was chosen, add it to recently used colors
                 if (recentColor !== 'undefined' && recentColor !== 'rgba(0, 0, 0, 0)') {
@@ -162,30 +179,12 @@ $(function () {
                 self.$boatLayer = $("#" + self.boatLayer).find('path, polygon');
             });
 
-            // Activate color picker
-            this.$colorPicker
-                .wheelColorPicker({
-                    'format': 'css',
-                    'layout': 'block',
-                    'sliders': 'w',
-                    'autoresize': false
-                })
-                .on('colorchange', function (e) {
-                    var $this = $(this),
-                        color = $this.wheelColorPicker('value'),
-                        alpha = $this.wheelColorPicker('color').a;
-
-                    // Update active color item with chosen color
-                    self.$activeColorItem.find('.area-list__color-box').css('background', color);
-                    self.updateBoatLayerColor(self.$boatLayer, {'fill': color});
-                });
-
             this.$colorPaletteClear.on('click', function (e) {
                 e.preventDefault();
                 self.$activeColorItem.find('.area-list__color-box').css({
                     'background': ''
                 });
-                self.updateBoatLayerColor(self.$boatLayer, {'fill': ''});
+                self.updateBoatLayerColor(self.$boatLayer, {'fill': 'none'});
             });
 
             // Listen for click of recent colors
@@ -194,8 +193,7 @@ $(function () {
 
                 // Update active color item with chosen color
                 self.$activeColorItem.find('.area-list__color-box').css('background', recentlyUsedColor);
-                self.$colorPicker.wheelColorPicker('setValue', recentlyUsedColor);
-
+                colorPicker.color.rgbString = recentlyUsedColor;
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': recentlyUsedColor});
             });
 
