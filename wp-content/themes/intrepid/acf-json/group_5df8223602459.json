@@ -81,41 +81,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_5df822550b183",
-            "label": "Tagline",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5df822630b184",
-            "label": "Tagline Section",
-            "name": "boat_cat_tagline",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_5e25cf087778e",
             "label": "Page Details",
             "name": "",
@@ -267,13 +232,6 @@
     "location": [
         [
             {
-                "param": "taxonomy",
-                "operator": "==",
-                "value": "boat-category"
-            }
-        ],
-        [
-            {
                 "param": "post_template",
                 "operator": "==",
                 "value": "template-boat-category.php"
@@ -285,8 +243,13 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1579536207
+    "modified": 1579537650
 }
