@@ -45,7 +45,11 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        z-index: 1;
+        z-index: 2;
+
+        @media #{$phone} {
+            display: none;
+        }
     }
 
     #heroVideo iframe {
@@ -786,4 +790,18 @@
         max-width: 1200px;
         padding: 0;
     }
+}
+
+
+.hero__placeholder{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }

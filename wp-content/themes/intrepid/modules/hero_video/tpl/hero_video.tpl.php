@@ -2,6 +2,8 @@
     <div class="heroVideo__container">
         <div id="heroVideo"></div>
     </div>
+    <div class="hero__placeholder" <?php echo $data['placeholder'] ? 'style="background-image:url(' . $data['placeholder']['url'].')"' : ''; ?>>
+    </div>
     <div class="container">
         <?php if ($data['video'] || $data['title']) : ?>
             <div class="hero__content">
