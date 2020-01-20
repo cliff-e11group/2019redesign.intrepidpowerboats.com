@@ -69,8 +69,8 @@ the_post();
 
         <?php if ($model_query->have_posts()): ?>
             <div class="container model-list__grid">
-            <div class="grid-sizer"></div>
-            <div class="gutter-sizer"></div>
+                <div class="grid-sizer"></div>
+                <div class="gutter-sizer"></div>
 
                 <?php while ($model_query->have_posts()): $model_query->the_post(); ?>
                 <?php
@@ -136,7 +136,6 @@ the_post();
                 </div>
 
                 <?php endwhile; ?>
-            </div>
             </div>
         <?php endif; wp_reset_query()?>
 
