@@ -12,3 +12,24 @@ function e11_register_menus() {
 
 }
 add_action( 'init', 'e11_register_menus' );
+
+
+add_filter('nav_menu_link_attributes', 'e11_nav_images', 10, 3);
+
+function e11_nav_images( $atts, $item, $args ) {
+
+	if ($args->theme_location !== 'main-navigation') {
+		return $atts;
+	}
+
+	$image = get_field('nav_image', $item);
+
+	if( $image ) {
+
+		$atts['data-src'] = $image['url'];
+
+	}
+
+	return $atts;
+
+}

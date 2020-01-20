@@ -31,48 +31,7 @@
                         );
                         wp_nav_menu($args);
                     ?>
-<!--                    <ul class="primary-nav">-->
-<!--                        <li class="menu__item menu-item-has-children current-menu-item mega-menu">-->
-<!--                            <a href="<?php echo site_url('boats'); ?>">Models</a>-->
-<!--                            <ul class="sub-menu">-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">200 Flats</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">245 Center Console</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">300 Center Console</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">327 Cuddy</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">327-I Tourney Edition</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">327-I Center Console</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">345 Nomad FE</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">345 Nomad SE</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">345 Walkaround</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">375 Center Console</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">400 Center Console</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">407 Cuddy</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">407 Panacea</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">410 Evolution</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">430 Sport yacht</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/grid-image1.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">475 Panacea</a></li>-->
-<!--                                <li><a data-src="<?php echo STYLEDIR; ?>/uploads/Intrepid_Boat.jpg" href="<?php echo site_url('boats/410-evolution'); ?>">475 Sport yacht</a></li>-->
-<!--                                <li class="menu-content">-->
-<!--                                    <a href="<?php echo site_url('boats'); ?>">View all models</a>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item">-->
-<!--                            <a href="<?php echo site_url('news'); ?>">News</a>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item">-->
-<!--                            <a href="<?php echo site_url('events'); ?>">Events</a>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item">-->
-<!--                            <a href="<?php echo site_url('about'); ?>">About</a>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item">-->
-<!--                            <a href="<?php echo site_url('service'); ?>">Service</a>-->
-<!--                        </li>-->
-<!--                        <li class="menu__item">-->
-<!--                            <a href="http://www.yachtworld.com/core/listing/cache/pl_search_results.jsp?ywo=intrepidse&ps=50&type=&new=&luom=126&hosturl=intrepidse&page=broker&slim=broker&lineonly" target="_blank">Pre-Owned</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
+
                     <nav class="secondary-nav">
                         <div class="secondary-nav__item"><a href="#">Newsletter Signup</a></div>
                         <div class="secondary-nav__item"><a href="#">Language Selection</a></div>
