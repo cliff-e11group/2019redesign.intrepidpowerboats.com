@@ -23,7 +23,14 @@
             ?>
 
                 <div class="gallery-grid__item gallery-grid__item--full gallery-grid__item--video">
-                    <a data-fancybox="gallery" href="<?php echo $video_link; ?>" style="background-image: url(<?php echo $placeholder['sizes']['gallery-video']; ?>);">
+
+
+                    <a data-fancybox="gallery" class="gallery-grid__video-wrap" href="<?php echo $video_link; ?>" style="background-image: url(<?php echo $placeholder['sizes']['gallery-video']; ?>);">
+                        <?php if ($gallery_row['video']['placeholder_video']) : ?>
+                            <video class="gallery-grid__bg-video" autoplay muted loop>
+                                <source src="<?php echo $gallery_row['video']['placeholder_video']['url']; ?>" type="video/mp4">
+                            </video>
+                        <?php endif; ?>
                         <span class="play-btn"><span>Play Video</span></span>
                         <img src="<?php echo $placeholder['sizes']['gallery-video']; ?>" alt="<?php echo $placeholder['alt']; ?>" class="accessible-text">
                         <div class="overlay-content">
