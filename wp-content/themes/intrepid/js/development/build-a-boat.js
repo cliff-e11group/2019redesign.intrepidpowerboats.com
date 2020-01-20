@@ -43,12 +43,24 @@ $(function () {
 
             // Toggle BAB module
             this.$toggle = this.$el.find('[data-class="build-a-boat-toggle"]');
+            this.$buildABoat = this.$el.find('.build-a-boat');
             this.activeBABClass = 'build-a-boat--active';
 
             this.$toggle.on('click', function (e) {
                 e.preventDefault();
 
+                var BABpadding = $('.header').outerHeight(true),
+                    BABpaddingAdminbarHeight = 0,
+                    $BABwpadminbar = $('#wpadminbar');
+
+                if ($BABwpadminbar.length > 0) {
+                    BABpaddingAdminbarHeight = $BABwpadminbar.outerHeight();
+                }
+
+                BABpadding = BABpadding + BABpaddingAdminbarHeight;
+
                 $('body').toggleClass(self.activeBABClass);
+                self.$buildABoat.css('top', BABpadding);
             });
 
             //Navigate through BAB steps
