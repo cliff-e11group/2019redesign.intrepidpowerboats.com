@@ -143,9 +143,13 @@
 
     }
 
-    img {
+    .model-list__image-link {
         display: block;
         width: 100%;
+        padding-bottom: calc(504/840 * 100%);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         height: auto;
         transition: 0.25s;
 
