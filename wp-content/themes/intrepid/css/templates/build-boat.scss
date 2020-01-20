@@ -257,9 +257,8 @@
         top: 0;
         width: 27px;
         height: 30px;
-        background: url(images/no-color-large.svg) no-repeat 0 0;
+        background: url(images/no-color-large-2.svg) no-repeat 0 0;
         background-size: contain;
-        border: none;
         outline: none;
         padding: 0;
         margin: 0;
@@ -267,6 +266,7 @@
         -moz-appearance: none;
         -webkit-appearance: none;
         box-shadow: none;
+        border: .75px solid #979797;
         z-index: 100;
     }
 
@@ -341,12 +341,12 @@
                 width: 22px;
                 height: 22px;
                 margin-right: 0;
-                background: url(images/no-color-square.svg) no-repeat 0 0;
+                background: url(images/no-color-square-2.svg) no-repeat 0 0;
                 background-size: cover;
                 @media #{$phone} {
                     width: 27px;
                     height: 30px;
-                    background: url(images/no-color-large.svg) no-repeat 0 0;
+                    background: url(images/no-color-large-2.svg) no-repeat 0 0;
                     background-size: cover;
                 }
             }
@@ -374,12 +374,14 @@
         position: absolute;
         top: 2px;
         left: 0;
-        background: url(images/no-color-small.svg) no-repeat 0 0;
+        background: url(images/no-color-small-2.svg) no-repeat 0 0;
         background-size: cover;
+        border: .75px solid #979797;
+
         @media #{$phone} {
             width: 27px;
             height: 30px;
-            background: url(images/no-color-large.svg) no-repeat 0 0;
+            background: url(images/no-color-large-2.svg) no-repeat 0 0;
             background-size: cover;
         }
     }
@@ -429,6 +431,7 @@
         margin-right: 10px;
         margin-bottom: 10px;
         cursor: pointer;
+        border: .75px solid #979797;
     }
 }
 

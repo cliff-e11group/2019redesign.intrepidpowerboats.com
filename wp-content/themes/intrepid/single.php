@@ -86,7 +86,7 @@ $page_title = get_the_title();
         <?php endif; ?>
 
         <!-- <div class="feed-carousel"> -->
-            <?php echo do_shortcode('[instagram-feed num=20 showfollow=false showbutton=false showheader=false class=feed-carousel layout=carousel]'); ?>
+            <?php echo do_shortcode('[instagram-feed]'); ?>
         <!-- </div> -->
     </div>
 
