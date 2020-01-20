@@ -76,7 +76,7 @@ the_post();
                 <?php
                 $link = get_the_permalink();
                 $title = get_the_title();
-                $thumb = get_the_post_thumbnail_url($post->ID,'boat-archive');
+                $thumb = get_the_post_thumbnail_url($post->ID,'full');
                 //boat length
                 $boat_length = get_the_terms($post->ID, 'boat-length');
                 $lengths = array();
@@ -93,8 +93,8 @@ the_post();
                 ?>
                 <div class="model-list__block <?php echo implode(' ', $lengths); ?> <?php echo implode(' ', $cats); ?>">
                     <div class="model-list__image">
-                        <a href="<?php echo $link; ?>" style="background-image: url(<?php echo $thumb; ?>);" class="model-list__image-link">
-                            <img src="<?php echo $thumb; ?>" alt="<?php echo $title; ?>" class="accessible-text"
+                        <a href="<?php echo $link; ?>" class="model-list__image-link">
+                            <img src="<?php echo $thumb; ?>" alt="<?php echo $title; ?>" class=""
                                  data-img-src="<?php echo $thumb; ?>" data-alt ="Model <?php echo $title; ?>" data-title="<?php echo $title; ?>"
                                  data-link="<?php echo $link; ?>">
                         </a>

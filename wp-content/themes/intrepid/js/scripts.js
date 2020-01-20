@@ -7350,7 +7350,7 @@ $(function () {
 
 jQuery(document).ready(function ($) {
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         $('body').addClass('page-loaded');
     });
 
@@ -7777,9 +7777,9 @@ jQuery(document).ready(function ($) {
                 $(".nav-block__active-tab").text($active_tab_text);
             }
 
-            // setTimeout(function () {
-                // $('.option-slider')[0].slick.refresh();
-            // }, 200);
+            if ($(window).width() > 767) {
+                $('.option-slider')[0].slick.refresh();
+            }
 
         }
     });
@@ -7821,7 +7821,7 @@ jQuery(document).ready(function ($) {
 
     $('.nav-block__toggle').on('click', function () {
         var $this = $(this);
-        if($this.hasClass('active')) {
+        if ($this.hasClass('active')) {
             $this.removeClass('active');
             $this.next('.nav-block__inner').removeClass('active');
         } else {
