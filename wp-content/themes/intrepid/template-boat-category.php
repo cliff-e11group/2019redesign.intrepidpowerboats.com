@@ -82,6 +82,7 @@ $description = get_field( 'description' );
                                 <?php
                                     $title = get_the_title();
                                     $brochure = get_field('quick_statistics_brochure');
+                                    // $post = get_the_ID();
                                 ?>
 
                                 <!-- boat_category_description -->
@@ -95,7 +96,7 @@ $description = get_field( 'description' );
                                             <span class="column-model__trigger"></span>
                                         </div>
                                         <div class="column-model__content">
-                                            <?php echo get_field('boat_category_description'); ?>
+                                            <?php echo get_field('overview', $post); ?>
                                             <?php if ($brochure) : ?>
                                                 <a href="<?php echo $brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
                                             <?php endif; ?>
