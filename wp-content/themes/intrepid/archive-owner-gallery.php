@@ -81,10 +81,6 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                     'key' => 'owner',
                                     'value' => $user_id,
                                 ),
-                                array(
-                                    'key' => 'make_upload_private',
-                                    'value' => true,
-                                ),
                             )
                         );
                         $loop = new WP_Query($args);
@@ -134,7 +130,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                             'meta_query'    => array(
                                 array(
                                     'key' => 'make_upload_private',
-                                    'value' => true,
+                                    'value' => false,
                                 ),
                             )
                         );
