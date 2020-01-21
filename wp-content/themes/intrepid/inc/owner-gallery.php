@@ -1,18 +1,25 @@
 <?php
 
-function e11_owner_gallery_upload_form(){
+function e11_owner_gallery_upload_form()
+{
+    $result = array(
+        'caption' => false,
+    );
 
-    if ( isset( $_POST['owner_gallery_upload_nonce'] ) && wp_verify_nonce($_POST['owner_gallery_upload_nonce'], 'owner-gallery-upload-nonce')){
+    if (isset($_POST['owner_gallery_upload_nonce']) && wp_verify_nonce($_POST['owner_gallery_upload_nonce'], 'owner-gallery-upload-nonce')) {
         $result = e11_parse_file_errors($_FILES['owner_gallery_upload_image'], $_POST['owner_gallery_upload_caption']);
-        if($result['error']){
+        if ($result['error']) {
             echo '<p>ERROR: ' . $result['error'] . '</p>';
         }
+    } else {
+        print 'Sorry, we could not validate your security token. Please refresh the page and try again.';
+        wp_die();
     }
-    if ( !isset( $_POST['user_id']) ) {
+    if (!isset($_POST['user_id'])) {
         print 'Sorry, there was an error uploading your file.';
         exit;
     }
-    if ( !isset( $_POST['visibility_level']) ) {
+    if (!isset($_POST['visibility_level'])) {
         print 'Sorry, you did not select a visibility level.';
         exit;
     }
@@ -23,46 +30,59 @@ function e11_owner_gallery_upload_form(){
         'post_type' => 'owner-gallery',
         'meta_input' => array(
             'owner' => $_POST['user_id'],
-            'visibility' => $_POST['visibility_level'],
         ),
     );
 
-    if($post_id = wp_insert_post($args)){
+    $post_id = wp_insert_post($args);
+
+    if (!is_wp_error($post_id)):
+
+        if ($_POST['visibility_level'] == 'private'):
+            update_field('make_upload_private', true, $post_id);
+        else:
+            update_field('make_upload_private', false, $post_id);
+        endif;
+
         e11_process_upload('owner_gallery_upload_image', $post_id, $result['caption']);
 
-        wp_redirect( site_url('owner-gallery') );
-        exit;
-    }
+        wp_redirect(site_url('owner-gallery'));
+        exit();
+    endif;
 }
-add_action( 'admin_post_owner_gallery_upload_action', 'e11_owner_gallery_upload_form' );
+
+add_action('admin_post_owner_gallery_upload_action', 'e11_owner_gallery_upload_form');
 
 
-function e11_redirect_to_home(){
-    wp_redirect( site_url() );
+function e11_redirect_to_home()
+{
+    wp_redirect(site_url());
     exit;
 }
-add_action( 'admin_post_nopriv_owner_gallery_upload_action', 'e11_redirect_to_home' );
+
+add_action('admin_post_nopriv_owner_gallery_upload_action', 'e11_redirect_to_home');
 
 
-function e11_parse_file_errors($file = '', $image_caption){
+function e11_parse_file_errors($file = array(), $image_caption = false)
+{
     $result = array();
     $result['error'] = 0;
-    if($file['error']){
-      $result['error'] = "No file uploaded or there was an upload error!";
-      return $result;
+    if ($file['error']) {
+        $result['error'] = "No file uploaded or there was an upload error!";
+        return $result;
     }
     $image_caption = trim(preg_replace('/[^a-zA-Z0-9\s]+/', ' ', $image_caption));
 
     $result['caption'] = $image_caption;
     $image_data = $file['type'];
-    if(!in_array($image_data, unserialize(TYPE_WHITELIST_IMAGE))){
-      $result['error'] = 'Your image must be a jpeg, png or gif!';
+    if (!in_array($image_data, unserialize(TYPE_WHITELIST_IMAGE))) {
+        $result['error'] = 'Your image must be a jpeg, png or gif!';
     }
 
     return $result;
 }
 
-function e11_process_upload($file, $post_id, $caption){
+function e11_process_upload($file, $post_id, $caption)
+{
     require_once(ABSPATH . "wp-admin" . '/includes/image.php');
     require_once(ABSPATH . "wp-admin" . '/includes/file.php');
     require_once(ABSPATH . "wp-admin" . '/includes/media.php');

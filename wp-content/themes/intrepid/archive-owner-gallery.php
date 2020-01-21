@@ -82,8 +82,8 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                     'value' => $user_id,
                                 ),
                                 array(
-                                    'key' => 'visibility',
-                                    'value' => 'private',
+                                    'key' => 'make_upload_private',
+                                    'value' => true,
                                 ),
                             )
                         );
@@ -133,8 +133,8 @@ $placeholder = get_field('video_placeholder_image', 'option');
                             'posts_per_page' => -1,
                             'meta_query'    => array(
                                 array(
-                                    'key' => 'visibility',
-                                    'value' => 'public',
+                                    'key' => 'make_upload_private',
+                                    'value' => true,
                                 ),
                             )
                         );
