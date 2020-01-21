@@ -7597,7 +7597,7 @@ $(function () {
             //
             this.$form = self.$el.find('#gform_7');
             this.$contactItems = self.$el.find('.contact-block .option-list__item');
-            this.$contactForm = self.$el.find('.build-a-boat__form');
+            this.$contactForm = self.$el.find('#gform_7');
 
             this.$contactItems.on('click', function () {
                 var $this = $(this);

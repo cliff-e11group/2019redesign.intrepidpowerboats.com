@@ -78,3 +78,12 @@ function wrap_embed_with_div($html, $url, $attr) {
     return '<div class="video-container">' . $html . '</div>';
 }
 add_filter('embed_oembed_html', 'wrap_embed_with_div', 10, 3);
+
+add_action( 'gform_after_submission_7', 'add_confirmation_class', 10, 2 );
+function add_confirmation_class() {
+	add_filter('body_class', 'add_gravity_classes');
+	function add_gravity_classes($classes){
+		$classes[] = 'bab-form-submitted';
+		return $classes;
+	}
+}
