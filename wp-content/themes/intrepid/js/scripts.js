@@ -7307,7 +7307,7 @@ $(function () {
 
             this.$formEmailChoices.on('click', function () {
                 var $emailChoice = $(this).data('email-choice');
-                
+
                 self.$formEmailChoiceInput.find('input[value="' + $emailChoice + '"]').prop('checked', true);
             });
 
