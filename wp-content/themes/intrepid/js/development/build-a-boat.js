@@ -89,7 +89,7 @@ $(function () {
                 self.activeItem++;
                 self.activateItem(self.activeItem);
                 self.updateNav();
-                console.log(self.activeItem);
+
                 if(self.activeItem === 3) {
                     self.processImage();
                     self.updateForm();
@@ -379,7 +379,7 @@ $(function () {
             this.$formMotorInput = self.$el.find('.gfield.input-motor input');
             this.$formOptionsInput = self.$el.find('.gfield.input-options textarea');
             this.$formEmailChoiceInput = self.$el.find('.gfield.input-email-choice');
-            this.$formImageInput = self.$el.find('.gfield.input-boat-image input[type="file"]');
+            this.$formImageInput = self.$el.find('.gfield.input-boat-image input');
             this.$formEmailChoices = self.$el.find('.email-input__choice');
 
             this.$formEmailChoices.on('click', function () {
@@ -394,6 +394,7 @@ $(function () {
 
         },
         uploadImage: function (img) {
+            var that = this;
 
             $.ajax({
                 url: localized.ajaxurl, // AJAX handler
@@ -410,7 +411,7 @@ $(function () {
                 success: function (data) {
                     if (data) {
                         console.log(data);
-                        this.$formImageInput.val(data['boat_url'][0]);
+                        that.$formImageInput.val(data['boat_url'][0]);
 
                     } else {
                         console.log('no data');
