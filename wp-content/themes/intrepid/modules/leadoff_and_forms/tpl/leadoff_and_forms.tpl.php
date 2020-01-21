@@ -7,6 +7,10 @@
                 <ul class="phone-list">
                     <?php foreach($data['mobile_buttons'] as $button) : ?>
                         <li class="phone-list__item ">
+                            <?php if ($button['phone_number']) : ?>
+                                <a class="phone-list__number" href="tel:<?php echo $button['phone_number']; ?>">
+                            <?php endif; ?>
+
                             <?php if ($button['title']) : ?>
                                 <span class="phone-list__label">
                                     <?php echo $button['title']; ?>
@@ -14,7 +18,7 @@
                             <?php endif; ?>
 
                             <?php if ($button['phone_number']) : ?>
-                                <a class="phone-list__number" href="tel:<?php echo $button['phone_number']; ?>"><?php echo $button['phone_number']; ?></a>
+                                <?php echo $button['phone_number']; ?></a>
                             <?php endif; ?>
                         </li>
                     <?php endforeach; ?>

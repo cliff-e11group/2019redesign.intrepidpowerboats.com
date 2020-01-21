@@ -465,6 +465,9 @@ jQuery(document).ready(function ($) {
                 $('.option-slider')[0].slick.refresh();
             }
 
+            // var newHash = $active_tab_text.toLowerCase().replace(' ', '-');
+            // location.hash = newHash;
+
         }
     });
 

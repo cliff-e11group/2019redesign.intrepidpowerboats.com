@@ -251,10 +251,10 @@
 
 .phone-list__item {
     margin-bottom: 12px;
-    display: block;
+
 
     @media #{$phone} {
-        padding: 18px 16px;
+
         background-color: $bright-gray;
         margin-bottom: 10px;
         position: relative;
@@ -266,6 +266,8 @@
 
 .phone-list__number{
     color: white;
+    padding: 18px 16px;
+    display: block;
 }
 
 .toggle-content__title {
