@@ -582,8 +582,8 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                     <div class="contact-block__inner">
                         <div class="form-option">
                             <ul class="option-list">
-                                <li class="option-list__item">Please email the boat I created to me and Intrepid, and have them contact me.</li>
-                                <li class="option-list__item">Please only email me the boat I created.</li>
+                                <li class="option-list__item email-input__choice selected" data-email-choice="both">Please email the boat I created to me and Intrepid, and have them contact me.</li>
+                                <li class="option-list__item email-input__choice" data-email-choice="me">Please only email me the boat I created.</li>
                             </ul>
                         </div>
                         <div class="form-holder">

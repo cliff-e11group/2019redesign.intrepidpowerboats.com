@@ -7302,6 +7302,14 @@ $(function () {
             // Form inputs
             this.$formMotorInput = self.$el.find('.gfield.input-motor input');
             this.$formOptionsInput = self.$el.find('.gfield.input-options textarea');
+            this.$formEmailChoiceInput = self.$el.find('.gfield.input-email-choice');
+            this.$formEmailChoices = self.$el.find('.email-input__choice');
+
+            this.$formEmailChoices.on('click', function () {
+                var $emailChoice = $(this).data('email-choice');
+                
+                self.$formEmailChoiceInput.find('input[value="' + $emailChoice + '"]').prop('checked', true);
+            });
 
             // this.$contactForm.on('submit', function () {
             //     $('body').removeClass(self.activeBABClass);
