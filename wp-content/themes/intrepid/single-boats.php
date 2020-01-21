@@ -159,11 +159,6 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         </div>
                         <?php endif; ?>
                     </div>
-                    <?php if ($boat_footer_link) : ?>
-                        <div class="btn-wrap">
-                            <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                        </div>
-                    <?php endif; ?>
                 </section>
                 <!-- overview end -->
             </div>
@@ -197,11 +192,6 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         </div>
                     </div>
                 </div>
-                <?php if ($boat_footer_link) : ?>
-                <div class="btn-wrap">
-                    <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                </div>
-                <?php endif; ?>
             </div>
             <?php endif; ?>
             <?php if ( !empty($features) ) : ?>
@@ -224,11 +214,6 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         </div>
 
                     </div>
-                    <?php if ($boat_footer_link) : ?>
-                    <div class="btn-wrap">
-                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                    </div>
-                    <?php endif; ?>
                 </section>
                 <!-- features end -->
             </div>
@@ -260,44 +245,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             <?php endforeach; ?>
                         </div>
                     </div>
-                    <div class="btn-wrap ">
-                        <a class="form-toggle btn btn--dark" href="#">Email This List</a>
-                        <?php if ($boat_footer_link) : ?>
-                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                        <?php endif; ?>
-                        <div class="form-wrap">
-                            <div class="form-option">
-                                <ul class="option-list">
-                                    <li class="option-list__item">Please email the boat I created to me and Intrepid, and have them contact me.</li>
-                                    <li class="option-list__item">Please only email me the boat I created.</li>
-                                </ul>
-                            </div>
-                            <form class="form" action="#" method="post">
-                                <h3 class="form__title">Your information</h3>
-                                <ul class="form-fields">
-                                    <li class="form__field">
-                                        <label for="name" class="accessible-text"></label>
-                                        <input type="text" id="name" name="txt_name" placeholder="Name">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="email-address" class="accessible-text"></label>
-                                        <input type="email" id="email-address" name="email_add" placeholder="Email Address">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="phone-number" class="accessible-text"></label>
-                                        <input type="text" id="phone-number" name="phone_no" placeholder="Phone Number">
-                                    </li>
-                                    <li class="form__field">
-                                        <label for="questions-comments" class="accessible-text"></label>
-                                        <textarea id="questions-comments" placeholder="Questions or Comments?"></textarea>
-                                    </li>
-                                    <li class="form__field">
-                                        <input class="button" type="submit" value="Submit">
-                                    </li>
-                                </ul>
-                            </form>
-                        </div>
-                    </div>
+
                 </section>
                 <!-- option end -->
             </div>
@@ -344,11 +292,6 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         </div>
                         <span class="deck-block__short-note">Select to see features</span>
                     </div>
-                    <?php if ($boat_footer_link) : ?>
-                    <div class="btn-wrap">
-                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                    </div>
-                    <?php endif; ?>
                 </div>
                 <!-- deck plan start -->
             </div>
@@ -388,11 +331,6 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
 
                         </ul>
                     </div>
-                    <?php if ($boat_footer_link) : ?>
-                    <div class="btn-wrap">
-                        <a href="<?php echo $boat_footer_link['url']; ?>" target="<?php echo $boat_footer_link['target']; ?>" class="btn btn--dark"><?php echo $boat_footer_link['title']; ?></a>
-                    </div>
-                    <?php endif; ?>
                 </section>
                 <!-- motor end -->
             </div>
@@ -598,5 +536,50 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
 
     </section>
     <?php endif; ?>
+
+    <div class="btn-wrap">
+        <button class="form-toggle form-toggle__email-list btn btn--dark" href="#" data-form-toggle="1" >Email This List</button>
+
+        <?php if ($boat_footer_link) : ?>
+        <button href="#" target="" class="form-toggle  btn btn--dark" data-form-toggle="2">Contact a Sales Representative</button>
+        <?php endif; ?>
+
+        <div class="form-wrap" data-form-wrap="1">
+            <div class="form-option">
+                <ul class="option-list">
+                    <li class="option-list__item">Please email the boat I created to me and Intrepid, and have them contact me.</li>
+                    <li class="option-list__item">Please only email me the boat I created.</li>
+                </ul>
+            </div>
+            <form class="form" action="#" method="post">
+                <h3 class="form__title">Your information</h3>
+                <ul class="form-fields">
+                    <li class="form__field">
+                        <label for="name" class="accessible-text"></label>
+                        <input type="text" id="name" name="txt_name" placeholder="Name">
+                    </li>
+                    <li class="form__field">
+                        <label for="email-address" class="accessible-text"></label>
+                        <input type="email" id="email-address" name="email_add" placeholder="Email Address">
+                    </li>
+                    <li class="form__field">
+                        <label for="phone-number" class="accessible-text"></label>
+                        <input type="text" id="phone-number" name="phone_no" placeholder="Phone Number">
+                    </li>
+                    <li class="form__field">
+                        <label for="questions-comments" class="accessible-text"></label>
+                        <textarea id="questions-comments" placeholder="Questions or Comments?"></textarea>
+                    </li>
+                    <li class="form__field">
+                        <input class="button" type="submit" value="Submit">
+                    </li>
+                </ul>
+            </form>
+        </div>
+
+        <div class="form-wrap" data-form-wrap="2">
+            <?php echo do_shortcode('[gravityform id="6" title="false" description="false" ajax="true" ]'); ?>
+        </div>
+    </div>
 </main>
 <?php get_footer();

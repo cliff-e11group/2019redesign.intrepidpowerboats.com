@@ -371,10 +371,36 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    $('.form-toggle').on('click', function (e) {
-        e.preventDefault();
-        $(this).parent().toggleClass('active');
-    });
+    var $form_toggles = $('[data-form-toggle]');
+
+    if( $form_toggles.length > 0 ) {
+        $form_toggles.each(function(){
+
+            var $this = $(this);
+
+            $this.on('click', function (e) {
+                e.preventDefault();
+
+                //if this tab already has class of active, remove it from parent
+                //if this tab doesn't add class of active
+
+                var $form_number = $this.data('form-toggle'),
+                $form_wraps = $('[data-form-wrap]');
+
+
+                if($this.hasClass('form-toggle--active')){
+                    $this.removeClass('form-toggle--active');
+                    $form_wraps.removeClass('form-wrap--active');
+                } else{
+                    $this.addClass('form-toggle--active');
+                    $this.parent().find('[data-form-wrap="'+ $form_number +'"]').addClass('form-wrap--active');
+                }
+
+            });
+        });
+    }
+
+
 
     var settings = {
         autoplay: false,
@@ -425,6 +451,12 @@ jQuery(document).ready(function ($) {
             if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
                 // $('.nav-block__toggle, .nav-block__inner').toggleClass('active');
                 $(".nav-block__active-tab").text($active_tab_text);
+            }
+
+            if ($active_tab_text == 'Options') {
+                $('.form-toggle__email-list').css('display', 'block');
+            } else{
+                $('.form-toggle__email-list').css('display', 'none');
             }
 
             if ($(window).width() > 767) {
