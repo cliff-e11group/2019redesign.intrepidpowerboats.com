@@ -6,7 +6,7 @@
             <?php if ($data['mobile_buttons']) : ?>
                 <ul class="phone-list">
                     <?php foreach($data['mobile_buttons'] as $button) : ?>
-                        <li class="phone-list__item btn btn--dark">
+                        <li class="phone-list__item ">
                             <?php if ($button['title']) : ?>
                                 <span class="phone-list__label">
                                     <?php echo $button['title']; ?>
