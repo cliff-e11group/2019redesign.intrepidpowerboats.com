@@ -280,6 +280,10 @@
     -webkit-appearance: none;
     z-index: 10;
 
+    .compare-mode--active & {
+        z-index: -1;
+    }
+
     &:hover,
     &:focus {
 
@@ -716,8 +720,16 @@
         display: none;
     }
 
+    .model-list__compare{
+        background-color: #666;
+        opacity: 0.7;
+    }
+
     .model-list__block.selected {
         .model-list__compare {
+            background-color: transparent;
+            opacity: 1;
+
             &:after {
                 transform: translate(-50%, -50%) rotate(0) scale(0.98);
                 transition: 0.25s;
