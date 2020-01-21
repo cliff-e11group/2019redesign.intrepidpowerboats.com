@@ -8519,7 +8519,7 @@ jQuery(document).ready(function ($) {
         $adminbarHeight = $wpadminbar.outerHeight();
     }
 
-    $(".nav-block").stick_in_parent({
+    $(".page__single--boat .nav-block").stick_in_parent({
         offset_top: $('.header').outerHeight() + $adminbarHeight - 1
     });
 });
