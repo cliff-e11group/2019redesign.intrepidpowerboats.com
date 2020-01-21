@@ -777,7 +777,7 @@ jQuery(document).ready(function ($) {
     }
 
     $(".nav-block").stick_in_parent({
-        offset_top: $('.header').outerHeight() + $adminbarHeight
+        offset_top: $('.header').outerHeight() + $adminbarHeight - 1
     });
 });
 
