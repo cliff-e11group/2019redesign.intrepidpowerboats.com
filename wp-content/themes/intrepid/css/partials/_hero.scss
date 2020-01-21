@@ -795,7 +795,7 @@
         color: white;
         display: none;
         width: 100%;
-    @media(max-width: 767px), screen and (orientation: portrait) {
+    @media only screen and (max-width: 767px) and (orientation: portrait) {
         display: block;
     }
 }
