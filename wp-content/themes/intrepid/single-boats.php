@@ -539,11 +539,11 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
     <?php endif; ?>
 
     <div class="btn-wrap">
-        <button class="form-toggle form-toggle__email-list btn btn--dark" href="#" data-form-toggle="1" >Email This List</button>
+        <div class="btn-wrap__inner">
+            <button class="form-toggle form-toggle__email-list btn btn--dark" href="#" data-form-toggle="1" >Email This List</button>
 
-        <?php if ($boat_footer_link) : ?>
-        <button href="#" target="" class="form-toggle  btn btn--dark" data-form-toggle="2">Contact a Sales Representative</button>
-        <?php endif; ?>
+            <button href="#" target="" class="form-toggle  btn btn--dark" data-form-toggle="2">Contact a Sales Representative</button>
+        </div>
 
         <div class="form-wrap" data-form-wrap="1">
             <div class="form-option">

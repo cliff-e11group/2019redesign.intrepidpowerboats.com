@@ -981,6 +981,13 @@
     }
 }
 
+.btn-wrap__inner{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
 
 .form-wrap {
     width: 100%;
@@ -1008,6 +1015,10 @@
         @media #{$phone} {
             width: auto;
         }
+    }
+
+    .gform_wrapper{
+        margin: 0 auto;
     }
 }
 

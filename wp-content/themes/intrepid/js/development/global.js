@@ -376,16 +376,14 @@ jQuery(document).ready(function ($) {
     if( $form_toggles.length > 0 ) {
         $form_toggles.each(function(){
 
-            var $this = $(this);
+            var $this = $(this),
+            $parent = $this.parent().parent();
+            $form_wraps = $('[data-form-wrap]')
 
             $this.on('click', function (e) {
                 e.preventDefault();
 
-                //if this tab already has class of active, remove it from parent
-                //if this tab doesn't add class of active
-
-                var $form_number = $this.data('form-toggle'),
-                $form_wraps = $('[data-form-wrap]');
+                var $form_number = $this.data('form-toggle');
 
 
                 if($this.hasClass('form-toggle--active')){
@@ -393,10 +391,14 @@ jQuery(document).ready(function ($) {
                     $form_wraps.removeClass('form-wrap--active');
                 } else{
                     $this.addClass('form-toggle--active');
-                    $this.parent().find('[data-form-wrap="'+ $form_number +'"]').addClass('form-wrap--active');
+                    $parent.find('[data-form-wrap="'+ $form_number +'"]').addClass('form-wrap--active');
                 }
 
             });
+        });
+        $('.model-nav__item').click(function(){
+            $form_toggles.removeClass('form-toggle--active');
+            $form_wraps.removeClass('form-wrap--active')
         });
     }
 
