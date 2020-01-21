@@ -7349,8 +7349,6 @@ $(function () {
                 color: '#ffffff'
             });
 
-            $('<h3 class="color-shader__title">Shader Selection</h3>').insertBefore('.iro__slider');
-
             function onColorChange(color, changes) {
                 self.$activeColorItem.find('.area-list__color-box').css('background', color.hexString);
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': color.hexString});
@@ -7375,9 +7373,8 @@ $(function () {
             // Toggle between active color item
             this.$colorItems.on('click', function () {
                 var $this = $(this),
+                    activeColor = undefined,
                     recentColor = self.$activeColorItem.find('.area-list__color-box').css('background-color');
-
-                colorPicker.color.rgbString = recentColor;
 
                 // If color was chosen, add it to recently used colors
                 if (recentColor !== 'undefined' && recentColor !== 'rgba(0, 0, 0, 0)') {
@@ -7405,6 +7402,12 @@ $(function () {
                 $this
                     .addClass(self.colorItemActiveClass)
                     .siblings().removeClass(self.colorItemActiveClass);
+
+                activeColor = $this.find('.area-list__color-box').css('background-color');
+
+                if (activeColor !== 'undefined' && activeColor !== 'rgba(0, 0, 0, 0)') {
+                    colorPicker.color.rgbString = activeColor;
+                }
 
                 // Update active color item so picker can update correct item
                 self.$activeColorItem = $this;
@@ -7634,7 +7637,8 @@ $(function () {
                     var f = 'build-a-boat'; // file name
 
                     // convert to image
-                    var img = Canvas2Image.convertToImage(canvas, w, h);
+                    //var img = Canvas2Image.convertToImage(canvas, w, h);
+                    var img = canvas.toDataURL("image/jpg");
 
                     // self.$formImageInput.val(img);
                     // save as image
@@ -7646,18 +7650,16 @@ $(function () {
 
         },
         uploadImage: function (img) {
-            var data = {
-                'action': 'e11_upload_baseImage',
-                'img': img,
-                'title': 'BAB-image'
-            };
 
             $.ajax({
                 url: localized.ajaxurl, // AJAX handler
-                data: data,
+                data: {
+                    'action': 'e11_upload_baseImage',
+                    'img': img,
+                    'title': 'BAB-image'
+                },
+                dataType: 'json',
                 type: 'POST',
-                processData: false,
-                contentType: false,
                 beforeSend: function () {
                     // button.text('Loading...');
                 },
@@ -8522,7 +8524,7 @@ jQuery(document).ready(function ($) {
     }
 
     $(".page__single--boat .nav-block").stick_in_parent({
-        offset_top: $('.header').outerHeight() + $adminbarHeight - 1
+        offset_top: $('.header').outerHeight() + $adminbarHeight
     });
 });
 

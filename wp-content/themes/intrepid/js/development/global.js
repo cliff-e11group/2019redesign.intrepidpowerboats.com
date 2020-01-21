@@ -779,7 +779,7 @@ jQuery(document).ready(function ($) {
     }
 
     $(".page__single--boat .nav-block").stick_in_parent({
-        offset_top: $('.header').outerHeight() + $adminbarHeight - 1
+        offset_top: $('.header').outerHeight() + $adminbarHeight
     });
 });
 
