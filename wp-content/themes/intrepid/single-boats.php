@@ -51,7 +51,6 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
 ?>
 
 <main class="page__single page__single--boat main">
-    <button class="btn btn--dark take-screenshot" style="right: 0;position: absolute;z-index: 99999999;">Test</button>
     <section class="hero hero--model <?php if (!empty($view_360_urls)) : ?>hero--overlay<?php endif; ?>">
         <div class="container">
             <div class="hero__bg" style="background-image:url(<?php echo $boat_hero_img; ?>);"></div>

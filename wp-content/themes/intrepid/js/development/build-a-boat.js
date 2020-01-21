@@ -82,7 +82,6 @@ $(function () {
                 self.activeItem--;
                 self.activateItem(self.activeItem);
                 self.updateNav();
-                self.updateForm();
             });
 
             this.$next.on('click', function () {
@@ -90,7 +89,11 @@ $(function () {
                 self.activeItem++;
                 self.activateItem(self.activeItem);
                 self.updateNav();
-                self.updateForm();
+                console.log(self.activeItem);
+                if(self.activeItem === 3) {
+                    self.processImage();
+                    self.updateForm();
+                }
             });
 
             //
@@ -389,34 +392,6 @@ $(function () {
             //     $('body').removeClass(self.activeBABClass);
             // });
 
-            var $screenshot = $("#bab-image svg").get(0);
-
-            $(".take-screenshot").on('click', function () {
-                var w = 2400,
-                    h = 844;
-
-                // turn DOM markup into canvas
-                html2canvas($screenshot, {
-                    imageTimeout: 0,
-                    scale: 1,
-                    allowTaint: true
-                }).then(function (canvas) {
-
-                    var type = 'jpeg'; // image type
-                    var f = 'build-a-boat'; // file name
-
-                    // convert to image
-                    //var img = Canvas2Image.convertToImage(canvas, w, h);
-                    var img = canvas.toDataURL("image/jpg");
-
-                    // self.$formImageInput.val(img);
-                    // save as image
-                    // Canvas2Image.saveAsImage(canvas, w, h, type, f);
-
-                    self.uploadImage(img);
-                });
-            });
-
         },
         uploadImage: function (img) {
 
@@ -435,11 +410,38 @@ $(function () {
                 success: function (data) {
                     if (data) {
                         console.log(data);
+                        this.$formImageInput.val(data['boat_url'][0]);
 
                     } else {
                         console.log('no data');
                     }
                 }
+            });
+        },
+        processImage: function () {
+            var $screenshot = $("#bab-image svg").get(0),
+            that = this;
+            var w = 2400,
+                h = 844;
+
+            // turn DOM markup into canvas
+            html2canvas($screenshot, {
+                imageTimeout: 0,
+                scale: 1,
+                allowTaint: true
+            }).then(function (canvas) {
+
+                var type = 'jpeg'; // image type
+                var f = 'build-a-boat'; // file name
+
+                // convert to image
+                //var img = Canvas2Image.convertToImage(canvas, w, h);
+                var img = canvas.toDataURL("image/jpg");
+
+                // save as image
+                // Canvas2Image.saveAsImage(canvas, w, h, type, f);
+
+                that.uploadImage(img);
             });
         },
         updateForm: function () {
