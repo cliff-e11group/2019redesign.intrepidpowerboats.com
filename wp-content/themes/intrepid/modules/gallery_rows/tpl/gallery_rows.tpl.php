@@ -35,7 +35,7 @@
                         <img src="<?php echo $placeholder['sizes']['gallery-video']; ?>" alt="<?php echo $placeholder['alt']; ?>" class="accessible-text">
                         <div class="overlay-content">
                             <?php $overlayImgOverride = $gallery_row['video']['overlay_image'];
-                            $overlayImg = $overlayImgOverride ? $overlayImgOverride : IMAGES . '/amazing-with-text.png';
+                            $overlayImg = $overlayImgOverride ? $overlayImgOverride['url'] : IMAGES . '/amazing-with-text.png';
                             ?>
                             <img src="<?php echo $overlayImg; ?>" alt="Proof that amazing takes time">
                         </div>
