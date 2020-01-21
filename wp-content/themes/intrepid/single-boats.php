@@ -534,6 +534,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             <p class="terms-condition">By hitting “SUBMIT” you agree to our <a href="<?php echo site_url(); ?>terms_of_use">TERMS OF USE.</a></p>
                         </div>
                     </div>
+                    <p class="bab-form__refresh">Want to create a new design? <a href="#">Refresh here</a>.</p>
                 </div>
             </div>
         </div>

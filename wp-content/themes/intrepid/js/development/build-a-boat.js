@@ -90,7 +90,7 @@ $(function () {
                 self.activateItem(self.activeItem);
                 self.updateNav();
 
-                if(self.activeItem === 3) {
+                if (self.activeItem === 3) {
                     self.processImage();
                     self.updateForm();
                 }
@@ -388,9 +388,15 @@ $(function () {
                 self.$formEmailChoiceInput.find('input[value="' + $emailChoice + '"]').prop('checked', true);
             });
 
-            // this.$contactForm.on('submit', function () {
-            //     $('body').removeClass(self.activeBABClass);
-            // });
+            var $successClass = 'bab-form-submitted';
+
+            $(document).bind('gform_post_render', function () {
+                $('body').addClass($successClass);
+            });
+
+            $('.bab-form__refresh a').click(function () {
+                location.reload(true);
+            });
 
         },
         uploadImage: function (img) {
@@ -421,7 +427,7 @@ $(function () {
         },
         processImage: function () {
             var $screenshot = $("#bab-image svg").get(0),
-            that = this;
+                that = this;
             var w = 2400,
                 h = 844;
 
