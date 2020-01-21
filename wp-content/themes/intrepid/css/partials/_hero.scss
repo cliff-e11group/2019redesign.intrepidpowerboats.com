@@ -785,6 +785,21 @@
     }
 }
 
+.spinner__mobile{
+        position: absolute;
+        left: 0;
+        z-index: 10000;
+        bottom: 10%;
+        padding: 0 20px;
+        text-align: center;
+        color: white;
+        display: none;
+        width: 100%;
+    @media(max-width: 767px), screen and (orientation: portrait) {
+        display: block;
+    }
+}
+
 .custom-hero {
     .container {
         max-width: 1200px;
