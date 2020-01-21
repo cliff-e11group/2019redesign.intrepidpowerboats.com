@@ -403,7 +403,8 @@ $(function () {
                     var f = 'build-a-boat'; // file name
 
                     // convert to image
-                    var img = Canvas2Image.convertToImage(canvas, w, h);
+                    //var img = Canvas2Image.convertToImage(canvas, w, h);
+                    var img = canvas.toDataURL("image/jpg");
 
                     // self.$formImageInput.val(img);
                     // save as image
@@ -415,18 +416,16 @@ $(function () {
 
         },
         uploadImage: function (img) {
-            var data = {
-                'action': 'e11_upload_baseImage',
-                'img': img,
-                'title': 'BAB-image'
-            };
 
             $.ajax({
                 url: localized.ajaxurl, // AJAX handler
-                data: data,
+                data: {
+                    'action': 'e11_upload_baseImage',
+                    'img': img,
+                    'title': 'BAB-image'
+                },
+                dataType: 'json',
                 type: 'POST',
-                processData: false,
-                contentType: false,
                 beforeSend: function () {
                     // button.text('Loading...');
                 },
