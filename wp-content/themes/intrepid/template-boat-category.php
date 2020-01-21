@@ -77,6 +77,9 @@ $description = get_field( 'description' );
                             ?>
 
                             <?php if($boat_cat_query->have_posts()): ?>
+
+                                <div class="column-model <?php echo ($boat_cat_query->found_posts >= 6) ? 'column-model--two-col' : ''; ?>">
+
                                 <?php while ($boat_cat_query->have_posts()): $boat_cat_query->the_post(); ?>
 
                                 <?php
@@ -86,7 +89,6 @@ $description = get_field( 'description' );
                                 ?>
 
                                 <!-- boat_category_description -->
-                                <div class="column-model">
                                     <div class="column-model__item">
                                         <figure class="column-model__thumbnail">
                                             <?php echo get_the_post_thumbnail($post, 'boat-cat-pullin'); ?>
@@ -102,9 +104,11 @@ $description = get_field( 'description' );
                                             <?php endif; ?>
                                         </div>
                                     </div>
-                                </div>
+
                                 <?php endwhile; ?>
                             <?php endif; ?>
+
+                            </div>
 
                         <?php endif; ?>
                     </div>

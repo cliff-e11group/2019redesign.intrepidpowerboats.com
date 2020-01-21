@@ -346,6 +346,12 @@
     }
 }
 
+.column-model__trigger {
+    .active & {
+        top: 0;
+    }
+}
+
 .grid-sizer {
     width: 22%;
     @media screen and (max-width: 1000px) {
