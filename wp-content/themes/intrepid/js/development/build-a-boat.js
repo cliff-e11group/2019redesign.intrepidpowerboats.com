@@ -373,6 +373,7 @@ $(function () {
             this.$formMotorInput = self.$el.find('.gfield.input-motor input');
             this.$formOptionsInput = self.$el.find('.gfield.input-options textarea');
             this.$formEmailChoiceInput = self.$el.find('.gfield.input-email-choice');
+            this.$formImageInput = self.$el.find('.gfield.input-boat-image input[type="file"]');
             this.$formEmailChoices = self.$el.find('.email-input__choice');
 
             this.$formEmailChoices.on('click', function () {
@@ -385,18 +386,71 @@ $(function () {
             //     $('body').removeClass(self.activeBABClass);
             // });
 
+            var $screenshot = $("#bab-image svg").get(0);
+
+            $(".take-screenshot").on('click', function () {
+                var w = 2400,
+                    h = 844;
+
+                // turn DOM markup into canvas
+                html2canvas($screenshot, {
+                    imageTimeout: 0,
+                    scale: 1,
+                    allowTaint: true
+                }).then(function (canvas) {
+
+                    var type = 'jpeg'; // image type
+                    var f = 'build-a-boat'; // file name
+
+                    // convert to image
+                    var img = Canvas2Image.convertToImage(canvas, w, h);
+
+                    // self.$formImageInput.val(img);
+                    // save as image
+                    // Canvas2Image.saveAsImage(canvas, w, h, type, f);
+
+                    self.uploadImage(img);
+                });
+            });
+
+        },
+        uploadImage: function (img) {
+            var data = {
+                'action': 'e11_upload_baseImage',
+                'img': img,
+                'title': 'BAB-image'
+            };
+
+            $.ajax({
+                url: localized.ajaxurl, // AJAX handler
+                data: data,
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    // button.text('Loading...');
+                },
+                success: function (data) {
+                    if (data) {
+                        console.log(data);
+
+                    } else {
+                        console.log('no data');
+                    }
+                }
+            });
         },
         updateForm: function () {
             // Form data - Motor
             this.$formMotor = this.$el.find('.motor-option__list-item.active');
-            if(this.$formMotor.length > 0) {
+            if (this.$formMotor.length > 0) {
                 this.$formMotorData = this.$formMotor.find('.motor-option__list-title').text();
                 this.$formMotorInput.val(this.$formMotorData);
             }
 
             // Form data - Options
             this.$formOptions = this.$el.find('.model-option.model-option--alt .option-list__item.boatOption.selected');
-            if(this.$formOptions.length > 0) {
+            if (this.$formOptions.length > 0) {
                 this.$formOptionsData = [];
                 var that = this;
                 this.$formOptions.each(function () {
