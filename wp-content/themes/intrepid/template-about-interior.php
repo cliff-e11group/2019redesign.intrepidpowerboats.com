@@ -69,7 +69,11 @@ $page = get_the_ID();
         <?php $about_interior_slider_count++; endforeach; ?>
         <div class="container">
             <div class="custom-tab__wrap">
-                <h2 class="custom-tab__title">Versatility</h2>
+                <?php
+                $about_interior_slider_title = get_field('about_interior_slider_title');
+                if($about_interior_slider_title) : ?>
+                <h2 class="custom-tab__title"><?php echo $about_interior_slider_title; ?></h2>
+                <?php endif; ?>
                 <div class="custom-tab__nav custom-tab-slider">
                     <?php $about_interior_slider_count = 0; foreach($about_interior_slider as $about_interior_slide) : ?>
                     <div class="custom-tab__nav-item"><a href="tab-<?php echo $about_interior_slider_count; ?>"><?php echo $about_interior_slide['nav_label']; ?></a></div>

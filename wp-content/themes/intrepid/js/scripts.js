@@ -7292,7 +7292,7 @@ $(function () {
                 e.preventDefault();
                 self.$buildABoatName.text(self.$buildABoatNameInput.val());
                 self.$buildABoat.removeClass(self.activeBABModelNameClass);
-                self.$formBoatNameInput.val(self.$buildABoatNameInput.val());
+                self.$formBoatNameInput.val(' - ' + self.$buildABoatNameInput.val());
             });
 
             this.$toggle.on('click', function (e) {
@@ -7425,12 +7425,6 @@ $(function () {
                 $this
                     .addClass(self.colorItemActiveClass)
                     .siblings().removeClass(self.colorItemActiveClass);
-
-                activeColor = $this.find('.area-list__color-box').css('background-color');
-
-                if (activeColor !== 'undefined' && activeColor !== 'rgba(0, 0, 0, 0)') {
-                    colorPicker.color.rgbString = activeColor;
-                }
 
                 // Update active color item so picker can update correct item
                 self.$activeColorItem = $this;
