@@ -879,6 +879,13 @@
             margin-bottom: 2px;
         }
 
+        &.email-input__choice {
+
+            @media #{$phone} {
+                margin-bottom: 8px;
+            }
+        }
+
         &:hover {
             .option-list__thumbnail {
                 display: block;

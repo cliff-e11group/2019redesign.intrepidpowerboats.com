@@ -273,7 +273,10 @@ body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
     }
 }
 
-.gfield_visibility_hidden,
-.gform_hidden {
-    display: none;
+body main .gform_wrapper {
+
+    .gfield_visibility_hidden,
+    .gform_hidden {
+        display: none;
+    }
 }

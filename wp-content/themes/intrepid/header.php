@@ -33,8 +33,6 @@
                     ?>
 
                     <nav class="secondary-nav">
-                        <div class="secondary-nav__item"><a href="#">Newsletter Signup</a></div>
-                        <div class="secondary-nav__item"><a href="#">Language Selection</a></div>
                         <?php
                             $args = array(
                                 'container' => false,
@@ -43,6 +41,10 @@
                             );
                             wp_nav_menu($args);
                         ?>
+                        <?php $mobile_language_description = get_field('mobile_language_description', 'option');
+                        if($mobile_language_description) : ?>
+                        <div class="secondary-nav__item"><p><?php echo $mobile_language_description; ?></p></div>
+                        <?php endif; ?>
                     </nav>
                     <?php
                     $facebook = get_field('facebook_link', 'option');

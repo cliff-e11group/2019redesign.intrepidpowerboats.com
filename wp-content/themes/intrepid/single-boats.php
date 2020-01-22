@@ -382,7 +382,33 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         </ul>
                     </form>
                     <a class="icon-box icon-box--edit" href="#">Name Your Model</a>
-                    <a class="icon-box icon-box--facebook" href="#" target="_blank">Facebook</a>
+                    <a class="icon-box icon-box--facebook" href="someurl.com/some-article" data-image="article-1.jpg" data-title="Article Title" data-desc="Some description for this article" target="_blank">Facebook</a>
+                    <script>
+                        window.fbAsyncInit = function(){
+                            FB.init({
+                                appId: 'xxxxx',
+                                status: true,
+                                cookie: true,
+                                xfbml: true
+                            });
+                        };
+                        (function(d, debug){var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+                        if(d.getElementById(id)) {return;}
+                        js = d.createElement('script'); js.id = id;
+                        js.async = true;js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+                        ref.parentNode.insertBefore(js, ref);}(document, /*debug*/ false));
+                        function postToFeed(title, desc, url, image){
+                            var obj = {
+                                method: 'feed',
+                                link: url,
+                                picture: 'http://www.url.com/images/'+image,
+                                name: title,
+                                description: desc
+                            };
+                            function callback(response){}
+                            FB.ui(obj, callback);
+                        }
+                    </script>
                 </div>
                 <div class="custom-hero__content" data-html2canvas-ignore>
                     <span class="custom-hero__title"><?php echo $title; ?> <strong></strong></span>
@@ -499,8 +525,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             </div>
                         </div>
                         <div class="motor-option__description">
-                            <h2>About Seven Marine Engines:</h2>
-                            <p>Seven is an evolution in outboard engineering and customer service. At the heart of a Seven, Luxury Performance. A supercharged 6.2L V8, powerful acceleration, and more technology than ever before under a cowl, supported with concierge service. Intrepid Powerboats from the 375 to the 475 offer the opportunity to go farther and faster with twin, triple or quad 627hp and 557hp Seven’s. Personalize your power and match it to the boat with SpectraBlade LED illumination, infinite color choices</p>
+
                         </div>
                     </div>
                     <div class="text-center">
@@ -550,7 +575,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         <div class="form-holder">
                             <h3 class="form__title">Your information</h3>
                             <?php echo do_shortcode('[gravityform id="7" title="false" description="false" ajax="true"]'); ?>
-                            <p class="terms-condition">By hitting “SUBMIT” you agree to our <a href="<?php echo site_url(); ?>/terms_of_use">TERMS OF USE.</a></p>
+                            <p class="terms-condition">By hitting “SUBMIT” you agree to our <a href="<?php echo get_page_link('3'); ?>">TERMS OF USE.</a></p>
                         </div>
                     </div>
                     <p class="bab-form__refresh">Want to create a new design? <a href="#">Refresh here</a>.</p>
