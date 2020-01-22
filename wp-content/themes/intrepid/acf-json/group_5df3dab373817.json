@@ -170,6 +170,41 @@
             "new_lines": ""
         },
         {
+            "key": "field_5e285c2c7bb3a",
+            "label": "Mobile Language",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5e285c357bb3b",
+            "label": "Mobile Language Description",
+            "name": "mobile_language_description",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5e1cdb4166537",
             "label": "Footer Phone Numbers",
             "name": "",
@@ -281,5 +316,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1578949717
+    "modified": 1579703369
 }

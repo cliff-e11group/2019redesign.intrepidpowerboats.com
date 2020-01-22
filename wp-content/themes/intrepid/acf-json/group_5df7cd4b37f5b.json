@@ -188,6 +188,30 @@
                             "mime_types": ""
                         },
                         {
+                            "key": "field_5e2743c2c4e34",
+                            "label": "Overlay Image",
+                            "name": "overlay_image",
+                            "type": "image",
+                            "instructions": "Override the default image here. Default image size is 1048x352 px.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
                             "key": "field_5e25f6e1e6bf5",
                             "label": "Placeholder Video",
                             "name": "placeholder_video",
@@ -471,5 +495,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579546349
+    "modified": 1579631894
 }
