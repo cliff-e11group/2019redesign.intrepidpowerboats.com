@@ -465,10 +465,29 @@ jQuery(document).ready(function ($) {
                 $('.option-slider')[0].slick.refresh();
             }
 
-            // var newHash = $active_tab_text.toLowerCase().replace(' ', '-');
-            // location.hash = newHash;
+            if( $active_tab_text == 'Gallery' ){
+                var newHash = 'image-video-gallery';
+            } else{
+                var newHash = $active_tab_text.toLowerCase().replace(' ', '-');
+            }
+
+            window.location.hash = newHash;
 
         }
+    });
+
+    if (window.location.hash !== '') {
+        var urlHash = window.location.hash;
+        console.log(urlHash);
+        $('#parentTab').find(urlHash).click();
+    }
+
+    // add the class .tab-link to any old <a> tag, set the href attribute to the #id of the tab you want to switch to.
+    $('.tab-link').click(function(e){
+        var thisHref = $(this).attr('href');
+
+        e.preventDefault();
+        $(thisHref).click();
     });
 
     // Child Tab

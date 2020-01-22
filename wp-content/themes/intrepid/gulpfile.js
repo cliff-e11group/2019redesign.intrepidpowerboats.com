@@ -69,6 +69,8 @@ gulp.task( 'watch', function() {
 
     // Watch js files
     gulp.watch( themePath + 'js/development/**/*.js', gulp.series( 'scripts' ) );
+
+    gulp.watch( themePath + 'js/libs/**/*.js', gulp.series( 'scripts' ) );
 });
 
 // Default task -- runs scss and watch functions

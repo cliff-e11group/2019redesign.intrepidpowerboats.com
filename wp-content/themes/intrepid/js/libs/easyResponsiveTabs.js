@@ -199,7 +199,7 @@
                                     newHash = currentHash.replace(re, newHash);
                                 }
                                 else {
-                                    newHash = currentHash + "|" + newHash;
+                                    newHash = currentHash;
                                 }
                             }
                             else {
