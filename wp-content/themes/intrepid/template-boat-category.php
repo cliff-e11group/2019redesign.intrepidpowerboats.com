@@ -4,7 +4,6 @@
 get_header();
 the_post();
 $page = get_the_ID();
-$cat_id = get_field('select_boat_category');
 $hero_image = get_field('boat_cat_hero_image');
 $tagline = get_field( 'tagline' );
 $description = get_field( 'description' );
@@ -24,14 +23,16 @@ $description = get_field( 'description' );
             </div>
         </div>
     </section>
-    <div class="model-intro">
-        <div class="model-intro__thumbnail" style="background-image:url(<?php echo $hero_image['url']; ?>)"></div>
-        <div class="container">
-            <div class="model-intro__content">
-                <p><?php echo $description; ?></p>
+    <?php if ( !empty($hero_image) ) : ?>
+        <div class="model-intro">
+            <div class="model-intro__thumbnail" style="background-image:url(<?php echo $hero_image['url']; ?>)"></div>
+            <div class="container">
+                <div class="model-intro__content">
+                    <p><?php echo $description; ?></p>
+                </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
 
     <div class="content-wrap">
         <?php
