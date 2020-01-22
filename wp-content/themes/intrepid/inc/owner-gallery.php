@@ -24,9 +24,11 @@ function e11_owner_gallery_upload_form()
         exit;
     }
 
+
+
     $args = array(
         'post_title' => $_POST['user_id'] . '-' . date('d-m-y'),
-        'post_status' => 'pending',
+        'post_status' => $_POST['visibility_level'] === 'private' ? ' publish' : 'pending',
         'post_type' => 'owner-gallery',
         'meta_input' => array(
             'owner' => $_POST['user_id'],

@@ -38,7 +38,7 @@ function e11_owner_gallery_upload_video_form()
 
     $args = array(
         'post_title' => $_POST['video_user_id'] . '-' . date('d-m-y'),
-        'post_status' => 'pending',
+        'post_status' => $_POST['video_visibility_level'] === 'private' ? ' publish' : 'pending',
         'post_type' => 'owner-gallery',
         'meta_input' => array(
             'owner' => $_POST['video_user_id'],
