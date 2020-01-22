@@ -374,7 +374,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                         <ul class="form-fields">
                             <li class="form__field">
                                 <label class="form__field-label" for="boat-name">Name your Model</label>
-                                <input type="text" name="boat-name" id="boat-name" placeholder="Modal Name Here">
+                                <input type="text" name="boat-name" maxlength="30" id="boat-name" placeholder="Model Name Here">
                             </li>
                             <li class="form__field form__field--center">
                                 <input class="button" type="submit" value="Done">
@@ -384,7 +384,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                     <a class="icon-box icon-box--edit" href="#">Name Your Model</a>
                     <a class="icon-box icon-box--facebook" href="#" target="_blank">Facebook</a>
                 </div>
-                <div class="custom-hero__content">
+                <div class="custom-hero__content" data-html2canvas-ignore>
                     <span class="custom-hero__title"><?php echo $title; ?> <strong></strong></span>
                 </div>
             </div>

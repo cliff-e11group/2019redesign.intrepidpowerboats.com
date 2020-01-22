@@ -7292,6 +7292,7 @@ $(function () {
                 e.preventDefault();
                 self.$buildABoatName.text(self.$buildABoatNameInput.val());
                 self.$buildABoat.removeClass(self.activeBABModelNameClass);
+                self.$formBoatNameInput.val(self.$buildABoatNameInput.val());
             });
 
             this.$toggle.on('click', function (e) {
@@ -7319,6 +7320,7 @@ $(function () {
             this.$next = this.$el.find('[data-class="next"]');
             this.$prevText = this.$nav.find('.step-prev').find('span');
             this.$nextText = this.$nav.find('.step-next').find('span');
+            this.$formBoatNameInput = self.$el.find('.gfield.input-boat-name input');
             this.activeClass = 'step__item--active';
             this.finishClass = 'build-a-boat--finish';
             this.startClass = 'build-a-boat--start';
