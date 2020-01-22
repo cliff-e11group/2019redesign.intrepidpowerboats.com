@@ -784,6 +784,15 @@ jQuery(document).ready(function ($) {
     $(".page__single--boat .nav-block").stick_in_parent({
         offset_top: $('.header').outerHeight() + $adminbarHeight
     });
+
+    var $highContrastLink = $('.high-contrast-link');
+
+    if($highContrastLink.length > 0) {
+        $highContrastLink.click(function (e) {
+            e.preventDefault();
+            $('body').toggleClass('high-contrast--active');
+        });
+    }
 });
 
 
