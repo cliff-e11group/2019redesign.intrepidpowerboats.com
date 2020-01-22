@@ -58,7 +58,7 @@
                             </svg>
                         </a>
                     </figure> -->
-                    <?php echo do_shortcode('[instagram-feed num=1 cols=1 showfollow=false showbutton=false showheader=false]'); ?>
+                    <?php echo do_shortcode('[instagram-feed type=user layout=carousel imagepadding=0 num=1 nummobile=1 cols=1 colsmobile=1 carouselrows=1 carouselautoplay=true carouseltime=3000 lightboxcomments=true showcaption=false showlikes=false showfollow=false width=100 widthunit=% autoscroll=true]'); ?>
                     <?php
                     $insta = get_field('instagram_link', 'option');
                     ?>

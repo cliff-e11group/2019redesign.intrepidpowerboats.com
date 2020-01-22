@@ -115,6 +115,10 @@ strong {
     img {
         max-width: 100%;
         margin-bottom: 16px;
+
+        @media #{$phone} {
+            margin: 0 auto 16px;
+        }
     }
 
     hr {

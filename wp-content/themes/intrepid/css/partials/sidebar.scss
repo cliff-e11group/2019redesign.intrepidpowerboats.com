@@ -37,6 +37,9 @@
     }
 
     &__link {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 4px;
         text-transform: uppercase;
         @include fsz(15px);
         font-weight: 700;

@@ -86,7 +86,8 @@ $page_title = get_the_title();
         <?php endif; ?>
 
         <!-- <div class="feed-carousel"> -->
-            <?php echo do_shortcode('[instagram-feed]'); ?>
+        <?php echo do_shortcode('[instagram-feed type=user layout=carousel imagepadding=0 num=10 nummobile=3 cols=4 colsmobile=1 carouselrows=1 carouselautoplay=true carouseltime=3000 lightboxcomments=true showcaption=false showlikes=false showfollow=false width=100 widthunit=% autoscroll=true]'); ?>
+
         <!-- </div> -->
     </div>
 
