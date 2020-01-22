@@ -62,50 +62,62 @@ $description = get_field( 'description' );
                         <?php if($content['include_boats'] && $count <= 1) : ?>
 
                             <?php
-                            $boat_args = array(
-                                'post_type' => 'boats',
-                                'tax_query' => array(
-                                        array(
-                                            'taxonomy' => 'boat-category',
-                                            'field' => 'id',
-                                            'terms' => $cat_id,
-                                        ),
-                                    ),
-                                );
-
-                                $boat_cat_query = new WP_Query($boat_args);
+                            $boats = get_field('boats');
                             ?>
 
-                            <?php if($boat_cat_query->have_posts()): ?>
+                            <?php if( !empty($boats)): ?>
 
-                                <div class="column-model <?php echo ($boat_cat_query->found_posts >= 6) ? 'column-model--two-col' : ''; ?>">
+                                <div class="column-model <?php echo (count($boats) >= 6) ? 'column-model--two-col' : ''; ?>">
 
-                                <?php while ($boat_cat_query->have_posts()): $boat_cat_query->the_post(); ?>
+                                <?php foreach ($boats as $boat) : ?>
 
-                                <?php
-                                    $title = get_the_title();
-                                    $brochure = get_field('quick_statistics_brochure');
-                                    // $post = get_the_ID();
-                                ?>
+                                    <?php if ( !empty($boat) ) : ?>
 
-                                <!-- boat_category_description -->
-                                    <div class="column-model__item">
-                                        <figure class="column-model__thumbnail">
-                                            <?php echo get_the_post_thumbnail($post, 'boat-cat-pullin'); ?>
-                                        </figure>
-                                        <div class="column-model__title-wrap">
-                                            <h2 class="column-model__title"><?php echo $title; ?></h2>
-                                            <span class="column-model__trigger"></span>
-                                        </div>
-                                        <div class="column-model__content">
-                                            <?php echo get_field('overview', $post); ?>
-                                            <?php if ($brochure) : ?>
-                                                <a href="<?php echo $brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
+                                    <?php
+                                        $title = $boat['title'];
+                                        $brochure = $boat['brochure'];
+                                        $image = $boat['image'];
+                                        $description = $boat['description'];
+
+                                    ?>
+
+                                    <!-- boat_category_description -->
+                                        <div class="column-model__item">
+                                            <?php if ($image) : ?>
+                                                <figure class="column-model__thumbnail">
+                                                    <img src="<?php echo $image['sizes']['boat-cat-pullin']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                </figure>
+                                            <?php endif; ?>
+
+                                            <?php if ($title || $description) : ?>
+                                                <div class="column-model__title-wrap">
+                                                    <?php if($title) : ?>
+                                                        <h2 class="column-model__title"><?php echo $title; ?></h2>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($brochure || $description) : ?>
+                                                    <span class="column-model__trigger"></span>
+
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ($brochure || $description) : ?>
+
+                                                <div class="column-model__content">
+                                                    <?php echo $description; ?>
+
+                                                <?php if ($brochure) : ?>
+                                                        <a href="<?php echo $brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
+                                                    <?php endif; ?>
+                                                </div>
                                             <?php endif; ?>
                                         </div>
-                                    </div>
 
-                                <?php endwhile; ?>
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+
                             <?php endif; ?>
 
                             </div>
