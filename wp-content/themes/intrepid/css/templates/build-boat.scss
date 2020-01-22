@@ -804,6 +804,11 @@
     position: absolute;
     top: 27px;
     left: 15px;
+    display: none;
+
+    .build-a-boat--end & {
+        display: block;
+    }
 
     .custom-hero__title {
         @include fsz(14px);
@@ -828,11 +833,15 @@
 }
 
 .icon-box {
-    display: block;
+    display: none;
     width: 32px;
     height: 32px;
     text-indent: -999em;
     margin-bottom: 10px;
+
+    .build-a-boat--end & {
+        display: block;
+    }
 }
 
 .icon-box--edit {
@@ -844,6 +853,7 @@
 }
 
 .form--sticky {
+    display: none;
     width: 423px;
     background-color: $white;
     padding: 16px 35px 8px;
@@ -851,9 +861,14 @@
     right: 45px;
     top: 0;
     z-index: 1;
+
     @media #{$phone} {
         width: 253px;
         padding: 10px 15px 3px;
+    }
+
+    .build-a-boat--modelName & {
+        display: block;
     }
 
     .form__field {
@@ -888,6 +903,7 @@
         color: #1f2225;
         text-align: center;
         text-transform: uppercase;
+
         @media #{$phone} {
             @include fsz(14px);
             padding: 7px 10px;
@@ -912,6 +928,7 @@
         @include fsz(11px);
         color: $bright-gray;
         letter-spacing: 2.6px;
+        border: 0;
 
         &:hover,
         &:focus {

@@ -369,6 +369,24 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
         <div class="custom-hero" id="bab-image">
             <div class="container">
                 <?php echo file_get_contents($bab_main_image['url']); ?>
+                <div class="custom-hero__form">
+                    <form class="form form--sticky" action="#" method="post">
+                        <ul class="form-fields">
+                            <li class="form__field">
+                                <label class="form__field-label" for="boat-name">Name your Model</label>
+                                <input type="text" name="boat-name" id="boat-name" placeholder="Modal Name Here">
+                            </li>
+                            <li class="form__field form__field--center">
+                                <input class="button" type="submit" value="Done">
+                            </li>
+                        </ul>
+                    </form>
+                    <a class="icon-box icon-box--edit" href="#">Name Your Model</a>
+                    <a class="icon-box icon-box--facebook" href="#" target="_blank">Facebook</a>
+                </div>
+                <div class="custom-hero__content">
+                    <span class="custom-hero__title"><?php echo $title; ?> <strong></strong></span>
+                </div>
             </div>
         </div>
         <div class="step-nagivation step-nagivation--alt build-a-boat--start">

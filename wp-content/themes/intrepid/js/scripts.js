@@ -7275,7 +7275,24 @@ $(function () {
             // Toggle BAB module
             this.$toggle = this.$el.find('[data-class="build-a-boat-toggle"]');
             this.$buildABoat = this.$el.find('.build-a-boat');
+            this.$buildABoatNameForm = this.$el.find('.form--sticky');
+            this.$buildABoatNameInput = this.$buildABoatNameForm.find('input[name="boat-name"]');
+            this.$buildABoatName = this.$el.find('.custom-hero__title strong');
+            this.$editModelName = this.$el.find('.icon-box--edit');
+            this.activeBABModelNameClass = 'build-a-boat--modelName';
             this.activeBABClass = 'build-a-boat--active';
+
+            this.$editModelName.on('click', function (e) {
+                e.preventDefault();
+
+                self.$buildABoat.toggleClass(self.activeBABModelNameClass);
+            });
+
+            this.$buildABoatNameForm.on('submit', function (e) {
+                e.preventDefault();
+                self.$buildABoatName.text(self.$buildABoatNameInput.val());
+                self.$buildABoat.removeClass(self.activeBABModelNameClass);
+            });
 
             this.$toggle.on('click', function (e) {
                 e.preventDefault();
@@ -7313,6 +7330,7 @@ $(function () {
                 self.activeItem--;
                 self.activateItem(self.activeItem);
                 self.updateNav();
+                self.$buildABoat.removeClass(self.endClass);
             });
 
             this.$next.on('click', function () {
@@ -7322,7 +7340,7 @@ $(function () {
                 self.updateNav();
 
                 if (self.activeItem === 3) {
-                    self.processImage();
+                    self.$buildABoat.addClass(self.endClass);
                     self.updateForm();
                 }
             });
@@ -7596,8 +7614,14 @@ $(function () {
             // Make It Yours
             //
             this.$form = self.$el.find('#gform_7');
+            this.$formSubmit = self.$form.find('#gform_submit_button_7');
             this.$contactItems = self.$el.find('.contact-block .option-list__item');
-            this.$contactForm = self.$el.find('#gform_7');
+
+            this.$formSubmit.click(function (e) {
+                e.preventDefault();
+                self.$formSubmit.val('Loading...');
+                self.processImage();
+            });
 
             this.$contactItems.on('click', function () {
                 var $this = $(this);
@@ -7630,37 +7654,10 @@ $(function () {
             });
 
         },
-        uploadImage: function (img) {
+        processImage: function (img) {
             var that = this;
 
-            $.ajax({
-                url: localized.ajaxurl, // AJAX handler
-                data: {
-                    'action': 'e11_upload_baseImage',
-                    'img': img,
-                    'title': 'BAB-image'
-                },
-                dataType: 'json',
-                type: 'POST',
-                beforeSend: function () {
-                    // button.text('Loading...');
-                },
-                success: function (data) {
-                    if (data) {
-                        console.log(data);
-                        that.$formImageInput.val(data['boat_url'][0]);
-
-                    } else {
-                        console.log('no data');
-                    }
-                }
-            });
-        },
-        processImage: function () {
-            var $screenshot = $("#bab-image svg").get(0),
-                that = this;
-            var w = 2400,
-                h = 844;
+            var $screenshot = $("#bab-image svg").get(0);
 
             // turn DOM markup into canvas
             html2canvas($screenshot, {
@@ -7668,10 +7665,6 @@ $(function () {
                 scale: 1,
                 allowTaint: true
             }).then(function (canvas) {
-
-                var type = 'jpeg'; // image type
-                var f = 'build-a-boat'; // file name
-
                 // convert to image
                 //var img = Canvas2Image.convertToImage(canvas, w, h);
                 var img = canvas.toDataURL("image/jpg");
@@ -7679,8 +7672,36 @@ $(function () {
                 // save as image
                 // Canvas2Image.saveAsImage(canvas, w, h, type, f);
 
-                that.uploadImage(img);
+                uploadImage(img);
             });
+
+            var uploadImage = function (img) {
+
+                $.ajax({
+                    url: localized.ajaxurl, // AJAX handler
+                    data: {
+                        'action': 'e11_upload_baseImage',
+                        'img': img,
+                        'title': 'BAB-image'
+                    },
+                    dataType: 'json',
+                    type: 'POST',
+                    beforeSend: function () {
+                        // button.text('Loading...');
+                    },
+                    success: function (data) {
+                        if (data) {
+                            console.log(data);
+                            that.$formImageInput.val(data['boat_url'][0]);
+
+                        } else {
+                            console.log('no data');
+                        }
+                        that.$form.trigger('submit');
+                    }
+                });
+
+            };
         },
         updateForm: function () {
             // Form data - Motor
