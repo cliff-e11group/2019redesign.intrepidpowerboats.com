@@ -235,7 +235,7 @@ img.gform_ajax_spinner {
 }
 
 .gform_confirmation_message {
-    color: green;
+    color: $black;
     @include fsz(20px);
 }
 

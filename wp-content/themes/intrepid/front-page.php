@@ -35,17 +35,10 @@ $page = get_the_ID();
         </div>
     </div>
     <div class="language-switcher">
-        <h3 class="language-switcher__title">
-            Select Language <svg class="icon icon-arrow-up" aria-hidden="true" role="img">
+        <svg class="icon icon-arrow-up" aria-hidden="true" role="img">
             <use xlink:href="#icon-arrow-up" x="0" y="0"></use>
         </svg>
-        </h3>
-        <ul class="language-switcher__list">
-            <li class="language-switcher__list-item"><a href="#">English</a></li>
-            <li class="language-switcher__list-item"><a href="#">French</a></li>
-            <li class="language-switcher__list-item"><a href="#">Germany</a></li>
-            <li class="language-switcher__list-item"><a href="#">English</a></li>
-        </ul>
+        <div id="header-site-translation"></div>
     </div>
 </main>
 <?php get_footer(); ?>

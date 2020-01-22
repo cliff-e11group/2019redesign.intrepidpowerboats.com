@@ -7312,13 +7312,19 @@ $(function () {
 
                 var BABpadding = $('.header').outerHeight(true),
                     BABpaddingAdminbarHeight = 0,
-                    $BABwpadminbar = $('#wpadminbar');
+                    $BABwpadminbar = $('#wpadminbar'),
+                    BABpaddingTranslateBarHeight = 0,
+                    $BABtranslateBar = $('.goog-te-banner-frame');
 
                 if ($BABwpadminbar.length > 0) {
                     BABpaddingAdminbarHeight = $BABwpadminbar.outerHeight();
                 }
 
-                BABpadding = BABpadding + BABpaddingAdminbarHeight;
+                if ($BABtranslateBar.length > 0) {
+                    BABpaddingTranslateBarHeight = $BABtranslateBar.outerHeight();
+                }
+
+                BABpadding = BABpadding + BABpaddingAdminbarHeight + BABpaddingTranslateBarHeight;
 
                 $('body').toggleClass(self.activeBABClass);
                 self.$buildABoat.css('top', BABpadding);
@@ -8575,6 +8581,24 @@ jQuery(document).ready(function ($) {
             e.preventDefault();
             $('body').toggleClass('high-contrast--active');
         });
+    }
+
+    var timer = setInterval(checkScriptExists, 1000);
+    function checkScriptExists(){
+        var google_script_url = "//translate.google.com/translate_a/element.js";
+        if($("script[src*='"+google_script_url+"']")[0]){
+            // run google translate function
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    includedLanguages: "es,en,fr,de",
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                },
+                "header-site-translation"
+            );
+            clearInterval(timer);
+            return;
+        }
     }
 });
 

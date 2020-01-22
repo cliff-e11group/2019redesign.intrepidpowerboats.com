@@ -6,6 +6,10 @@
     z-index: 999;
     background: linear-gradient(to bottom, #262a2e 0%, $bright-gray 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
+    .translated-ltr & {
+        top: 39px;
+    }
+
     .logged-in & {
         top: 32px;
 
