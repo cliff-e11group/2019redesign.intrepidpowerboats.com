@@ -779,24 +779,26 @@
     }
 }
 
-.spinner__mobile{
-    position: absolute;
-    left: 0;
-    z-index: 10000;
-    bottom: 0;
-    padding: 0 20px;
-    text-align: center;
-    color: white;
+.spinner__mobile {
     display: none;
-    width: 100%;
+    width: 106px;
+    position: absolute;
+    left: 50%;
+    bottom: 15%;
+    transform: translate3d(-50%, 0, 0);
+    text-align: center;
+    pointer-events: none;
+    z-index: 10000;
 
     @media only screen and (max-width: 767px) and (orientation: portrait) {
         display: block;
     }
+}
 
-    svg{
-        max-width: 100%;
-    }
+.spinner__mobile-img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .custom-hero {
@@ -807,7 +809,7 @@
 }
 
 
-.hero__placeholder{
+.hero__placeholder {
     position: absolute;
     left: 0;
     top: 0;
