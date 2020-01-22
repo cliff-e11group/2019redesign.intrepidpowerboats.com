@@ -46,7 +46,6 @@ $description = get_field( 'description' );
                     $count++;
                 endif; ?>
 
-
                 <section class="content-block">
                     <div class="container">
                         <?php if ($content['title']) : ?>
@@ -60,17 +59,89 @@ $description = get_field( 'description' );
                             </div>
                         <?php endif; ?>
 
+                        <!-- make sure include boats is set, and that it doesn't appear more than once -->
                         <?php if($content['include_boats'] && $count <= 1) : ?>
 
                             <?php
                             $boats = get_field('boats');
+                            $total_boats = count($boats);
                             ?>
 
-                            <?php if( !empty($boats)): ?>
+                            <?php if( !empty($boats) && ($total_boats < 6 )): ?>
 
-                                <div class="column-model <?php echo (count($boats) >= 6) ? 'column-model--two-col' : ''; ?>">
+                                <!-- if boat count is less than six -->
+                                <div class="column-model">
 
                                 <?php foreach ($boats as $boat) : ?>
+
+                                    <?php if ( !empty($boat) ) : ?>
+
+                                    <?php
+                                        $title = $boat['title'];
+                                        $brochure = $boat['brochure'];
+                                        $image = $boat['image'];
+                                        $description = $boat['description'];
+                                    ?>
+
+                                    <!-- boat_category_description -->
+                                        <div class="column-model__item">
+                                            <?php if ($image) : ?>
+                                                <figure class="column-model__thumbnail">
+                                                    <img src="<?php echo $image['sizes']['boat-cat-pullin']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                </figure>
+                                            <?php endif; ?>
+
+                                            <?php if ($title || $description) : ?>
+                                                <div class="column-model__title-wrap">
+                                                    <?php if($title) : ?>
+                                                        <h2 class="column-model__title"><?php echo $title; ?></h2>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($brochure || $description) : ?>
+                                                    <span class="column-model__trigger"></span>
+
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ($brochure || $description) : ?>
+
+                                                <div class="column-model__content">
+                                                    <?php echo $description; ?>
+
+                                                <?php if ($brochure) : ?>
+                                                        <a href="<?php echo $brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+
+                                </div>
+
+                            <?php endif; ?>
+
+
+
+                            <!-- if there are more than six boats, we need to split into two cols -->
+
+                            <?php if( !empty($boats) && ($total_boats >= 6 )) :
+
+                                $half = $total_boats / 2;
+
+                                $col_left = array_slice($boats, 0, ($half));
+                                $col_right = array_slice($boats, ($half));
+
+                            ?>
+                            <?php //echo '<pre>'; print_r($col_left); ?>
+                                <div class="column-model column-model--two-col">
+
+                                <div class="column-model__left">
+
+                                <?php foreach ($col_left as $boat) : ?>
 
                                     <?php if ( !empty($boat) ) : ?>
 
@@ -119,11 +190,72 @@ $description = get_field( 'description' );
 
                                 <?php endforeach; ?>
 
-                            <?php endif; ?>
+                                <?php endif; ?>
+
+                                </div>
+
+                                <div class="column-model__right">
+
+                                <?php foreach ($col_right as $boat) : ?>
+
+                                    <?php if ( !empty($boat) ) : ?>
+
+                                    <?php
+                                        $title = $boat['title'];
+                                        $brochure = $boat['brochure'];
+                                        $image = $boat['image'];
+                                        $description = $boat['description'];
+
+                                    ?>
+
+                                    <!-- boat_category_description -->
+                                        <div class="column-model__item">
+                                            <?php if ($image) : ?>
+                                                <figure class="column-model__thumbnail">
+                                                    <img src="<?php echo $image['sizes']['boat-cat-pullin']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                </figure>
+                                            <?php endif; ?>
+
+                                            <?php if ($title || $description) : ?>
+                                                <div class="column-model__title-wrap">
+                                                    <?php if($title) : ?>
+                                                        <h2 class="column-model__title"><?php echo $title; ?></h2>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($brochure || $description) : ?>
+                                                    <span class="column-model__trigger"></span>
+
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if ($brochure || $description) : ?>
+
+                                                <div class="column-model__content">
+                                                    <?php echo $description; ?>
+
+                                                <?php if ($brochure) : ?>
+                                                        <a href="<?php echo $brochure['url']; ?>" class="btn btn--dark">Download Brochure</a>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+
+                                    <?php endif; ?>
+
+                                <?php endforeach; ?>
+
+                                <?php endif; ?>
+
+                                </div>
 
                             </div>
 
-                        <?php endif; ?>
+                            <?php //endif; ?>
+
+
+
+                        <?php //endif; ?>
                     </div>
                 </section>
             <?php endforeach; ?>

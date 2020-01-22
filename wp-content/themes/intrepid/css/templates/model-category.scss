@@ -85,10 +85,10 @@
     margin-top: 26px;
 
     &.column-model--two-col {
-        column-count: 2;
-        column-gap: 25px;
+        display: flex;
+        justify-content: space-between;
         @media #{$phone} {
-            column-count: 1;
+            display: block;
         }
 
         .column-model__item {
@@ -159,3 +159,11 @@
     }
 }
 
+.column-model__right,
+.column-model__left{
+    width: calc(50% - 12.5px);
+
+    @media #{$phone}{
+        width: 100%;
+    }
+}
