@@ -76,7 +76,8 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
             </div>
             <div id="spinner-view"></div>
             <div class="spinner__mobile">
-                    <h4 class="spinner__mobile-text">For best experience, rotate phone</h4>
+                    <!-- <h4 class="spinner__mobile-text">For best experience, rotate phone</h4> -->
+                    <?php echo file_get_contents(IMAGES . '/phonerotatefor360.svg'); ?>
                 </div>
         </div>
         <?php endif; ?>

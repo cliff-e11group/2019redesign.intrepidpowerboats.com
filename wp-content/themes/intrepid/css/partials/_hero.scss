@@ -786,17 +786,22 @@
 }
 
 .spinner__mobile{
-        position: absolute;
-        left: 0;
-        z-index: 10000;
-        bottom: 10%;
-        padding: 0 20px;
-        text-align: center;
-        color: white;
-        display: none;
-        width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 10000;
+    bottom: 0;
+    padding: 0 20px;
+    text-align: center;
+    color: white;
+    display: none;
+    width: 100%;
+
     @media only screen and (max-width: 767px) and (orientation: portrait) {
         display: block;
+    }
+
+    svg{
+        max-width: 100%;
     }
 }
 
