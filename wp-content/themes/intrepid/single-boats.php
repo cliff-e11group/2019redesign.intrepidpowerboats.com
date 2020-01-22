@@ -369,7 +369,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
         <div class="custom-hero" id="bab-image">
             <div class="container">
                 <?php echo file_get_contents($bab_main_image['url']); ?>
-                <div class="custom-hero__form">
+                <div class="custom-hero__form" data-html2canvas-ignore>
                     <form class="form form--sticky" action="#" method="post">
                         <ul class="form-fields">
                             <li class="form__field">
