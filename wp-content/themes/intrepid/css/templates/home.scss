@@ -358,13 +358,82 @@
     }
 }
 
+#header-site-translation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+}
+
+.goog-te-gadget-simple {
+
+    > img {
+        display: none;
+    }
+
+    > span {
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        @include fsz(13px);
+        transform: rotate(-90deg);
+        background-color: $black;
+        color: $white;
+        position: absolute;
+        top: 77px;
+        left: -116px;
+        margin-bottom: 0;
+        box-shadow: 0 -10px 25px -19px rgba(0, 0, 0, 0.16) inset;
+        cursor: pointer;
+
+        .goog-te-menu-value {
+            display: block;
+            width: 193px;
+            height: 39px;
+            padding: 10px 22px 14px 12px;
+            color: #ffffff;
+
+            img {
+                display: none;
+            }
+
+            > span {
+                display: block;
+
+                + img {
+
+                    + span {
+                        display: none;
+
+                        + img {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .language-switcher {
     position: fixed;
-    right: -127px;
-    top: 383px;
+    right: 0;
+    top: 387px;
     z-index: 10;
+
     @media #{$phone} {
         display: none;
+    }
+
+    .icon {
+        position: absolute;
+        right: 9px;
+        top: 15px;
+        z-index: 99999;
+        fill: white;
+        transform: rotate(-90deg);
+        pointer-events: none;
     }
 
     &.active {
