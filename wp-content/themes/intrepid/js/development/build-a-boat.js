@@ -26,6 +26,7 @@ $(function () {
     // Email Options
     //
     var $emailOptionsForm = $('#gform_wrapper_8'),
+        $emailOptionsFormTag = $emailOptionsForm.closest('.form'),
         $emailOptionsFormSubmit = $emailOptionsForm.find('#gform_submit_button_8'),
         $emailOptionsChoice = $('[data-form-wrap="1"] .option-list__item'),
         $formOptionsInput = $emailOptionsForm.find('.gfield.input-options textarea'),
@@ -42,25 +43,25 @@ $(function () {
             // Email Options Form Inputs
             $formEmailChoiceInput.find('input[value="' + $emailChoice + '"]').prop('checked', true);
         });
+
+        $emailOptionsFormSubmit.click(function (e) {
+            e.preventDefault();
+            // Form data - Options
+            var $emailOptions = $('.model-option.model-option--main .option-list__item.boatOption.selected');
+            if ($emailOptions.length > 0) {
+                var $emailOptionsData = [];
+
+                $emailOptions.each(function () {
+                    $emailOptionsData.push($(this).find('.option-list__text').text());
+                });
+
+                $emailOptionsData = $emailOptionsData.join('\n');
+                $formOptionsInput.val($emailOptionsData);
+            }
+
+            $emailOptionsFormTag.trigger('submit');
+        });
     }
-
-    $emailOptionsFormSubmit.click(function (e) {
-        e.preventDefault();
-        // Form data - Options
-        var $emailOptions = $('.model-option.model-option--main .option-list__item.boatOption.selected');
-        if ($emailOptions.length > 0) {
-            var $emailOptionsData = [];
-
-            $emailOptions.each(function () {
-                $emailOptionsData.push($(this).find('.option-list__text').text());
-            });
-
-            $emailOptionsData = $emailOptionsData.join('\n');
-            $formOptionsInput.val($emailOptionsData);
-        }
-
-        $emailOptionsForm.trigger('submit');
-    });
 
 });
 

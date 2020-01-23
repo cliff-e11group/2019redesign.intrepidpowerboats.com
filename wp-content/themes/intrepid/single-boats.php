@@ -610,10 +610,12 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
 
     <div class="btn-wrap">
         <div class="btn-wrap__inner">
+            <?php if ( !empty($boat_options) ) : ?>
             <button class="form-toggle form-toggle__email-list btn btn--dark" data-form-toggle="1" >Email This List</button>
+            <?php endif; ?>
             <button class="form-toggle  btn btn--dark" data-form-toggle="2">Contact a Sales Representative</button>
         </div>
-
+        <?php if ( !empty($boat_options) ) : ?>
         <div class="form-wrap" data-form-wrap="1">
             <div class="form-option">
                 <ul class="option-list">
@@ -626,6 +628,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                 <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
             </form>
         </div>
+        <?php endif; ?>
 
         <div class="form-wrap" data-form-wrap="2">
             <?php echo do_shortcode('[gravityform id="6" title="false" description="false" ajax="true" ]'); ?>
