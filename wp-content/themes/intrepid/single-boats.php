@@ -135,7 +135,10 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                                 <?php if($virtual_tour) : ?>
                                 <li class="overview-nav__item"><a href="#" data-target="nav-item-gallery" data-subtarget="subnav-item-virtual-gallery">Virtual Tour</a></li>
                                 <?php endif; ?>
-                                <li class="overview-nav__item"><a href="#" data-class="build-a-boat-toggle">Build Your Own</a></li>
+
+                                <?php if ($bab_main_image) : ?>
+                                    <li class="overview-nav__item"><a href="#" data-class="build-a-boat-toggle">Build Your Own</a></li>
+                                <?php endif; ?>
                             </ul>
                         </div>
 

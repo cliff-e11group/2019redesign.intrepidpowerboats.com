@@ -1,6 +1,9 @@
 <?php
 
 function e11_button_shortcode($atts = [], $content = null) {
+    if ($atts['color'] === 'light'){
+        return '<div class="btn-shortcode btn-shortcode--light">'.$content.'</div>';
+    }
 	return '<div class="btn-shortcode">'.$content.'</div>';
 }
 add_shortcode('button', 'e11_button_shortcode');
@@ -27,8 +30,7 @@ function e11_button_register_tinymce_plugin($plugin_array) {
 
 //This callback adds our button to the toolbar
 function e11_add_tinymce_button($buttons) {
-            //Add the button ID to the $button array
+    //Add the button ID to the $button array
     $buttons[] = "e11_button";
-    // echo '<pre>'; print_r($buttons);
     return $buttons;
 }
