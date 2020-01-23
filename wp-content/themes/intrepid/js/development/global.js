@@ -398,7 +398,7 @@ jQuery(document).ready(function ($) {
         });
         $('.model-nav__item').click(function(){
             $form_toggles.removeClass('form-toggle--active');
-            $form_wraps.removeClass('form-wrap--active')
+            $form_wraps.removeClass('form-wrap--active');
         });
     }
 
@@ -478,7 +478,6 @@ jQuery(document).ready(function ($) {
 
     if (window.location.hash !== '') {
         var urlHash = window.location.hash;
-        console.log(urlHash);
         $('#parentTab').find(urlHash).click();
     }
 

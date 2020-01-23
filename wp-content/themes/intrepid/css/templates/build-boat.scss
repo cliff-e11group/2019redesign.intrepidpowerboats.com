@@ -340,7 +340,9 @@
     }
 
     .mobile__title-container & {
-        margin: 0;
+        @media #{$phone} {
+            margin: 0;
+        }
     }
 }
 

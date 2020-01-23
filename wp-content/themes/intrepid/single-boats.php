@@ -497,7 +497,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                                 <h3 class="motor-option__title">Select a Motor</h3>
                                 <button class="mobile__active-holder">
                                     <span class="area-list__color-box"></span>
-                                    <span class="area-list__title">Hull Color</span>
+                                    <span class="area-list__title"></span>
                                 </button>
                             </div>
                             <ul class="motor-option__list">
@@ -547,12 +547,17 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
             <?php endif; ?>
             <?php if ( !empty($boat_options) ) : ?>
             <div class="model-option model-option--alt" data-class="step">
-                <span class="model-option__block-title">Select a category for options</span>
+                <div class="mobile__title-container">
+                    <h3 class="model-option__block-title">Select a category for options</h3>
+                    <button class="mobile__active-holder">
+                        <span class="area-list__title"></span>
+                    </button>
+                </div>
                 <div class="container">
                     <div class="option-slider">
                         <?php foreach ($boat_options as $boat_option) : ?>
                         <div>
-                            <h3 class="option-title"><?php echo $boat_option['title']; ?></h3>
+                            <h3 class="option-title" role="button"><?php echo $boat_option['title']; ?></h3>
                             <ul class="option-list" data-user-choices="<?php echo $boat_option['number_of_choices']; ?>">
                                 <?php foreach($boat_option['options'] as $option) : ?>
                                 <li class="option-list__item boatOption <?php if($option['selected_by_default']) : ?>selected<?php endif; ?>" <?php if($option['svg_id']) : ?>data-boat-layer="<?php echo $option['svg_id']; ?>"<?php endif; ?>>
