@@ -7,7 +7,7 @@
             ?>
                 <?php foreach( $gallery_row['two_equal_images'] as $image) : ?>
                     <div class="gallery-grid__item gallery-grid__item--half">
-                        <a href="<?php echo $image['sizes']['hero']; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image['sizes']['gallery-half']; ?>);">
+                        <a href="<?php echo $image['sizes']['hero']; ?>" data-fancybox="boat-gallery" style="background-image: url(<?php echo $image['sizes']['gallery-half']; ?>);">
                             <img src="<?php echo $image['sizes']['gallery-half']; ?>" alt="<?php echo $image['alt']; ?>" class="accessible-text">
                         </a>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="gallery-grid__item gallery-grid__item--full gallery-grid__item--video">
 
 
-                    <a data-fancybox="gallery" class="gallery-grid__video-wrap" href="<?php echo $video_link; ?>" style="background-image: url(<?php echo $placeholder['sizes']['gallery-video']; ?>);">
+                    <a data-fancybox="boat-gallery" class="gallery-grid__video-wrap" href="<?php echo $video_link; ?>" style="background-image: url(<?php echo $placeholder['sizes']['gallery-video']; ?>);">
                         <?php if ($gallery_row['video']['placeholder_video']) : ?>
                             <video class="gallery-grid__bg-video" autoplay muted loop>
                                 <source src="<?php echo $gallery_row['video']['placeholder_video']['url']; ?>" type="video/mp4">
@@ -48,7 +48,7 @@
                 <?php foreach($gallery_row['three_equal_images'] as $image): ?>
 
                     <div class="gallery-grid__item gallery-grid__item--one-third">
-                        <a href="<?php echo $image['sizes']['hero']; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $image['sizes']['gallery-one-third']; ?>);">
+                        <a href="<?php echo $image['sizes']['hero']; ?>" data-fancybox="boat-gallery" style="background-image: url(<?php echo $image['sizes']['gallery-one-third']; ?>);">
                             <img src="<?php echo $image['sizes']['gallery-one-third']; ?>" alt="<?php echo $image['alt']; ?>" class="accessible-text">
                         </a>
                     </div>
@@ -64,13 +64,13 @@
                 ?>
 
                 <div class="gallery-grid__item gallery-grid__item--two-third">
-                    <a href="<?php echo $left_image['sizes']['hero']; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $left_image['sizes']['gallery-two-third']; ?>);">
+                    <a href="<?php echo $left_image['sizes']['hero']; ?>" data-fancybox="boat-gallery" style="background-image: url(<?php echo $left_image['sizes']['gallery-two-third']; ?>);">
                         <img src="<?php echo $left_image['sizes']['gallery-two-third']; ?>" alt="<?php echo $left_image['alt']; ?>" class="accessible-text">
                     </a>
                 </div>
 
                 <div class="gallery-grid__item gallery-grid__item--one-third">
-                    <a href="<?php echo $right_image['sizes']['hero']; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $right_image['sizes']['gallery-one-third']; ?>);">
+                    <a href="<?php echo $right_image['sizes']['hero']; ?>" data-fancybox="boat-gallery" style="background-image: url(<?php echo $right_image['sizes']['gallery-one-third']; ?>);">
                         <img src="<?php echo $right_image['sizes']['gallery-one-third']; ?>" alt="<?php echo $right_image['alt']; ?>" class="accessible-text">
                     </a>
                 </div>
@@ -85,13 +85,13 @@
                 ?>
 
                 <div class="gallery-grid__item gallery-grid__item--one-third">
-                    <a href="<?php echo $left_image['sizes']['hero']; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $left_image['sizes']['gallery-one-third']; ?>);">
+                    <a href="<?php echo $left_image['sizes']['hero']; ?>" data-fancybox="boat-gallery" style="background-image: url(<?php echo $left_image['sizes']['gallery-one-third']; ?>);">
                         <img src="<?php echo $left_image['sizes']['gallery-one-third']; ?>" alt="<?php echo $left_image['alt']; ?>" class="accessible-text">
                     </a>
                 </div>
 
                 <div class="gallery-grid__item gallery-grid__item--two-third">
-                    <a href="<?php echo $right_image['sizes']['hero']; ?>" data-fancybox="gallery" style="background-image: url(<?php echo $right_image['sizes']['gallery-two-third']; ?>);">
+                    <a href="<?php echo $right_image['sizes']['hero']; ?>" data-fancybox="boat-gallery" style="background-image: url(<?php echo $right_image['sizes']['gallery-two-third']; ?>);">
                         <img src="<?php echo $right_image['sizes']['gallery-two-third']; ?>" alt="<?php echo $right_image['alt']; ?>" class="accessible-text">
                     </a>
                 </div>

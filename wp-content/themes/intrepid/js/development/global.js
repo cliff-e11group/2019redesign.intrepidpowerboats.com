@@ -444,7 +444,7 @@ jQuery(document).ready(function ($) {
         tabidentify: 'hor_1', // The tab groups identifier
         activate: function (event) { // Callback function if tab is switched
             var $tab = $(this);
-            var $active_tab_text = $tab.text();
+            var $active_tab_text = $tab.text().trim();
             $('.nav-block__toggle, .nav-block__inner').removeClass('active');
 
             if ($active_tab_text != ' Virtual Tour ' && $active_tab_text != ' Gallery ') {
@@ -462,9 +462,11 @@ jQuery(document).ready(function ($) {
                 $('.option-slider')[0].slick.refresh();
             }
 
-            if ($active_tab_text == 'Gallery') {
-                var newHash = 'image-video-gallery';
-            } else {
+            if( $active_tab_text == 'Options' ){
+                var newHash = 'optional-equipment';
+            } else if($active_tab_text == 'Overview'){
+                var newHash = 'about';
+            } else{
                 var newHash = $active_tab_text.toLowerCase().replace(' ', '-');
             }
 
@@ -475,7 +477,8 @@ jQuery(document).ready(function ($) {
 
     if (window.location.hash !== '') {
         var urlHash = window.location.hash;
-        $('#parentTab').find(urlHash).click();
+
+         $('#parentTab').find(urlHash).click();
     }
 
     // add the class .tab-link to any old <a> tag, set the href attribute to the #id of the tab you want to switch to.

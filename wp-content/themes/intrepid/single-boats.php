@@ -87,15 +87,15 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
             <div class="nav-block__inner">
                 <div class="container">
                     <ul class="model-nav resp-tabs-list hor_1">
-                        <li class="model-nav__item active">Overview</li>
+                        <li class="model-nav__item active" id="about">Overview</li>
                         <?php if ( !empty($gallery_rows) ) : ?>
-                            <li class="model-nav__item" data-class="nav-item-gallery" id="video-image-gallery">Gallery</li>
+                            <li class="model-nav__item" data-class="nav-item-gallery" id="gallery">Gallery</li>
                         <?php endif; ?>
                         <?php if ( !empty($features) ) : ?>
                             <li class="model-nav__item" id="features">Features</li>
                         <?php endif; ?>
                         <?php if ( !empty($boat_options) ) : ?>
-                        <li class="model-nav__item" id="options">Options</li>
+                        <li class="model-nav__item" id="optional-equipment">Options</li>
                         <?php endif; ?>
                         <?php if ( !empty($deck_points) && $deck_plan_image ) : ?>
                         <li class="model-nav__item" data-class="nav-item-deck-plan" id="deck-plan">Deck Plan</li>
