@@ -343,27 +343,27 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
     <?php if($bab_main_image) : ?>
     <section class="build-a-boat">
         <div class="step-block">
-            <div class="step-block__close" data-class="build-a-boat-toggle">
+            <button class="step-block__close" data-class="build-a-boat-toggle" role="button">
                 <span class="icon-close"></span>
-            </div>
-            <ul class="form-step">
-                <li class="step__item step__item--active" data-label-back="" data-label-next="Motors">
+            </button>
+            <nav class="form-step">
+                <button class="step__item step__item--active" data-label-back="" data-label-next="Motors">
                     Exterior
-                </li>
+                </button>
                 <?php if ( !empty($bab_motors) ) : ?>
-                <li class="step__item" data-label-back="Colors" data-label-next="Options">
+                <button class="step__item" data-label-back="Colors" data-label-next="Options">
                     Motors
-                </li>
+                </button>
                 <?php endif; ?>
                 <?php if ( !empty($boat_options) ) : ?>
-                <li class="step__item" data-label-back="Motors" data-label-next="Finish">
+                <button class="step__item" data-label-back="Motors" data-label-next="Finish">
                     Options
-                </li>
+                </button>
                 <?php endif; ?>
-                <li class="step__item" data-label-back="Options" data-label-next="">
+                <button class="step__item" data-label-back="Options" data-label-next="">
                     Make it yours
-                </li>
-            </ul>
+                </button>
+            </nav>
         </div>
         <div class="custom-hero" id="bab-image">
             <div class="container">
@@ -380,7 +380,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             </li>
                         </ul>
                     </form>
-                    <a class="icon-box icon-box--edit" href="#">Name Your Model</a>
+                    <button class="icon-box icon-box--edit" >Name Your Model</button>
                     <a class="icon-box icon-box--facebook" href="someurl.com/some-article" data-image="article-1.jpg" data-title="Article Title" data-desc="Some description for this article" target="_blank">Facebook</a>
                     <script>
                         window.fbAsyncInit = function(){
@@ -433,28 +433,34 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             <h3 class="color-shader__title">Shader Selection</h3>
                         </div>
                         <div class="color-block__option">
-                            <span class="color-block__title">Select an area to color</span>
+                            <div class="mobile__title-container">
+                                <h3 class="color-block__title">Select an area to color</h3>
+                                <button class="mobile__active-holder">
+                                    <span class="area-list__color-box"></span>
+                                    <span class="area-list__title">Hull Color</span>
+                                </button>
+                            </div>
                             <?php
                             $bab_default_colors = get_field('bab_default_colors');
                             ?>
-                            <ul class="area-list">
-                                <li class="area-list__item active" data-boat-layer="hull-color" <?php if($bab_default_colors['hull_color']) : ?>data-default-color="<?php echo $bab_default_colors['hull_color']; ?>"<?php endif; ?>>
+                            <div class="area-list">
+                                <button class="area-list__item active" data-boat-layer="hull-color" <?php if($bab_default_colors['hull_color']) : ?>data-default-color="<?php echo $bab_default_colors['hull_color']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Hull Color</span>
-                                </li>
-                                <li class="area-list__item" data-boat-layer="boot-stripe" <?php if($bab_default_colors['boot_stripe']) : ?>data-default-color="<?php echo $bab_default_colors['boot_stripe']; ?>"<?php endif; ?>>
+                                </button>
+                                <button class="area-list__item" data-boat-layer="boot-stripe" <?php if($bab_default_colors['boot_stripe']) : ?>data-default-color="<?php echo $bab_default_colors['boot_stripe']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Stripe</span>
-                                </li>
-                                <li class="area-list__item" data-boat-layer="logo-color" <?php if($bab_default_colors['logo_color']) : ?>data-default-color="<?php echo $bab_default_colors['logo_color']; ?>"<?php endif; ?>>
+                                </button>
+                                <button class="area-list__item" data-boat-layer="logo-color" <?php if($bab_default_colors['logo_color']) : ?>data-default-color="<?php echo $bab_default_colors['logo_color']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Logo</span>
-                                </li>
-                                <li class="area-list__item" data-boat-layer="boot-stripe-accent" <?php if($bab_default_colors['boot_stripe_accent']) : ?>data-default-color="<?php echo $bab_default_colors['boot_stripe_accent']; ?>"<?php endif; ?>>
+                                </button>
+                                <button class="area-list__item" data-boat-layer="boot-stripe-accent" <?php if($bab_default_colors['boot_stripe_accent']) : ?>data-default-color="<?php echo $bab_default_colors['boot_stripe_accent']; ?>"<?php endif; ?>>
                                     <span class="area-list__color-box"></span>
                                     <span class="area-list__title">Boot Accent</span>
-                                </li>
-                            </ul>
+                                </button>
+                            </div>
                             <div class="step-nagivation step-nagivation--mobile">
                                 <a href="#" class="step-next" data-class="next">Skip this step &gt;</a>
                             </div>
@@ -487,7 +493,13 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             </div>
                         </div>
                         <div class="motor-option__wrap">
-                            <span class="motor-option__title">Select a Motor</span>
+                            <div class="mobile__title-container">
+                                <h3 class="motor-option__title">Select a Motor</h3>
+                                <button class="mobile__active-holder">
+                                    <span class="area-list__color-box"></span>
+                                    <span class="area-list__title">Hull Color</span>
+                                </button>
+                            </div>
                             <ul class="motor-option__list">
                                 <?php
                                 $motorCount = 0;
@@ -498,7 +510,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                                 $motorDescription = get_field('boat_motor_description', 'boat-motors_' . $motorDetails->term_id);
                                 $motorColors = get_field('boat_motor_colors', 'boat-motors_' . $motorDetails->term_id);
                                 ?>
-                                <li class="motor-option__list-item">
+                                <li class="motor-option__list-item" role="button">
                                     <span class="motor-option__list-title"><?php echo $motorName; ?></span>
                                     <?php if($motorDescription) : ?>
                                     <div class="motor__description"><?php echo $motorDescription; ?></div>
@@ -588,7 +600,6 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
     <div class="btn-wrap">
         <div class="btn-wrap__inner">
             <button class="form-toggle form-toggle__email-list btn btn--dark" href="#" data-form-toggle="1" >Email This List</button>
-
             <button href="#" target="" class="form-toggle  btn btn--dark" data-form-toggle="2">Contact a Sales Representative</button>
         </div>
 

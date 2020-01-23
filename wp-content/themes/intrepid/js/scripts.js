@@ -7345,12 +7345,18 @@ $(function () {
             this.endClass = 'build-a-boat--end';
             this.activeItem = 0;
 
+            this.$items.click(function () {
+                self.deactivateItem(self.activeItem);
+                self.activeItem = $(this).index();
+                self.activateItem(self.activeItem);
+                self.updateNav();
+            });
+
             this.$prev.on('click', function () {
                 self.deactivateItem(self.activeItem);
                 self.activeItem--;
                 self.activateItem(self.activeItem);
                 self.updateNav();
-                self.$buildABoat.removeClass(self.endClass);
             });
 
             this.$next.on('click', function () {
@@ -7358,16 +7364,14 @@ $(function () {
                 self.activeItem++;
                 self.activateItem(self.activeItem);
                 self.updateNav();
-
-                if (self.activeItem === 3) {
-                    self.$buildABoat.addClass(self.endClass);
-                    self.updateForm();
-                }
             });
 
             //
             //EXTERIOR - Color Picker
             //
+            this.$colorBlock = this.$el.find('.color-block');
+            this.$mobileBlockActiveHolder = this.$el.find('.mobile__active-holder');
+            this.mobileBlockActiveClass = 'mobile__active-holder--active';
             this.$colorPicker = this.$el.find('#color-picker');
             this.$colorItems = this.$el.find('.area-list__item');
             this.$colorPalette = this.$el.find('.color-palette');
@@ -7384,6 +7388,11 @@ $(function () {
                 'opacity': 0.2
             });
 
+            //Mobile controls
+            this.$mobileBlockActiveHolder.click(function () {
+                $(this).closest('[data-class="step"]').toggleClass(self.mobileBlockActiveClass)
+            });
+
             // Activate color picker
             var colorPicker = new iro.ColorPicker('#color-picker', {
                 width: 180,
@@ -7392,6 +7401,7 @@ $(function () {
 
             function onColorChange(color, changes) {
                 self.$activeColorItem.find('.area-list__color-box').css('background', color.hexString);
+                self.$mobileBlockActiveHolder.find('.area-list__color-box').css('background', color.hexString);
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': color.hexString});
             }
 
@@ -7448,11 +7458,17 @@ $(function () {
                 self.$activeColorItem = $this;
                 self.boatLayer = self.$activeColorItem.attr('data-boat-layer');
                 self.$boatLayer = $("#" + self.boatLayer).find('path, polygon');
+
+                self.$mobileBlockActiveHolder.html($this.children().clone());
+                self.$colorBlock.addClass(self.mobileBlockActiveClass);
             });
 
             this.$colorPaletteClear.on('click', function (e) {
                 e.preventDefault();
                 self.$activeColorItem.find('.area-list__color-box').css({
+                    'background': ''
+                });
+                self.$mobileBlockActiveHolder.find('.area-list__color-box').css({
                     'background': ''
                 });
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': 'none'});
@@ -7474,6 +7490,7 @@ $(function () {
             this.motorColorContainer = this.$el.find('.motor-color__container');
             this.$motorImgContainer = this.$el.find('.motor-thumbnail');
             this.$motorImg = this.$motorImgContainer.find('img');
+            this.$motorOption = this.$el.find('.motor-option');
             this.$motorDescription = this.$el.find('.motor-option__description');
             this.$motorItems = this.$el.find('.motor-option__list-item');
             this.motorItemActiveClass = 'active';
@@ -7528,6 +7545,11 @@ $(function () {
                     'display': 'block',
                     'opacity': 1
                 });
+
+                self.$motorOption.find('.mobile__active-holder .area-list__title').text($this.find('.motor-option__list-title').text());
+                self.$motorOption.find('.mobile__active-holder .area-list__color-box').css('background', $this.find('.motor-color__item.active .motor-color__title').text());
+                self.$motorOption.addClass(self.mobileBlockActiveClass);
+
             });
 
             // Toggle between active motor color
@@ -7551,6 +7573,8 @@ $(function () {
                     'display': 'block',
                     'opacity': 1
                 });
+
+                self.$motorOption.find('.mobile__active-holder .area-list__color-box').css('background', $this.find('.motor-color__title').text());
             });
 
             // Activate active motor
@@ -7774,7 +7798,16 @@ $(function () {
         activateItem: function (i) {
             this.$items.eq(i).addClass(this.activeClass);
             this.$steps.eq(i).addClass(this.activeClass);
-            $('.option-slider')[1].slick.refresh();
+
+            if (this.activeItem === 2) {
+                $('.option-slider')[1].slick.refresh();
+            }
+            if (this.activeItem === 3) {
+                this.$buildABoat.addClass(this.endClass);
+                this.updateForm();
+            } else {
+                this.$buildABoat.removeClass(this.endClass);
+            }
         },
         deactivateItem: function (i) {
             this.$items.eq(i).removeClass(this.activeClass);
