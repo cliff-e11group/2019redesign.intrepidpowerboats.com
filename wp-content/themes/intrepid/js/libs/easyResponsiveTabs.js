@@ -34,7 +34,7 @@
             this.each(function () {
                 var $respTabs = $(this);
                 var $respTabsList = $respTabs.find('ul.resp-tabs-list.' + options.tabidentify);
-                var respTabsId = $respTabs.attr('id');
+                var respTabsId = $respTabs.data('id');
                 $respTabs.find('ul.resp-tabs-list.' + options.tabidentify + ' li').addClass('resp-tab-item').addClass(options.tabidentify);
                 $respTabs.css({
                     'display': 'block',
@@ -105,7 +105,7 @@
                     count++;
                 });
 
-                // Show correct content area
+                // Show correct content area on page load
                 var tabNum = 0;
                 if (hash != '') {
                     var matches = hash.match(new RegExp(respTabsId + "([0-9]+)"));
@@ -217,6 +217,11 @@
                     $respTabs.find('.resp-accordion-closed').removeAttr('style');
                 });
             });
+
+            var $pageLoadHash = $('[data-id="' + hash.replace('#', '') +'"]');
+            if($pageLoadHash.length > 0) {
+                $pageLoadHash.trigger('click');
+            }
         }
     });
 })(jQuery);

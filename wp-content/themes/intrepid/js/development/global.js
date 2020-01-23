@@ -384,7 +384,6 @@ jQuery(document).ready(function ($) {
                 $formNum = $this.data('form-toggle'),
                 $form_wrap = $('.form-wrap[data-form-wrap="' + $formNum + '"]'),
                 $form_wrapSibling = $form_wrap.siblings('.form-wrap');
-            console.log($formNum);
 
             $this.on('click', function (e) {
                 e.preventDefault();
