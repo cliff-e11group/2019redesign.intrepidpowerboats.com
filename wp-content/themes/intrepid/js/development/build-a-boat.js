@@ -216,9 +216,11 @@ $(function () {
                 color: '#ffffff'
             });
 
+            this.$mobileBlockActiveHolderColor = $('.color-block .mobile__active-holder');
+
             function onColorChange(color, changes) {
                 self.$activeColorItem.find('.area-list__color-box').css('background', color.hexString);
-                self.$mobileBlockActiveHolder.find('.area-list__color-box').css('background', color.hexString);
+                self.$mobileBlockActiveHolderColor.find('.area-list__color-box').css('background', color.hexString);
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': color.hexString});
             }
 
@@ -276,7 +278,7 @@ $(function () {
                 self.boatLayer = self.$activeColorItem.attr('data-boat-layer');
                 self.$boatLayer = $("#" + self.boatLayer).find('path, polygon');
 
-                self.$mobileBlockActiveHolder.html($this.children().clone());
+                self.$mobileBlockActiveHolderColor.html($this.children().clone());
                 self.$colorBlock.addClass(self.mobileBlockActiveClass);
             });
 
