@@ -7376,6 +7376,7 @@ $(function () {
             this.$colorItems = this.$el.find('.area-list__item');
             this.$colorPalette = this.$el.find('.color-palette');
             this.$colorPaletteClear = this.$el.find('.color-block__picker--clear');
+            this.$colorPaletteWhite = this.$el.find('.color-block__picker--white');
             this.$reflection = this.$el.find('#reflection');
             this.$recentColors = this.$el.find('#recent-colors');
             this.colorItemActiveClass = 'active';
@@ -7472,6 +7473,18 @@ $(function () {
                     'background': ''
                 });
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': 'none'});
+            });
+
+            this.$colorPaletteWhite.on('click', function (e) {
+                e.preventDefault();
+                self.$activeColorItem.find('.area-list__color-box').css({
+                    'background': '#ffffff'
+                });
+                self.$mobileBlockActiveHolder.find('.area-list__color-box').css({
+                    'background': '#ffffff'
+                });
+                self.updateBoatLayerColor(self.$boatLayer, {'fill': '#ffffff'});
+                colorPicker.color.rgbString = 'rgb(255, 255, 255)';
             });
 
             // Listen for click of recent colors

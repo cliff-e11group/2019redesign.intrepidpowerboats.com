@@ -428,6 +428,9 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             <button class="color-block__picker--clear">
                                 <span class="accessible-text">clear color</span>
                             </button>
+                            <button class="color-block__picker--white">
+                                <span class="">White</span>
+                            </button>
                             <h3 class="color-picker__title">Color Selection</h3>
                             <div id="color-picker"></div>
                             <h3 class="color-shader__title">Shader Selection</h3>

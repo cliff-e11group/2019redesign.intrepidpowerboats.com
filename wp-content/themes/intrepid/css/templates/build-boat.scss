@@ -295,6 +295,39 @@
         z-index: 100;
     }
 
+    .color-block__picker--white {
+        display: block;
+        position: absolute;
+        right: -20px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #ffffff;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        box-shadow: none;
+        border: .75px solid #979797;
+        z-index: 100;
+
+        span {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            @include fsz(8px);
+            padding-top: 2px;
+            color: #979797;
+        }
+    }
+
     .color-block__option {
         width: 66%;
         @media #{$phone} {
@@ -355,12 +388,12 @@
     }
 
     .mobile__active-holder--active & {
-        width: auto;
-        margin: 0 auto 20px;
-        text-align: center;
 
         @media #{$phone} {
             display: block;
+            width: auto;
+            margin: 0 auto 20px;
+            text-align: center;
         }
     }
 }
@@ -784,6 +817,7 @@
         margin-bottom: 24px;
         border-bottom: 1px solid rgba(31, 34, 37, 0.26);
         line-height: 1;
+
         @media #{$phone} {
             padding: 21px 0;
             background-color: #f4f4f4;
@@ -792,7 +826,7 @@
             text-align: center;
             letter-spacing: 2.9px;
             border-bottom: none;
-            margin-bottom: 30px;
+            margin-bottom: 0;
         }
     }
 }
