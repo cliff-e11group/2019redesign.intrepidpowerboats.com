@@ -371,37 +371,34 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    var $form_toggles = $('[data-form-toggle]');
+    var $form_toggles = $('[data-form-toggle]'),
+        $form_wraps = $('[data-form-wrap]');
 
-    if( $form_toggles.length > 0 ) {
-        $form_toggles.each(function(){
+    if ($form_toggles.length > 0) {
+        var $formButtonClass = 'form-toggle--active',
+            $formWrapClass = 'form-wrap--active';
+
+        $form_toggles.each(function () {
 
             var $this = $(this),
-            $parent = $this.parent().parent();
-            $form_wraps = $('[data-form-wrap]')
+                $formNum = $this.data('form-toggle'),
+                $form_wrap = $('.form-wrap[data-form-wrap="' + $formNum + '"]'),
+                $form_wrapSibling = $form_wrap.siblings('.form-wrap');
+            console.log($formNum);
 
             $this.on('click', function (e) {
                 e.preventDefault();
 
-                var $form_number = $this.data('form-toggle');
-
-
-                if($this.hasClass('form-toggle--active')){
-                    $this.removeClass('form-toggle--active');
-                    $form_wraps.removeClass('form-wrap--active');
-                } else{
-                    $this.addClass('form-toggle--active');
-                    $parent.find('[data-form-wrap="'+ $form_number +'"]').addClass('form-wrap--active');
-                }
-
+                $this.toggleClass($formButtonClass);
+                $form_wrap.toggleClass($formWrapClass);
+                $form_wrapSibling.removeClass($formWrapClass);
             });
         });
-        $('.model-nav__item').click(function(){
-            $form_toggles.removeClass('form-toggle--active');
-            $form_wraps.removeClass('form-wrap--active');
+        $('.model-nav__item').click(function () {
+            $form_toggles.removeClass($formButtonClass);
+            $form_wraps.removeClass($formWrapClass);
         });
     }
-
 
 
     var settings = {
@@ -457,7 +454,7 @@ jQuery(document).ready(function ($) {
 
             if ($active_tab_text == 'Options') {
                 $('.form-toggle__email-list').css('display', 'block');
-            } else{
+            } else {
                 $('.form-toggle__email-list').css('display', 'none');
             }
 
@@ -465,9 +462,9 @@ jQuery(document).ready(function ($) {
                 $('.option-slider')[0].slick.refresh();
             }
 
-            if( $active_tab_text == 'Gallery' ){
+            if ($active_tab_text == 'Gallery') {
                 var newHash = 'image-video-gallery';
-            } else{
+            } else {
                 var newHash = $active_tab_text.toLowerCase().replace(' ', '-');
             }
 
@@ -482,7 +479,7 @@ jQuery(document).ready(function ($) {
     }
 
     // add the class .tab-link to any old <a> tag, set the href attribute to the #id of the tab you want to switch to.
-    $('.tab-link').click(function(e){
+    $('.tab-link').click(function (e) {
         var thisHref = $(this).attr('href');
 
         e.preventDefault();
@@ -805,7 +802,7 @@ jQuery(document).ready(function ($) {
 
     var $highContrastLink = $('.high-contrast-link');
 
-    if($highContrastLink.length > 0) {
+    if ($highContrastLink.length > 0) {
         $highContrastLink.click(function (e) {
             e.preventDefault();
             $('body').toggleClass('high-contrast--active');
@@ -813,9 +810,10 @@ jQuery(document).ready(function ($) {
     }
 
     var timer = setInterval(checkScriptExists, 1000);
-    function checkScriptExists(){
+
+    function checkScriptExists() {
         var google_script_url = "//translate.google.com/translate_a/element.js";
-        if($("script[src*='"+google_script_url+"']")[0]){
+        if ($("script[src*='" + google_script_url + "']")[0]) {
             // run google translate function
             new google.translate.TranslateElement(
                 {

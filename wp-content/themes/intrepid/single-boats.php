@@ -227,7 +227,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
             <?php if ( !empty($boat_options) ) : ?>
             <div>
                 <!-- option start -->
-                <section class="model-option">
+                <section class="model-option model-option--main">
                     <div class="container">
                         <div class="model-option__header">
                             <h2 class="model-option__title">The many options for the <strong><?php echo $title; ?></strong></h2>
@@ -243,8 +243,8 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                                         <?php if ($option['thumbnail']) : ?>
                                         <span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span>
                                         <?php endif; ?>
-
-                                        <?php echo $option['option']; ?></li>
+                                        <span class="option-list__text"><?php echo $option['option']; ?></span>
+                                    </li>
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
@@ -610,40 +610,20 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
 
     <div class="btn-wrap">
         <div class="btn-wrap__inner">
-            <button class="form-toggle form-toggle__email-list btn btn--dark" href="#" data-form-toggle="1" >Email This List</button>
-            <button href="#" target="" class="form-toggle  btn btn--dark" data-form-toggle="2">Contact a Sales Representative</button>
+            <button class="form-toggle form-toggle__email-list btn btn--dark" data-form-toggle="1" >Email This List</button>
+            <button class="form-toggle  btn btn--dark" data-form-toggle="2">Contact a Sales Representative</button>
         </div>
 
         <div class="form-wrap" data-form-wrap="1">
             <div class="form-option">
                 <ul class="option-list">
-                    <li class="option-list__item">Please email the boat I created to me and Intrepid, and have them contact me.</li>
-                    <li class="option-list__item">Please only email me the boat I created.</li>
+                    <li class="option-list__item selected" data-email-choice="both">Please email the boat I created to me and Intrepid, and have them contact me.</li>
+                    <li class="option-list__item" data-email-choice="me">Please only email me the boat I created.</li>
                 </ul>
             </div>
             <form class="form" action="#" method="post">
                 <h3 class="form__title">Your information</h3>
-                <ul class="form-fields">
-                    <li class="form__field">
-                        <label for="name" class="accessible-text"></label>
-                        <input type="text" id="name" name="txt_name" placeholder="Name">
-                    </li>
-                    <li class="form__field">
-                        <label for="email-address" class="accessible-text"></label>
-                        <input type="email" id="email-address" name="email_add" placeholder="Email Address">
-                    </li>
-                    <li class="form__field">
-                        <label for="phone-number" class="accessible-text"></label>
-                        <input type="text" id="phone-number" name="phone_no" placeholder="Phone Number">
-                    </li>
-                    <li class="form__field">
-                        <label for="questions-comments" class="accessible-text"></label>
-                        <textarea id="questions-comments" placeholder="Questions or Comments?"></textarea>
-                    </li>
-                    <li class="form__field">
-                        <input class="button" type="submit" value="Submit">
-                    </li>
-                </ul>
+                <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
             </form>
         </div>
 
