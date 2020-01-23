@@ -111,18 +111,6 @@ $(function () {
                 self.$formBoatNameInput.val(' - ' + self.$buildABoatNameInput.val());
             });
 
-
-            //Share on facebook
-            this.$shareFacebook = this.$el.find('.icon-box--facebook');
-
-            this.$shareFacebook.click(function (e) {
-                e.preventDefault();
-                // var elem = $(this);
-                // postToFeed(elem.data('title'), elem.data('desc'), elem.prop('href'), elem.data('image'));
-                //
-                // return false;
-            });
-
             this.$toggle.on('click', function (e) {
                 e.preventDefault();
 
