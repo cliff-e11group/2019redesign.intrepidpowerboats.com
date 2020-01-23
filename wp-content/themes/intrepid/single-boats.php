@@ -623,10 +623,10 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                     <li class="option-list__item" data-email-choice="me">Please only email me the boat I created.</li>
                 </ul>
             </div>
-            <form class="form" action="#" method="post">
+            <div class="form">
                 <h3 class="form__title">Your information</h3>
-                <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true"]'); ?>
-            </form>
+                <?php echo do_shortcode('[gravityform id="8" title="false" description="false" ajax="true" ]'); ?>
+            </div>
         </div>
         <?php endif; ?>
 

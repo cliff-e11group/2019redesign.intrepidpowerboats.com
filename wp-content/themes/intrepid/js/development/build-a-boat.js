@@ -25,8 +25,7 @@ $(function () {
     //
     // Email Options
     //
-    var $emailOptionsForm = $('#gform_wrapper_8'),
-        $emailOptionsFormTag = $emailOptionsForm.closest('.form'),
+    var $emailOptionsForm = $('#gform_8'),
         $emailOptionsFormSubmit = $emailOptionsForm.find('#gform_submit_button_8'),
         $emailOptionsChoice = $('[data-form-wrap="1"] .option-list__item'),
         $formOptionsInput = $emailOptionsForm.find('.gfield.input-options textarea'),
@@ -59,9 +58,15 @@ $(function () {
                 $formOptionsInput.val($emailOptionsData);
             }
 
-            $emailOptionsFormTag.trigger('submit');
+            $emailOptionsForm.trigger('submit');
         });
     }
+
+    var $successClass = 'bab-form-submitted-';
+
+    $(document).bind('gform_post_render', function (event, form_id, current_page) {
+        $('body').addClass($successClass + form_id);
+    });
 
 });
 
@@ -523,12 +528,6 @@ $(function () {
                 var $emailChoice = $(this).data('email-choice');
 
                 self.$formEmailChoiceInput.find('input[value="' + $emailChoice + '"]').prop('checked', true);
-            });
-
-            var $successClass = 'bab-form-submitted';
-
-            $(document).bind('gform_post_render', function () {
-                $('body').addClass($successClass);
             });
 
             $('.bab-form__refresh a').click(function () {

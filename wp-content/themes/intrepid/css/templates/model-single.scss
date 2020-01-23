@@ -1560,3 +1560,18 @@
 .virtula-tour {
     padding: 30px 10px;
 }
+
+.bab-form-submitted-8 {
+
+    [data-form-wrap="1"] {
+
+        .form-option,
+        .form__title {
+            display: none;
+        }
+
+        .form {
+            width: 100%;
+        }
+    }
+}

@@ -126,7 +126,7 @@
             display: none;
         }
 
-        .bab-form-submitted & {
+        .bab-form-submitted-7 & {
             display: none;
         }
     }
@@ -1122,14 +1122,14 @@
     .form-option,
     .form__title {
 
-        .bab-form-submitted & {
+        .bab-form-submitted-7 & {
             display: none;
         }
     }
 
     .form-holder {
 
-        .bab-form-submitted & {
+        .bab-form-submitted-7 & {
             width: auto;
         }
     }
@@ -1148,7 +1148,7 @@
         margin-bottom: 33px;
     }
 
-    .bab-form-submitted & {
+    .bab-form-submitted-7 & {
         display: none;
     }
 
@@ -1165,7 +1165,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    .bab-form-submitted & {
+    .bab-form-submitted-7 & {
         display: block;
     }
 }
@@ -1232,7 +1232,7 @@
     text-align: center;
     @include fsz(13px);
 
-    .bab-form-submitted & {
+    .bab-form-submitted-7 & {
         display: block;
     }
 
