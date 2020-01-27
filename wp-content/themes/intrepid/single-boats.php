@@ -75,6 +75,9 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                 </a>
             </div>
             <div id="spinner-view"></div>
+                <div class="spinner__close text--right">
+                    <a href="javascript:void(0);" class="close">CLOSE <span class="icon-close"></span></a>
+                </div>
             <div class="spinner__mobile">
                 <img src="<?php echo IMAGES; ?>/360turn-v3.png" alt="For best results, turn your phone to landscape orientation." class="spinner__mobile-img">
             </div>

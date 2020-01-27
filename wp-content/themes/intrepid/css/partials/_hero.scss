@@ -779,6 +779,30 @@
     }
 }
 
+.spinner__close{
+    position: absolute;
+    right: 20px;
+    top: 16%;
+    a {
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 3.62px;
+        @media #{$phone} {
+            font-size: 0;
+        }
+
+        .icon-close{
+            margin: 0 0 0 10px;
+            vertical-align: middle;
+
+            &:after {
+                background-image: url(images/add-white.svg);
+            }
+        }
+    }
+}
+
 .spinner__mobile {
     display: none;
     width: 106px;
