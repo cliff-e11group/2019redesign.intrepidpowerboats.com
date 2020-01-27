@@ -823,7 +823,17 @@
 .spinner__close{
     position: absolute;
     right: 20px;
-    top: 16%;
+    top: 12%;
+    z-index: 200;
+
+    @media(max-width: 1300px){
+        top: 16%;
+    }
+
+    @media(max-width: 1300px){
+        top: 16%;
+    }
+
     a {
         color: #FFFFFF;
         font-size: 15px;
