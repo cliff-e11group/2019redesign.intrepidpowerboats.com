@@ -9,13 +9,16 @@ function e11_scripts(){
         wp_enqueue_style('font-awesome-css', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.8', array(), '2.1.0', false);
         wp_enqueue_script('google-translate', 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit', array('scripts'), '1.0', true);
 
-        wp_enqueue_style('fancybox-css', STYLEDIR.'/css/libs/fancybox.css', false, '1.0');
+		wp_enqueue_script('polyfill', 'https://cdn.jsdelivr.net/npm/es6-object-assign@1.1.0/dist/object-assign-auto.min.js', array(), '1.0', true);
+
+		wp_enqueue_style('fancybox-css', STYLEDIR.'/css/libs/fancybox.css', false, '1.0');
+
 
 		// Main Stylsheet
 		wp_enqueue_style('css', STYLEDIR.'/style.css', false, time());
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
-		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery'), time(), true);
+		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery', 'polyfill'), time(), true);
         wp_localize_script(
 			'scripts',
 			'localized',
