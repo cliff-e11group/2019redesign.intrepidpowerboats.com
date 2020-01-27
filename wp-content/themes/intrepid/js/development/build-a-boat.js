@@ -28,7 +28,7 @@ $(function () {
             setTimeout(function () {
                 setSpinnerPositions();
             }, 150);
-        }
+        });
 
         $spinner__close.on('click', function () {
             $heroModel.toggleClass('spinner-active');
