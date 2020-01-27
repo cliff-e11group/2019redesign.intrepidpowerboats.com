@@ -75,7 +75,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
             <div id="spinner-view"></div>
             <p class="spinner-view__instructions">Drag image <strong> <  Left or Right  > </strong> to view 360</p>
             <div class="spinner__mobile">
-                <img src="<?php echo IMAGES; ?>/360turn-v3.png" alt="For best results, turn your phone to landscape orientation." class="spinner__mobile-img">
+                <img src="<?php echo IMAGES; ?>/360-viewv4.png" alt="For best results, turn your phone to landscape orientation." class="spinner__mobile-img">
             </div>
         </div>
         <?php endif; ?>
