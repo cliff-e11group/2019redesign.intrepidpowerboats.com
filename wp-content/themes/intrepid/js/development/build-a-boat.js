@@ -3,7 +3,8 @@ $(function () {
     $('.page__single--boat').e11_BuildABoat();
 
     var $spinner__toggle = $('.spinner__toggle'),
-        $spinnerView = $('#spinner-view');
+        $spinnerView = $('#spinner-view'),
+        $spinner__close = $('.spinner__close');
 
     if ($spinner__toggle.length > 0 && $spinnerView.length > 0) {
         var $heroModel = $('.hero--model'),
@@ -27,6 +28,10 @@ $(function () {
             setTimeout(function () {
                 setSpinnerPositions();
             }, 150);
+        }
+
+        $spinner__close.on('click', function () {
+            $heroModel.toggleClass('spinner-active');
         });
 
         $spinnerView.spritespin({
@@ -37,6 +42,7 @@ $(function () {
             sense: -1
         });
     }
+
 
 
     //
