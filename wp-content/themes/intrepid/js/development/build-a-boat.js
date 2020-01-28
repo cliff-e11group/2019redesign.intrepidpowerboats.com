@@ -528,22 +528,23 @@ $(function () {
         processImage: function (img) {
             var that = this;
 
-            var $screenshot = $("#bab-image svg").get(0);
-
-            // turn DOM markup into canvas
-            html2canvas($screenshot, {
-                imageTimeout: 0,
-                scale: 1,
-                allowTaint: true
-            }).then(function (canvas) {
-                // convert to image
-                //var img = Canvas2Image.convertToImage(canvas, w, h);
-                var img = canvas.toDataURL("image/jpg");
-
-                // save as image
-                // Canvas2Image.saveAsImage(canvas, w, h, type, f);
-
-                uploadImage(img);
+            var boatImage = document.querySelector("#bab-image svg");
+            var xmlImage = new XMLSerializer().serializeToString(boatImage);
+            xmlImage = xmlImage.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, "");
+            var xmlData = JSON.stringify({svgElement: xmlImage});
+            console.log(xmlData);
+            $.ajax({
+                url: "https://wt-e853d581b8c1ce10789506e9fec791ab-0.sandbox.auth0-extend.com/async-svg-canvas",
+                data: xmlData,
+                contentType: 'application/json',
+                dataType: 'json',
+                type: 'POST',
+                success: function(data) {
+                    uploadImage(data.image);
+                },
+                fail: function (data) {
+                    console.error("Failed to parse SVG to PNG");
+                }
             });
 
             var uploadImage = function (img) {
