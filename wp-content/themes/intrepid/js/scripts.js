@@ -7242,10 +7242,27 @@ $(function () {
         $spinnerView = $('#spinner-view');
 
     if ($spinner__toggle.length > 0 && $spinnerView.length > 0) {
-        var $heroModel = $('.hero--model');
+        var $heroModel = $('.hero--model'),
+            $spinner__toggleContainer = $('.spinner__toggle.icon-close'),
+            $spinnerView__instructions = $('.spinner-view__instructions'),
+            setSpinnerPositions = function () {
+                $spinner__toggleContainer.css({
+                    'top' : $spinnerView.offset().top
+                });
+                $spinnerView__instructions.css({
+                    'top' : $spinnerView.offset().top + $spinnerView.outerHeight()
+                });
+        };
 
         $spinner__toggle.on('click', function () {
+            setSpinnerPositions();
             $heroModel.toggleClass('spinner-active');
+        });
+
+        $(window).resize(function () {
+            setTimeout(function () {
+                setSpinnerPositions();
+            }, 150);
         });
 
         $spinnerView.spritespin({
