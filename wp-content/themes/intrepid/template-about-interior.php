@@ -9,6 +9,7 @@ $page = get_the_ID();
 ?>
 <?php get_header(); ?>
 <main class="main">
+    <h1 class="accessible-text"><?php the_title(); ?></h1>
     <?php
     $color_mode = get_field('about_interior_color_mode');
     $about_interior_hero_title = get_field('about_interior_hero_title');
