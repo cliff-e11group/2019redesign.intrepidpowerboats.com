@@ -5,7 +5,7 @@ $page = get_the_ID();
 
 ?>
 <main class="main page-events-single">
-
+    <h1 class="accessible-text"><?php the_title(); ?></h1>
 
     <?php
     $content_blocks = get_field('content_blocks');

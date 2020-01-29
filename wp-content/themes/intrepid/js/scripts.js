@@ -7243,17 +7243,23 @@ $(function () {
         $spinner__close = $('.spinner__close');
 
     if ($spinner__toggle.length > 0 && $spinnerView.length > 0) {
+        var $wpadminbar = $('#wpadminbar'),
+            $wpadminbarHeight = 0;
+
+        if ($wpadminbar.length > 0) {
+            $wpadminbarHeight = $wpadminbar.outerHeight();
+        }
         var $heroModel = $('.hero--model'),
             $spinner__toggleContainer = $('.spinner__toggle.icon-close'),
             $spinnerView__instructions = $('.spinner-view__instructions'),
             setSpinnerPositions = function () {
                 $spinner__toggleContainer.css({
-                    'top' : $spinnerView.offset().top
+                    'top': Math.floor($spinnerView.offset().top - $wpadminbarHeight)
                 });
                 $spinnerView__instructions.css({
-                    'top' : $spinnerView.offset().top + $spinnerView.outerHeight()
+                    'top': $spinnerView.offset().top + $spinnerView.outerHeight() - $wpadminbarHeight
                 });
-        };
+            };
 
         $spinner__toggle.on('click', function () {
             setSpinnerPositions();
@@ -7278,7 +7284,6 @@ $(function () {
             sense: -1
         });
     }
-
 
 
     //
@@ -7472,7 +7477,7 @@ $(function () {
                 self.$activeColorItem.find('.area-list__color-box').css('background', color.hexString);
                 self.$mobileBlockActiveHolderColor.find('.area-list__color-box').css('background', color.hexString);
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': color.hexString});
-                if(self.$stepColorMod == false) {
+                if (self.$stepColorMod == false) {
                     self.$nextText.text(self.nextText);
                     self.$stepColorMod = true;
                 }
@@ -7636,7 +7641,7 @@ $(function () {
                 self.$motorOption.find('.mobile__active-holder .area-list__color-box').css('background', $this.find('.motor-color__item.active .motor-color__title').text());
                 self.$motorOption.addClass(self.mobileBlockActiveClass);
 
-                if(self.$stepMotorMod == false) {
+                if (self.$stepMotorMod == false) {
                     self.$nextText.text(self.nextText);
                     self.$stepMotorMod = true;
                 }
@@ -7737,7 +7742,7 @@ $(function () {
                         }
                     }
 
-                    if(self.$stepOptionsMod == false) {
+                    if (self.$stepOptionsMod == false) {
                         self.$nextText.text(self.nextText);
                         self.$stepOptionsMod = true;
                     }
@@ -7887,7 +7892,7 @@ $(function () {
             // Add class if at first step
             if (this.activeItem === 0) {
                 this.$nav.addClass(this.startClass);
-                if(this.$stepColorMod) {
+                if (this.$stepColorMod) {
                     this.$nextText.text(this.nextText);
                 } else {
                     this.$nextText.text(this.skipText);
@@ -7909,7 +7914,7 @@ $(function () {
             if (this.activeItem === 2) {
                 this.$nav.addClass(this.finishClass);
 
-                if(this.$stepOptionsMod) {
+                if (this.$stepOptionsMod) {
                     this.$nextText.text(this.nextText);
                 } else {
                     this.$nextText.text(this.skipText);
