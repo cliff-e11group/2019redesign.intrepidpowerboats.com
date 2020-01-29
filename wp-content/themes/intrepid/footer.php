@@ -26,7 +26,7 @@
                 <h4 class="block-title">Contact Us</h4>
                 <ul class="contact-list__wrap">
                     <?php if($email) : ?>
-                        <li class="contact-list__item"><a href="mailto:<?php echo $email; ?> ">Direct Message</a></li>
+                        <li class="contact-list__item"><a href="<?php echo site_url('contact'); ?>">Direct Message</a></li>
                     <?php endif; ?>
 
                     <?php if($phone_numbers) : ?>
