@@ -37,6 +37,7 @@ if (!empty($view_360_urls)) :
     wp_localize_script('scripts', 'view_360_urls', $view_360_urls );
 endif;
 
+$bab_overlay_image = get_field('bab_overlay_image');
 $bab_main_image = get_field('bab_main_image');
 $bab_default_colors = get_field('bab_default_colors');
 $hull_color = $bab_default_colors['hull_color'];
@@ -369,6 +370,11 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
         </div>
         <div class="custom-hero" id="bab-image">
             <div class="container">
+                <?php if($bab_overlay_image) : ?>
+                <div class="bab-image__overlay">
+                    <img src="<?php echo $bab_overlay_image['url']; ?>" alt="<?php echo $bab_overlay_image['alt']; ?>">
+                </div>
+                <?php endif; ?>
                 <?php echo file_get_contents($bab_main_image['url']); ?>
                 <div class="custom-hero__form" data-html2canvas-ignore>
                     <form class="form form--sticky" action="#" method="post">
