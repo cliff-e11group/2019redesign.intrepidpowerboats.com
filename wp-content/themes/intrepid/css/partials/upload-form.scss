@@ -52,6 +52,16 @@
 
 .owners-portal__input-radio{
     display: block;
+
+}
+
+.owners-portal__radio{
+    display: flex;
+    align-items: center;
+    input[type="radio"]{
+        appearance: radio;
+        margin: 0 0 0 10px;
+    }
 }
 
 
