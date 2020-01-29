@@ -7395,12 +7395,14 @@ $(function () {
 
             //Navigate through BAB steps
             this.$items = this.$el.find('.form-step .step__item');
-            this.$nav = this.$el.find('.step-nagivation');
+            this.$nav = this.$el.find('.step-nagivation--alt');
             this.$steps = $('[data-class="step"]');
             this.$prev = this.$el.find('[data-class="prev"]');
             this.$next = this.$el.find('[data-class="next"]');
             this.$prevText = this.$nav.find('.step-prev').find('span');
-            this.$nextText = this.$nav.find('.step-next').find('span');
+            this.$nextText = this.$nav.find('.step-next');
+            this.skipText = 'Skip this step >';
+            this.nextText = 'Next step >';
             this.$formBoatNameInput = self.$el.find('.gfield.input-boat-name input');
             this.activeClass = 'step__item--active';
             this.finishClass = 'build-a-boat--finish';
@@ -7432,6 +7434,7 @@ $(function () {
             //
             //EXTERIOR - Color Picker
             //
+            this.$stepColorMod = false;
             this.$colorBlock = this.$el.find('.color-block');
             this.$mobileBlockActiveHolder = this.$el.find('.mobile__active-holder');
             this.mobileBlockActiveClass = 'mobile__active-holder--active';
@@ -7469,6 +7472,10 @@ $(function () {
                 self.$activeColorItem.find('.area-list__color-box').css('background', color.hexString);
                 self.$mobileBlockActiveHolderColor.find('.area-list__color-box').css('background', color.hexString);
                 self.updateBoatLayerColor(self.$boatLayer, {'fill': color.hexString});
+                if(self.$stepColorMod == false) {
+                    self.$nextText.text(self.nextText);
+                    self.$stepColorMod = true;
+                }
             }
 
             colorPicker.on('color:change', onColorChange);
@@ -7565,6 +7572,7 @@ $(function () {
             //
             // MOTORS
             //
+            this.$stepMotorMod = false;
             this.motorColorContainer = this.$el.find('.motor-color__container');
             this.$motorImgContainer = this.$el.find('.motor-thumbnail');
             this.$motorImg = this.$motorImgContainer.find('img');
@@ -7628,6 +7636,11 @@ $(function () {
                 self.$motorOption.find('.mobile__active-holder .area-list__color-box').css('background', $this.find('.motor-color__item.active .motor-color__title').text());
                 self.$motorOption.addClass(self.mobileBlockActiveClass);
 
+                if(self.$stepMotorMod == false) {
+                    self.$nextText.text(self.nextText);
+                    self.$stepMotorMod = true;
+                }
+
             });
 
             // Toggle between active motor color
@@ -7669,6 +7682,7 @@ $(function () {
             //
             // Options
             //
+            this.$stepOptionsMod = false;
             this.$optionItems = self.$el.find('.boatOption');
 
             // Hide all options on load
@@ -7721,6 +7735,11 @@ $(function () {
                                 'opacity': $optionOpacity
                             });
                         }
+                    }
+
+                    if(self.$stepOptionsMod == false) {
+                        self.$nextText.text(self.nextText);
+                        self.$stepOptionsMod = true;
                     }
                 });
             });
@@ -7868,20 +7887,39 @@ $(function () {
             // Add class if at first step
             if (this.activeItem === 0) {
                 this.$nav.addClass(this.startClass);
+                if(this.$stepColorMod) {
+                    this.$nextText.text(this.nextText);
+                } else {
+                    this.$nextText.text(this.skipText);
+                }
             } else {
                 this.$nav.find('.step-prev span').text(this.$items.eq(this.activeItem).attr('data-label-back'));
                 this.$nav.removeClass(this.startClass);
             }
 
+            if (this.activeItem === 1) {
+                if (this.$stepMotorMod) {
+                    this.$nextText.text(this.nextText);
+                } else {
+                    this.$nextText.text(this.skipText);
+                }
+            }
+
             // Add class if at second last step
-            if (this.activeItem === (this.$steps.length - 2)) {
+            if (this.activeItem === 2) {
                 this.$nav.addClass(this.finishClass);
+
+                if(this.$stepOptionsMod) {
+                    this.$nextText.text(this.nextText);
+                } else {
+                    this.$nextText.text(this.skipText);
+                }
             } else {
                 this.$nav.removeClass(this.finishClass);
             }
 
             // Add class if at last step
-            if (this.activeItem === (this.$steps.length - 1)) {
+            if (this.activeItem === 3) {
                 this.$nav.addClass(this.endClass);
             } else {
                 this.$nav.removeClass(this.endClass);
