@@ -166,50 +166,55 @@ the_post();
     </section>
     <div class="icon-list">
         <div class="container">
-            <div class="icon-list__item">
-                <a href="#" data-class="compare-mode">
-                    <div class="icon-container">
-                        <svg class="icon icon-compare" aria-hidden="true" role="img">
-                            <use xlink:href="#icon-compare" x="0" y="0"></use>
-                        </svg>
-                    </div>
-                    <span class="icon-list__title">COMPARE MODELS</span>
-                </a>
-            </div>
-            <?php
-                $link_one = get_field('boat_archive_link_one', 'option');
-            ?>
-            <?php if ($link_one) : ?>
-                <div class="icon-list__item">
-                    <div class="icon-container">
-                        <a href="<?php echo $link_one['url']; ?>" target="<?php echo $link_one['target']; ?>">
-                            <div class="icon-container">
-                                <svg class="icon icon-brochure" aria-hidden="true" role="img">
-                                    <use xlink:href="#icon-brochure" x="0" y="0"></use>
-                                </svg>
-                            </div>
-                            <span class="icon-list__title"><?php echo $link_one['title']; ?></span>
-                        </a>
-                    </div>
-                </div>
+            <?php $compare_models_instructions = get_field('compare_models_instructions', 'option');
+            if($compare_models_instructions) : ?>
+            <p class="icon-list__instructions"><?php echo $compare_models_instructions; ?></p>
             <?php endif; ?>
-
-            <?php
-                $link_two = get_field('boat_archive_link_two', 'option');
-            ?>
-            <?php if ($link_two) : ?>
+            <div class="icon-list__inner">
                 <div class="icon-list__item">
-                    <a href="<?php echo $link_two['url']; ?>" target="<?php echo $link_two['target']; ?>">
+                    <a href="#" data-class="compare-mode">
                         <div class="icon-container">
-                            <svg class="icon icon-gear" aria-hidden="true" role="img">
-                                <use xlink:href="#icon-gear" x="0" y="0"></use>
+                            <svg class="icon icon-compare" aria-hidden="true" role="img">
+                                <use xlink:href="#icon-compare" x="0" y="0"></use>
                             </svg>
                         </div>
-                        <span class="icon-list__title"><?php echo $link_two['title']; ?></span>
+                        <span class="icon-list__title">COMPARE MODELS</span>
                     </a>
                 </div>
-            <?php endif; ?>
+                <?php
+                    $link_one = get_field('boat_archive_link_one', 'option');
+                ?>
+                <?php if ($link_one) : ?>
+                    <div class="icon-list__item">
+                        <div class="icon-container">
+                            <a href="<?php echo $link_one['url']; ?>" target="<?php echo $link_one['target']; ?>">
+                                <div class="icon-container">
+                                    <svg class="icon icon-brochure" aria-hidden="true" role="img">
+                                        <use xlink:href="#icon-brochure" x="0" y="0"></use>
+                                    </svg>
+                                </div>
+                                <span class="icon-list__title"><?php echo $link_one['title']; ?></span>
+                            </a>
+                        </div>
+                    </div>
+                <?php endif; ?>
 
+                <?php
+                    $link_two = get_field('boat_archive_link_two', 'option');
+                ?>
+                <?php if ($link_two) : ?>
+                    <div class="icon-list__item">
+                        <a href="<?php echo $link_two['url']; ?>" target="<?php echo $link_two['target']; ?>">
+                            <div class="icon-container">
+                                <svg class="icon icon-gear" aria-hidden="true" role="img">
+                                    <use xlink:href="#icon-gear" x="0" y="0"></use>
+                                </svg>
+                            </div>
+                            <span class="icon-list__title"><?php echo $link_two['title']; ?></span>
+                        </a>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 

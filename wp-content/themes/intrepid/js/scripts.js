@@ -8115,10 +8115,12 @@ jQuery(document).ready(function ($) {
     if ($compareMode.length > 0 && $modelList__grid.length > 0) {
         var $moduleComparision__list = $(".module-comparision__list"),
             selectedCompareModels = [],
+            compareModeActiveBodyClass = 'compare-mode',
             compareModeActiveClass = 'compare-mode--active';
 
         $compareMode.on('click', function (e) {
             e.preventDefault();
+            $('body').toggleClass(compareModeActiveBodyClass);
             $modelList__grid.toggleClass(compareModeActiveClass);
             $('.model-list__block').removeClass('active').removeClass('selected');
             $('.module-comparision__block').fadeOut();
@@ -8231,6 +8233,7 @@ jQuery(document).ready(function ($) {
                     $moduleComparision__list.slick('destroy');
                 }
                 $modelList__grid.removeClass(compareModeActiveClass);
+                $('body').removeClass(compareModeActiveBodyClass);
                 selectedCompareModels = [];
             });
         });

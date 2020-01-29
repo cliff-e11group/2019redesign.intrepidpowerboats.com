@@ -146,7 +146,7 @@
     .model-list__image-link {
         display: block;
         width: 100%;
-        padding-bottom: calc(600/1440 * 100%);
+        padding-bottom: calc(600 / 1440 * 100%);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -553,7 +553,10 @@
 .icon-list {
     .container {
         max-width: 1180px;
-        padding: 45px 0;
+        padding: 0 0 45px;
+    }
+
+    .icon-list__inner {
         display: flex;
         justify-content: center;
         text-align: center;
@@ -600,7 +603,7 @@
             display: inline-block;
             vertical-align: middle;
             margin-bottom: 0;
-            margin-right: 15px;
+            margin-right: 0;
         }
 
         img {
@@ -629,6 +632,29 @@
         }
     }
 }
+
+.icon-list__instructions {
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 150ms, opacity 150ms;
+
+    @media #{$phone} {
+        display: none;
+    }
+
+    .compare-mode & {
+        visibility: visible;
+        opacity: 1;
+        transition: visibility 0s linear 0s, opacity 150ms;
+    }
+}
+
 
 .content-block {
     &:last-child .container {
@@ -738,7 +764,7 @@
         display: none;
     }
 
-    .model-list__compare{
+    .model-list__compare {
         background-color: #666;
         opacity: 0.7;
     }
