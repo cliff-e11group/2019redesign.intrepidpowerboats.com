@@ -19,7 +19,7 @@ function e11_boat_model_dropdown( $form ) {
 
         // you can add additional parameters here to alter the posts that are retrieved
         // more info: http://codex.wordpress.org/Template_Tags/get_posts
-        $posts = get_posts( 'numberposts=-1&post_status=publish&post_type=boats' );
+        $posts = get_posts( 'numberposts=-1&post_status=publish&post_type=boats&orderby=title&order=ASC' );
 
         $choices = array();
 
@@ -28,7 +28,7 @@ function e11_boat_model_dropdown( $form ) {
         }
 
         // update 'Select a Post' to whatever you'd like the instructive option to be
-        $field->placeholder = 'MODEL*';
+        $field->placeholder = 'CHOOSE A MODEL';
         $field->choices = $choices;
 
     }
