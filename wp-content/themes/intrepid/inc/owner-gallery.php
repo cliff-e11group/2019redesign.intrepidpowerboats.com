@@ -63,9 +63,17 @@ function e11_redirect_to_home()
 
 add_action('admin_post_nopriv_owner_gallery_upload_action', 'e11_redirect_to_home');
 
+define('MAX_UPLOAD_SIZE', 200000);
 
 function e11_parse_file_errors($file = array(), $image_caption = false)
 {
+    $accepted = array(
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/gif',
+    );
+
     $result = array();
     $result['error'] = 0;
     if ($file['error']) {
@@ -76,7 +84,7 @@ function e11_parse_file_errors($file = array(), $image_caption = false)
 
     $result['caption'] = $image_caption;
     $image_data = $file['type'];
-    if (!in_array($image_data, unserialize(TYPE_WHITELIST_IMAGE))) {
+    if (!in_array($image_data, $accepted)) {
         $result['error'] = 'Your image must be a jpeg, png or gif!';
     }
 
