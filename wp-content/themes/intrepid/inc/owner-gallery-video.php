@@ -71,8 +71,11 @@ add_action('admin_post_owner_gallery_upload_video_action', 'e11_owner_gallery_up
 add_action('admin_post_nopriv_owner_gallery_upload_video_action', 'e11_redirect_to_home');
 
 
-function e11_parse_file_video_errors($file = array(), $video_caption = false)
-{
+function e11_parse_file_video_errors($file = array(), $video_caption = false){
+    $accepted = array(
+        'video/mp4',
+        'video/ogg'
+    );
     $result = array();
     $result['error'] = 0;
     if ($file['error']) {
@@ -82,7 +85,7 @@ function e11_parse_file_video_errors($file = array(), $video_caption = false)
     $result['caption'] = trim(preg_replace('/[^a-zA-Z0-9\s]+/', ' ', $video_caption));
 
     $video_data = $file['type'];
-    if (!in_array($video_data, unserialize(TYPE_WHITELIST_VIDEO))) {
+    if (!in_array($video_data, $accepted)) {
         $result['error'] = 'Incorrect file type!';
     }
     // elseif(($file['size'] > MAX_UPLOAD_SIZE)){
