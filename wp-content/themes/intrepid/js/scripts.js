@@ -7779,7 +7779,7 @@ $(function () {
 
             this.$formSubmit.click(function (e) {
                 e.preventDefault();
-                self.$formSubmit.val('Loading...');
+                self.$formSubmit.val('Loading... Please Wait');
                 self.processImage();
             });
 
@@ -7815,7 +7815,7 @@ $(function () {
             var xmlImage = new XMLSerializer().serializeToString(boatImage);
             xmlImage = xmlImage.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, "");
             var xmlData = JSON.stringify({svgElement: xmlImage});
-            console.log(xmlData);
+
             $.ajax({
                 url: "https://wt-e853d581b8c1ce10789506e9fec791ab-0.sandbox.auth0-extend.com/async-svg-canvas",
                 data: xmlData,
