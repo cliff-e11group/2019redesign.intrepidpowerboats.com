@@ -1,13 +1,9 @@
 <section class="team-block">
     <div class="container">
-
-
         <?php if ( $data['featured_team'] ) : ?>
-
             <?php
                 $team = $data['featured_team'];
             ?>
-
             <?php if (!empty($team) ) : ?>
 
                 <div class="team-block__two-third">
@@ -37,12 +33,18 @@
 
                                         <?php if ($team_member['phone']) : ?>
                                         <p class="member__phone">
-                                            <a href="tel:<?php echo $team_member['phone']; ?>"><?php echo $team_member['phone']; ?></a>
+                                            <?php if($team_member['phone_link']) : ?>
+                                            <a href="tel:<?php echo $team_member['phone']; ?>">
+                                            <?php endif; ?>
+                                                <?php echo $team_member['phone']; ?>
+                                            <?php if($team_member['phone_link']) : ?>
+                                            </a>
+                                            <?php endif; ?>
                                         </p>
                                         <?php endif; ?>
 
                                         <?php if ($team_member['email']) : ?>
-                                            <p class="member__email"><a href="mailto<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['email']; ?></a></p>
+                                            <p class="member__email"><a href="mailto:<?php echo $team_member['email']; ?>"><?php echo $team_member['email']; ?></a></p>
                                         <?php endif; ?>
                                     </div>
                                 </li>
@@ -87,12 +89,18 @@
 
                                             <?php if ($team_member['phone_number']) : ?>
                                             <p class="member__phone">
-                                                <a href="tel:<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['phone_number']; ?></a>
+                                                <?php if($team_member['phone_number_link']) : ?>
+                                                <a href="tel:<?php echo $team_member['phone_number_link']; ?>">
+                                                <?php endif; ?>
+                                                    <?php echo $team_member['phone_number']; ?>
+                                                <?php if($team_member['phone_number_link']) : ?>
+                                                </a>
+                                                <?php endif; ?>
                                             </p>
                                             <?php endif; ?>
 
                                             <?php if ($team_member['email']) : ?>
-                                                <p class="member__email"><a href="mailto<?php echo $team_member['phone_number']; ?>"><?php echo $team_member['email']; ?></a></p>
+                                                <p class="member__email"><a href="mailto:<?php echo $team_member['email']; ?>"><?php echo $team_member['email']; ?></a></p>
                                             <?php endif; ?>
                                         </div>
                                     </li>
