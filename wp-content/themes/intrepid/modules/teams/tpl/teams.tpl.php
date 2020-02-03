@@ -34,7 +34,7 @@
                                         <?php if ($team_member['phone']) : ?>
                                         <p class="member__phone">
                                             <?php if($team_member['phone_link']) : ?>
-                                            <a href="tel:<?php echo $team_member['phone']; ?>">
+                                            <a href="tel:<?php echo $team_member['phone_link']; ?>">
                                             <?php endif; ?>
                                                 <?php echo $team_member['phone']; ?>
                                             <?php if($team_member['phone_link']) : ?>
