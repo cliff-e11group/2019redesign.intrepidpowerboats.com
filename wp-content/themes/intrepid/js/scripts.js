@@ -8801,7 +8801,6 @@ jQuery(document).ready(function ($) {
             new google.translate.TranslateElement(
                 {
                     pageLanguage: "en",
-                    includedLanguages: "es,en,fr,de",
                     layout: google.translate.TranslateElement.InlineLayout.SIMPLE
                 },
                 "header-site-translation"

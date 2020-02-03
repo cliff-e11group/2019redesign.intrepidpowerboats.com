@@ -382,10 +382,11 @@
         color: $white;
         position: absolute;
         top: 77px;
-        left: -116px;
+        left: -119px;
         margin-bottom: 0;
         box-shadow: 0 -10px 25px -19px rgba(0, 0, 0, 0.16) inset;
         cursor: pointer;
+        font-family: $primary-family;
 
         .goog-te-menu-value {
             display: block;
@@ -428,7 +429,7 @@
 
     .icon {
         position: absolute;
-        right: 9px;
+        right: 10px;
         top: 15px;
         z-index: 99999;
         fill: white;
