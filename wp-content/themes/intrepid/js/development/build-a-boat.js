@@ -3,7 +3,8 @@ $(function () {
     $('.page__single--boat').e11_BuildABoat();
 
     var $spinner__toggle = $('.spinner__toggle'),
-        $spinnerView = $('#spinner-view');
+        $spinnerView = $('#spinner-view'),
+        $spinner__close = $('.spinner__close');
 
     if ($spinner__toggle.length > 0 && $spinnerView.length > 0) {
         var $wpadminbar = $('#wpadminbar'),
@@ -26,6 +27,16 @@ $(function () {
 
         $spinner__toggle.on('click', function () {
             setSpinnerPositions();
+            $heroModel.toggleClass('spinner-active');
+        });
+
+        $(window).resize(function () {
+            setTimeout(function () {
+                setSpinnerPositions();
+            }, 150);
+        });
+
+        $spinner__close.on('click', function () {
             $heroModel.toggleClass('spinner-active');
         });
 
@@ -538,7 +549,7 @@ $(function () {
 
             this.$formSubmit.click(function (e) {
                 e.preventDefault();
-                self.$formSubmit.val('Loading...');
+                self.$formSubmit.val('Loading... Please Wait');
                 self.processImage();
             });
 
@@ -570,22 +581,23 @@ $(function () {
         processImage: function (img) {
             var that = this;
 
-            var $screenshot = $("#bab-image svg").get(0);
+            var boatImage = document.querySelector("#bab-image svg");
+            var xmlImage = new XMLSerializer().serializeToString(boatImage);
+            xmlImage = xmlImage.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, "");
+            var xmlData = JSON.stringify({svgElement: xmlImage});
 
-            // turn DOM markup into canvas
-            html2canvas($screenshot, {
-                imageTimeout: 0,
-                scale: 1,
-                allowTaint: true
-            }).then(function (canvas) {
-                // convert to image
-                //var img = Canvas2Image.convertToImage(canvas, w, h);
-                var img = canvas.toDataURL("image/jpg");
-
-                // save as image
-                // Canvas2Image.saveAsImage(canvas, w, h, type, f);
-
-                uploadImage(img);
+            $.ajax({
+                url: "https://wt-e853d581b8c1ce10789506e9fec791ab-0.sandbox.auth0-extend.com/async-svg-canvas",
+                data: xmlData,
+                contentType: 'application/json',
+                dataType: 'json',
+                type: 'POST',
+                success: function(data) {
+                    uploadImage(data.image);
+                },
+                fail: function (data) {
+                    console.error("Failed to parse SVG to PNG");
+                }
             });
 
             var uploadImage = function (img) {
