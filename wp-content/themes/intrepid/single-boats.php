@@ -388,7 +388,9 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             </li>
                         </ul>
                     </form>
-                    <button class="icon-box icon-box--edit" >Name Your Model</button>
+                    <button class="icon-box icon-box--edit">
+                        <span class="accessible-text">Name Your Model</span>
+                    </button>
                 </div>
                 <div class="custom-hero__content" data-html2canvas-ignore>
                     <span class="custom-hero__title"><?php echo $title; ?> <strong></strong></span>
