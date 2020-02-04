@@ -270,7 +270,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            background: radial-gradient(rgba(255, 255, 255, 0) 0%, rgba(31, 34, 37, 0.83) 100%);
+            border: 8px solid #fff;
             opacity: 0;
             transition: $transition;
             z-index: -1;
