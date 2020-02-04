@@ -86,8 +86,10 @@
         display: block;
         width: 69px;
         height: 70px;
-        background: url("images/model-icon.png") no-repeat center center;
+        background: url("images/icon-all-models.png") no-repeat center center;
         background-size: cover;
+        opacity: 0.5;
+        transition: 0.25s ease;
         margin: 0 auto 15px;
         @media #{$phone} {
             width: 35px;
@@ -100,7 +102,10 @@
 
     &:hover,
     &:focus {
-        opacity: 0.5;
+
+        &:before {
+            opacity: 1;
+        }
     }
 }
 
