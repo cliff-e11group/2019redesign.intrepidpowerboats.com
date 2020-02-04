@@ -585,14 +585,22 @@
                 }
             }
 
+            &:hover {
+                &:before {
+                    opacity: 1;
+                }
+            }
+
             &:before {
                 content: "";
                 display: block;
                 width: 69px;
                 height: 70px;
-                background: url("images/model-icon.png") no-repeat center center;
+                background: url("images/icon-all-models.png") no-repeat center center;
                 background-size: cover;
                 margin: 0 auto 15px;
+                opacity: 0.5;
+                transition: 0.25s ease;
 
                 .nav__visible & {
                     @media #{$header} {
