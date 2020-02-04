@@ -168,7 +168,7 @@ the_post();
         <div class="container">
             <?php $compare_models_instructions = get_field('compare_models_instructions', 'option');
             if($compare_models_instructions) : ?>
-            <p class="icon-list__instructions"><?php echo $compare_models_instructions; ?></p>
+            <p class="icon-list__instructions"><span class="icon-list__instructions-inner"><span class="icon"></span><?php echo $compare_models_instructions; ?></span></p>
             <?php endif; ?>
             <div class="icon-list__inner">
                 <div class="icon-list__item">
@@ -185,7 +185,7 @@ the_post();
                     $link_one = get_field('boat_archive_link_one', 'option');
                 ?>
                 <?php if ($link_one) : ?>
-                    <div class="icon-list__item">
+                    <div class="icon-list__item icon-list__item--alt">
                         <div class="icon-container">
                             <a href="<?php echo $link_one['url']; ?>" target="<?php echo $link_one['target']; ?>">
                                 <div class="icon-container">
@@ -203,7 +203,7 @@ the_post();
                     $link_two = get_field('boat_archive_link_two', 'option');
                 ?>
                 <?php if ($link_two) : ?>
-                    <div class="icon-list__item">
+                    <div class="icon-list__item icon-list__item--alt">
                         <a href="<?php echo $link_two['url']; ?>" target="<?php echo $link_two['target']; ?>">
                             <div class="icon-container">
                                 <svg class="icon icon-gear" aria-hidden="true" role="img">

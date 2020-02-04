@@ -62,15 +62,15 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                 <?php endif; ?>
             </div>
             <?php if (!empty($view_360_urls)) : ?>
-            <a class="spinner__toggle model__360-view" href="#"><span class="accessible-text">360 view</span></a>
+            <button class="spinner__toggle model__360-view" data-class="spinner__open"><span class="accessible-text">360 view</span></button>
             <?php endif; ?>
         </div>
         <?php if (!empty($view_360_urls)) : ?>
         <div class="spinner__container">
-            <button class="spinner__toggle spinner__toggle--bg">
+            <button class="spinner__toggle spinner__toggle--bg" data-class="spinner__close">
                 <span class="accessible-text">Close 360 view</span>
             </button>
-            <button class="spinner__toggle icon-close">
+            <button class="spinner__toggle icon-close" data-class="spinner__close">
                 <span class="accessible-text">Close 360 view</span>
             </button>
             <div id="spinner-view"></div>

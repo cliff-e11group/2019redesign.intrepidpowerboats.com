@@ -7238,9 +7238,9 @@ $(function () {
 
     $('.page__single--boat').e11_BuildABoat();
 
-    var $spinner__toggle = $('.spinner__toggle'),
+    var $spinner__toggle = $('[data-class="spinner__open"]'),
         $spinnerView = $('#spinner-view'),
-        $spinner__close = $('.spinner__close');
+        $spinner__close = $('[data-class="spinner__close"]');
 
     if ($spinner__toggle.length > 0 && $spinnerView.length > 0) {
         var $wpadminbar = $('#wpadminbar'),
@@ -7259,21 +7259,31 @@ $(function () {
                 $spinnerView__instructions.css({
                     'top': $spinnerView.offset().top + $spinnerView.outerHeight() - $wpadminbarHeight
                 });
+            },
+            loadSpinnerInstructions = function () {
+                setTimeout(function () {
+                    $spinnerView__instructions.fadeIn(function () {
+                        setTimeout(function () {
+                            $spinnerView__instructions.fadeOut();
+                        }, 3000);
+                    });
+                }, 500);
             };
 
         $spinner__toggle.on('click', function () {
             setSpinnerPositions();
-            $heroModel.toggleClass('spinner-active');
+            loadSpinnerInstructions();
+            $heroModel.addClass('spinner-active');
+        });
+
+        $spinner__close.on('click', function () {
+            $heroModel.removeClass('spinner-active');
         });
 
         $(window).resize(function () {
             setTimeout(function () {
                 setSpinnerPositions();
             }, 150);
-        });
-
-        $spinner__close.on('click', function () {
-            $heroModel.toggleClass('spinner-active');
         });
 
         $(window).resize(function () {

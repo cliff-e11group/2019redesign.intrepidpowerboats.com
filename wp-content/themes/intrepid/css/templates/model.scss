@@ -569,12 +569,28 @@
     }
 
     .icon-list__item {
-        margin: 0 35px;
+        margin: 0 15px;
         color: $dark-gray;
 
         &:first-child {
+
             @media #{$phone} {
                 display: none;
+            }
+
+            .compare-mode & {
+
+                a {
+                    background-color: #1F2225;
+                }
+
+                .icon-list__title {
+                    color: #ffffff;
+                }
+
+                svg {
+                    fill: #ffffff;
+                }
             }
         }
 
@@ -591,7 +607,41 @@
         }
 
         a {
+            display: block;
+            padding: 10px 20px;
             color: $dark-gray;
+            transition: 0.25s ease;
+
+            &:hover {
+
+                .icon-list__title {
+                    border-bottom-color: #1F2225;
+                }
+
+                svg {
+                    fill: #1F2225;
+                }
+
+                .icon-list__title {
+                    color: #1F2225;
+                }
+            }
+        }
+    }
+
+    .icon-list__item--alt {
+
+        .icon-list__title {
+
+            .compare-mode & {
+                color: #DDDEDE;
+            }
+        }
+
+        svg {
+            .compare-mode & {
+                fill: #DDDEDE;
+            }
         }
     }
 
@@ -614,6 +664,8 @@
             width: 72px;
             height: 70px;
             fill: #8f9192;
+            transition: 0.25s ease;
+
             @media #{$phone} {
                 width: 37px;
                 height: 35px;
@@ -627,19 +679,32 @@
         letter-spacing: 3.62px;
         text-transform: uppercase;
         display: block;
+        padding-bottom: 8px;
+        border-bottom: 3px solid transparent;
+        transition: 0.25s ease;
+
         @media #{$phone} {
             display: inline-block;
         }
     }
 }
 
+@keyframes checkmark {
+    from {
+        transform: translate(-50%, -50%) rotate(0) scale(0);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(0) scale(1);
+    }
+}
+
 .icon-list__instructions {
     margin: 0 auto 40px;
-    padding: 0 20px;
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 1px;
     text-align: center;
+    text-transform: uppercase;
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s linear 150ms, opacity 150ms;
@@ -652,6 +717,55 @@
         visibility: visible;
         opacity: 1;
         transition: visibility 0s linear 0s, opacity 150ms;
+    }
+
+    .icon-list__instructions-inner {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 25px;
+    }
+
+    .icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        display: block;
+        width: 20px;
+        height: 20px;
+        z-index: 1;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            z-index: 1;
+        }
+
+        &:before {
+            background: url("images/loding-spiral.png") no-repeat center;
+            background-size: cover;
+            transition: 0.25s;
+        }
+
+        &:after {
+            transform: translate(-50%, -50%) rotate(0deg) scale(0);
+            transition: 0.25s;
+            background-image: url('images/checkmark-white.svg');
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-position: center;
+            background-color: #687683;
+            border-radius: 50%;
+            animation: checkmark 1s infinite alternate-reverse;
+        }
     }
 }
 
