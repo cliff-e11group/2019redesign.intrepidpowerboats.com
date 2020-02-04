@@ -297,6 +297,79 @@
                     "maxlength": ""
                 }
             ]
+        },
+        {
+            "key": "field_5e39998dbd2ac",
+            "label": "Owner Portal Emails",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5e39999ebd2ad",
+            "label": "Registration Email List",
+            "name": "registration_email_list",
+            "type": "text",
+            "instructions": "Add a comma separated list of email addresses to be alerted when a new user signs up for the Owner Portal.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e399f47bd2ae",
+            "label": "Upload Email List",
+            "name": "upload_email_list",
+            "type": "text",
+            "instructions": "Add a comma separated list of email addresses to be alerted when a new user signs up for the Owner Portal.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e399f74bd2af",
+            "label": "Feedback Form List",
+            "name": "feedback_form_list",
+            "type": "text",
+            "instructions": "Add a comma separated list of email addresses to be alerted when a new user signs up for the Owner Portal.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -316,5 +389,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579703369
+    "modified": 1580834687
 }
