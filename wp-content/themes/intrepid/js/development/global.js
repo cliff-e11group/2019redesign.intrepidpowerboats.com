@@ -8,9 +8,12 @@ jQuery(document).ready(function ($) {
 
     if ($WYSIWYGiframes.length > 0) {
         $WYSIWYGiframes.each(function () {
-            var $this = $(this);
+            var $this = $(this),
+                src = $this.attr('src');
 
-            $this.wrap('<div class="video-container"></div>');
+            if(src.indexOf("youtube") >= 0 || src.indexOf("vimeo") >= 0) {
+                $this.wrap('<div class="video-container"></div>');
+            }
         });
     }
 
