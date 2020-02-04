@@ -7238,7 +7238,8 @@ $(function () {
 
     $('.page__single--boat').e11_BuildABoat();
 
-    var $spinner__toggle = $('[data-class="spinner__open"]'),
+    var $body = $('body'),
+        $spinner__toggle = $('[data-class="spinner__open"]'),
         $spinnerView = $('#spinner-view'),
         $spinner__close = $('[data-class="spinner__close"]');
 
@@ -7271,12 +7272,25 @@ $(function () {
             };
 
         $spinner__toggle.on('click', function () {
+            $body.css({
+                'position': 'fixed',
+                'width': '100%',
+                'top': '-' + $(window).scrollTop() + 'px'
+            });
             setSpinnerPositions();
             loadSpinnerInstructions();
             $heroModel.addClass('spinner-active');
         });
 
         $spinner__close.on('click', function () {
+            // When the modal is hidden...
+            var scrollY = document.body.style.top;
+            $body.css({
+                'position': '',
+                'width': '',
+                'top': ''
+            });
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
             $heroModel.removeClass('spinner-active');
         });
 
