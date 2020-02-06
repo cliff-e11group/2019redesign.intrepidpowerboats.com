@@ -8,7 +8,8 @@ function e11_owner_gallery_upload_form()
 
     if (isset($_POST['owner_gallery_upload_nonce']) && wp_verify_nonce($_POST['owner_gallery_upload_nonce'], 'owner-gallery-upload-nonce')) {
 
-        echo '<pre>'; print_r($_FILES); exit;
+        echo '<pre>'; print_r($_FILES); echo  '<br>';
+        echo '<pre>'; print_r($_POST); exit;
         $result = e11_parse_file_errors($_FILES['owner_gallery_upload_image'], $_POST['owner_gallery_upload_caption']);
         if ($result['error']) {
             echo '<p>ERROR: ' . $result['error'] . '</p>';
