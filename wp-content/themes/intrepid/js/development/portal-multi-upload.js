@@ -26,19 +26,19 @@ $(function () {
                 $newSection.attr('id', idString + '-' + newId);
 
                 //clear input values
-                var $newInputs = $newSection.find('input').val(''),
-                $newTextArea = $newSection.find('textarea').val('');
+                var $newInputs = $newSection.find('input'),
+                $newTextArea = $newSection.find('textarea');
 
                 //change names/ids of inputs inside
                 $newInputs.each(function(){
-                    var newName = $(this).attr('id').replace(/\d+/g, newId);
+                    var newName = $(this).attr('name').replace(/\d+/g, newId);
                     $(this).attr('name', newName);
                     $(this).attr('id', newName);
                     $(this).prop('checked', false);
                     $(this).val('');
                 });
                 $newTextArea.each(function(){
-                    var newName = $(this).attr('id').replace(/\d+/g, newId);
+                    var newName = $(this).attr('name').replace(/\d+/g, newId);
                     $(this).attr('name', newName);
                     $(this).attr('id', newName);
                     $(this).val('');
@@ -69,3 +69,5 @@ $(function () {
 
 });
 
+
+//fix ids on form
