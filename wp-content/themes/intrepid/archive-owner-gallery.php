@@ -81,6 +81,10 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                     'key' => 'owner',
                                     'value' => $user_id,
                                 ),
+                                array(
+                                    'key' => 'make_upload_private',
+                                    'value' => true,
+                                ),
                             )
                         );
                         $loop = new WP_Query($args);
@@ -115,7 +119,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                 <p class="portal-gallery__upload-prompt">SHARE YOUR DREAMS AND ADVENTURES WITH THE INTREPID COMMUNITY</p>
                                 <a href="#owners-portal__upload" class="btn btn--dark" data-fancybox>UPLOAD PHOTO/VIDEO</a>
                             </div>
-                        <?php endif; wp_reset_query()?>
+                        <?php endif; wp_reset_query();?>
                         </div>
                     </div>
 
@@ -130,10 +134,13 @@ $placeholder = get_field('video_placeholder_image', 'option');
                             'meta_query'    => array(
                                 array(
                                     'key' => 'make_upload_private',
-                                    'value' => false,
+                                    'value' => 0,
                                 ),
                             )
                         );
+
+
+
                         $comm_loop = new WP_Query($comm_args);
                         ?>
 
@@ -248,40 +255,59 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         <!-- nonce -->
                         <input type="hidden" name="owner_gallery_upload_video_nonce" value="<?php echo wp_create_nonce('owner-gallery-upload-video-nonce'); ?>"/>
 
-                        <!-- video file  -->
-                        <div class="owners-portal__form-input owners-portal__input-file">
-                            <label for="owner_gallery_upload_video">Upload a video to your gallery</label>
-                            <input type="file" size="60" name="owner_gallery_upload_video" id="owner_gallery_upload_video" required multiple>
-                        </div>
+                        <div data-class="owners-portal__form-section" id="owners-portal__image-form-section-1" class="owners-portal__form-section">
 
-                        <!-- optional placeholder  -->
-                        <div class="owners-portal__form-input owners-portal__input-file">
-                            <label for="owner_gallery_upload_video_placeholder">Upload a placeholder image for your video</label>
-                            <input type="file" size="60" name="owner_gallery_upload_video_placeholder" id="owner_gallery_upload_video_placeholder">
-                        </div>
-
-                        <!-- private or public  -->
-                        <div class="owners-portal__form-input owners-portal__input-radio">
-                            <div class="owners-portal__radio">
-                                <label for="video_visibility_level_public">Share this video with the community</label>
-                                <input type="radio" name="video_visibility_level" id="video_visibility_level_public" value="public" required>
+                            <!-- video file  -->
+                            <div class="owners-portal__form-input owners-portal__input-file">
+                                <label for="owner_gallery_upload_video">Upload a video to your gallery</label>
+                                <input type="file" size="60" name="owner_gallery_upload_video-1" id="owner_gallery_upload_video" required>
                             </div>
 
-                            <div class="owners-portal__radio">
-                                <label for="video_visibility_level_private">Keep this video private</label>
-                                <input type="radio" name="video_visibility_level" value="private" id="video_visibility_level_private">
+                            <!-- optional placeholder  -->
+                            <div class="owners-portal__form-input owners-portal__input-file">
+                                <label for="owner_gallery_upload_video_placeholder">Upload a placeholder image for your video</label>
+                                <input type="file" size="60" name="owner_gallery_upload_video_placeholder-1" id="owner_gallery_upload_video-placeholder-">
                             </div>
+
+                            <!-- private or public  -->
+                            <div class="owners-portal__form-input owners-portal__input-radio">
+                                <div class="owners-portal__radio">
+                                    <label for="video_visibility_level_public">Share this video with the community</label>
+                                    <input type="radio" name="owner_gallery_upload_video[1][visibility_level]" id="video_visibility_level_public" value="public" required>
+                                </div>
+
+                                <div class="owners-portal__radio">
+                                    <label for="video_visibility_level_private">Keep this video private</label>
+                                    <input type="radio" name="owner_gallery_upload_video[1][visibility_level]"value="private" id="video_visibility_level_private">
+                                </div>
+                            </div>
+
+                            <div class="owners-portal__form-input">
+                                <label for="owner_gallery_upload_video_caption">
+                                    <span class="accessible-text">Add a comment about this video</span>
+                                </label>
+                                <textarea name="owner_gallery_upload_video[1][caption]"id="owner_gallery_upload_video_caption" cols="30" rows="10" placeholder="Add a comment about this video"></textarea>
+                            </div>
+
+                            <button
+                                class=" btn btn--dark"
+                                type="button" data-class="owner-portal__remove-section"
+                                style="margin-bottom: 10px; display: none;">
+                                remove this section
+                            </button>
+
                         </div>
 
-                        <div class="owners-portal__form-input">
-                            <label for="owner_gallery_upload_video_caption">
-                                <span class="accessible-text">Add a comment about this video</span>
-                            </label>
-                            <textarea name="owner_gallery_upload_video_caption" id="owner_gallery_upload_video_caption" cols="30" rows="10" placeholder="Add a comment about this video"></textarea>
-                        </div>
+                        <!-- add another upload -->
+                        <button class="owners-portal__add-upload btn btn--dark" type="button" data-class="owner-portal__add-section">
+                            <span class="accessible-text">upload another image</span>
+                            <i class="fa fa-plus"></i>
+                        </button>
 
                         <!-- submit  -->
-                        <input type="submit" id="owner_gallery_upload_video_submit" name="owner_gallery_upload_video_submit" class="owners-portal__form-button" value="Upload Video">
+                        <input type="submit" id="owner_gallery_upload_video_submit" name="owner_gallery_upload_video_submit" class="owners-portal__form-button"
+                        data-class="owner-portal__submit"
+                        value="Upload Video">
                     </form>
                 </div>
 
