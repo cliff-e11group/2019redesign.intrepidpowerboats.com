@@ -193,26 +193,27 @@ $placeholder = get_field('video_placeholder_image', 'option');
 
                             <!-- image file  -->
                             <div class="owners-portal__form-input owners-portal__input-file">
-                                <label for="owner_gallery_upload_image">Upload a photo to your gallery</label>
-                                <input type="file" size="60" name="owner_gallery_upload_image-1" id="owner_gallery_upload_image-1" required>
+                                <label for="owner_gallery_upload_image[1]">Upload a photo to your gallery</label>
+                                <input type="file" size="60" name="owner_gallery_upload_image-1" id="owner_gallery_upload_image[1][image]" required>
                             </div>
 
                             <div class="owners-portal__form-input owners-portal__input-radio">
                                 <!-- private or public  -->
                                 <div class="owners-portal__radio">
-                                    <label for="public">Share this photo with the community</label>
-                                    <input type="radio" name="visibility_level-1" id="public" value="public" required>
+                                    <label for="owner_gallery_upload_image[1][visibility_level]">Share this photo with the community</label>
+                                    <input type="radio" name="owner_gallery_upload_image[1][visibility_level]"
+                                    value="public" required>
                                 </div>
 
                                 <div class="owners-portal__radio">
-                                    <label for="private">Keep this photo private</label>
-                                    <input type="radio" name="visibility_level-1" value="private" id="private">
+                                    <label for="owner_gallery_upload_image[1][visibility_level]">Keep this photo private</label>
+                                    <input type="radio" name="owner_gallery_upload_image[1][visibility_level]" value="private" >
                                 </div>
                             </div>
 
                             <div class="owners-portal__form-input">
-                                <label for="owner_gallery_upload_caption"><span class="accessible-text">Add a comment about this video</span></label>
-                                <textarea name="owner_gallery_upload_caption-1" id="owner_gallery_upload_caption-1" cols="30" rows="10" placeholder="Add a comment about this photo"></textarea>
+                                <label for="owner_gallery_upload_image[1][caption]"><span class="accessible-text">Add a comment about this video</span></label>
+                                <textarea name="owner_gallery_upload_image[1][caption]"  cols="30" rows="10" placeholder="Add a comment about this photo"></textarea>
                             </div>
 
                             <button
