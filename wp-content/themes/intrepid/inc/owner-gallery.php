@@ -12,9 +12,6 @@ function e11_owner_gallery_upload_form()
         wp_die();
     }
 
-
-
-
     $accepted = array(
         'image/jpeg',
         'image/jpg',
@@ -30,25 +27,13 @@ function e11_owner_gallery_upload_form()
             exit;
         }
 
-        //get id of file
+        //get id of file to match with associated $_POST array
         $fileId = preg_replace('/[^0-9.]/','', $fileName);
 
-        // echo '<pre>'; print_r($fileId);
-
-        // exit;
-
-           // echo '<pre>'; print_r($_FILES); echo  '<br>';
-        // echo '<pre>'; print_r($_POST); exit;
-
-        // echo $_POST['owner_gallery_upload_image'][$fileId]['visibility_level'];
-
-
-        if (!isset($_POST['owner_gallery_upload_image'][$fileId]['visibility_level'])) {
+         if (!isset($_POST['owner_gallery_upload_image'][$fileId]['visibility_level'])) {
             print 'Sorry, you must choose a visibility level for each file uploaded.';
             exit;
         }
-
-        $visiblity_level = $_POST['owner_gallery_upload_image'][$fileId]['visibility_level'];
 
         $result = array(
             'caption' => false,
@@ -60,6 +45,8 @@ function e11_owner_gallery_upload_form()
             echo '<p>ERROR: ' . $result['error'] . '</p>';
             exit;
         }
+
+        $visiblity_level = $_POST['owner_gallery_upload_image'][$fileId]['visibility_level'];
 
         //add file and all associated post data to array which will be used once all of them have passed
         $upload_data = array(
@@ -76,22 +63,19 @@ function e11_owner_gallery_upload_form()
 
     }
 
-
-
-    foreach($ok_uploads as $ok_upload){
-        // echo '<pre>'; print_r($ok_upload['meta_input']['caption']);
+    foreach($ok_uploads as $ok_id => $ok_upload){
 
         $post_id = wp_insert_post($ok_upload);
 
         if (!is_wp_error($post_id)):
 
-            if ($_POST['post_status'] == 'publish'):
-                update_field('make_upload_private', true, $post_id);
-            else:
+            if ($ok_upload['post_status'] == 'pending'):
                 update_field('make_upload_private', false, $post_id);
+            else:
+                update_field('make_upload_private', true, $post_id);
             endif;
 
-            e11_process_upload('owner_gallery_upload_image', $post_id, $ok_upload['meta_input']['caption']);
+            e11_process_upload('owner_gallery_upload_image-' . ($ok_id + 1), $post_id, $ok_upload['meta_input']['caption']);
 
         endif;
 
@@ -99,8 +83,6 @@ function e11_owner_gallery_upload_form()
 
     wp_redirect(site_url('owner-gallery'));
     exit();
-
-    // exit;
 
 }
 
