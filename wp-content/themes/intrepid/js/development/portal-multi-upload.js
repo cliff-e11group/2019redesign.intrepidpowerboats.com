@@ -33,9 +33,13 @@ $(function () {
                 $newInputs.each(function(){
                     var newName = $(this).attr('name').replace(/\d+/g, newId);
                     $(this).attr('name', newName);
-                    $(this).attr('id', newName);
                     $(this).prop('checked', false);
-                    $(this).val('');
+
+                    if(!$(this).is('input:radio')) {
+                        $(this).val('');
+                        $(this).attr('id', newName);
+                    }
+
                 });
                 $newTextArea.each(function(){
                     var newName = $(this).attr('name').replace(/\d+/g, newId);
