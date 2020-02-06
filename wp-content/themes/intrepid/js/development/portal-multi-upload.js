@@ -25,22 +25,29 @@ $(function () {
                 //change id
                 $newSection.attr('id', idString + '-' + newId);
 
-                //get all new inputs
-                var $newInputs = $newSection.find('input'),
-                    $newTextField = $newSection.find('textarea');
-                // console.log($newInputs);
+                //clear input values
+                var $newInputs = $newSection.find('input').val(''),
+                $newTextArea = $newSection.find('textarea').val('');
 
                 //change names/ids of inputs inside
                 $newInputs.each(function(){
-                    // var nameString = ''
-                    // $(this).attr('name', $(this).attr('name' + '-' + newId));
-                    // console.log($(this));
-                    // $(this).val('');
+                    var newName = $(this).attr('id').replace(/\d+/g, newId);
+                    $(this).attr('name', newName);
+                    $(this).attr('id', newName);
+                    $(this).prop('checked', false);
+                    $(this).val('');
+                });
+                $newTextArea.each(function(){
+                    var newName = $(this).attr('id').replace(/\d+/g, newId);
+                    $(this).attr('name', newName);
+                    $(this).attr('id', newName);
+                    $(this).val('');
                 });
 
-                //append remove button to new section
-                var removeButton = '<button class=" btn btn--dark" type="button" data-class="owner-portal__remove-section" style="margin-bottom: 10px;">remove this section</button>';
-                $newSection.append(removeButton);
+                var $removeButton = $newSection.find('[data-class="owner-portal__remove-section"]');
+                $removeButton.css('display', 'block').on('click', function(){
+                    $(this).parents('.owners-portal__form-section').remove();
+                });
 
                 //apend to last section
                 $newSection.insertAfter($lastSection);
@@ -60,14 +67,5 @@ $(function () {
         });
     }
 
-    var $removeButton = $('[data-class="owner-portal__remove-section"]');
-
-    $(document).on('click', $removeButton, function(){
-        console.log($(this).parents('.owners-portal__form-section'));
-        $(this).parents('.owners-portal__form-section').remove();
-    });
 });
 
-
-//add ability to remove added setion
-//clear out chosen file and other inputs when new section added
