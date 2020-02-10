@@ -18,7 +18,7 @@ function e11_scripts(){
 		wp_enqueue_style('css', STYLEDIR.'/style.css', false, '20200207');
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
-		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery', 'object-assign-polyfill'), '20200205', true);
+		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery', 'object-assign-polyfill'), '20200210', true);
         wp_localize_script(
 			'scripts',
 			'localized',
