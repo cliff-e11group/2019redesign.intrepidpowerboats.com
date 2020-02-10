@@ -1,8 +1,12 @@
 <section class="hero">
     <div class="heroVideo__container">
-        <div id="heroVideo"></div>
+        <?php if ($data['placeholder_video']) : ?>
+            <div id="heroVideo">
+                <iframe src="<?php echo $data['placeholder_video'];?>?autoplay=1&controls=0&rel=0&loop=1&playlist=EgdxLgHiRGo&showinfo=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media; gyroscope;" ></iframe>
+            </div>
+        <?php endif; ?>
     </div>
-    <div class="hero__placeholder" <?php echo $data['placeholder'] ? 'style="background-image:url(' . $data['placeholder']['url'].')"' : ''; ?>>
+    <div class="hero__placeholder" <?php echo $data['placeholder_image'] ? 'style="background-image:url(' . $data['placeholder_image']['url'].')"' : ''; ?>>
     </div>
     <div class="container">
         <?php if ($data['video'] || $data['title']) : ?>
@@ -17,9 +21,12 @@
             </div>
         <?php endif; ?>
     </div>
+
 </section>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
+
+
+<!-- <script src="https://player.vimeo.com/api/player.js"></script>
 <script>
     var options = {
         url: "https://vimeo.com/383542432",
@@ -27,4 +34,4 @@
     };
 
     var videoPlayer = new Vimeo.Player('heroVideo', options);
-</script>
+</script> -->
