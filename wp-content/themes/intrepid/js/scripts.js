@@ -8921,6 +8921,8 @@ jQuery(function($){
 				'page': localized.current_page,
 			};
 
+			console.log(data);
+
 			$.ajax({
 				url: localized.ajaxurl, // AJAX handler
 				data: data,
