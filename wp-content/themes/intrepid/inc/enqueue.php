@@ -19,6 +19,7 @@ function e11_scripts(){
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
 		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery', 'object-assign-polyfill'), '1.0.3', true);
+
         wp_localize_script(
 			'scripts',
 			'localized',
