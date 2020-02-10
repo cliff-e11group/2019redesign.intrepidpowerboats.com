@@ -8,13 +8,23 @@ jQuery(function($){
 
 		e.preventDefault();
 
+		var excludeId = $(this).data('exclude').toString(),
+		excludedPosts = excludeId.split(', ');
+
+		var loadMoreQuery = jQuery.parseJSON(localized.posts);
+			loadMoreQuery.post__not_in = excludedPosts,
+			formattedQuery = JSON.stringify(loadMoreQuery);
+
+
 			var button = $(this),
 			$container = $('.post-list__wrap'),
 			data = {
 				'action': 'e11_load_more',
-				'query': localized.posts,
+				'query': formattedQuery,
 				'page': localized.current_page,
 			};
+
+			console.log(data);
 
 			$.ajax({
 				url: localized.ajaxurl, // AJAX handler

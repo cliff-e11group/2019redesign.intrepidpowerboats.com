@@ -34,8 +34,6 @@ function e11_scripts(){
 	}
 	wp_dequeue_style( 'wp-block-library' );
 
-	//load more
-
 }
 
 add_action('wp_enqueue_scripts', 'e11_scripts', 100);
