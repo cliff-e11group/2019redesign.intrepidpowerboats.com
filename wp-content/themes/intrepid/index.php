@@ -181,9 +181,7 @@
 
                 </div>
                 <?php endif; ?>
-            <?php //wp_reset_query(); ?>
             <?php
-            // global $wp_query;
             if (  $older_posts->max_num_pages > 1 ) : ?>
                 <div class="load-more" >
                     <button  class="btn btn--fullwidth btn--outline btn--outline-dark btn--large-mobile" data-class="load-more" data-exclude="<?php echo implode(',', $heroPostID); ?>">Load More</button>
