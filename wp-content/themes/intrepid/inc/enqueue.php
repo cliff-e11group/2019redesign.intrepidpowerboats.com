@@ -15,10 +15,10 @@ function e11_scripts(){
 
 
 		// Main Stylsheet
-		wp_enqueue_style('css', STYLEDIR.'/style.css', false, '1.0.0');
+		wp_enqueue_style('css', STYLEDIR.'/style.css', false, '1.0.1');
 
 		// Main Scripts (this file is concatenated from the files inside of js/development/ )
-		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery', 'object-assign-polyfill'), '1.0.0', true);
+		wp_enqueue_script('scripts', JSDIR.'/scripts.min.js', array('jquery', 'object-assign-polyfill'), '1.0.1', true);
         wp_localize_script(
 			'scripts',
 			'localized',
