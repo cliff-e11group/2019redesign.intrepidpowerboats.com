@@ -7435,7 +7435,7 @@ $(function () {
             this.$prev = this.$el.find('[data-class="prev"]');
             this.$next = this.$el.find('[data-class="next"]');
             this.$prevText = this.$nav.find('.step-prev').find('span');
-            this.$nextText = this.$nav.find('.step-next');
+            this.$nextText = this.$el.find('.step-next');
             this.skipText = 'Skip this step >';
             this.nextText = 'Next step >';
             this.$formBoatNameInput = self.$el.find('.gfield.input-boat-name input');
