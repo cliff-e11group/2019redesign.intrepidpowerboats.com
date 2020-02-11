@@ -1,7 +1,9 @@
 
 var player;
     function onYouTubeIframeAPIReady() {
-        console.log(video_id);
+
+    var video_id = video_embed_id.replace('https://www.youtube/embed/', '');
+
     player = new YT.Player('heroVideo', {
         videoId: video_id,
         events: {
