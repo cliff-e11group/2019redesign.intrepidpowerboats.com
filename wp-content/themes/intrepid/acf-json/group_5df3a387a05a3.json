@@ -47,7 +47,7 @@
             "label": "Placeholder Video Url",
             "name": "hero_placeholder_video_url",
             "type": "text",
-            "instructions": "",
+            "instructions": "Please enter each url as 'https:\/\/www.youtube\/embed\/thisVideosId'.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -98,5 +98,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581370699
+    "modified": 1581439218
 }
