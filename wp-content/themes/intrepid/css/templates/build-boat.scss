@@ -148,7 +148,12 @@
             padding-top: 0;
             max-width: 215px;
             margin: 0 auto;
-            // text-align: left;
+        }
+
+        .mobile__active-holder--active & {
+            @media #{$phone} {
+                display: none;
+            }
         }
 
         .mobile__active-holder--active & {
