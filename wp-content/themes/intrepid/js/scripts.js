@@ -9078,8 +9078,10 @@ $(function () {
 
 var player;
     function onYouTubeIframeAPIReady() {
+    var video_id = video_embed_id.replace('https://www.youtube/embed/', '');
+        console.log(video_id);
     player = new YT.Player('heroVideo', {
-        videoId: video_embed_id,
+        videoId: video_id,
         events: {
         'onReady': onPlayerReady,
         'onStateChange': onPlayerStateChange
@@ -9091,7 +9093,7 @@ var player;
             'mute': 1,
             'enablejsapi': 1,
             'loop' : 1,
-            'playlist': video_embed_id},
+            'playlist': video_id},
     });
 }
 
