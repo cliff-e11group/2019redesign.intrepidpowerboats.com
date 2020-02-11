@@ -44,10 +44,10 @@
         },
         {
             "key": "field_5e41ccef6d01d",
-            "label": "Placeholder Video Url",
+            "label": "Placeholder Video ID",
             "name": "hero_placeholder_video_url",
             "type": "text",
-            "instructions": "Please enter each url as 'https:\/\/www.youtube\/embed\/thisVideosId'.",
+            "instructions": "Please enter the id of the background video. The id for a youtube video would be a group of numbers after the 'embed\/'. For example, this url: 'https:\/\/www.youtube\/embed\/thisIsTheVideoID'.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -98,5 +98,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581439218
+    "modified": 1581440433
 }
