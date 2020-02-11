@@ -1234,8 +1234,8 @@
         {
             "key": "field_5e2610af82d43",
             "label": "Nav Image",
-            "name": "nav_image",
-            "type": "image",
+            "name": "",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -1244,16 +1244,9 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "message": "To add\/edit model image for the nav bar, navigate to Appearance > Menus and select Main Navigation. You can add\/edit images on each nav item there.",
+            "new_lines": "wpautop",
+            "esc_html": 0
         }
     ],
     "location": [
@@ -1273,5 +1266,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1580335873
+    "modified": 1581023445
 }
