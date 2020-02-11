@@ -148,7 +148,12 @@
             padding-top: 0;
             max-width: 215px;
             margin: 0 auto;
-            // text-align: left;
+        }
+
+        .mobile__active-holder--active & {
+            @media #{$phone} {
+                display: none;
+            }
         }
     }
 
@@ -954,7 +959,7 @@
     position: absolute;
     right: 13px;
     top: 13px;
-    z-index: 2;
+    z-index: 4;
 }
 
 .custom-hero__content {
