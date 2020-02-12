@@ -2,7 +2,7 @@
     <div class="heroVideo__container">
         <?php if ($data['placeholder_video']) : ?>
             <div id="heroVideo">
-                <iframe src="<?php echo $data['placeholder_video'];?>?autoplay=1&controls=0&rel=0&loop=1&playlist=EgdxLgHiRGo&showinfo=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media; gyroscope;" ></iframe>
+                <iframe src="<?php echo $data['placeholder_video'];?>?autoplay=1&controls=0&rel=0&loop=1&playlist=EgdxLgHiRGo&showinfo=0&modestbranding=1&mute=1" frameborder="0" allow="autoplay; encrypted-media; gyroscope;" ></iframe>
             </div>
         <?php endif; ?>
     </div>
