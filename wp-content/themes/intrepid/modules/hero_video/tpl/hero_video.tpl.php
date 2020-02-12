@@ -1,8 +1,10 @@
 <section class="hero">
     <div class="heroVideo__container">
-        <div id="heroVideo"></div>
+        <?php if ($data['placeholder_video']) : ?>
+            <div id="heroVideo"></div>
+        <?php endif; ?>
     </div>
-    <div class="hero__placeholder" <?php echo $data['placeholder'] ? 'style="background-image:url(' . $data['placeholder']['url'].')"' : ''; ?>>
+    <div class="hero__placeholder" <?php echo $data['placeholder_image'] ? 'style="background-image:url(' . $data['placeholder_image']['url'].')"' : ''; ?>>
     </div>
     <div class="container">
         <?php if ($data['video'] || $data['title']) : ?>
@@ -17,14 +19,17 @@
             </div>
         <?php endif; ?>
     </div>
+
 </section>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-    var options = {
-        url: "https://vimeo.com/383542432",
-        background: true
-    };
-
-    var videoPlayer = new Vimeo.Player('heroVideo', options);
+<script type="text/javascript">
+    if (!window['YT']) {var YT = {loading: 0,loaded: 0};}if (!window['YTConfig']) {var YTConfig = {'host': 'http://www.youtube.com'};}if (!YT.loading) {YT.loading = 1;(function(){var l = [];YT.ready = function(f) {if (YT.loaded) {f();} else {l.push(f);}};window.onYTReady = function() {YT.loaded = 1;for (var i = 0; i < l.length; i++) {try {l[i]();} catch (e) {}}};YT.setConfig = function(c) {for (var k in c) {if (c.hasOwnProperty(k)) {YTConfig[k] = c[k];}}};var a = document.createElement('script');a.type = 'text/javascript';a.id = 'www-widgetapi-script';a.src = 'https://s.ytimg.com/yts/jsbin/www-widgetapi-vflJZLJqh/www-widgetapi.js';a.async = true;var c = document.currentScript;if (c) {var n = c.nonce || c.getAttribute('nonce');if (n) {a.setAttribute('nonce', n);}}var b = document.getElementsByTagName('script')[0];b.parentNode.insertBefore(a, b);})();}
 </script>
+
+
+<?php
+
+if (!empty($data['placeholder_video'])) :
+    $video_id = str_replace('https://www.youtube/embed/', '', $data['placeholder_video']);
+    wp_localize_script('scripts', 'video_id',  $video_id);
+endif;

@@ -52,9 +52,16 @@
         }
     }
 
-    #heroVideo iframe {
+    #heroVideo {
         width: 100vw;
-        height: 56.25vw;
+        height: calc(56.25vw + 60px);
+        margin-top: -60px;
+        opacity: 0;
+        transition: all .2s ease-in;
+
+        .ytp-chrome-top{
+            display: none;
+        }
 
         @media #{$phone} {
             width: 200vw;
@@ -921,4 +928,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+
+.ytp-chrome-top{
+    display: none;
 }
