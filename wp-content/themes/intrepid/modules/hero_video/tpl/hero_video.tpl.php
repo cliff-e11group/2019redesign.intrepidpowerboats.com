@@ -31,5 +31,5 @@
 
 if (!empty($data['placeholder_video'])) :
     $video_id = str_replace('https://www.youtube/embed/', '', $data['placeholder_video']);
-    wp_localize_script('scripts', 'video_embed_id',  $video_id);
+    wp_localize_script('scripts', 'video_id',  $video_id);
 endif;

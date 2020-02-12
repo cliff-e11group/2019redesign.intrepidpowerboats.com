@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5df3a38e27b6a",
-            "label": "Video Embed",
+            "label": "Popup Video",
             "name": "hero_video_embed",
             "type": "oembed",
             "instructions": "",
@@ -44,7 +44,7 @@
         },
         {
             "key": "field_5e41ccef6d01d",
-            "label": "Placeholder Video ID",
+            "label": "Background Video ID",
             "name": "hero_placeholder_video_url",
             "type": "text",
             "instructions": "Please enter the id of the background video. The id for a youtube video would be a group of numbers after the 'embed\/'. For example, this url: 'https:\/\/www.youtube\/embed\/thisIsTheVideoID'.",
@@ -98,5 +98,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1581440433
+    "modified": 1581466572
 }

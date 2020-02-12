@@ -1,6 +1,7 @@
 
 var player;
     function onYouTubeIframeAPIReady() {
+        console.log(video_id);
     player = new YT.Player('heroVideo', {
         videoId: video_id,
         events: {
