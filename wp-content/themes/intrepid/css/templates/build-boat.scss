@@ -150,6 +150,12 @@
             margin: 0 auto;
             // text-align: left;
         }
+
+        .mobile__active-holder--active & {
+            @media #{$phone} {
+                display: none;
+            }
+        }
     }
 
     &.step-nagivation--text-center {
@@ -954,7 +960,7 @@
     position: absolute;
     right: 13px;
     top: 13px;
-    z-index: 2;
+    z-index: 4;
 }
 
 .custom-hero__content {
