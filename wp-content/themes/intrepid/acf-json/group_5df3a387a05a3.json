@@ -43,6 +43,25 @@
             "mime_types": ""
         },
         {
+            "key": "field_5e41ccef6d01d",
+            "label": "Placeholder Video Url",
+            "name": "hero_placeholder_video_url",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5df3a489d6086",
             "label": "Title",
             "name": "hero_video_title",
@@ -79,5 +98,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576248770
+    "modified": 1581370699
 }
