@@ -4,6 +4,9 @@ function e11_button_shortcode($atts = [], $content = null) {
     if ($atts['color'] === 'light'){
         return '<div class="btn-shortcode btn-shortcode--light">'.$content.'</div>';
     }
+    if ($atts['color'] === 'dark'){
+        return '<div class="btn-shortcode btn-shortcode--dark">'.$content.'</div>';
+    }
 	return '<div class="btn-shortcode">'.$content.'</div>';
 }
 add_shortcode('button', 'e11_button_shortcode');

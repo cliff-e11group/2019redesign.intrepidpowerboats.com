@@ -867,6 +867,17 @@
     }
 }
 
+.btn-shortcode--dark {
+    display: inline-block;
+    vertical-align: top;
+
+    a {
+        @extend .btn;
+        @extend .btn--dark;
+    }
+}
+
+
 .accordion__container {
     .accordion__heading {
         margin: 20px 0;
