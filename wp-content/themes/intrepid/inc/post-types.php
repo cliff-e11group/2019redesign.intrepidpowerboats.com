@@ -128,3 +128,15 @@ function e11_change_post_object() {
 
 add_action( 'admin_menu', 'e11_change_post_label' );
 add_action( 'init', 'e11_change_post_object' );
+
+
+
+function e11_admin_boat_featured_img_label($content, $post_id, $thumbnail_id)
+{
+    $post = get_post($post_id);
+
+    $content .= '<small><i>Image should be 1088x456px.</small></i>';
+    return $content;
+
+}
+add_filter('admin_post_thumbnail_html', 'e11_admin_boat_featured_img_label', 10, 3);
