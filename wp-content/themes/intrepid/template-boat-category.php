@@ -86,8 +86,8 @@ $description = get_field( 'description' );
                                     <!-- boat_category_description -->
                                         <div class="column-model__item">
                                             <?php if ($image) : ?>
-                                                <figure class="column-model__thumbnail">
-                                                    <img src="<?php echo $image['sizes']['boat-cat-pullin']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                <figure class="column-model__thumbnail" style="background-image: url('<?php echo $image['sizes']['boat-cat-pullin']; ?>');">
+                                                    <span class="accessible-text"><?php echo $image['alt']; ?></span>
                                                 </figure>
                                             <?php endif; ?>
 
@@ -136,7 +136,6 @@ $description = get_field( 'description' );
                                 $col_right = array_slice($boats, ($half));
 
                             ?>
-                            <?php //echo '<pre>'; print_r($col_left); ?>
                                 <div class="column-model column-model--two-col">
 
                                 <div class="column-model__left">
@@ -156,8 +155,8 @@ $description = get_field( 'description' );
                                     <!-- boat_category_description -->
                                         <div class="column-model__item">
                                             <?php if ($image) : ?>
-                                                <figure class="column-model__thumbnail">
-                                                    <img src="<?php echo $image['sizes']['boat-cat-pullin']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                <figure class="column-model__thumbnail" style="background-image: url('<?php echo $image['sizes']['boat-cat-pullin']; ?>');">
+                                                    <span class="accessible-text"><?php echo $image['alt']; ?></span>
                                                 </figure>
                                             <?php endif; ?>
 
@@ -211,8 +210,8 @@ $description = get_field( 'description' );
                                     <!-- boat_category_description -->
                                         <div class="column-model__item">
                                             <?php if ($image) : ?>
-                                                <figure class="column-model__thumbnail">
-                                                    <img src="<?php echo $image['sizes']['boat-cat-pullin']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                <figure class="column-model__thumbnail" style="background-image: url('<?php echo $image['sizes']['boat-cat-pullin']; ?>');">
+                                                    <span class="accessible-text"><?php echo $image['alt']; ?></span>
                                                 </figure>
                                             <?php endif; ?>
 

@@ -119,6 +119,8 @@
         height: 53px;
         display: block;
         margin-left: -9px;
+        cursor: pointer;
+
         @media #{$header} {
             width: 33px;
             height: 33px;
@@ -153,9 +155,6 @@
         border-top: 1px solid rgba(151, 151, 151, 0.3);
         padding-top: 15px;
         display: none;
-        // p{
-        //   margin-bottom: 18px;
-        // }
     }
 }
 
@@ -167,3 +166,12 @@
         width: 100%;
     }
 }
+
+.column-model__thumbnail{
+    padding-bottom: calc((415 / 985) * 100%);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+// 985, 415,
