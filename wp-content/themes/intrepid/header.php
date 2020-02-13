@@ -12,6 +12,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    apple
+    <link rel="apple-touch-icon" sizes="57x57" href="<?php echo IMAGES; ?>/favico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?php echo IMAGES; ?>/favico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo IMAGES; ?>/favico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?php echo IMAGES; ?>/favico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo IMAGES; ?>/favico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo IMAGES; ?>/favico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo IMAGES; ?>/favico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?php echo IMAGES; ?>/favico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo IMAGES; ?>/favico/apple-icon-180x180.png">
+
+    <!-- android  -->
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo IMAGES; ?>/favico/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo IMAGES; ?>/favico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="36x36" href="<?php echo IMAGES; ?>/favico/favicon-36x36.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="<?php echo IMAGES; ?>/favico/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="<?php echo IMAGES; ?>/favico/favicon-72x72.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo IMAGES; ?>/favico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="<?php echo IMAGES; ?>/favico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo IMAGES; ?>/favico/android-icon-192x192.png">
+
+    <link rel="manifest" href="<?php echo IMAGES; ?>/favico/manifest.json">
+
+    <!-- ms  -->
+    <meta name="msapplication-square70x70logo" content="<?php echo IMAGES; ?>/favico/ms-icon-70x70">
+    <meta name="msapplication-square144x144logo" content="<?php echo IMAGES; ?>/favico/ms-icon-144x144">
+    <meta name="msapplication-square152x152logo" content="<?php echo IMAGES; ?>/favico/ms-icon-152x152">
+    <meta name="msapplication-square310x310logo" content="<?php echo IMAGES; ?>/favico/ms-icon-310x310">
+
+    <meta name="msapplication-TileColor" content="#3a4249">
+    <meta name="msapplication-TileImage" content="<?php echo IMAGES; ?>/favico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#3a4249">
+
     <!-- Facebook Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
