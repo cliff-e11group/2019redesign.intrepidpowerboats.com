@@ -56,7 +56,7 @@
 }
 
 .customer-support {
-    padding: 84px 0;
+    padding: 84px 0 0;
     background-color: #F4F4F4;
     @media #{$phone} {
         padding: 45px 0;
@@ -82,6 +82,10 @@
             letter-spacing: 4.1px;
             text-align: center;
         }
+    }
+
+    &:last-of-type{
+        padding-bottom: 84px;
     }
 }
 
