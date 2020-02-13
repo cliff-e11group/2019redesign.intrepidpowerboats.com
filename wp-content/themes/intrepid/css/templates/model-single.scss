@@ -922,6 +922,13 @@
         margin-bottom: 9px;
         position: relative;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+
+        svg{
+            margin-right: 10px;
+        }
+
         @media #{$phone} {
             margin-bottom: 2px;
         }
@@ -991,6 +998,12 @@
                 transform: translate(-50%, -50%) rotate(0) scale(0.98);
                 transition: 0.25s;
                 border: 1px solid #aacbce;
+            }
+
+            svg{
+                path{
+                    fill: white;
+                }
             }
 
         }
