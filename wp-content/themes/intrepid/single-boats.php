@@ -547,6 +547,9 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             <ul class="option-list" data-user-choices="<?php echo $boat_option['number_of_choices']; ?>">
                                 <?php foreach($boat_option['options'] as $option) : ?>
                                 <li class="option-list__item boatOption <?php if($option['selected_by_default']) : ?>selected<?php endif; ?>" <?php if($option['svg_id']) : ?>data-boat-layer="<?php echo $option['svg_id']; ?>"<?php endif; ?>>
+                                    <?php if($option['svg_id']) : ?>
+                                        <?php echo file_get_contents(IMAGES . '/eye.svg'); ?>
+                                    <?php endif; ?>
                                     <?php if ($option['thumbnail']) : ?><span class="option-list__thumbnail" style="background-image: url('<?php echo $option["thumbnail"]["sizes"]["boat-options"];?>');"></span><?php endif; ?>
                                     <span class="option-list__text"><?php echo $option['option']; ?></span>
                                 </li>
