@@ -64,6 +64,33 @@
     </noscript>
     <!-- End Facebook Pixel Code -->
 
+    <!-- Global site tag (gtag.js) - Google Marketing Platform -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=DC-8591900"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'DC-8591900');
+    </script>
+    <!-- End of global snippet: Please do not remove -->
+
+    <!--
+    Event snippet for Retargeting (MIB Landing Page 2) on http://intrepidboats.com: Please do not remove.
+    Place this snippet on pages with events you’re tracking.
+    Creation date: 02/07/2020
+    -->
+    <script>
+        gtag('event', 'conversion', {
+            'allow_custom_scripts': true,
+            'send_to': 'DC-8591900/pagev0/retar0+standard'
+        });
+    </script>
+    <noscript>
+        <img src="https://ad.doubleclick.net/ddm/activity/src=8591900;type=pagev0;cat=retar0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?" width="1" height="1" alt=""/>
+    </noscript>
+    <!-- End of event snippet: Please do not remove -->
+
     <?php wp_head(); ?>
 
 </head>

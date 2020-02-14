@@ -3,7 +3,7 @@
  * Instagram Feed Header Generic Template
  * Used for hashtag feeds
  *
- * @version 5.2 Instagram Feed Pro by Smash Balloon
+ * @version 5.3 Instagram Feed Pro by Smash Balloon
  *
  */
 

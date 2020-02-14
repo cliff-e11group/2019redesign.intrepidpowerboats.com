@@ -337,12 +337,22 @@ class SB_Instagram_API_Connect
 	 * @param array $params additional params related to the request
 	 *
 	 * @since 2.0/5.0
+	 * @since 2.2/5.3 added endpoints for the basic display API
 	 */
 	protected function set_url( $connected_account, $endpoint_slug, $params ) {
 		$account_type = isset( $connected_account['type'] ) ? $connected_account['type'] : 'personal';
 		$num = ! empty( $params['num'] ) ? (int)$params['num'] : 33;
 
-		if ( $account_type === 'personal' ) {
+		if ( $account_type === 'basic' ) {
+			if ( $endpoint_slug === 'access_token' ) {
+				$url = 'https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&&access_token=' . sbi_maybe_clean( $connected_account['access_token'] );
+			} elseif ( $endpoint_slug === 'header' ) {
+				$url = 'https://graph.instagram.com/me?fields=id,username,media_count,account_type&access_token=' . sbi_maybe_clean( $connected_account['access_token'] );
+			} else {
+				$num = min( $num, 200 );
+				$url = 'https://graph.instagram.com/' . $connected_account['user_id'] . '/media?fields=media_url,thumbnail_url,caption,id,media_type,timestamp,username,comments_count,like_count,permalink,children{media_url,id,media_type,timestamp,permalink,thumbnail_url}&limit='.$num.'&access_token=' . sbi_maybe_clean( $connected_account['access_token'] );
+			}
+		} elseif ( $account_type === 'personal' ) {
 			if ( $endpoint_slug === 'header' ) {
 				$url = 'https://api.instagram.com/v1/users/' . $connected_account['user_id'] . '?access_token=' . sbi_maybe_clean( $connected_account['access_token'] );
 			} else {

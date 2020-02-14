@@ -445,6 +445,16 @@ class SB_Instagram_Feed
 		return $return;
 	}
 
+	/**
+     * The plugin tracks when a post was last requested so only the most
+     * recently displayed posts are kept in the database.
+     * This function updates the timestamp for a set of posts
+     * on the page.
+     *
+	 * @param $array_of_ids
+     *
+	 * @since 2.0/5.0
+	 */
 	public static function update_last_requested( $array_of_ids ) {
 		if ( empty( $array_of_ids ) ) {
 			return;
@@ -522,6 +532,8 @@ class SB_Instagram_Feed
 	 * @since 2.0/5.1 added logic to make a second attempt at an API connection
 	 * @since 2.0/5.1.2 remote posts only retrieved if API requests are not
 	 *  delayed, terms shuffled if there are more than 5
+     * @since 2.2/5.3 added logic to refresh the access token for basic display
+     *  accounts if needed before using it in an API request
 	 */
 	public function add_remote_posts( $settings, $feed_types_and_terms, $connected_accounts_for_feed ) {
 		$new_post_sets = array();
@@ -560,17 +572,42 @@ class SB_Instagram_Feed
 
 				if ( ! $api_requests_delayed
 				     && (! isset( $next_pages[ $term . '_' . $type ] ) || $next_pages[ $term . '_' . $type ] !== false) ) {
-					if ( ! empty( $next_pages[ $term . '_' . $type ] ) ) {
-						$connection = $this->make_api_connection( $next_pages[ $term . '_' . $type ] );
+
+					$account_type = isset( $connected_account_for_term['type'] ) ? $connected_account_for_term['type'] : 'personal';
+					$skip_connection = false;
+
+					// basic account access tokens need to be refreshed every 60 days
+                    // normally done using WP Cron but can be done here as a fail safe
+					if ( $account_type === 'basic' ) {
+						if ( SB_Instagram_Token_Refresher::refresh_time_has_passed_threshold( $connected_account_for_term )
+                            && SB_Instagram_Token_Refresher::minimum_time_interval_since_last_attempt_has_passed( $connected_account_for_term ) ) {
+							$refresher = new SB_Instagram_Token_Refresher( $connected_account_for_term );
+							$refresher->attempt_token_refresh();
+							$this->add_report( 'trying to refresh token ' . $term . '_' . $type );
+						}
+					} elseif( $account_type === 'personal' && sbi_is_after_deprecation_deadline() ) {
+						$skip_connection = true;
+                    }
+
+				    if ( ! empty( $next_pages[ $term . '_' . $type ] ) ) {
+				        $next_page_term = $next_pages[ $term . '_' . $type ];
+				        if ( strpos( $next_page_term, 'https://' ) !== false ) {
+					        $connection = $this->make_api_connection( $next_page_term );
+                        } else {
+					        $params['cursor'] = $next_page_term;
+					        $connection = $this->make_api_connection( $connected_account_for_term, $type, $params );
+				        }
 					} else {
 						$connection = $this->make_api_connection( $connected_account_for_term, $type, $params );
 					}
 					$this->add_report( 'api call made for ' . $term . ' - ' . $type );
 
-					$connection->connect();
+				    if ( ! $skip_connection ) {
+					    $connection->connect();
+				    }
 					$this->num_api_calls++;
 
-					if ( ! $connection->is_wp_error() && ! $connection->is_instagram_error() ) {
+					if ( ! $skip_connection && ! $connection->is_wp_error() && ! $connection->is_instagram_error() ) {
 						$one_successful_connection = true;
 
 						$data = $connection->get_data();
@@ -656,8 +693,9 @@ class SB_Instagram_Feed
 								$next_pages[ $term . '_' . $type ] = false;
 							}
 						} else {
+							if ( $skip_connection ) {
 
-							if ( $connection->is_wp_error() ) {
+							} elseif ( $connection->is_wp_error() ) {
 								SB_Instagram_API_Connect::handle_wp_remote_get_error( $connection->get_wp_error() );
 							} else {
 								SB_Instagram_API_Connect::handle_instagram_error( $connection->get_data(), $connected_accounts_for_feed[ $term ], $type );
@@ -722,6 +760,8 @@ class SB_Instagram_Feed
 	 *  feed types and terms
 	 *
 	 * @since 2.0/5.0
+     * @since 2.2/5.3 added logic to append bio data from the related
+     *  connected account if not available in the API response
 	 */
 	public function set_remote_header_data( $settings, $feed_types_and_terms, $connected_accounts_for_feed ) {
 		$first_user = $this->get_first_user( $feed_types_and_terms );
@@ -741,6 +781,11 @@ class SB_Instagram_Feed
 
 					$full_file_name = $resized_url . $this->header_data['username']  . '.jpg';
 					$this->header_data['local_avatar'] = $full_file_name;
+				}
+				if ( empty( $this->header_data['bio'] )
+                     && isset( $connected_accounts_for_feed[ $first_user ]['bio'] ) ) {
+
+					$this->header_data['bio'] = $connected_accounts_for_feed[ $first_user ]['bio'];
 				}
 			} else {
 				if ( $connection->is_wp_error() ) {

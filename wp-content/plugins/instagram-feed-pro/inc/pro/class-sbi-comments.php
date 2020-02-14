@@ -157,6 +157,11 @@ class SB_Instagram_Comments
 
 		$comments_return = array();
 
+		// basic display does not support comments as of January 2020
+		if ( $account['type'] === 'basic' ) {
+			return array();
+		}
+
 		$connection = new SB_Instagram_API_Connect_Pro( $account, 'comments', array( 'post_id' => $post_id ) );
 
 		$connection->connect();

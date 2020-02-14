@@ -3,8 +3,8 @@ Contributors: smashballoon
 Support Website: https://smashballoon/instagram-feed/
 Requires at least: 3.4
 Tested up to: 5.3
-Stable tag: 5.2.6
-Version: 5.2.6
+Stable tag: 5.3
+Version: 5.3
 License: Non-distributable, Not for resale
 
 Display beautifully clean, customizable, and responsive feeds from multiple Instagram accounts
@@ -39,6 +39,19 @@ Display Instagram photos from any non-private Instagram accounts, either in the 
 5. You can display multiple Instagram feeds by using shortcode options, for example: `[instagram-feed id=YOUR_USER_ID_HERE cols=3 width=50 widthunit=%]`
 
 == Changelog ==
+= 5.3 =
+* Important: On March 2, Instagram will stop supporting its old API which will disrupt feeds created from personal connected accounts. If you are using a personal account, you will need to reconnect the account on the Instagram Feed Settings page. Please [see here](https://smashballoon.com/instagram-api-changes-march-2-2020/) for more information.
+* New: Support added for the new Instagram Basic Display API.
+* New: Added PHP hooks 'sbi_before_feed' and 'sbi_after_feed' for displaying HTML before and after the main Instagram feed HTML.
+* New: Added settings for adding a custom header avatar and custom header bio text. Go to the "Customize" tab "Header" area to set these or use customavatar="AVATAR URL" or custombio="BIO TEXT" in the shortcode.
+* Tweak: Warnings and messages displaying on the front end of sites now display at the top of the feed.
+* Tweak: Header templates changed to accommodate missing data if connected as a personal account to the new API.
+* Tweak: Changes to feed.php, header.php, header-boxed.php, and item.php templates.
+* Tweak: Added CSS to prevent some themes from adding box shadows and bottom border when hovering over the header.
+* Tweak: Added code to clear page caching from Litespeed cache when clearing page caches with the plugin.
+* Fix: Emoji in the first few characters of a caption would cause the main post image to switch to an emoji when loading more.
+* Fix: Pagination for "tagged" feeds not working for certain accounts.
+
 = 5.2.6 =
 * Tweak: Changed screen reader and alt text to be more SEO friendly (change made to item.php template).
 * Tweak: Added PHP hooks to use custom alt and screen reader text.

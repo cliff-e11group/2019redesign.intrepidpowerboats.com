@@ -7825,6 +7825,8 @@ $(function () {
             this.$formOptionsInput = self.$el.find('.gfield.input-options textarea');
             this.$formEmailChoiceInput = self.$el.find('.gfield.input-email-choice');
             this.$formImageInput = self.$el.find('.gfield.input-boat-image input');
+            this.$babImage__reflectionLayer = self.$el.find('.bab-image__reflection-layer');
+            this.$formReflectionImageInput = self.$el.find('.gfield.input-boat-reflection-layer input');
             this.$formEmailChoices = self.$el.find('.email-input__choice');
 
             this.$formEmailChoices.on('click', function () {
@@ -7907,6 +7909,10 @@ $(function () {
 
                 that.$formOptionsData = that.$formOptionsData.join('\n');
                 this.$formOptionsInput.val(that.$formOptionsData);
+            }
+
+            if(this.$babImage__reflectionLayer.length > 0) {
+                this.$formReflectionImageInput.val(this.$babImage__reflectionLayer.attr('src'));
             }
         },
         updateBoatLayerColor: function (layer, css) {

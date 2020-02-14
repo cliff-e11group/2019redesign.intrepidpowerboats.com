@@ -132,6 +132,8 @@ class SB_Instagram_Settings_Pro extends SB_Instagram_Settings{
 				'headerstyle' => isset($db[ 'sb_instagram_header_style' ]) ? $db[ 'sb_instagram_header_style' ] : '',
 				'showfollowers' => isset($db[ 'sb_instagram_show_followers' ]) ? $db[ 'sb_instagram_show_followers' ] : '',
 				'showbio' => isset($db[ 'sb_instagram_show_bio' ]) ? $db[ 'sb_instagram_show_bio' ] : '',
+				'custombio' => isset($db[ 'sb_instagram_custom_bio' ]) ? $db[ 'sb_instagram_custom_bio' ] : '',
+				'customavatar' => isset($db[ 'sb_instagram_custom_avatar' ]) ? $db[ 'sb_instagram_custom_avatar' ] : '',
 				'headerprimarycolor' => isset($db[ 'sb_instagram_header_primary_color' ]) ? $db[ 'sb_instagram_header_primary_color' ] : '',
 				'headersecondarycolor' => isset($db[ 'sb_instagram_header_secondary_color' ]) ? $db[ 'sb_instagram_header_secondary_color' ] : '',
 				'headersize' => isset($db[ 'sb_instagram_header_size' ]) ? $db[ 'sb_instagram_header_size' ] : '',
@@ -205,9 +207,8 @@ class SB_Instagram_Settings_Pro extends SB_Instagram_Settings{
 		$this->settings['minnum'] = max( (int)$this->settings['num'], (int)$this->settings['nummobile'] );
 		$this->settings['disable_resize'] = isset( $db['sb_instagram_disable_resize'] ) && ($db['sb_instagram_disable_resize'] === 'on');
 		$this->settings['favor_local'] = isset( $db['sb_instagram_favor_local'] ) && ($db['sb_instagram_favor_local'] === 'on');
-		$this->settings['backup_cache_enabled'] = ! isset( $db['sb_instagram_backup'] ) || ($db['sb_instagram_backup'] === 'on');
+		$this->settings['backup_cache_enabled'] = ! isset( $db['sb_instagram_backup'] ) || ($db['sb_instagram_backup'] === 'on') || $db['sb_instagram_backup'] === true;
 		$this->settings['font_method'] = isset( $db['sbi_font_method'] ) ? $db['sbi_font_method'] : 'svg';
-
 		$this->settings['disable_js_image_loading'] = isset( $db['disable_js_image_loading'] ) && ($db['disable_js_image_loading'] === 'on');
 
 		switch ( $db['sbi_cache_cron_interval'] ) {
@@ -422,14 +423,38 @@ class SB_Instagram_Settings_Pro extends SB_Instagram_Settings{
 	 * @since 5.0
 	 * @since 5.2 mixed feeds use shortcode settings only, support for
 	 *  tagged feeds added
+	 * @since 5.3 warnings and workarounds added for deprecated accounts
 	 */
 	public function set_feed_type_and_terms() {
 		global $sb_instagram_posts_manager;
 
 		$connected_accounts_in_feed = array();
 		$feed_type_and_terms = array();
+		$is_after_deprecation_deadline = sbi_is_after_deprecation_deadline();
+		$is_using_access_token_in_shortcode = ! empty( $this->atts['accesstoken'] ) && strpos( $this->atts['accesstoken'], '.' ) !== false;
+		$users_connected_to_old_api_only = array();
+		$settings_link = '<a href="'.get_admin_url().'?page=sb-instagram-feed" target="_blank">' . __( 'plugin Settings page', 'instagram-feed' ) . '</a>';
 
-		if ( ! empty( $this->atts['accesstoken'] ) && strpos( $this->atts['accesstoken'], '.' ) !== false ) {
+		// if using an access token in the shortcode and after the deadline, try to use a connected account by collecting the user IDs
+		if ( $is_after_deprecation_deadline && $is_using_access_token_in_shortcode ) {
+			$error = '<p><b>' . __( 'Error: Cannot add access token directly to the shortcode.', 'instagram-feed' ) . '</b><br>' . sprintf( __( 'Due to recent Instagram platform changes, it\'s no longer possible to create a feed by adding the access token to the shortcode. Remove the access token from the shortcode and connect an account on the %s instead.', 'instagram-feed' ), $settings_link );
+
+			$sb_instagram_posts_manager->add_frontend_error( 'deprecation_warning', $error );
+
+			$this->settings['id'] = array();
+			$access_tokens = explode( ',', str_replace( ' ', '', $this->atts['accesstoken'] ) );
+
+			foreach ( $access_tokens as $access_token ) {
+				$split_token = explode( '.', $access_token );
+				$this->settings['id'][] = $split_token[0];
+			}
+		}
+
+		if ( ! $is_after_deprecation_deadline && $is_using_access_token_in_shortcode ) {
+			$error = '<p><b>' . __( 'Warning: Cannot add access token directly to the shortcode.', 'instagram-feed' ) . '</b><br>' . sprintf( __( 'Due to upcoming Instagram platform changes on March 2, 2020, it will no longer be possible for feeds to use access tokens directly in the shortcode. Remove the access token from the shortcode and connect an account on the %s instead.', 'instagram-feed' ), $settings_link );
+
+			$sb_instagram_posts_manager->add_frontend_error( 'deprecation_warning', $error );
+
 			$feed_type_and_terms = array(
 				'users' => array()
 			);
@@ -459,29 +484,113 @@ class SB_Instagram_Settings_Pro extends SB_Instagram_Settings{
 			if ( ! empty( $this->settings['user'] ) ) {
 				$user_array = is_array( $this->settings['user'] ) ? $this->settings['user'] : explode( ',', str_replace( ' ', '',  $this->settings['user'] ) );
 				foreach ( $user_array as $user ) {
+					$term_for_this_user = array();
 					$user_found = false;
+					$user_for_deprecated_personal_account_only_found = false;
+					$username_to_match = $user;
+
 					if ( isset( $this->connected_accounts[ $user ] ) ) {
 						if ( ! in_array( $this->connected_accounts[ $user ]['username'], $usernames_included, true ) ) {
-							$feed_type_and_terms['users'][] = array(
+							$term_for_this_user = array(
 								'term' => $this->connected_accounts[ $user ]['user_id'],
 								'params' => array()
 							);
 							$connected_accounts_in_feed[ $this->connected_accounts[ $user ]['user_id'] ] = $this->connected_accounts[ $user ];
 							$usernames_included[] = $this->connected_accounts[ $user ]['username'];
+							$username_to_match = $this->connected_accounts[ $user ]['username'];
+							$user_found = true;
+							if ( ! isset( $this->connected_accounts[ $user ]['type'] ) || $this->connected_accounts[ $user ]['type'] === 'personal' ) {
+								$user_for_deprecated_personal_account_only_found = true;
+							}
 						}
-					} else {
+					}
 
+					if ( ! $user_found || $user_for_deprecated_personal_account_only_found ) {
 						foreach ( $this->connected_accounts as $connected_account ) {
-							if ( strtolower( $user ) === strtolower( $connected_account['username'] ) ) {
-								if ( ! in_array( $connected_account['username'], $usernames_included, true ) ) {
-									if ( isset( $connected_account['type'] ) && $connected_account['type'] === 'business' ) {
-										$feed_type_and_terms['users'][]      = array(
+							$account_type = isset( $connected_account['type'] ) ? $connected_account['type'] : 'personal';
+							if ( strtolower( $username_to_match ) === strtolower( $connected_account['username'] ) ) {
+								if ( $user_for_deprecated_personal_account_only_found || ! in_array( $connected_account['username'], $usernames_included, true ) ) {
+									if ( $account_type !== 'personal' ) {
+										$term_for_this_user      = array(
 											'term' => $user,
 											'params' => array()
 										);
 										$connected_accounts_in_feed[ $user ] = $connected_account;
+										$user_for_deprecated_personal_account_only_found = false;
 									} else {
-										$feed_type_and_terms['users'][]                              = array(
+										$term_for_this_user                              = array(
+											'term' => $connected_account['user_id'],
+											'params' => array()
+										);
+										$connected_accounts_in_feed[ $connected_account['user_id'] ] = $connected_account;
+									}
+									$usernames_included[] = $connected_account['username'];
+									$user_found = true;
+								}
+							}
+						}
+					}
+
+					if ( ! empty(  $term_for_this_user ) ) {
+						$feed_type_and_terms['users'][] = $term_for_this_user;
+					}
+
+					if ( ! $user_found ) {
+						$error = '<p><b>' . sprintf( __( 'Error: There is no connected account for the user %s.', 'instagram-feed' ), $user ) . ' ' . __( 'Feed will not update.', 'instagram-feed' ) . '</b>';
+
+						$sb_instagram_posts_manager->add_frontend_error( 'no_connection_' . $user, $error );
+					}
+
+					if ( $user_for_deprecated_personal_account_only_found
+					     && ! in_array( $user, $users_connected_to_old_api_only,  true ) ) {
+						$users_connected_to_old_api_only[] = $connected_accounts_in_feed[ $user ]['username'];
+					}
+
+				}
+
+			} elseif ( ! empty( $this->settings['id'] ) ) {
+				$user_id_array = is_array( $this->settings['id'] ) ? $this->settings['id'] : explode( ',', str_replace( ' ', '',  $this->settings['id'] ) );
+
+				foreach ( $user_id_array as $user ) {
+					$user_found = false;
+					$user_for_deprecated_personal_account_only_found = false;
+					$term_for_this_user = array();
+					$username_to_match = $user;
+
+					if ( isset( $this->connected_accounts[ $user ] ) ) {
+						if ( ! in_array( $this->connected_accounts[ $user ]['username'], $usernames_included, true ) ) {
+							$term_for_this_user                                              = array(
+								'term' => $this->connected_accounts[ $user ]['user_id'],
+								'params' => array()
+							);
+							$connected_accounts_in_feed[ $this->connected_accounts[ $user ]['user_id'] ] = $this->connected_accounts[ $user ];
+							$usernames_included[]                                                        = $this->connected_accounts[ $user ]['username'];
+							$username_to_match = $this->connected_accounts[ $user ]['username'];
+							$user_found = true;
+							if ( ! isset( $this->connected_accounts[ $user ]['type'] ) || $this->connected_accounts[ $user ]['type'] === 'personal' ) {
+								$user_for_deprecated_personal_account_only_found = true;
+							}
+						}
+
+					}
+
+					if ( ! $user_found || $user_for_deprecated_personal_account_only_found ) {
+
+						foreach ( $this->connected_accounts as $connected_account ) {
+							$account_type = isset( $connected_account['type'] ) ? $connected_account['type'] : 'personal';
+							$old_id_matches = ($account_type === 'basic' && isset( $connected_account['old_user_id'] ) && (string)$connected_account['old_user_id'] === (string)$user);
+							if ( $old_id_matches
+									|| (strtolower( $username_to_match ) === strtolower( $connected_account['username'] )) ) {
+								if ( $user_for_deprecated_personal_account_only_found || ! in_array( $connected_account['username'], $usernames_included, true ) ) {
+									if ( $account_type !== 'personal' ) {
+										$term_for_this_user      = array(
+											'term' => $user,
+											'params' => array()
+										);
+										$connected_accounts_in_feed[ $user ] = $connected_account;
+										$user_for_deprecated_personal_account_only_found = false;
+									} else {
+										$term_for_this_user                              = array(
 											'term' => $connected_account['user_id'],
 											'params' => array()
 										);
@@ -493,60 +602,19 @@ class SB_Instagram_Settings_Pro extends SB_Instagram_Settings{
 							}
 						}
 
-						if ( ! $user_found ) {
-							$error = '<p><b>' . sprintf( __( 'Error: There is no connected account for the user %s.', 'instagram-feed' ), $user ) . ' ' . __( 'Feed will not update.', 'instagram-feed' ) . '</b>';
-
-							$sb_instagram_posts_manager->add_frontend_error( 'no_connection_' . $user, $error );
-						}
-
-					}
-
-				}
-
-			} elseif ( ! empty( $this->settings['id'] ) ) {
-				$user_id_array = is_array( $this->settings['id'] ) ? $this->settings['id'] : explode( ',', str_replace( ' ', '',  $this->settings['id'] ) );
-
-				foreach ( $user_id_array as $user ) {
-					$user_found = false;
-
-					if ( isset( $this->connected_accounts[ $user ] ) ) {
-						if ( ! in_array( $this->connected_accounts[ $user ]['username'], $usernames_included, true ) ) {
-							$feed_type_and_terms['users'][]                                              = array(
-								'term' => $this->connected_accounts[ $user ]['user_id'],
-								'params' => array()
-							);
-							$connected_accounts_in_feed[ $this->connected_accounts[ $user ]['user_id'] ] = $this->connected_accounts[ $user ];
-							$usernames_included[]                                                        = $this->connected_accounts[ $user ]['username'];
-						}
-
-					} else {
-
-						foreach ( $this->connected_accounts as $connected_account ) {
-							if ( strtolower( $user ) === strtolower( $connected_account['username'] ) ) {
-								if ( ! in_array( $this->connected_accounts[ $user ]['username'], $usernames_included, true ) ) {
-									if ( isset( $connected_account['type'] ) && $connected_account['type'] === 'business' ) {
-										$feed_type_and_terms['users'][]      = array(
-											'term' => $user,
-											'params' => array()
-										);
-										$connected_accounts_in_feed[ $user ] = $connected_account;
-									} else {
-										$feed_type_and_terms['users'][]                              =  array(
-											'term' => $connected_account['user_id'],
-											'params' => array()
-										);
-										$connected_accounts_in_feed[ $connected_account['user_id'] ] = $connected_account;
-									}
-									$usernames_included[] = $this->connected_accounts[ $user ]['username'];
-									$user_found           = true;
-								}
-							}
+						if ( ! empty(  $term_for_this_user ) ) {
+							$feed_type_and_terms['users'][] = $term_for_this_user;
 						}
 
 						if ( ! $user_found ) {
 							$error = '<p><b>' . sprintf( __( 'Error: There is no connected account for the user %s', 'instagram-feed' ), $user ) . ' ' . __( 'Feed will not update.', 'instagram-feed' ) . '</b>';
 
 							$sb_instagram_posts_manager->add_frontend_error( 'no_connection_' . $user, $error );
+						}
+
+						if ( $user_for_deprecated_personal_account_only_found
+						     && ! in_array( $user, $users_connected_to_old_api_only,  true ) ) {
+							$users_connected_to_old_api_only[] = $connected_accounts_in_feed[ $user ]['username'];
 						}
 
 					}
@@ -973,6 +1041,37 @@ class SB_Instagram_Settings_Pro extends SB_Instagram_Settings{
 			$sb_instagram_posts_manager->add_frontend_error( 'no_type', $error );
 		}
 
+		if ( ! empty( $users_connected_to_old_api_only ) ) {
+			$total = count( $users_connected_to_old_api_only );
+			if ( $total > 1 ) {
+				$user_string = '';
+				$i = 0;
+
+				foreach ( $users_connected_to_old_api_only as $username ) {
+					if ( ($i + 1) === $total ) {
+						$user_string .= ' and ' . $username;
+					} else {
+						if ( $i !== 0 ) {
+							$user_string .= ', ' . $username;
+						} else {
+							$user_string .= $username;
+						}
+					}
+					$i++;
+				}
+			} else {
+				$user_string = $users_connected_to_old_api_only[0];
+			}
+
+			if ( $is_after_deprecation_deadline ) {
+				$error = '<p><b>' . sprintf( __( 'Error: The account for %s needs to be reconnected.', 'instagram-feed' ), '<em>'.$user_string.'</em>' ) . '</b><br>' . __( 'Due to recent Instagram platform changes this Instagram account needs to be reconnected in order to continue updating.', 'instagram-feed' ) . '<a href="'.get_admin_url().'?page=sb-instagram-feed" class="sb_frontend_btn"><i class="fa fa-cog" aria-hidden="true"></i> ' . __( 'Reconnect on plugin Settings page', 'instagram-feed' ) . '</a>';
+			} else {
+				$error = '<p><b>' . sprintf( __( 'Warning: The account for %s needs to be reconnected.', 'instagram-feed' ), '<em>'.$user_string.'</em>' ) . '</b><br>' . __( 'Due to Instagram platform changes on March 2, 2020, this Instagram account needs to be reconnected to allow the feed to continue updating.', 'instagram-feed' ) . '<a href="'.get_admin_url().'?page=sb-instagram-feed" class="sb_frontend_btn"><i class="fa fa-cog" aria-hidden="true"></i> ' . __( 'Reconnect on plugin Settings page', 'instagram-feed' ) . '</a>';
+			}
+
+			$sb_instagram_posts_manager->add_frontend_error( 'deprecation_warning', $error );
+		}
+
 		$this->connected_accounts_in_feed = $connected_accounts_in_feed;
 		$this->feed_type_and_terms = $feed_type_and_terms;
 	}
@@ -1177,7 +1276,6 @@ class SB_Instagram_Settings_Pro extends SB_Instagram_Settings{
 			if ( isset( $connected_accounts[ $key ]['hashtag_limit_reached'] ) ) {
 				unset( $connected_accounts[ $key ]['hashtag_limit_reached'] );
 			}
-
 		}
 
 		$options['connected_accounts'] = $connected_accounts;
