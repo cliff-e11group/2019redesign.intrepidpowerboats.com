@@ -1,24 +1,36 @@
 jQuery(document).ready(function($) {
 
     /* NEW API CODE */
-    $('.sbi_admin_btn').click(function(event) {
+    $('.sbi_admin_btn, .sbi_reconnect').click(function(event) {
         event.preventDefault();
-        var oldApiURL = $(this).attr('data-old-api'),
-            newApiURL = $(this).attr('data-new-api');
+
+        var today = new Date(),
+            march = new Date('March 3, 2020 00:00:00'),
+            oldApiURL = $('a.sbi_admin_btn').attr('data-old-api'),
+            oldApiLink = '';
+        if (today.getTime() < march.getTime()) {
+            oldApiLink = 'To connect using the legacy API, <a href="'+oldApiURL+'">click here</a> (expires on March 2, 2020).';
+        }
+
+        var personalBasicApiURL = $('#sbi_config .sbi_admin_btn').attr('data-personal-basic-api'),
+            newApiURL = $('#sbi_config .sbi_admin_btn').attr('data-new-api');
         $('#sbi_config').append('<div id="sbi_config_info" class="sb_get_token">' +
             '<div class="sbi_config_modal">' +
             '<p>Are you connecting a Personal or Business Instagram Profile?</p>' +
-
             '<div class="sbi_login_button_row">' +
-            '<input type="radio" id="sbi_personal_login" name="sbi_login_type" value="personal" checked>' +
-            '<label for="sbi_personal_login"><b>Personal</b> <i>(For displaying User feeds)</i></label>&nbsp;<a href="JavaScript:void(0);" class="sbi_tooltip_link"><i class="fa fa-question-circle"></i></a><div class="sbi_tooltip">Used for displaying User Feeds from either a Personal or Business account</div>' +
-            '</div>' +
+            '<input type="radio" id="sbi_basic_login" name="sbi_login_type" value="basic" checked>' +
+            '<label for="sbi_basic_login"><b>Personal</b> <i>(User feeds only)</i><a href="JavaScript:void(0);" class="sbi_tooltip_link"><i class="fa fa-question-circle"></i></a><div class="sbi_tooltip">Used for displaying user feeds from a "Personal" Instagram account. ' +
+            oldApiLink +
+            '</div></div>' +
             '<div class="sbi_login_button_row">' +
             '<input type="radio" id="sbi_business_login" name="sbi_login_type" value="business">' +
-            '<label for="sbi_business_login"><b>Business</b> <i>(Required for Hashtag feeds)</i></label>&nbsp;<a href="JavaScript:void(0);" class="sbi_tooltip_link"><i class="fa fa-question-circle"></i></a><div class="sbi_tooltip">You only need to connect a Business Profile if you are displaying a <b>Hashtag feed</b>. If you are displaying a User feed from a Business Profile then you can select the "Personal" option above. See <a href="https://smashballoon.com/instagram-business-profiles" target="_blank">this FAQ</a> for more info.</div>' +
+
+            '<label for="sbi_business_login"><b>Business</b> <i>(Required for Hashtag feeds and more)</i></label>&nbsp;<a href="JavaScript:void(0);" class="sbi_tooltip_link"><i class="fa fa-question-circle"></i></a><div class="sbi_tooltip">Used for displaying a user feed from a "Business" or "Creator" Instagram account. A Business or Creator account is required for displaying Hashtag feeds, Tagged feeds, comments, like/comment counts, and automatic avatar/bio display in the header. See <a href="https://smashballoon.com/instagram-business-profiles" target="_blank">this FAQ</a> for more info.</div>' +
             '</div>' +
 
-            '<a href="'+oldApiURL+'" class="sbi_admin_btn">Connect</a>' +
+            '<div class="sbi_login_button_row"><a href="JavaScript:void(0);" class="sbi_tooltip_link" style="margin-left: 102px; font-size: 12px;">I\'m not sure</a><div class="sbi_tooltip" style="display: none;"><p style="margin-top: 0;">If displaying a regular feed of posts from an Instagram account then you can select the "Personal" option, as this can display feeds from either a Personal or Business account.</p><p style="margin-bottom: 0;"">If displaying a Hashtag or Tagged feed then you must have an Instagram Business account. If needed, you can convert a Personal account into a Business account by following the directions <a href="https://smashballoon.com/instagram-business-profiles" target="_blank">here</a>.</p></div></div>' +
+
+            '<a href="'+personalBasicApiURL+'" class="sbi_admin_btn">Connect</a>' +
             '<a href="JavaScript:void(0);"><i class="sbi_modal_close fa fa-times"></i></a>' +
             '</div>' +
             '</div>');
@@ -31,7 +43,7 @@ jQuery(document).ready(function($) {
             if ($('input[name=sbi_login_type]:checked').val() === 'business') {
                 $('a.sbi_admin_btn').attr('href',newApiURL);
             } else {
-                $('a.sbi_admin_btn').attr('href',oldApiURL);
+                $('a.sbi_admin_btn').attr('href',personalBasicApiURL);
             }
         });
     });
@@ -188,25 +200,29 @@ jQuery(document).ready(function($) {
             }
         });
 
-        function sbiSwitchAccounts(){
-            $('#sbi_switch_accounts').on('click', function(){
-                //Log user out of Instagram by hitting the logout URL in an iframe
-                $('body').append('<iframe style="display: none;" src="https://www.instagram.com/accounts/logout"></iframe>');
-
-                $(this).text('Please wait...').after('<div class="spinner" style="visibility: visible; float: none; margin: -3px 0 0 3px;"></div>');
-
-                //Wait a couple seconds for the logout to occur, then connect a new account
-                setTimeout(function(){
-                    window.location.href = $('.sbi_admin_btn').attr('href');
-                }, 2000);
-            });
-
-            $('.sbi_modal_close').on('click', function(){
-                $('#sbi_config_info').remove();
-            });
-        }
-
         window.location.hash = '';
+    }
+
+    function sbiSwitchAccounts(){
+        $('#sbi_switch_accounts').on('click', function(){
+            //Log user out of Instagram by hitting the logout URL in an iframe
+            $('body').append('<iframe style="display: none;" src="https://www.instagram.com/accounts/logout"></iframe>');
+
+            $(this).text('Please wait...').after('<div class="spinner" style="visibility: visible; float: none; margin: -3px 0 0 3px;"></div>');
+
+            //Wait a couple seconds for the logout to occur, then connect a new account
+            setTimeout(function(){
+                window.location.href = $('.sbi_admin_btn').attr('href');
+            }, 2000);
+        });
+
+        $('.sbi_modal_close').on('click', function(){
+            $('#sbi_config_info').remove();
+        });
+    }
+    if ($('#sbi_switch_accounts').length) {
+        $('.sbi_admin_btn').attr('href',$('#sbi_config .sbi_admin_btn').attr('data-personal-basic-api'));
+        sbiSwitchAccounts();
     }
 
     function sbiAfterUpdateToken(savedToken,saveID){
@@ -219,6 +235,22 @@ jQuery(document).ready(function($) {
                 '</div>'
             );
         }
+        if (typeof savedToken.old_user_id !== 'undefined' && $('#sbi_connected_account_'+savedToken.old_user_id).length) {
+
+            if ($('#sbi_user_feed_id_'+savedToken.old_user_id).length) {
+                $('.sbi_user_feed_ids_wrap').prepend(
+                    '<div id="sbi_user_feed_id_'+savedToken.user_id+'" class="sbi_user_feed_account_wrap">'+
+                    '<strong>'+savedToken.username+'</strong> <span>('+savedToken.user_id+')</span>' +
+                    '<input type="hidden" name="sb_instagram_user_id[]" value="'+savedToken.user_id+'">' +
+                    '</div>'
+                );
+                $('#sbi_user_feed_id_'+savedToken.old_user_id).remove();
+
+                saveID = true;
+            }
+
+            $('#sbi_connected_account_'+savedToken.old_user_id).remove();
+        }
         if ($('#sbi_connected_account_'+savedToken.user_id).length) {
             if (savedToken.is_valid) {
                 $('#sbi_connected_account_'+savedToken.user_id).addClass('sbi_account_updated');
@@ -230,6 +262,14 @@ jQuery(document).ready(function($) {
                 $('#sbi_connected_account_'+savedToken.user_id).attr('data-permissions','tagged');
                 $('#sbi_connected_account_'+savedToken.user_id).find('.sbi_permissions_desc').text('All');
             }
+
+            if (! $('#sbi_connected_account_'+savedToken.user_id + ' .sbi_ca_avatar').length) {
+                if (savedToken.profile_picture !== '') {
+                    $('#sbi_connected_account_'+savedToken.user_id + ' .sbi_ca_username').prepend('<img class="sbi_ca_avatar" src="'+savedToken.profile_picture+'">');
+                }
+            }
+            $('#sbi_connected_account_'+savedToken.user_id + ' .sbi_ca_username').find('span').text(sbiAccountType(savedToken.type));
+
             $('#sbi_connected_account_'+savedToken.user_id).find('.sbi_ca_accesstoken .sbi_ca_token').text(savedToken.access_token);
             $('#sbi_connected_account_'+savedToken.user_id).find('.sbi_tooltip code').text('[instagram-feed accesstoken="'+savedToken.access_token+'"]');
 
@@ -240,6 +280,11 @@ jQuery(document).ready(function($) {
                 $('.sbi_hashtag_feed_issue').removeClass('sbi_hashtag_feed_issue').find('.sbi_hashtag_feed_issue_note').hide();
             } else {
                 var accountType = 'personal';
+            }
+
+            var avatarHTML = '';
+            if (savedToken.profile_picture !== '') {
+                avatarHTML = '<img class="sbi_ca_avatar" src="'+savedToken.profile_picture+'" />';
             }
 
             //Add the account HTML to the page
@@ -253,8 +298,8 @@ jQuery(document).ready(function($) {
                     '</div>'+
 
                     '<div class="sbi_ca_username">'+
-                    '<img class="sbi_ca_avatar" src="'+savedToken.profile_picture+'" />'+
-                    '<strong>'+savedToken.username+'<span>'+accountType+'</span></strong>'+
+                    avatarHTML+
+                    '<strong>'+savedToken.username+'<span>'+sbiAccountType(accountType)+'</span></strong>'+
                     '</div>'+
 
                     '<div class="sbi_ca_actions">'+
@@ -313,6 +358,13 @@ jQuery(document).ready(function($) {
         });
     }
 
+    function sbiAccountType(accountType) {
+        if (accountType === 'basic') {
+            return 'personal (new API)';
+        }
+        return accountType;
+    }
+
     function sbSaveID(ID) {
         jQuery.ajax({
             url: sbiA.ajax_url,
@@ -355,7 +407,7 @@ jQuery(document).ready(function($) {
     }
 
     function sbiIsBusinessToken() {
-        return ($('#sb_manual_at').val().trim().length > 150);
+        return ($('#sb_manual_at').val().trim().length > 125);
     }
 
     function sbiToggleManualAccountIDInput() {

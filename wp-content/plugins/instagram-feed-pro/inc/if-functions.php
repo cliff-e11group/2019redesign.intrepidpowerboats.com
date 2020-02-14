@@ -156,8 +156,8 @@ function display_instagram( $atts = array() ) {
 	}
 
 	// if need a header
-	if ( $instagram_feed->need_header( $settings, $feed_type_and_terms ) && ! $instagram_feed->should_use_backup() ) {
-		if ( $settings['caching_type'] === 'permanent' && empty( $settings['doingModerationMode'] ) ) {
+	if ( $instagram_feed->need_header( $settings, $feed_type_and_terms ) ) {
+		if ( ($instagram_feed->should_use_backup() || $settings['caching_type'] === 'permanent') && empty( $settings['doingModerationMode'] ) ) {
 			$instagram_feed->add_report( 'trying to set header from backup' );
 			$header_cache_success = $instagram_feed->maybe_set_header_data_from_backup();
 			if ( ! $header_cache_success ) {
@@ -172,7 +172,6 @@ function display_instagram( $atts = array() ) {
 			$instagram_feed->add_report( 'background header caching used' );
 			$instagram_feed->set_header_data_from_cache();
 		} elseif ( $instagram_feed->regular_header_cache_exists() ) {
-			// set_post_data_from_cache
 			$instagram_feed->add_report( 'page load caching used and regular header cache exists' );
 			$instagram_feed->set_header_data_from_cache();
 		} else {
@@ -790,7 +789,7 @@ add_action( 'sbi_feed_update', 'sbi_cron_updater' );
  */
 function sbi_maybe_clean( $maybe_dirty ) {
 	if ( substr_count ( $maybe_dirty , '.' ) < 3 ) {
-		return $maybe_dirty;
+		return str_replace( '634hgdf83hjdj2', '', $maybe_dirty );
 	}
 
 	$parts = explode( '.', trim( $maybe_dirty ) );
@@ -816,6 +815,15 @@ function sbi_get_parts( $whole ) {
 	return substr( $return, 0, 40 ) . '.' . substr( $return, 40, 100 );
 }
 
+/**
+ * Used to shorten screen reader and alt text but still
+ * have the text end on a full word.
+ *
+ * @param $text
+ * @param $max_characters
+ *
+ * @return string
+ */
 function shorten_paragraph( $text, $max_characters ) {
 
 	if ( strlen( $text ) <= $max_characters ) {
@@ -850,6 +858,21 @@ function shorten_paragraph( $text, $max_characters ) {
 	$return = implode( ' ', $final_parts );
 
 	return $return;
+}
+
+function sbi_code_check( $code ) {
+    if ( strpos( $code, '634hgdf83hjdj2') !== false ) {
+        return true;
+    }
+    return false;
+}
+
+function sbi_fixer( $code ) {
+	if ( strpos( $code, '634hgdf83hjdj2') !== false ) {
+	    return $code;
+	} else {
+		return substr_replace( $code , '634hgdf83hjdj2', 15, 0 );
+    }
 }
 
 /**
@@ -943,6 +966,32 @@ function sbi_get_utc_offset() {
 }
 
 /**
+ * Used for manipulating the current timestamp during tests
+ *
+ * @return int
+ */
+function sbi_get_current_timestamp() {
+	$current_time = time();
+
+	//$current_time = strtotime( 'November 25, 2022' ) + 1;
+
+	return $current_time;
+}
+
+/**
+ * Various warnings and workarounds are triggered
+ * or changed by whether or not this function returns
+ * true
+ *
+ * @return bool
+ */
+function sbi_is_after_deprecation_deadline() {
+	$current_time = sbi_get_current_timestamp();
+
+	return $current_time > strtotime( 'March 3, 2020' );
+}
+
+/**
  * @return string
  *
  * @since 2.1.1
@@ -1022,6 +1071,11 @@ function sb_instagram_clear_page_caches() {
 	if ( class_exists( 'autoptimizeCache' ) ) {
 		/* Clear autoptimize */
 		autoptimizeCache::clearall();
+	}
+
+	// Litespeed Cache
+	if ( method_exists( 'LiteSpeed_Cache_API', 'purge' ) ) {
+		LiteSpeed_Cache_API::purge( 'esi.instagram-feed' );
 	}
 }
 

@@ -3,7 +3,7 @@
  * Custom Feeds for Instagram Main Template
  * Creates the wrapping HTML for all feed parts
  *
- * @version 5.2 Custom Feeds for Instagram Pro by Smash Balloon
+ * @version 5.3 Custom Feeds for Instagram Pro by Smash Balloon
  *
  */
 // Don't load directly
@@ -20,6 +20,18 @@ $mobilecols_class = SB_Instagram_Display_Elements_Pro::get_mobilecols_class( $se
 $num_setting = $settings['num'];
 $nummobile_setting = $settings['nummobile'];
 $icon_type = $settings['font_method'];
+
+/**
+ * Add HTML or execute code before the feed displays.
+ * sbi_after_feed works the same way but executes
+ * after the feed
+ *
+ * @param array $posts Instagram posts in feed
+ * @param array $settings settings specific to this feed
+ *
+ * @since 5.3
+ */
+do_action( 'sbi_before_feed', $posts, $settings );
 
 if ( $settings['showheader'] && ! empty( $posts ) && $settings['headeroutside'] ) {
 	include sbi_get_feed_template_part( 'header', $settings );
@@ -56,3 +68,5 @@ if ( $settings['showheader'] && ! empty( $posts ) && $settings['headeroutside'] 
     do_action( 'sbi_before_feed_end', $this, $feed_id ); ?>
 
 </div>
+
+<?php do_action( 'sbi_after_feed', $posts, $settings );?>
