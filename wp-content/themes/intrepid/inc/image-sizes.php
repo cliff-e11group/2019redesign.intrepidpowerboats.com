@@ -3,21 +3,21 @@
 function e11_image_size_setup(){
 
 	// Add custom image sizes.
-	add_image_size('hero', 1440, 9999, false);
-	add_image_size('featured-thumb', 280, 99999, false);
-	add_image_size('image-gallery', 715, 730, true);
-	add_image_size('boat-featured', 546, 228, true);
-	add_image_size('boat-options', 560, 306, true);
-	add_image_size('boat-archive', 840, 9999, false);
-	add_image_size('boat-cat-pullin', 985, 415, true);
-	add_image_size('event-archive', 580, 410, true);
-	add_image_size('view-gallery', 1440, 580, true);
-	add_image_size('gallery-video', 1180, 9999, false);
-	add_image_size('gallery-half', 580, 9999, false);
-	add_image_size('gallery-one-third', 378, 9999, false);
-	add_image_size('gallery-two-third', 778, 9999, false);
-	add_image_size('team-member', 160, 180, false);
-	add_image_size('map', 380, 185, false);
+	add_image_size('hero', 2880, 9999, false);
+	add_image_size('featured-thumb', 560, 99999, false);
+	add_image_size('image-gallery', 1430, 1460, true);
+	add_image_size('boat-featured', 1092, 456, true);
+	add_image_size('boat-options', 1120, 612, true);
+	add_image_size('boat-archive', 1680, 9999, false);
+	add_image_size('boat-cat-pullin', 1970, 830, true);
+	add_image_size('event-archive', 1160, 820, true);
+	add_image_size('view-gallery', 2880, 1160, true);
+	add_image_size('gallery-video', 2360, 9999, false);
+	add_image_size('gallery-half', 1160, 9999, false);
+	add_image_size('gallery-one-third', 756, 9999, false);
+	add_image_size('gallery-two-third', 1556, 9999, false);
+	add_image_size('team-member', 320, 360, false);
+	add_image_size('map', 760, 370, false);
 	add_image_size('nav-image', 520, 560, false);
 
 }
@@ -31,3 +31,4 @@ function e11_custom_size_names( $sizes ) {
 	) );
 }
 //add_filter( 'image_size_names_choose', 'e11_custom_size_names' );
+
