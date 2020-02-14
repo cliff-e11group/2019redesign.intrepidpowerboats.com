@@ -175,7 +175,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                     <ul class="resp-tabs-list hor_child_1">
                         <li data-class="subnav-item-gallery"> Gallery </li>
                         <?php if($virtual_tour) : ?>
-                        <li data-class="subnav-item-virtual-gallery"> Virtual Tour </li>
+                        <li data-class="subnav-item-virtual-gallery" onclick="e11_set_virtual_tour();"> Virtual Tour </li>
                         <?php endif; ?>
                     </ul>
                     <div class="resp-tabs-container hor_child_1">
@@ -190,7 +190,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                             <?php if($virtual_tour) : ?>
                                 <div class="virtual-tour">
                                     <div class="container">
-                                        <?php echo $virtual_tour ; ?>
+                                        <div id="virtual-tour-lazy-load-container" data-tour-code="<?php echo str_replace('"', "'", $virtual_tour); ?>"></div>
                                     </div>
                                 </div>
                             <?php endif; ?>
@@ -375,7 +375,9 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
                     <img src="<?php echo $bab_overlay_image['url']; ?>" alt="<?php echo $bab_overlay_image['alt']; ?>" class="bab-image__reflection-layer">
                 </div>
                 <?php endif; ?>
-                <?php echo file_get_contents($bab_main_image['url']); ?>
+
+                <div id="bab-lazy-load-container"></div>
+
                 <div class="custom-hero__form" data-html2canvas-ignore>
                     <form class="form form--sticky" action="#" method="post">
                         <ul class="form-fields">
@@ -618,4 +620,9 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
         </div>
     </div>
 </main>
+<?php
+if (!empty($bab_main_image)) :
+    wp_localize_script('scripts', 'localized_bab',  array('boat_id' => $page));
+endif;
+?>
 <?php get_footer();
