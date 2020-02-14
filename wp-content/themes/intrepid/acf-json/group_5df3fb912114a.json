@@ -26,7 +26,7 @@
             "label": "Image",
             "name": "author_image",
             "type": "image",
-            "instructions": "",
+            "instructions": "Recommended image size: 320x 360px",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -63,5 +63,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1576270899
+    "modified": 1581704077
 }
