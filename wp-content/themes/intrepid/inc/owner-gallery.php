@@ -1,89 +1,81 @@
 <?php
 
-function e11_owner_gallery_upload_form()
-{
+function e11_owner_gallery_upload_form(){
+
+    if (!isset($_POST['owner_gallery_upload_nonce']) || !wp_verify_nonce($_POST['owner_gallery_upload_nonce'], 'owner-gallery-upload-nonce')) {
+        print 'Sorry, we could not validate your security token. Please refresh the page and try again.';
+        exit;
+    };
+
     if (!isset($_POST['user_id'])) {
         print 'Sorry, there was an error uploading your file.';
         exit;
     }
-
-    if (!isset($_POST['owner_gallery_upload_nonce']) || !wp_verify_nonce($_POST['owner_gallery_upload_nonce'], 'owner-gallery-upload-nonce')){
-        print 'Sorry, we could not validate your security token. Please refresh the page and try again.';
-        wp_die();
+    if (!isset($_POST['visibility_level'])) {
+        print 'Sorry, you did not select a visibility level.';
+        exit;
     }
 
-    $accepted = array(
-        'image/jpeg',
-        'image/jpg',
-        'image/png',
-        'image/gif',
+    $files = e11_reformat_array( $_FILES['owner_gallery_upload_image'] );
+
+    $result = array(
+        'caption' => false,
     );
 
-    $ok_uploads = array();
-
-    foreach($_FILES as $fileName => $file){
-        if(!in_array($file['type'], $accepted) ){
-            echo 'Your image must be a jpeg, png or gif!';
-            exit;
-        }
-
-        //get id of file to match with associated $_POST array
-        $fileId = preg_replace('/[^0-9.]/','', $fileName);
-
-         if (!isset($_POST['owner_gallery_upload_image'][$fileId]['visibility_level'])) {
-            print 'Sorry, you must choose a visibility level for each file uploaded.';
-            exit;
-        }
-
-        $result = array(
-            'caption' => false,
-        );
-
-        //if successful
-        $result = e11_parse_file_errors($file, $_POST['owner_gallery_upload_image'][$fileId]['caption']);
+    foreach($files as $file){
+        $result = e11_parse_file_errors($file);
         if ($result['error']) {
             echo '<p>ERROR: ' . $result['error'] . '</p>';
             exit;
         }
+    }
 
-        $visiblity_level = $_POST['owner_gallery_upload_image'][$fileId]['visibility_level'];
+    $result['caption']  = trim(preg_replace('/[^a-zA-Z0-9\s]+/', ' ', $_POST['owner_gallery_upload_caption']));
 
-        //add file and all associated post data to array which will be used once all of them have passed
-        $upload_data = array(
-            'post_title' => $_POST['user_id'] . '-' . date('d-m-y') . '-' . $fileId,
-            'post_status' => $visiblity_level === 'private' ? ' publish' : 'pending',
+
+    $untouched_files = $_FILES['owner_gallery_upload_image'];
+    $count = 1;
+    foreach($untouched_files['name'] as  $key => $value){
+
+        $args = array(
+            'post_title' => $_POST['user_id'] . '-' . date('d-m-y') .'-'. $count,
+            'post_status' => $_POST['visibility_level'] === 'private' ? ' publish' : 'pending',
             'post_type' => 'owner-gallery',
             'meta_input' => array(
                 'owner' => $_POST['user_id'],
-                'caption' => $result['caption']
             ),
         );
 
-        array_push($ok_uploads, $upload_data);
 
-    }
+        $post_id = wp_insert_post($args);
 
-    foreach($ok_uploads as $ok_id => $ok_upload){
+        if (!is_wp_error($post_id)){
 
-        $post_id = wp_insert_post($ok_upload);
-
-        if (!is_wp_error($post_id)):
-
-            if ($ok_upload['post_status'] == 'pending'):
-                update_field('make_upload_private', false, $post_id);
-            else:
+            if ($_POST['visibility_level'] == 'private'):
                 update_field('make_upload_private', true, $post_id);
+            else:
+                update_field('make_upload_private', false, $post_id);
             endif;
 
-            e11_process_upload('owner_gallery_upload_image-' . ($ok_id + 1), $post_id, $ok_upload['meta_input']['caption']);
+            $file = array(
+                'name' => $untouched_files['name'][$key],
+                'type' => $untouched_files['type'][$key],
+                'tmp_name' => $untouched_files['tmp_name'][$key],
+                'error' => $untouched_files['error'][$key],
+                'size' => $untouched_files['size'][$key]
+            );
+            $_FILES = array ('owner_gallery_upload_image' => $file);
+            // echo '<pre>'; print_r($_FILES); exit;
+            foreach ($_FILES as $file => $array) {
+                $newupload = e11_process_upload($file, $post_id, $result['caption']);
+            }
 
-        endif;
-
+         }
+        $count++;
     }
 
     wp_redirect(site_url('owner-gallery'));
     exit();
-
 }
 
 add_action('admin_post_owner_gallery_upload_action', 'e11_owner_gallery_upload_form');
@@ -99,18 +91,30 @@ add_action('admin_post_nopriv_owner_gallery_upload_action', 'e11_redirect_to_hom
 
 define('MAX_UPLOAD_SIZE', 200000);
 
-function e11_parse_file_errors($file = array(), $image_caption = false)
-{
+function e11_parse_file_errors($file = array(), $image_caption = false){
 
     $result = array();
     $result['error'] = 0;
-    if ($file['error']) {
-        $result['error'] = "No file uploaded or there was an upload error!";
-        return $result;
-    }
-    $image_caption = trim(preg_replace('/[^a-zA-Z0-9\s]+/', ' ', $image_caption));
 
-    $result['caption'] = $image_caption;
+    foreach($file['error'] as $file_error){
+        if($file_error !== 0){
+            $result['error'] = $file['error'];
+            return $result;
+        }
+    }
+
+    $accepted = array(
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/gif',
+    );
+
+    foreach($file['type'] as $file_type){
+        if (!in_array($file_type, $accepted)) {
+            $result['error'] = 'Your image must be a jpeg, png or gif!';
+        }
+    }
 
     return $result;
 }
@@ -133,4 +137,20 @@ function e11_process_upload($file, $post_id, $caption)
     wp_update_post($attachment_data);
 
     return $attachment_id;
+}
+
+function e11_reformat_array($file) {
+
+    $file_ary = array();
+    $file_count = count($file['name']);
+    $file_keys = array_keys($file);
+
+
+    for ($i=0; $i<$file_count; $i++) {
+        foreach ($file_keys as $key) {
+            $file_ary[$i][$key] = $file[$key][$i];
+        }
+    }
+
+    return $file_ary;
 }
