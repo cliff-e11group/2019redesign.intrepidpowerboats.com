@@ -36,6 +36,7 @@ function e11_owner_gallery_upload_video_form()
 
     //only run if there's a file attached
     $placeholder_exists = false;
+    $placeholder_image_id = 0;
     if (!empty($_FILES['owner_gallery_upload_video_placeholder']['size'])) {
         $placeholder_exists = true;
         $image_result = e11_parse_file_errors($_FILES['owner_gallery_upload_video_placeholder']);
@@ -46,7 +47,11 @@ function e11_owner_gallery_upload_video_form()
     }
 
     $untouched_files = $_FILES['owner_gallery_upload_video'];
-    $placeholder_image = $_FILES['owner_gallery_upload_video_placeholder'];
+
+    if ($placeholder_exists && empty($image_result['error'])) {
+        $placeholder_image_id = e11_process_upload('owner_gallery_upload_video_placeholder', 0, $image_result['caption']);
+    }
+
     $count = 1;
 
     foreach($untouched_files['name'] as  $key => $value){
@@ -60,7 +65,6 @@ function e11_owner_gallery_upload_video_form()
             ),
         );
 
-
         $post_id = wp_insert_post($args);
 
         if (!is_wp_error($post_id)){
@@ -69,6 +73,10 @@ function e11_owner_gallery_upload_video_form()
                 update_field('make_upload_private', true, $post_id);
             else:
                 update_field('make_upload_private', false, $post_id);
+            endif;
+
+            if ($placeholder_image_id > 0):
+                update_field('image_id', $placeholder_image_id, $post_id);
             endif;
 
             $file = array(
@@ -82,19 +90,10 @@ function e11_owner_gallery_upload_video_form()
 
             foreach ($_FILES as $file => $array) {
                 $newupload = e11_process_video($file, $post_id, $result['caption']);
-
-                //only run if no error was returned
-                if ($placeholder_exists && empty($image_result['error'])) {
-                    $_FILES['owner_gallery_upload_video_placeholder'] = $placeholder_image;
-                    e11_process_upload('owner_gallery_upload_video_placeholder', $post_id, $image_result['caption']);
-
-
-                }
             }
 
          }
          $count++;
-
     }
 
     wp_redirect(site_url('owner-gallery'));

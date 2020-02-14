@@ -127,7 +127,9 @@ function e11_process_upload($file, $post_id, $caption)
 
     $attachment_id = media_handle_upload($file, $post_id);
 
-    update_post_meta($post_id, 'image_id', $attachment_id);
+    if ($post_id > 0):
+        update_post_meta($post_id, 'image_id', $attachment_id);
+    endif;
 
     $attachment_data = array(
         'ID' => $attachment_id,
