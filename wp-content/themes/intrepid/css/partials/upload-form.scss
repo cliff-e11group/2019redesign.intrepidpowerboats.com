@@ -1,5 +1,6 @@
 .owners-portal__upload{
     background: #f8f8f8;
+    max-height: 90vh;
 
     .container{
         display: flex;
@@ -32,6 +33,14 @@
             border-bottom: none;
         }
     }
+
+    h3{
+        padding: 0 23px;
+    }
+}
+
+.owners-portal__form-section{
+    margin-bottom: 24px;
 }
 
 .owners-portal__form-input{

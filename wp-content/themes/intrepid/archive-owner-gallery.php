@@ -81,6 +81,10 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                     'key' => 'owner',
                                     'value' => $user_id,
                                 ),
+                                array(
+                                    'key' => 'make_upload_private',
+                                    'value' => true,
+                                ),
                             )
                         );
                         $loop = new WP_Query($args);
@@ -115,7 +119,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                                 <p class="portal-gallery__upload-prompt">SHARE YOUR DREAMS AND ADVENTURES WITH THE INTREPID COMMUNITY</p>
                                 <a href="#owners-portal__upload" class="btn btn--dark" data-fancybox>UPLOAD PHOTO/VIDEO</a>
                             </div>
-                        <?php endif; wp_reset_query()?>
+                        <?php endif; wp_reset_query();?>
                         </div>
                     </div>
 
@@ -192,7 +196,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         <!-- image file  -->
                         <div class="owners-portal__form-input owners-portal__input-file">
                             <label for="owner_gallery_upload_image">Upload a photo to your gallery</label>
-                            <input type="file" size="60" name="owner_gallery_upload_image" id="owner_gallery_upload_image" required>
+                            <input type="file" size="60" name="owner_gallery_upload_image[]" id="owner_gallery_upload_image" required multiple>
                         </div>
 
                         <div class="owners-portal__form-input owners-portal__input-radio">
@@ -233,7 +237,7 @@ $placeholder = get_field('video_placeholder_image', 'option');
                         <!-- video file  -->
                         <div class="owners-portal__form-input owners-portal__input-file">
                             <label for="owner_gallery_upload_video">Upload a video to your gallery</label>
-                            <input type="file" size="60" name="owner_gallery_upload_video" id="owner_gallery_upload_video" required>
+                            <input type="file" size="60" name="owner_gallery_upload_video[]" id="owner_gallery_upload_video" required multiple>
                         </div>
 
                         <!-- optional placeholder  -->

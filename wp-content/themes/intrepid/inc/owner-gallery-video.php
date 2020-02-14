@@ -2,29 +2,11 @@
 
 function e11_owner_gallery_upload_video_form()
 {
-    $result = array(
-        'cation' => false,
-    );
 
-    if (isset($_POST['owner_gallery_upload_video_nonce']) && wp_verify_nonce($_POST['owner_gallery_upload_video_nonce'], 'owner-gallery-upload-video-nonce')) {
-        $result = e11_parse_file_video_errors($_FILES['owner_gallery_upload_video'], $_POST['owner_gallery_upload_video_caption']);
-        if ($result['error']) {
-            echo '<p>ERROR: ' . $result['error'] . '</p>';
-        }
-    } else {
+
+    if (!isset($_POST['owner_gallery_upload_video_nonce']) || !wp_verify_nonce($_POST['owner_gallery_upload_video_nonce'], 'owner-gallery-upload-video-nonce')) {
         echo '<p>Error validating security token, please refresh the page and try again.';
-        wp_die();
-    }
-
-    //only run if there's a file attached
-    $placeholder_exists = false;
-    if (!empty($_FILES['owner_gallery_upload_video_placeholder']['size'])) {
-        $placeholder_exists = true;
-        $image_result = e11_parse_file_errors($_FILES['owner_gallery_upload_video_placeholder'], $_POST['owner_gallery_upload_video_caption']);
-        if ($image_result['error']) {
-            echo '<p>ERROR: image result ' . $image_result['error'] . '</p>';
-            exit;
-        }
+        exit;
     }
 
     if (!isset($_POST['video_user_id'])) {
@@ -36,34 +18,88 @@ function e11_owner_gallery_upload_video_form()
         exit;
     }
 
-    $args = array(
-        'post_title' => $_POST['video_user_id'] . '-' . date('d-m-y'),
-        'post_status' => $_POST['video_visibility_level'] === 'private' ? ' publish' : 'pending',
-        'post_type' => 'owner-gallery',
-        'meta_input' => array(
-            'owner' => $_POST['video_user_id'],
-        ),
+    $files = e11_reformat_array( $_FILES['owner_gallery_upload_video'] );
+
+    $result = array(
+        'caption' => false,
     );
 
-    $post_id = wp_insert_post($args);
-
-    if (!is_wp_error($post_id)):
-        if ($_POST['video_visibility_level'] == 'private'):
-            update_field('make_upload_private', true, $post_id);
-        else:
-            update_field('make_upload_private', false, $post_id);
-        endif;
-
-        e11_process_video('owner_gallery_upload_video', $post_id, $result['caption']);
-
-        //only run if no error was returned
-        if ($placeholder_exists && empty($image_result['error'])) {
-            e11_process_upload('owner_gallery_upload_video_placeholder', $post_id, $image_result['caption']);
+    foreach($files as $file){
+        $result = e11_parse_file_video_errors($file);
+        if ($result['error']) {
+            echo '<p>ERROR: ' . $result['error'] . '</p>';
+            exit;
         }
+    }
 
-        wp_redirect(site_url('owner-gallery'));
-        exit;
-    endif;
+    $result['caption']  = trim(preg_replace('/[^a-zA-Z0-9\s]+/', ' ', $_POST['owner_gallery_upload_video_caption']));
+
+    //only run if there's a file attached
+    $placeholder_exists = false;
+    if (!empty($_FILES['owner_gallery_upload_video_placeholder']['size'])) {
+        $placeholder_exists = true;
+        $image_result = e11_parse_file_errors($_FILES['owner_gallery_upload_video_placeholder']);
+        if ($image_result['error']) {
+            echo '<p>ERROR: image result ' . $image_result['error'] . '</p>';
+            exit;
+        }
+    }
+
+    $untouched_files = $_FILES['owner_gallery_upload_video'];
+    $placeholder_image = $_FILES['owner_gallery_upload_video_placeholder'];
+    $count = 1;
+
+    foreach($untouched_files['name'] as  $key => $value){
+
+        $args = array(
+            'post_title' => $_POST['video_user_id'] . '-' . date('d-m-y') .'-'. $count,
+            'post_status' => $_POST['video_visibility_level'] === 'private' ? ' publish' : 'pending',
+            'post_type' => 'owner-gallery',
+            'meta_input' => array(
+                'owner' => $_POST['video_user_id'],
+            ),
+        );
+
+
+        $post_id = wp_insert_post($args);
+
+        if (!is_wp_error($post_id)){
+
+            if ($_POST['video_visibility_level'] == 'private'):
+                update_field('make_upload_private', true, $post_id);
+            else:
+                update_field('make_upload_private', false, $post_id);
+            endif;
+
+            $file = array(
+                'name' => $untouched_files['name'][$key],
+                'type' => $untouched_files['type'][$key],
+                'tmp_name' => $untouched_files['tmp_name'][$key],
+                'error' => $untouched_files['error'][$key],
+                'size' => $untouched_files['size'][$key]
+            );
+            $_FILES = array ('owner_gallery_upload_video' => $file);
+
+            foreach ($_FILES as $file => $array) {
+                $newupload = e11_process_video($file, $post_id, $result['caption']);
+
+                //only run if no error was returned
+                if ($placeholder_exists && empty($image_result['error'])) {
+                    $_FILES['owner_gallery_upload_video_placeholder'] = $placeholder_image;
+                    e11_process_upload('owner_gallery_upload_video_placeholder', $post_id, $image_result['caption']);
+
+
+                }
+            }
+
+         }
+         $count++;
+
+    }
+
+    wp_redirect(site_url('owner-gallery'));
+    exit;
+
 }
 
 add_action('admin_post_owner_gallery_upload_video_action', 'e11_owner_gallery_upload_video_form');
@@ -88,9 +124,7 @@ function e11_parse_file_video_errors($file = array(), $video_caption = false){
     if (!in_array($video_data, $accepted)) {
         $result['error'] = 'Incorrect file type!';
     }
-    // elseif(($file['size'] > MAX_UPLOAD_SIZE)){
-    //   $result['error'] = 'Your video was ' . $file['size'] . ' bytes! It must not exceed ' . MAX_UPLOAD_SIZE . ' bytes.';
-    // }
+
     return $result;
 }
 
