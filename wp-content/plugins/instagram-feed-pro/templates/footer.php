@@ -3,7 +3,7 @@
  * Instagram Feed Footer Template
  * Adds pagination and html for errors and resized images
  *
- * @version 5.2 Instagram Feed Pro by Smash Balloon
+ * @version 5.3 Instagram Feed Pro by Smash Balloon
  *
  */
 

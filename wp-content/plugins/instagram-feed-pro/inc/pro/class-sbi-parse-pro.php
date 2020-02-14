@@ -75,6 +75,15 @@ class SB_Instagram_Parse_Pro extends SB_Instagram_Parse
 		return 0;
 	}
 
+	public static function comment_or_like_counts_data_exists( $post ) {
+		if ( isset( $post['comments']['count'] ) ) {
+			return true;
+		} elseif ( isset( $post['comments_count'] ) ) {
+			return true;
+		}
+		return false;
+	}
+
 	/**
 	 * If an avatar exists for this username (from a connected account)
 	 * the url for it will be returned.
@@ -312,6 +321,6 @@ class SB_Instagram_Parse_Pro extends SB_Instagram_Parse
 		} elseif ( isset( $header_data['followers_count'] ) ) {
 			return $header_data['followers_count'];
 		}
-		return 0;
+		return '';
 	}
 }

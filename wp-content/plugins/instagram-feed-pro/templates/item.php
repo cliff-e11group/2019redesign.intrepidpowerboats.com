@@ -3,7 +3,7 @@
  * Instagram Feed Item Template
  * Adds an image, link, and other data for each post in the feed
  *
- * @version 5.2 Instagram Feed Pro by Smash Balloon
+ * @version 5.3 Instagram Feed Pro by Smash Balloon
  *
  */
 
@@ -52,6 +52,7 @@ $avatar              = SB_Instagram_Parse_Pro::get_item_avatar( $post, $settings
 $username            = SB_Instagram_Parse_Pro::get_username( $post );
 $likes_count         = SB_Instagram_Parse_Pro::get_likes_count( $post );
 $comments_count      = SB_Instagram_Parse_Pro::get_comments_count( $post );
+$comment_or_like_counts_data_exists = SB_Instagram_Parse_Pro::comment_or_like_counts_data_exists( $post ); // "basic display" API does not support comment or like counts as of January 2020
 $location_info       = SB_Instagram_Parse_Pro::get_location_info( $post ); // array( 'name' => $name, 'id' => $int, 'longitude' => $lon_int , 'lattitude' => $lat_int )
 $lightbox_media_atts = SB_Instagram_Parse_Pro::get_lightbox_media_atts( $post ); // array( 'video' => $url, 'carousel' => $json )
 $sbi_link_classes    = SB_Instagram_Display_Elements_Pro::get_sbi_link_classes( $settings ); // // ' sbi_disable_lightbox'
@@ -99,7 +100,7 @@ $sbi_meta_size_color_styles = SB_Instagram_Display_Elements_Pro::get_sbi_meta_si
 	                <?php endif; ?>
                 </p>
 	            <?php endif; ?>
-                <?php if ( SB_Instagram_Display_Elements_Pro::should_show_element( 'hoverlikes', $settings ) ) : ?>
+                <?php if ( $comment_or_like_counts_data_exists && SB_Instagram_Display_Elements_Pro::should_show_element( 'hoverlikes', $settings ) ) : ?>
                 <div class="sbi_meta">
                     <span class="sbi_likes" <?php echo $hover_styles; ?>>
                         <?php echo SB_Instagram_Display_Elements_Pro::get_icon( 'likes', $icon_type ); ?>
@@ -130,7 +131,7 @@ $sbi_meta_size_color_styles = SB_Instagram_Display_Elements_Pro::get_sbi_meta_si
         </p>
         <?php endif; ?>
 
-	    <?php if ( SB_Instagram_Display_Elements_Pro::should_show_element( 'likes', $settings ) ) : ?>
+	    <?php if ( $comment_or_like_counts_data_exists && SB_Instagram_Display_Elements_Pro::should_show_element( 'likes', $settings ) ) : ?>
         <div class="sbi_meta" <?php echo $sbi_meta_color_styles; ?>>
             <span class="sbi_likes" <?php echo $sbi_meta_size_color_styles; ?>>
                 <?php echo SB_Instagram_Display_Elements_Pro::get_icon( 'likes', $icon_type, $sbi_meta_size_color_styles ); ?>
