@@ -7272,6 +7272,14 @@ $(function () {
             };
 
         $spinner__toggle.on('click', function () {
+            $spinnerView.spritespin({
+                source: view_360_urls,
+                animate: false,
+                responsive: true,
+                sizeMode: 'fill',
+                sense: -1
+            });
+
             $body.css({
                 'position': 'fixed',
                 'width': '100%',
@@ -7304,14 +7312,6 @@ $(function () {
             setTimeout(function () {
                 setSpinnerPositions();
             }, 150);
-        });
-
-        $spinnerView.spritespin({
-            source: view_360_urls,
-            animate: false,
-            responsive: true,
-            sizeMode: 'fill',
-            sense: -1
         });
     }
 
@@ -7426,6 +7426,27 @@ $(function () {
 
                 $('body').toggleClass(self.activeBABClass);
                 self.$buildABoat.css('top', BABpadding);
+
+                if ($('#bab-lazy-load-container').html() !== ''){
+                    return true;
+                }
+
+                $.ajax({
+                    url: localized.ajaxurl,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        action: 'e11_lazy_load_bab_svg',
+                        boat_id: localized_bab.boat_id,
+                    },
+                    success: function(data){
+                        console.log(data);
+                        $('#bab-lazy-load-container').html(data.boat_file);
+                    },
+                    error: function(){
+
+                    }
+                });
             });
 
             //Navigate through BAB steps
@@ -9087,6 +9108,10 @@ $(function () {
 
 });
 
+var $virtual_tour_lazy_load_container = $('#virtual-tour-lazy-load-container');
+function e11_set_virtual_tour(){
+    $virtual_tour_lazy_load_container.html($virtual_tour_lazy_load_container.attr('data-tour-code'));
+}
 
 var player;
     function onYouTubeIframeAPIReady() {
