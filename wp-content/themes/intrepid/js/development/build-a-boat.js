@@ -734,6 +734,12 @@ $(function () {
             this.$items.eq(i).addClass(this.activeClass);
             this.$steps.eq(i).addClass(this.activeClass);
 
+            if (this.activeItem === 1) {
+                $('body').addClass('BAB-motor-view-active');
+            } else {
+                $('body').removeClass('BAB-motor-view-active');
+            }
+
             if (this.activeItem === 2) {
                 if ($(window).width() > 767) {
                     var settings = {
