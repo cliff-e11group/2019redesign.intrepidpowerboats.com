@@ -26,7 +26,7 @@
                     "label": "Map",
                     "name": "map",
                     "type": "image",
-                    "instructions": "Recommded image size: 380px x 185px",
+                    "instructions": "Recommended image size: 760x 370px",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -196,5 +196,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1578503077
+    "modified": 1581704223
 }

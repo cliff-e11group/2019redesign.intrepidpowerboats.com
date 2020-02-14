@@ -53,7 +53,7 @@
                     "label": "Two Equal Images",
                     "name": "two_equal_images",
                     "type": "group",
-                    "instructions": "Recommended image size: 580x245",
+                    "instructions": "Recommended image size: 1160x490",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -237,7 +237,7 @@
                     "label": "Three Equal Images",
                     "name": "three_equal_images",
                     "type": "group",
-                    "instructions": "Recommended image size: 380x256",
+                    "instructions": "Recommended image size: 760x512",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -334,7 +334,7 @@
                     "label": "Two Images, Large Left",
                     "name": "two_images_large_left",
                     "type": "group",
-                    "instructions": "Recommended image size: \r\n\r\nLarge Image: 780x380\r\nSmall Image: 380x380",
+                    "instructions": "Recommended image size: \r\n\r\nLarge Image: 1560x760\r\nRecommended image size: 760x760",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -407,7 +407,7 @@
                     "label": "Two Images, Large Right",
                     "name": "two_images_large_right",
                     "type": "group",
-                    "instructions": "Recommended image size: \r\n\r\nLarge Image: 780x380\r\nSmall Image: 380x380",
+                    "instructions": "Recommended image size: \r\n\r\nLarge Image: 1560x760\r\nRecommended image size: 760x760",
                     "required": 0,
                     "conditional_logic": [
                         [
@@ -495,5 +495,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1579631894
+    "modified": 1581704382
 }
