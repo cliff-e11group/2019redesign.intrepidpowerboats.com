@@ -372,7 +372,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
             <div class="container">
                 <?php if($bab_overlay_image) : ?>
                 <div class="bab-image__overlay">
-                    <img src="<?php echo $bab_overlay_image['url']; ?>" alt="<?php echo $bab_overlay_image['alt']; ?>">
+                    <img src="<?php echo $bab_overlay_image['url']; ?>" alt="<?php echo $bab_overlay_image['alt']; ?>" class="bab-image__reflection-layer">
                 </div>
                 <?php endif; ?>
                 <?php echo file_get_contents($bab_main_image['url']); ?>
