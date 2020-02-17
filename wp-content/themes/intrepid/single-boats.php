@@ -370,6 +370,7 @@ $mobile_title_background_color = get_field('mobile_title_background_color');
         </div>
         <div class="custom-hero" id="bab-image">
             <div class="container">
+                <div class="bab-lazy-load-screen"><p>LOADING</p></div>
                 <?php if($bab_overlay_image) : ?>
                 <div class="bab-image__overlay">
                     <img src="<?php echo $bab_overlay_image['url']; ?>" alt="<?php echo $bab_overlay_image['alt']; ?>" class="bab-image__reflection-layer">

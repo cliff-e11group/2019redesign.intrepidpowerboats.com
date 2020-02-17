@@ -1,6 +1,64 @@
 $(function () {
 
-    $('.page__single--boat').e11_BuildABoat();
+    var $babNotLoaded = true,
+        $babLazyLoadContainer = $('#bab-lazy-load-container'),
+        $babImage__overlay = $('.bab-image__overlay'),
+        $babLazyLoadScreen = $('.bab-lazy-load-screen'),
+        $Babtoggle = $('[data-class="build-a-boat-toggle"]'),
+        $buildABoat = $('.build-a-boat'),
+        activeBABClass = 'build-a-boat--active';
+
+    if ($Babtoggle.length > 0) {
+        $Babtoggle.on('click', function (e) {
+            e.preventDefault();
+
+            var BABpadding = $('.header').outerHeight(true),
+                BABpaddingAdminbarHeight = 0,
+                $BABwpadminbar = $('#wpadminbar'),
+                BABpaddingTranslateBarHeight = 0,
+                $BABtranslateBar = $('.goog-te-banner-frame');
+
+            if ($BABwpadminbar.length > 0) {
+                BABpaddingAdminbarHeight = $BABwpadminbar.outerHeight();
+            }
+
+            if ($BABtranslateBar.length > 0) {
+                BABpaddingTranslateBarHeight = $BABtranslateBar.outerHeight();
+            }
+
+            BABpadding = BABpadding + BABpaddingAdminbarHeight + BABpaddingTranslateBarHeight;
+
+            $('body').toggleClass(activeBABClass);
+            $buildABoat.css('top', BABpadding);
+
+            if ($babNotLoaded) {
+                $.ajax({
+                    url: localized.ajaxurl,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        action: 'e11_lazy_load_bab_svg',
+                        boat_id: localized_bab.boat_id,
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        $babLazyLoadContainer.html(data.boat_file);
+                        $('.page__single--boat').e11_BuildABoat();
+                        $babLazyLoadScreen.fadeOut(function () {
+                            $babLazyLoadContainer.fadeIn();
+                            if ($babImage__overlay.length > 0) {
+                                $babImage__overlay.fadeIn();
+                            }
+                        });
+                        $babLazyLoaded = false;
+                    },
+                    error: function () {
+
+                    }
+                });
+            }
+        });
+    }
 
     var $body = $('body'),
         $spinner__toggle = $('[data-class="spinner__open"]'),
@@ -147,14 +205,11 @@ $(function () {
             var self = this;
 
             // Toggle BAB module
-            this.$toggle = this.$el.find('[data-class="build-a-boat-toggle"]');
-            this.$buildABoat = this.$el.find('.build-a-boat');
             this.$buildABoatNameForm = this.$el.find('.form--sticky');
             this.$buildABoatNameInput = this.$buildABoatNameForm.find('input[name="boat-name"]');
             this.$buildABoatName = this.$el.find('.custom-hero__title strong');
             this.$editModelName = this.$el.find('.icon-box--edit');
             this.activeBABModelNameClass = 'build-a-boat--modelName';
-            this.activeBABClass = 'build-a-boat--active';
 
             this.$editModelName.on('click', function (e) {
                 e.preventDefault();
@@ -167,50 +222,6 @@ $(function () {
                 self.$buildABoatName.text(self.$buildABoatNameInput.val());
                 self.$buildABoat.removeClass(self.activeBABModelNameClass);
                 self.$formBoatNameInput.val(' - ' + self.$buildABoatNameInput.val());
-            });
-
-            this.$toggle.on('click', function (e) {
-                e.preventDefault();
-
-                var BABpadding = $('.header').outerHeight(true),
-                    BABpaddingAdminbarHeight = 0,
-                    $BABwpadminbar = $('#wpadminbar'),
-                    BABpaddingTranslateBarHeight = 0,
-                    $BABtranslateBar = $('.goog-te-banner-frame');
-
-                if ($BABwpadminbar.length > 0) {
-                    BABpaddingAdminbarHeight = $BABwpadminbar.outerHeight();
-                }
-
-                if ($BABtranslateBar.length > 0) {
-                    BABpaddingTranslateBarHeight = $BABtranslateBar.outerHeight();
-                }
-
-                BABpadding = BABpadding + BABpaddingAdminbarHeight + BABpaddingTranslateBarHeight;
-
-                $('body').toggleClass(self.activeBABClass);
-                self.$buildABoat.css('top', BABpadding);
-
-                if ($('#bab-lazy-load-container').html() !== ''){
-                    return true;
-                }
-
-                $.ajax({
-                    url: localized.ajaxurl,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        action: 'e11_lazy_load_bab_svg',
-                        boat_id: localized_bab.boat_id,
-                    },
-                    success: function(data){
-                        console.log(data);
-                        $('#bab-lazy-load-container').html(data.boat_file);
-                    },
-                    error: function(){
-
-                    }
-                });
             });
 
             //Navigate through BAB steps
@@ -410,7 +421,7 @@ $(function () {
             this.activeMotorImg = this.$activeMotorColor.data('motor-image');
 
             // Hide all boat motors except active boat motor
-            this.$motorColors.each(function () {
+            self.$motorColors.each(function () {
                 var motorLayer = $(this).data('motor-layer');
                 // Hide motor
                 self.updateBoatLayerMotor(self.$el.find("#" + motorLayer), {
@@ -639,7 +650,7 @@ $(function () {
                 contentType: 'application/json',
                 dataType: 'json',
                 type: 'POST',
-                success: function(data) {
+                success: function (data) {
                     uploadImage(data.image);
                 },
                 fail: function (data) {
@@ -696,7 +707,7 @@ $(function () {
                 this.$formOptionsInput.val(that.$formOptionsData);
             }
 
-            if(this.$babImage__reflectionLayer.length > 0) {
+            if (this.$babImage__reflectionLayer.length > 0) {
                 this.$formReflectionImageInput.val(this.$babImage__reflectionLayer.attr('src'));
             }
         },
