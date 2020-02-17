@@ -17,4 +17,4 @@ function e11_lazy_load_bab_svg(){
     wp_die();
 }
 add_action('wp_ajax_e11_lazy_load_bab_svg', 'e11_lazy_load_bab_svg');
-add_action('wp_ajax_e11_lazy_load_bab_svg', 'e11_lazy_load_bab_svg');
+add_action('wp_ajax_nopriv_e11_lazy_load_bab_svg', 'e11_lazy_load_bab_svg');
