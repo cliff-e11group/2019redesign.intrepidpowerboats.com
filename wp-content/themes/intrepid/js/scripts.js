@@ -7379,7 +7379,7 @@ $(function () {
     //
     var $emailOptionsForm = $('#gform_8'),
         $emailOptionsFormSubmit = $emailOptionsForm.find('#gform_submit_button_8'),
-        $emailOptionsChoice = $('[data-form-wrap="1"] .option-list__item'),
+        $emailOptionsChoice = $('[data-form-wrap="1"]').find('.option-list__item'),
         $formOptionsInput = $emailOptionsForm.find('.gfield.input-options textarea'),
         $formEmailChoiceInput = $emailOptionsForm.find('.gfield.input-email-choice');
 
@@ -7441,6 +7441,7 @@ $(function () {
             var self = this;
 
             // Toggle BAB module
+            this.$buildABoat = $('.build-a-boat');
             this.$buildABoatNameForm = this.$el.find('.form--sticky');
             this.$buildABoatNameInput = this.$buildABoatNameForm.find('input[name="boat-name"]');
             this.$buildABoatName = this.$el.find('.custom-hero__title strong');
