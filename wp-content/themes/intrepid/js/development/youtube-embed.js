@@ -2,7 +2,7 @@
 if(typeof video_embed_id !== 'undefined'){
     var player;
     function onYouTubeIframeAPIReady() {
-a
+
     var video_id = video_embed_id.replace('https://www.youtube/embed/', '');
 
     player = new YT.Player('heroVideo', {
