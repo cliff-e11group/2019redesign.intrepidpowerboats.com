@@ -155,12 +155,6 @@
                 display: none;
             }
         }
-
-        .mobile__active-holder--active & {
-            @media #{$phone} {
-                display: none;
-            }
-        }
     }
 
     &.step-nagivation--text-center {
