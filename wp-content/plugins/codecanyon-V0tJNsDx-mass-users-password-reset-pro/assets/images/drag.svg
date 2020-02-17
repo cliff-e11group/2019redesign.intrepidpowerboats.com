@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.448" height="13.851" viewBox="0 0 16.448 13.851">
+  <g id="drag" transform="translate(0 -5.776)">
+    <g id="Navigation" transform="translate(0 5.776)">
+      <g id="Group_1" data-name="Group 1" transform="translate(0 0)">
+        <path id="Path_1" data-name="Path 1" d="M.954,7.72H15.494a.972.972,0,0,0,0-1.944H.954a.972.972,0,0,0,0,1.944Zm14.541,4.009H.954a.972.972,0,0,0,0,1.944H15.494a.972.972,0,0,0,0-1.944Zm0,5.953H.954a.972.972,0,0,0,0,1.944H15.494a.972.972,0,0,0,0-1.944Z" transform="translate(0 -5.776)" fill="#a7a7a7"/>
+      </g>
+    </g>
+  </g>
+</svg>

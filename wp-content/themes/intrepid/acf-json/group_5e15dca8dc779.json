@@ -37,7 +37,7 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "row",
+            "layout": "block",
             "button_label": "Add Team Member",
             "sub_fields": [
                 {
@@ -104,14 +104,33 @@
                 },
                 {
                     "key": "field_5e15fa3091eb9",
-                    "label": "Phone",
+                    "label": "Phone Text",
                     "name": "phone",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5e3844953de48",
+                    "label": "Phone Link",
+                    "name": "phone_link",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -196,7 +215,7 @@
                     "collapsed": "",
                     "min": 0,
                     "max": 0,
-                    "layout": "row",
+                    "layout": "block",
                     "button_label": "Add Team Member",
                     "sub_fields": [
                         {
@@ -263,14 +282,33 @@
                         },
                         {
                             "key": "field_5e15e0c2d4601",
-                            "label": "Phone Number",
+                            "label": "Phone Number Text",
                             "name": "phone_number",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5e3844243de47",
+                            "label": "Phone Number Link",
+                            "name": "phone_number_link",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -321,5 +359,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1578502790
+    "modified": 1580746012
 }
