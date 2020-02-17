@@ -9061,7 +9061,7 @@ function e11_set_virtual_tour(){
 var player;
     function onYouTubeIframeAPIReady() {
 
-    var video_id = $video_id.replace('https://www.youtube/embed/', '');
+    var video_id = video_embed_id.replace('https://www.youtube/embed/', '');
 
     player = new YT.Player('heroVideo', {
         videoId: video_id,
