@@ -178,6 +178,23 @@ $(function () {
         });
     }
 
+    var $baseModelOptions = $('.model-option.model-option--main .option-list__item.boatOption');
+    if($baseModelOptions.length > 0) {
+        $baseModelOptions.each(function () {
+            var $this = $(this),
+                userChoices = $this.closest('.option-list').data('user-choices').toString(),
+                $siblings = $this.siblings();
+
+            $this.on('click', function () {
+                $this.toggleClass('selected');
+
+                if (userChoices === '1' && $siblings.length > 0) {
+                    $siblings.removeClass('selected');
+                }
+            });
+        });
+    }
+
     var $successClass = 'bab-form-submitted-';
 
     $(document).bind('gform_post_render', function (event, form_id, current_page) {
