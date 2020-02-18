@@ -659,11 +659,12 @@ $(function () {
 
             var boatImage = document.querySelector("#bab-image svg");
             var xmlImage = new XMLSerializer().serializeToString(boatImage);
+            let overlayNode = document.querySelector('.bab-image__overlay img');
             xmlImage = xmlImage.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, "");
-            var xmlData = JSON.stringify({svgElement: xmlImage});
+            var xmlData = JSON.stringify({svgElement: xmlImage, overlayUrl: overlayNode.src});
 
             $.ajax({
-                url: "https://wt-e853d581b8c1ce10789506e9fec791ab-0.sandbox.auth0-extend.com/async-svg-canvas",
+                url: "https://wt-e853d581b8c1ce10789506e9fec791ab-0.sandbox.auth0-extend.com/async-svg-canvas-02",
                 data: xmlData,
                 contentType: 'application/json',
                 dataType: 'json',
