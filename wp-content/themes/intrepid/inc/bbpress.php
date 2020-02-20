@@ -65,3 +65,39 @@ function e11_new_reply_email(  $reply_id,  $topic_id,  $forum_id,  $anonymous_da
 }
 add_action('bbp_new_reply', 'e11_new_reply_email', 7, 10);
 
+
+
+function  e11_add_form_fields_forum_register(){
+    // echo 'shit';
+    ?>
+
+    <div class="bbp-username">
+        <label for="user_name"><?php esc_html_e( 'Name', 'bbpress' ); ?>: </label>
+        <input type="text" name="user_name" value="<?php bbp_sanitize_val( 'user_name' ); ?>" size="20" id="user_name" maxlength="100" autocomplete="off" required/>
+    </div>
+
+    <div class="bbp-username">
+        <label for="user_phone"><?php esc_html_e( 'Phone', 'bbpress' ); ?>: </label>
+        <input type="tel" name="user_phone" value="<?php bbp_sanitize_val( 'user_phone' ); ?>" id="user_phone"  autocomplete="off" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required/>
+    </div>
+
+    <div class="bbp-username">
+        <label for="user_type"><?php esc_html_e( 'User Type', 'bbpress' ); ?>: </label>
+        <select name="user_type" id="user_type">
+            <option value="owner">Owner</option>
+            <option value="fan">Fan</option>
+        </select>
+    </div>
+
+    <div class="bbp-username bbp-hullnumber">
+        <label for="user_hull_number"><?php esc_html_e( 'HullNumber', 'bbpress' ); ?>: </label>
+        <input type="text" name="user_hull_number" value="<?php bbp_sanitize_val( 'user_hull_number' ); ?>" size="20" id="user_hull_number" maxlength="100" autocomplete="off" />
+    </div>
+
+
+
+
+
+    <?php
+}
+add_action('register_form', 'e11_add_form_fields_forum_register');
