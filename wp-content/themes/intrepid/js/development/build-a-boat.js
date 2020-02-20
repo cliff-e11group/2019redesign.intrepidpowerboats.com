@@ -659,7 +659,7 @@ $(function () {
 
             var boatImage = document.querySelector("#bab-image svg");
             var xmlImage = new XMLSerializer().serializeToString(boatImage);
-            let overlayNode = document.querySelector('.bab-image__overlay img');
+            var overlayNode = document.querySelector('.bab-image__overlay img');
             xmlImage = xmlImage.replace(/xmlns=\"http:\/\/www\.w3\.org\/2000\/svg\"/, "");
             var xmlData = JSON.stringify({svgElement: xmlImage, overlayUrl: overlayNode.src});
 
