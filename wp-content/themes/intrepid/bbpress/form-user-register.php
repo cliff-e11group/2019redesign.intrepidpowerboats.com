@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="bbp-template-notice">
 			<ul>
-				<li><?php esc_html_e( 'Your username must be unique, and cannot be changed later.',                        'bbpress' ); ?></li>
+				<li><?php esc_html_e( 'Your username must be unique, and cannot be changed later.', 'bbpress' ); ?></li>
 				<li><?php esc_html_e( 'We use your email address to email you a secure password and verify your account.', 'bbpress' ); ?></li>
 			</ul>
 		</div>

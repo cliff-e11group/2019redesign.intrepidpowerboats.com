@@ -46,6 +46,17 @@ jQuery(document).ready(function ($) {
                     isEmpty = true;
                 }
 
+                if('tel' === $this.attr('type')){
+                    var phone = $this.val();
+                    phone = phone.replace(/[^0-9]/g,'');
+                    if (phone.length != 10){
+                        $this.after('<p class="error-feedback">Please enter a valid ten digit phone number.</p>');
+
+                        isEmpty = true;
+                    }
+
+                }
+
                 if( $this.siblings('.error-feedback').length > 0 ){
                     hasError = true;
                 }
@@ -59,9 +70,6 @@ jQuery(document).ready(function ($) {
                 } else if (hasError && !isEmpty){
                     $this.siblings('.error-feedback').remove();
                 }
-
-
-                console.log( readyForSubmit);
 
             });
 
