@@ -750,7 +750,8 @@
 
         &.icon-close {
             position: absolute;
-            right: 5%;
+            top: 0;
+            right: 0;
             z-index: 10;
             background-color: $dark-gray;
 
@@ -777,8 +778,9 @@
 .spinner-view__instructions {
     display: none;
     position: absolute;
-    width: 90%;
-    left: 5%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
     padding: 8px;
     z-index: 10;
     pointer-events: none;

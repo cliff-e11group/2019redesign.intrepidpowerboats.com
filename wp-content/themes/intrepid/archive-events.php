@@ -84,9 +84,9 @@ the_post();
                         $event_external_link = get_field('event_external_link');
                         if($event_external_link) :
                         ?>
-                        <a href="<?php echo $event_external_link['url']; ?>" target="_blank" class="btn btn--outline-dark btn--outline"><?php echo $event_external_link['title']; ?></a>
+                        <a href="<?php echo $event_external_link['url']; ?>" target="_blank" class="btn btn--dark"><?php echo $event_external_link['title']; ?></a>
                         <?php endif; ?>
-                        <a href="<?php echo $link; ?>" class="btn btn--outline-dark btn--outline">More Info</a>
+                        <a href="<?php echo $link; ?>" class="btn btn--dark">More Info</a>
                     </div>
                 </div>
                 <?php endwhile; ?>

@@ -84,8 +84,9 @@ $tagline = get_field( 'boat_cat_tagline',  $full_id);
                             <!-- boat_category_description -->
                             <div class="column-model">
                                 <div class="column-model__item">
-                                    <figure class="column-model__thumbnail">
-                                        <?php echo get_the_post_thumbnail($post, 'boat-cat-pullin'); ?>
+                                    <?php $image = get_the_post_thumbnail_url($post, 'boat-cat-pullin'); ?>
+                                    <figure class="column-model__thumbnail" style="background-image: url('<?php echo $image; ?>');">
+                                        <span class="accessible-text"><?php echo $image['alt']; ?></span>
                                     </figure>
                                     <div class="column-model__title-wrap">
                                         <h2 class="column-model__title"><?php echo $title; ?></h2>
