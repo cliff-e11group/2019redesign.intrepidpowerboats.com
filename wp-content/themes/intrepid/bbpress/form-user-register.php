@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
         </div>
 
         <div class="bbp-username bbp-hullnumber">
-            <label for="user_hull_number"><?php esc_html_e( 'Hull Id Number', 'bbpress' ); ?>: </label>
+            <label for="user_hull_number"><?php esc_html_e( 'Hull ID Number', 'bbpress' ); ?>: </label>
             <input type="text" name="user_hull_number" value="<?php bbp_sanitize_val( 'user_hull_number' ); ?>" size="20" id="user_hull_number" maxlength="100" autocomplete="off" />
     </div>
 
