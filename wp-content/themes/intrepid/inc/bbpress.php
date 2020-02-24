@@ -94,12 +94,9 @@ function e11_forum_registration(  $user_id ){
 
 }
 add_action('user_register', 'e11_forum_registration');
-// registration_errors custom validation
-// ?checkemail=registered
+
 
 function e11_forum_validation($errors, $sanitized_user_login, $user_email){
-    // echo '<pre>'; print_r($_POST); echo '</pre>';
-    // exit;
 
     if ( empty( $_POST['e11_register_forum'] ) ) {
 		return;
