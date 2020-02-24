@@ -65,3 +65,59 @@ function e11_new_reply_email(  $reply_id,  $topic_id,  $forum_id,  $anonymous_da
 }
 add_action('bbp_new_reply', 'e11_new_reply_email', 7, 10);
 
+
+function e11_forum_registration(  $user_id ){
+
+    if ( empty( $_POST['e11_register_forum'] ) ) {
+		return;
+    }
+
+    if ( !empty( $_POST['user_firstname'] ) ) {
+        update_user_meta( $user_id, 'first_name', $_POST['user_firstname'] );
+    }
+
+    if ( !empty( $_POST['user_lastname'] ) ) {
+        update_user_meta( $user_id, 'last_name', $_POST['user_lastname'] );
+    }
+
+    if ( !empty( $_POST['user_phone'] ) ) {
+        update_user_meta( $user_id, 'user_phone', $_POST['user_phone'] );
+    }
+
+    if ( !empty( $_POST['user_type'] ) ) {
+        update_user_meta( $user_id, 'user_type', $_POST['user_type'] );
+    }
+
+    if ( !empty( $_POST['user_hull_number'] ) ) {
+        update_user_meta( $user_id, 'user_hull_number', $_POST['user_hull_number'] );
+    }
+
+}
+add_action('user_register', 'e11_forum_registration');
+
+
+function e11_forum_validation($errors, $sanitized_user_login, $user_email){
+
+    if ( empty( $_POST['e11_register_forum'] ) ) {
+		return;
+    }
+
+    if ( empty( $_POST['user_firstname'] ) ) {
+        $errors->add( $_POST['user_firstname'] , __( 'Please enter a first name' ) );
+    }
+
+    if ( empty( $_POST['user_lastname'] ) ) {
+        $errors->add($_POST['user_lastname'], __( 'Please enter a last name.' ) );
+    }
+
+    if ( empty( $_POST['user_phone'] ) ) {
+        $errors->add($_POST['user_phone'], __( 'Please enter a phone number.' ) );
+    }
+
+    if ( 'owner' === $_POST['user_type'] && empty( $_POST['user_hull_number']) ){
+        $errors->add('custom_reg_field1', __( 'Please enter a hull number.' ) );
+    }
+
+    return $errors;
+}
+add_action('registration_errors', 'e11_forum_validation', 10, 3);
