@@ -66,23 +66,9 @@ $(function () {
         $spinner__close = $('[data-class="spinner__close"]');
 
     if ($spinner__toggle.length > 0 && $spinnerView.length > 0) {
-        var $wpadminbar = $('#wpadminbar'),
-            $wpadminbarHeight = 0;
-
-        if ($wpadminbar.length > 0) {
-            $wpadminbarHeight = $wpadminbar.outerHeight();
-        }
         var $heroModel = $('.hero--model'),
             $spinner__toggleContainer = $('.spinner__toggle.icon-close'),
             $spinnerView__instructions = $('.spinner-view__instructions'),
-            setSpinnerPositions = function () {
-                $spinner__toggleContainer.css({
-                    'top': Math.floor($spinnerView.offset().top - $wpadminbarHeight)
-                });
-                $spinnerView__instructions.css({
-                    'top': $spinnerView.offset().top + $spinnerView.outerHeight() - $wpadminbarHeight
-                });
-            },
             loadSpinnerInstructions = function () {
                 setTimeout(function () {
                     $spinnerView__instructions.fadeIn(function () {
@@ -91,7 +77,8 @@ $(function () {
                         }, 3000);
                     });
                 }, 500);
-            };
+            },
+            init360 = false;
 
         $spinner__toggle.on('click', function () {
             $spinnerView.spritespin({
@@ -102,12 +89,17 @@ $(function () {
                 sense: -1
             });
 
+            if(!init360) {
+                $spinner__toggleContainer.appendTo($spinnerView);
+                $spinnerView__instructions.appendTo($spinnerView);
+                init360 = true;
+            }
+
             $body.css({
                 'position': 'fixed',
                 'width': '100%',
                 'top': '-' + $(window).scrollTop() + 'px'
             });
-            setSpinnerPositions();
             loadSpinnerInstructions();
             $heroModel.addClass('spinner-active');
         });
@@ -122,18 +114,6 @@ $(function () {
             });
             window.scrollTo(0, parseInt(scrollY || '0') * -1);
             $heroModel.removeClass('spinner-active');
-        });
-
-        $(window).resize(function () {
-            setTimeout(function () {
-                setSpinnerPositions();
-            }, 150);
-        });
-
-        $(window).resize(function () {
-            setTimeout(function () {
-                setSpinnerPositions();
-            }, 150);
         });
     }
 
