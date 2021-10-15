@@ -857,13 +857,16 @@
 }
 
 .motor-option__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    column-count: 2;
+    //display: flex;
+    //flex-wrap: wrap;
+    //justify-content: space-between;
 
     @media #{$phone} {
-        max-width: 215px;
+        //max-width: 215px;
         margin: 0 auto 15px;
+        padding: 0 20px;
+        column-count: 1;
     }
 
     .mobile__active-holder--active & {
@@ -878,9 +881,13 @@
         letter-spacing: 3.4px;
         @include fsz(13px);
         text-transform: uppercase;
-        width: 48%;
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
         position: relative;
         padding-right: 15px;
+        box-sizing: border-box;
+        -webkit-column-break-inside: avoid;
         cursor: pointer;
         @media #{$phone} {
             text-align: center;
